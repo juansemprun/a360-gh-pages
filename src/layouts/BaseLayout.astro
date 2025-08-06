@@ -4,55 +4,40 @@ import '@styles/global.css';
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
 
-interface Props {
+export interface Props {
   title: string;
   description?: string;
-  canonical?: string;
-  robots?: string;
 }
 
-const {
-  title,
-  description = 'Air360 is the UX analytics platform that uncovers hidden user behaviors and decodes the end-to-end user experience, speeding up CRO efforts.',
-  canonical,
-  robots,
-} = Astro.props;
+const { title = 'Air360', description = 'Description' } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>{title}</title>
     <meta name="description" content={description} />
-
-    <meta name="viewport" content="width=device-width" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
 
-    {canonical && <link rel="canonical" href={canonical} />}
-    {robots && <meta name="robots" content={robots} />}
+    <!-- Preconnect to Google Fonts -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" /> -->
 
-    <meta property="og:url" content="https://www.infolavelada.com" />
-    <meta property="og:type" content="website" />
+    <!-- SEO Meta Tags -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="https://www.infolavelada.com/og.jpg" />
-    <meta property="og:locale" content="es_ES" />
-    <meta property="og:site_name" content="La Velada del Año V" />
-
+    <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@infoLaVelada" />
-    <meta name="twitter:creator" content="@ibaiLlanos" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="https://www.infolavelada.com/og.jpg" />
   </head>
-  <body>
+  <body class="antialiased">
     <Header />
-    <main>
-      <slot />
-    </main>
+    <slot />
     <Footer />
   </body>
 </html>

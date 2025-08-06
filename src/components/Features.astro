@@ -1,0 +1,112 @@
+---
+// Features Section Component - Showcases clip-based recording features
+const featureCards = [
+  {
+    icon: '/svg-1.svg',
+    title: 'Feature 1',
+    description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    isActive: false,
+  },
+  {
+    icon: '/svg-5.svg',
+    title: 'Feature 2',
+    description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    isActive: true,
+  },
+  {
+    icon: '/svg.svg',
+    title: 'Feature 3',
+    description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    isActive: false,
+  },
+];
+---
+
+<section class="w-full bg-white py-20 lg:py-32">
+  <div class="container-custom">
+    <!-- Heading Section -->
+    <div class="mb-16 text-center lg:mb-20">
+      <h2 class="mb-6 text-5xl font-normal text-slate-900">
+        Recording, <br />
+        re-thought
+      </h2>
+      <p class="text-3xl font-medium text-slate-600">
+        Say goodbye to long, single takes. <br />
+        Say hello to clips.
+      </p>
+    </div>
+
+    <!-- Main Interface Image -->
+    <div class="mb-12">
+      <img
+        class="h-auto w-full rounded-2xl shadow-lg"
+        alt="Air360 interface demonstrating clip-based recording workflow with multiple video segments"
+        src="/background-1.svg"
+      />
+    </div>
+
+    <!-- Feature Cards Grid -->
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-10">
+      {
+        featureCards.map((card) => (
+          <article class={`${card.isActive ? 'active' : 'opacity-75'}`}>
+            <header class="mb-6 flex items-center">
+              <img class="h-6 w-6 flex-shrink-0" alt="" src={card.icon} />
+              <h3 class="ml-3 text-xl font-normal text-slate-900">{card.title}</h3>
+            </header>
+            <p class="text-base font-medium leading-6 text-slate-600">{card.description}</p>
+            {card.isActive && (
+              <div class="mt-5" aria-label="Currently active feature">
+                <img class="h-1 w-11" alt="Active indicator" src="/loader.svg" />
+              </div>
+            )}
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  article {
+    align-content: flex-start;
+    align-items: flex-start;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 8px;
+    height: min-content;
+    justify-content: flex-start;
+    overflow: visible;
+    padding: 32px;
+    position: relative;
+    background-color: rgba(15, 23, 42, 0);
+    max-width: 100%;
+    width: 100%;
+    border-radius: 24px;
+    opacity: 0.5;
+    will-change: transform;
+  }
+
+  article.active {
+    align-content: flex-start;
+    align-items: flex-start;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 8px;
+    height: min-content;
+    justify-content: flex-start;
+    overflow: visible;
+    padding: 32px;
+    position: relative;
+    background-color: rgba(15, 23, 42, 0.03);
+    max-width: 100%;
+    width: 100%;
+    border-radius: 24px;
+    opacity: 1;
+    will-change: transform;
+  }
+</style>

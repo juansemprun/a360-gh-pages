@@ -1,1 +1,1341 @@
-<h1>Header</h1>
+---
+import Logo from '@assets/images/logo.svg';
+// Mobile-Responsive Navbar Component with Hamburger Menu
+---
+
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="navbar-container">
+    <!-- Logo -->
+    <div class="navbar-logo">
+      <a href="/" aria-label="Air360 homepage">
+        <!-- <img src="/link---frame---svg.svg" alt="Air360" class="logo-image" /> -->
+        <Logo />
+      </a>
+    </div>
+
+    <!-- Desktop Navigation Links -->
+    <div class="navbar-menu desktop-menu">
+      <ul class="navbar-nav" role="menubar">
+        <!-- Features with Mega Menu -->
+        <li class="navbar-item has-mega-menu" role="none">
+          <a
+            href="#"
+            class="navbar-link"
+            role="menuitem"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Features
+          </a>
+          <div class="mega-menu" role="menu" aria-label="Features menu">
+            <div class="mega-menu-content">
+              <div class="mega-menu-section">
+                <h3 class="mega-menu-title">NEW RELEASES</h3>
+                <div class="mega-menu-grid">
+                  <div class="mega-menu-item">
+                    <div class="feature-card-mini">
+                      <div class="feature-icon auto-layouts"></div>
+                      <h4>Release 1</h4>
+                      <p>Lorem ipsum dolor sit amet</p>
+                    </div>
+                  </div>
+                  <div class="mega-menu-item">
+                    <div class="feature-card-mini">
+                      <div class="feature-icon auto-cut"></div>
+                      <h4>Release 2</h4>
+                      <p>Lorem ipsum dolor sit amet</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mega-menu-section">
+                <h3 class="mega-menu-title">THE CLASSICS</h3>
+                <div class="mega-menu-list">
+                  <div class="classic-feature">
+                    <div class="classic-icon on-page-analytics"></div>
+                    <div>
+                      <h4>On Page Analytics</h4>
+                      <p>Click once, understand your page instantly</p>
+                    </div>
+                  </div>
+                  <div class="classic-feature">
+                    <div class="classic-icon session-replays"></div>
+                    <div>
+                      <h4>Session Replays</h4>
+                      <p>Watch user moves. Spot where they struggle</p>
+                    </div>
+                  </div>
+                  <div class="classic-feature">
+                    <div class="classic-icon funnel"></div>
+                    <div>
+                      <h4>Funnel</h4>
+                      <p>Drop-offs, detected. Fast, precise, no drama</p>
+                    </div>
+                  </div>
+                  <div class="classic-feature">
+                    <div class="classic-icon user-journey"></div>
+                    <div>
+                      <h4>User Journey</h4>
+                      <p>Engagement ends? Analysis begins</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="mega-menu-section">
+                <h3 class="mega-menu-title">APPS</h3>
+                <div class="apps-grid">
+                  <div class="app-item">
+                    <div class="app-icon mac"></div>
+                    <div>
+                      <h4>Air360 for Mac</h4>
+                      <p>Native performance</p>
+                    </div>
+                  </div>
+                  <div class="app-item">
+                    <div class="app-icon chrome"></div>
+                    <div>
+                      <h4>Air360 for Chrome</h4>
+                      <p>The camera for your browser</p>
+                    </div>
+                  </div>
+                  <div class="app-item">
+                    <div class="app-icon windows"></div>
+                    <div>
+                      <h4>Air360 for Windows</h4>
+                      <p>Coming soon...</p>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </li>
+
+        <!-- Use Cases with Mega Menu -->
+        <li class="navbar-item has-mega-menu" role="none">
+          <a
+            href="#"
+            class="navbar-link"
+            role="menuitem"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Use Cases
+          </a>
+          <div class="mega-menu" role="menu" aria-label="Resources menu">
+            <div class="mega-menu-content">
+              <div class="mega-menu-section full-width">
+                <h3 class="mega-menu-title">USE CASES</h3>
+                <div class="resources-grid">
+                  <div class="resource-item">
+                    <div class="use-cases-image e-commerce"></div>
+                    <div>
+                      <h4>E-commerce</h4>
+                      <p>Lorem ipsum dolor</p>
+                    </div>
+                  </div>
+                  <div class="resource-item">
+                    <div class="use-cases-image luxury-brands"></div>
+                    <div>
+                      <h4>Luxury brands</h4>
+                      <p>Lorem ipsum dolor</p>
+                    </div>
+                  </div>
+                  <div class="resource-item">
+                    <div class="use-cases-image airlines"></div>
+                    <div>
+                      <h4>Airlines</h4>
+                      <p>Lorem ipsum dolor</p>
+                    </div>
+                  </div>
+                  <div class="resource-item">
+                    <div class="use-cases-image sport-team"></div>
+                    <div>
+                      <h4>Sport team</h4>
+                      <p>Lorem ipsum dolor</p>
+                    </div>
+                  </div>
+                  <div class="resource-item">
+                    <div class="use-cases-image hotels"></div>
+                    <div>
+                      <h4>Hotels</h4>
+                    </div>
+                  </div>
+                  <div class="resource-item">
+                    <div class="use-cases-image bank-insurance"></div>
+                    <div>
+                      <h4>Bank & Insurance</h4>
+                    </div>
+                  </div>
+                  <div class="resource-item">
+                    <div class="use-cases-image gaming"></div>
+                    <div>
+                      <h4>Gaming</h4>
+                    </div>
+                  </div>
+                  <div class="resource-item">
+                    <div class="use-cases-image multi-brand"></div>
+                    <div>
+                      <h4>Multi-brand companies</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- Regular Links -->
+        <!-- <li class="navbar-item" role="none">
+          <a href="#" class="navbar-link" role="menuitem">Solution</a>
+        </li> -->
+
+        <li class="navbar-item has-mega-menu" role="none">
+          <a
+            href="#"
+            class="navbar-link"
+            role="menuitem"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Solution
+          </a>
+          <div class="mega-menu small" role="menu" aria-label="Features menu">
+            <div class="mega-menu-content">
+              <div class="mega-menu-section">
+                <h3 class="mega-menu-title">NEW RELEASES</h3>
+                <div>
+                  <div class="mega-menu-item">
+                    <div class="feature-card-mini">
+                      <div class="feature-icon auto-layouts"></div>
+                      <h4>Release 1</h4>
+                      <p>Lorem ipsum dolor sit amet</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mega-menu-section">
+                <h3 class="mega-menu-title">THE CLASSICS</h3>
+                <div class="mega-menu-list">
+                  <div class="classic-feature">
+                    <div class="classic-icon on-page-analytics"></div>
+                    <div>
+                      <h4>On Page Analytics</h4>
+                      <p>Click once, understand your page instantly</p>
+                    </div>
+                  </div>
+                  <div class="classic-feature">
+                    <div class="classic-icon session-replays"></div>
+                    <div>
+                      <h4>Session Replays</h4>
+                      <p>Watch user moves. Spot where they struggle</p>
+                    </div>
+                  </div>
+                  <div class="classic-feature">
+                    <div class="classic-icon funnel"></div>
+                    <div>
+                      <h4>Funnel</h4>
+                      <p>Drop-offs, detected. Fast, precise, no drama</p>
+                    </div>
+                  </div>
+                  <div class="classic-feature">
+                    <div class="classic-icon user-journey"></div>
+                    <div>
+                      <h4>User Journey</h4>
+                      <p>Engagement ends? Analysis begins</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- <li class="navbar-item" role="none">
+          <a href="#" class="navbar-link" role="menuitem">Pricing</a>
+        </li> -->
+      </ul>
+    </div>
+
+    <!-- Desktop Auth Links -->
+    <div class="navbar-auth desktop-auth">
+      <a href="#" class="auth-link login">Log in</a>
+      <a href="#" class="auth-link demo">Book a Demo</a>
+    </div>
+
+    <!-- Mobile Hamburger Button -->
+    <button
+      class="mobile-menu-toggle"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-content">
+      <!-- Mobile Auth Links -->
+      <div class="mobile-auth">
+        <a href="#" class="mobile-auth-link login">Log in</a>
+        <a href="#" class="mobile-auth-link demo">Sign up</a>
+        <button class="mobile-close-btn" aria-label="Close navigation menu">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <nav class="mobile-nav" role="navigation">
+        <!-- Features Section -->
+        <div class="mobile-nav-section">
+          <button class="mobile-nav-header" aria-expanded="false" data-section="features">
+            <span>Features</span>
+            <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+              <path
+                fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </button>
+          <div class="mobile-nav-content" data-content="features">
+            <div class="mobile-feature-item">
+              <div class="mobile-feature-icon on-page-analytics"></div>
+              <div>
+                <h4>Screen Recording</h4>
+                <p>Capture screen, camera or both</p>
+              </div>
+            </div>
+            <div class="mobile-feature-item">
+              <div class="mobile-feature-icon auto-cut"></div>
+              <div>
+                <h4>Auto Cut</h4>
+                <p>1-click video clean-up</p>
+              </div>
+            </div>
+            <div class="mobile-feature-item">
+              <div class="mobile-feature-icon auto-layouts"></div>
+              <div>
+                <h4>Auto Layouts</h4>
+                <p>AI-powered shot selection</p>
+              </div>
+            </div>
+            <div class="mobile-feature-item">
+              <div class="mobile-feature-icon session-replays"></div>
+              <div>
+                <h4>session-replays</h4>
+                <p>session-replays-in and track mouse movement</p>
+              </div>
+            </div>
+            <div class="mobile-feature-item">
+              <div class="mobile-feature-icon funnel"></div>
+              <div>
+                <h4>Instant link sharing</h4>
+                <p>Share with anyone, instantly</p>
+              </div>
+            </div>
+            <div class="mobile-feature-item">
+              <div class="mobile-feature-icon mac"></div>
+              <div>
+                <h4>Air360 for Mac</h4>
+                <p>Native performance</p>
+              </div>
+            </div>
+            <div class="mobile-feature-item">
+              <div class="mobile-feature-icon chrome"></div>
+              <div>
+                <h4>Air360 for Chrome</h4>
+                <p>The camera for your browser</p>
+              </div>
+            </div>
+            <div class="mobile-feature-item">
+              <div class="mobile-feature-icon windows"></div>
+              <div>
+                <h4>Air360 for Windows</h4>
+                <p>Coming soon...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resources Section -->
+        <div class="mobile-nav-section">
+          <button class="mobile-nav-header" aria-expanded="false" data-section="resources">
+            <span>Resources</span>
+            <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+              <path
+                fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </button>
+          <div class="mobile-nav-content" data-content="resources">
+            <div class="mobile-resource-item">
+              <div class="mobile-resource-icon e-commerce"></div>
+              <div>
+                <h4>e-commerce</h4>
+                <p>News, tips and more</p>
+              </div>
+            </div>
+            <div class="mobile-resource-item">
+              <div class="mobile-resource-icon luxury-brands"></div>
+              <div>
+                <h4>Online luxury-brands</h4>
+                <p>Video for Entrepreneurs</p>
+              </div>
+            </div>
+            <div class="mobile-resource-item">
+              <div class="mobile-resource-icon airlines"></div>
+              <div>
+                <h4>Video Gear airlines</h4>
+                <p>Find the gear that's right for you</p>
+              </div>
+            </div>
+            <div class="mobile-resource-item">
+              <div class="mobile-resource-icon netflix"></div>
+              <div>
+                <h4>Best Product Videos</h4>
+                <p>Netflix and shill</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Simple Links -->
+        <div class="mobile-nav-section">
+          <a href="#" class="mobile-nav-link">Pricing</a>
+        </div>
+        <div class="mobile-nav-section">
+          <a href="#" class="mobile-nav-link">Help Center</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+  }
+
+  .navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+
+  .navbar-logo .logo-image {
+    height: 24px;
+    width: auto;
+  }
+
+  /* Desktop Menu Styles */
+  .desktop-menu {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar-item {
+    position: relative;
+  }
+
+  .navbar-link {
+    color: #374151;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 0;
+    transition: color 0.2s ease;
+    cursor: pointer;
+  }
+
+  .navbar-link:hover {
+    color: #5e51f8;
+  }
+
+  .desktop-auth {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .auth-link {
+    color: #374151;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .auth-link:hover {
+    color: #5e51f8;
+  }
+
+  .auth-link.demo {
+    background: oklch(75.65% 0.143 355.9);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+  }
+
+  .auth-link.demo:hover {
+    background: #4c3aed;
+    color: white;
+  }
+
+  /* Mobile Menu Toggle Button */
+  .mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+  }
+
+  .mobile-menu-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .mobile-menu-toggle:focus {
+    outline: 2px solid #5e51f8;
+    outline-offset: 2px;
+  }
+
+  .hamburger-line {
+    width: 24px;
+    height: 2px;
+    background-color: #374151;
+    margin: 2px 0;
+    transition: all 0.3s ease;
+    border-radius: 1px;
+  }
+
+  .mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+  }
+
+  /* Mobile Menu Overlay */
+  .mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    z-index: 999;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    overflow-y: hidden;
+  }
+
+  .mobile-menu-overlay.active {
+    transform: translateY(0);
+  }
+
+  .mobile-menu-content {
+    height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    background-color: white;
+  }
+
+  /* Mobile Auth Header */
+  .mobile-auth {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    padding-top: 20px;
+  }
+
+  .mobile-auth-link {
+    color: #374151;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .mobile-auth-link.demo {
+    background: #5e51f8;
+    color: white;
+  }
+
+  .mobile-close-btn {
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    color: #6b7280;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-close-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  /* Mobile Navigation Sections */
+  .mobile-nav-section {
+    border-bottom: 1px solid #f3f4f6;
+  }
+
+  .mobile-nav-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    background: none;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    color: #111827;
+    cursor: pointer;
+    text-align: left;
+    min-height: 44px;
+  }
+
+  .mobile-nav-header:focus {
+    outline: 2px solid #5e51f8;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .chevron {
+    transition: transform 0.3s ease;
+    color: #6b7280;
+  }
+
+  .mobile-nav-header[aria-expanded='true'] .chevron {
+    transform: rotate(180deg);
+  }
+
+  .mobile-nav-content {
+    max-height: 0;
+    overflow: hidden;
+    transition:
+      max-height 0.3s ease,
+      opacity 0.2s ease;
+    opacity: 0;
+  }
+
+  .mobile-nav-content.active {
+    max-height: 800px;
+    opacity: 1;
+  }
+
+  .mobile-nav-link {
+    display: block;
+    padding: 20px 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: #111827;
+    text-decoration: none;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Mobile Feature Items */
+  .mobile-feature-item,
+  .mobile-resource-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid #f9fafb;
+  }
+
+  .mobile-feature-item:last-child,
+  .mobile-resource-item:last-child {
+    border-bottom: none;
+    margin-bottom: 20px;
+  }
+
+  .mobile-feature-icon,
+  .mobile-resource-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    flex-shrink: 0;
+  }
+
+  .mobile-feature-icon.on-page-analytics {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+  }
+
+  .mobile-feature-icon.auto-cut {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  }
+
+  .mobile-feature-icon.auto-layouts {
+    background: linear-gradient(135deg, #a855f7, #8b5cf6);
+  }
+
+  .mobile-feature-icon.session-replays {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+  }
+
+  .mobile-feature-icon.funnel {
+    background: linear-gradient(135deg, #10b981, #059669);
+  }
+
+  .mobile-feature-icon.mac {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  }
+
+  .mobile-feature-icon.chrome {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  }
+
+  .mobile-feature-icon.windows {
+    background: linear-gradient(135deg, #10b981, #047857);
+  }
+
+  .mobile-resource-icon.e-commerce {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+  }
+
+  .mobile-resource-icon.luxury-brands {
+    background: linear-gradient(135deg, #111827, #374151);
+  }
+
+  .mobile-resource-icon.airlines {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  }
+
+  .mobile-resource-icon.netflix {
+    background: linear-gradient(135deg, #111827, #374151);
+  }
+
+  .mobile-feature-item h4,
+  .mobile-resource-item h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0 0 4px 0;
+  }
+
+  .mobile-feature-item p,
+  .mobile-resource-item p {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0;
+  }
+
+  /* Mobile CTA Section */
+  .mobile-cta {
+    margin-top: auto;
+    padding: 32px 0;
+    text-align: center;
+    background: linear-gradient(135deg, #5e51f8, #955ceb);
+    margin: 32px -20px -20px -20px;
+    padding: 32px 20px;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .mobile-cta-text {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    margin: 0 0 24px 0;
+  }
+
+  .mobile-video-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+  }
+
+  .mobile-tab {
+    flex: 1;
+    padding: 12px 16px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-height: 44px;
+  }
+
+  .mobile-tab.active {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+  }
+
+  /* Desktop Mega Menu Styles (preserved from original) */
+  .has-mega-menu:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    transition:
+      opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      visibility 0ms 0ms;
+  }
+
+  .mega-menu {
+    /* Positioning: Fixed to viewport for perfect centering */
+    position: fixed;
+    top: 72px; /* Height of navbar */
+    left: 50%;
+    transform: translateY(-10px) scale(0.95);
+    transform: translateX(-50%) translateY(-10px) scale(0.95);
+    transform-origin: top center;
+
+    /* Styling and dimensions */
+    background: white;
+    border-radius: 16px;
+    box-shadow:
+      0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+    /* Animation states */
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      visibility 0ms 150ms;
+
+    /* Z-index and dimensions */
+    z-index: 1001;
+    width: min(1152px, calc(100vw - 48px)); /* Responsive width with max constraint */
+    max-width: 1152px;
+    margin-top: 8px; /* Small gap below navbar */
+  }
+
+  .mega-menu.small {
+    width: auto; /* Smaller width for specific use cases */
+  }
+
+  /* Hover state with corrected transform */
+  .has-mega-menu:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0) scale(1);
+    transition:
+      opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      visibility 0ms 0ms;
+  }
+
+  .mega-menu-content {
+    padding: 32px;
+    display: flex;
+    gap: 40px;
+  }
+
+  .mega-menu-section {
+    flex: 1;
+  }
+
+  .mega-menu-section.full-width {
+    flex: none;
+    width: 100%;
+  }
+
+  .mega-menu-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 20px;
+  }
+
+  .mega-menu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .feature-card-mini {
+    padding: 16px;
+    border-radius: 12px;
+    background: #f8fafc;
+    transition: all 0.2s ease;
+  }
+
+  .feature-card-mini:hover {
+    background: #f1f5f9;
+    transform: translateY(-2px);
+    cursor: pointer;
+  }
+
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+
+  .feature-icon.auto-layouts {
+    background: linear-gradient(135deg, #a855f7, #8b5cf6);
+  }
+
+  .feature-icon.auto-cut {
+    background: linear-gradient(135deg, #06b6d4, #0891b2);
+  }
+
+  .feature-card-mini h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0 0 4px 0;
+  }
+
+  .feature-card-mini p {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0;
+  }
+
+  .mega-menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .classic-feature {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+  }
+
+  .classic-feature:hover {
+    background: #f8fafc;
+    cursor: pointer;
+  }
+
+  .classic-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+
+  .classic-icon.on-page-analytics {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+  }
+
+  .classic-icon.session-replays {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+  }
+
+  .classic-icon.funnel {
+    background: linear-gradient(135deg, #10b981, #059669);
+  }
+
+  .classic-icon.user-journey {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  }
+
+  .classic-feature h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0 0 2px 0;
+  }
+
+  .classic-feature p {
+    font-size: 12px;
+    color: #6b7280;
+    margin: 0;
+  }
+
+  .apps-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .app-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+  }
+
+  .app-item:hover {
+    background: #f8fafc;
+  }
+
+  .app-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+
+  .app-icon.mac {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  }
+
+  .app-icon.chrome {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  }
+
+  .app-icon.windows {
+    background: linear-gradient(135deg, #10b981, #047857);
+  }
+
+  .app-item h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0 0 2px 0;
+  }
+
+  .app-item p {
+    font-size: 12px;
+    color: #6b7280;
+    margin: 0;
+  }
+
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .resource-item {
+    text-align: center;
+    padding: 16px;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+  }
+
+  .resource-item:hover {
+    cursor: pointer;
+  }
+
+  .resource-item:hover {
+    background: #f8fafc;
+    transform: translateY(-2px);
+  }
+
+  .use-cases-image {
+    width: 80px;
+    height: 60px;
+    border-radius: 8px;
+    margin: 0 auto 12px;
+  }
+
+  .use-cases-image.e-commerce {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+  }
+
+  .use-cases-image.luxury-brands {
+    background: linear-gradient(135deg, #06b6d4, #0891b2);
+  }
+
+  .use-cases-image.airlines {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  }
+
+  .use-cases-image.netflix {
+    background: linear-gradient(135deg, #111827, #374151);
+  }
+
+  .use-cases-image.sport-team {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  }
+
+  .use-cases-image.hotels {
+    background: linear-gradient(135deg, #10b981, #047857);
+  }
+
+  .use-cases-image.bank-insurance {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  }
+
+  .use-cases-image.gaming {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  }
+
+  .use-cases-image.multi-brand {
+    background: linear-gradient(135deg, #10b981, #047857);
+  }
+
+  .resource-item h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0 0 4px 0;
+  }
+
+  .resource-item p {
+    font-size: 12px;
+    color: #6b7280;
+    margin: 0;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .navbar-container {
+      padding: 0 16px;
+    }
+
+    /* Hide desktop menu and auth */
+    .desktop-menu,
+    .desktop-auth {
+      display: none;
+    }
+
+    /* Show mobile menu toggle */
+    .mobile-menu-toggle {
+      display: flex;
+    }
+
+    /* Ensure mobile menu is accessible */
+    .mobile-menu-overlay {
+      display: block;
+    }
+  }
+
+  @media (min-width: 769px) {
+    /* Hide mobile elements on desktop */
+    .mobile-menu-toggle,
+    .mobile-menu-overlay {
+      display: none;
+    }
+  }
+
+  /* Ensure proper touch targets on mobile */
+  @media (max-width: 768px) {
+    .mobile-nav-header,
+    .mobile-nav-link,
+    .mobile-auth-link,
+    .mobile-close-btn,
+    .mobile-tab {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .navbar {
+      border-bottom: 2px solid #000;
+    }
+
+    .mobile-menu-overlay {
+      border: 2px solid #000;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .mobile-menu-overlay,
+    .hamburger-line,
+    .chevron,
+    .mobile-nav-content {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  // Mobile menu functionality
+  document.addEventListener('DOMContentLoaded', function () {
+    const mobileToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileOverlay = document.querySelector('.mobile-menu-overlay');
+    const mobileCloseBtn = document.querySelector('.mobile-close-btn');
+    const mobileNavHeaders = document.querySelectorAll('.mobile-nav-header');
+
+    // Toggle mobile menu
+    function toggleMobileMenu() {
+      const isOpen = mobileOverlay.classList.contains('active');
+
+      if (isOpen) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
+    }
+
+    function openMobileMenu() {
+      mobileOverlay.classList.add('active');
+      mobileToggle.classList.add('active');
+      mobileToggle.setAttribute('aria-expanded', 'true');
+      mobileOverlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileMenu() {
+      mobileOverlay.classList.remove('active');
+      mobileToggle.classList.remove('active');
+      mobileToggle.setAttribute('aria-expanded', 'false');
+      mobileOverlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    // Event listeners
+    mobileToggle.addEventListener('click', toggleMobileMenu);
+    mobileCloseBtn.addEventListener('click', closeMobileMenu);
+
+    // Close menu when clicking outside content
+    mobileOverlay.addEventListener('click', function (e) {
+      if (e.target === mobileOverlay) {
+        closeMobileMenu();
+      }
+    });
+
+    // Handle mobile nav section toggles
+    mobileNavHeaders.forEach((header) => {
+      header.addEventListener('click', function () {
+        const section = this.getAttribute('data-section');
+        const content = document.querySelector(`[data-content="${section}"]`);
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+        // Close all other sections (accordion behavior)
+        mobileNavHeaders.forEach((otherHeader) => {
+          if (otherHeader !== this) {
+            otherHeader.setAttribute('aria-expanded', 'false');
+            const otherSection = otherHeader.getAttribute('data-section');
+            const otherContent = document.querySelector(`[data-content="${otherSection}"]`);
+            if (otherContent) {
+              otherContent.classList.remove('active');
+            }
+          }
+        });
+
+        // Toggle current section
+        if (isExpanded) {
+          this.setAttribute('aria-expanded', 'false');
+          content.classList.remove('active');
+        } else {
+          this.setAttribute('aria-expanded', 'true');
+          content.classList.add('active');
+        }
+      });
+    });
+
+    // Handle escape key
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && mobileOverlay.classList.contains('active')) {
+        closeMobileMenu();
+      }
+    });
+
+    // Handle desktop mega menu hover delays
+    const megaMenuItems = document.querySelectorAll('.has-mega-menu');
+
+    megaMenuItems.forEach((item) => {
+      let hoverTimeout;
+      let leaveTimeout;
+
+      item.addEventListener('mouseenter', () => {
+        clearTimeout(hoverTimeout);
+        clearTimeout(leaveTimeout);
+        const link = item.querySelector('.navbar-link');
+        link.setAttribute('aria-expanded', 'true');
+      });
+
+      item.addEventListener('mouseleave', () => {
+        leaveTimeout = setTimeout(() => {
+          const link = item.querySelector('.navbar-link');
+          link.setAttribute('aria-expanded', 'false');
+        }, 100);
+      });
+
+      // Add hover tolerance for smooth transitions between nav item and dropdown
+      const megaMenu = item.querySelector('.mega-menu');
+      if (megaMenu) {
+        megaMenu.addEventListener('mouseenter', () => {
+          clearTimeout(leaveTimeout);
+        });
+
+        megaMenu.addEventListener('mouseleave', () => {
+          leaveTimeout = setTimeout(() => {
+            const link = item.querySelector('.navbar-link');
+            link.setAttribute('aria-expanded', 'false');
+          }, 100);
+        });
+      }
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 768 && mobileOverlay.classList.contains('active')) {
+        closeMobileMenu();
+      }
+    });
+  });
+</script>

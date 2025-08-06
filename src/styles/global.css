@@ -1,1 +1,284 @@
+/* @import 'tailwindcss'; */
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ClashDisplay-Bold';
+  src: url('/fonts/ClashDisplay-Bold.woff2') format('woff2');
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ClashDisplay-Semibold';
+  src: url('/fonts/ClashDisplay-Semibold.woff2') format('woff2');
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ClashGrotesk-Variable';
+  src: url('/fonts/ClashGrotesk-Variable.woff2') format('woff2');
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'bespoke-sans';
+  src: url('/fonts/BespokeSans-Variable.woff2') format('woff2');
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'expose';
+  src: url('/fonts/Expose-Variable.woff2') format('woff2');
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'space-grotesk';
+  src: url('/fonts/SpaceGrotesk-Variable.woff2') format('woff2');
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'roundo';
+  src: url('/fonts/Roundo-Variable.woff2') format('woff2');
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'fira-sans';
+  src: url('/fonts/FiraSans-Variable.woff2') format('woff2');
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'be-vietnam-pro';
+  src: url('/fonts/BeVietnamPro-Variable.woff2') format('woff2');
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SplineSans-Variable';
+  src: url('/fonts/SplineSans-Variable.woff2') format('woff2');
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'RedHatDisplay-Variable';
+  src: url('/fonts/RedHatDisplay-Variable.woff2') format('woff2');
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+
+/* @theme {
+  --font-primary: 'Inter';
+  --color-theme-tickle-me-pink: oklch(75.65% 0.143 355.9);
+  --color-theme-french-mauve: oklch(67.65% 0.1539 329.18);
+  --color-theme-seashell: oklch(95.25% 0.0147 33.07);
+  --color-theme-turquoise: oklch(82.97% 0.148864 181.7442);
+}
+
+html {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-primary), sans-serif;
+  margin: 0;
+  min-height: 100%;
+  width: 100%;
+  background-color: var(--color-theme-seashell);
+} */
+
 @import 'tailwindcss';
+
+@theme {
+  --color-primary-50: #f0efff;
+  --color-primary-100: #e4e2ff;
+  --color-primary-200: #ccc8ff;
+  --color-primary-300: #a8a0ff;
+  --color-primary-400: #7c6dff;
+  --color-primary-500: #5e51f8;
+  --color-primary-600: #4c3aed;
+  --color-primary-700: #3f2bd1;
+  --color-primary-800: #3424a8;
+  --color-primary-900: #2d1f85;
+
+  --color-purple-light: #dec8ff;
+  --color-purple: #9b32e6;
+  --color-purple-dark: #271544;
+
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-600: #475569;
+  --color-slate-900: #0f172a;
+
+  --font-clash-display-bold: 'ClashDisplay-Bold', sans-serif;
+  --font-clash-display-semibold: 'ClashDisplay-Semibold', sans-serif;
+  --font-clash-grotesk: 'ClashGrotesk-Variable', sans-serif;
+  --font-bespoke-sans: 'bespoke-sans', sans-serif;
+  --font-expose: 'expose', sans-serif;
+  --font-space-grotesk: 'space-grotesk', sans-serif;
+  --font-roundo: 'roundo', sans-serif;
+  --font-fira-sans: 'fira-sans', sans-serif;
+  --font-be-vietnam-pro: 'be-vietnam-pro', sans-serif;
+  --font-spline-sans: 'SplineSans-Variable', sans-serif;
+  --font-red-hat-display: 'RedHatDisplay-Variable', sans-serif;
+
+  --font-size-7xl: 84px;
+  --line-height-7xl: 92.4px;
+  --letter-spacing-7xl: -3px;
+
+  --font-size-5xl: 56px;
+  --line-height-5xl: 67.2px;
+  --letter-spacing-5xl: -3px;
+
+  --font-size-3xl: 28px;
+  --line-height-3xl: 42px;
+
+  --font-size-2xl: 24px;
+  --line-height-2xl: 36px;
+
+  --font-size-xl: 20px;
+  --line-height-xl: 30px;
+
+  --font-size-lg: 18px;
+  --line-height-lg: 27px;
+
+  --font-size-base: 16px;
+  --line-height-base: 24px;
+
+  --font-size-sm: 14px;
+  --line-height-sm: 22.4px;
+
+  --font-size-xs: 12px;
+  --line-height-xs: 18px;
+
+  --spacing-18: 4.5rem;
+  --spacing-22: 5.5rem;
+  --spacing-26: 6.5rem;
+  --spacing-30: 7.5rem;
+  --spacing-34: 8.5rem;
+  --spacing-38: 9.5rem;
+  --spacing-42: 10.5rem;
+  --spacing-46: 11.5rem;
+
+  --border-radius-3xl: 32px;
+  --border-radius-4xl: 40px;
+}
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-feature-settings:
+      'rlig' 1,
+      'calt' 1;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply focus:ring-primary-500 inline-flex items-center justify-center rounded-xl px-8 py-4 text-base font-bold text-white transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2;
+    background: radial-gradient(50% 50% at 50% -47%, #282432 0%, #222222 100%);
+    box-shadow:
+      inset 0px 1px 1px rgba(255, 255, 255, 0.25),
+      0px 4px 8px rgba(0, 0, 0, 0.16),
+      0px 2px 4px rgba(0, 0, 0, 0.16);
+  }
+
+  .btn-secondary {
+    @apply focus:ring-primary-500 inline-flex items-center justify-center rounded-xl px-8 py-4 text-base font-bold text-white transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2;
+    background: radial-gradient(50% 50% at 50% -11%, #8278fa 0%, #5e51f8 100%);
+    box-shadow:
+      inset 0px 1px 1px rgba(255, 255, 255, 0.25),
+      0px 4px 8px rgba(0, 0, 0, 0.16),
+      0px 2px 4px rgba(0, 0, 0, 0.16);
+  }
+
+  .gradient-text {
+    background: linear-gradient(270deg, #dec8ff 0%, #ffffff 50%, #dec8ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .card {
+    @apply rounded-3xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl;
+  }
+
+  .feature-card {
+    @apply rounded-3xl border-0 bg-white p-8 shadow-lg transition-all duration-300 hover:shadow-xl;
+  }
+
+  .feature-card.active {
+    @apply bg-slate-50;
+  }
+
+  .testimonial-card {
+    @apply transform rounded-3xl bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(270deg, #dec8ff 0%, #ffffff 50%, #dec8ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .container-custom {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, #5e51f8 5%, #5e51f8 33%, #955ceb 63%);
+  }
+
+  .bg-gradient-text {
+    background: linear-gradient(270deg, #dec8ff 0%, #ffffff 50%, #dec8ff 100%);
+  }
+
+  .bg-gradient-button {
+    background: radial-gradient(50% 50% at 50% -47%, #282432 0%, #222222 100%);
+  }
+
+  .bg-gradient-footer {
+    background: linear-gradient(180deg, #271544 0%, #181127 100%);
+  }
+
+  .bg-gradient-cta {
+    background: radial-gradient(50% 50% at 50% 100%, #addeff 0%, #f8fafc 100%);
+  }
+}
