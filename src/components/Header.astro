@@ -251,6 +251,73 @@ import Logo from '@assets/images/logo.svg';
           </div>
         </li>
 
+        <li class="navbar-item has-mega-menu" role="none">
+          <a
+            href="#"
+            class="navbar-link"
+            role="menuitem"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            About Us
+          </a>
+          <div class="mega-menu small" role="menu" aria-label="Features menu">
+            <div class="mega-menu-content">
+              <div class="mega-menu-section">
+                <h3 class="mega-menu-title">TITLE</h3>
+                <div class="flex justify-between">
+                  <div class="mega-menu-item">
+                    <div class="feature-card-mini">
+                      <div class="feature-icon auto-layouts"></div>
+                      <h4>Our Values</h4>
+                    </div>
+                  </div>
+                  <div class="mega-menu-item">
+                    <div class="feature-card-mini">
+                      <div class="feature-icon auto-layouts"></div>
+                      <h4>Manifesto</h4>
+                      <!-- <p>Lorem ipsum dolor sit amet</p> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mega-menu-section">
+                <h3 class="mega-menu-title">TITLE</h3>
+                <div class="mega-menu-list">
+                  <div class="classic-feature">
+                    <div class="classic-icon on-page-analytics"></div>
+                    <div>
+                      <h4>Company Info</h4>
+                      <!-- <p>Click once, understand your page instantly</p> -->
+                    </div>
+                  </div>
+                  <div class="classic-feature">
+                    <div class="classic-icon session-replays"></div>
+                    <div>
+                      <h4>Stance on AI</h4>
+                      <!-- <p>Watch user moves. Spot where they struggle</p> -->
+                    </div>
+                  </div>
+                  <div class="classic-feature">
+                    <div class="classic-icon funnel"></div>
+                    <div>
+                      <h4>Privacy Policy</h4>
+                      <!-- <p>Drop-offs, detected. Fast, precise, no drama</p> -->
+                    </div>
+                  </div>
+                  <div class="classic-feature">
+                    <div class="classic-icon user-journey"></div>
+                    <div>
+                      <h4>Security and Compliance</h4>
+                      <!-- <p>Engagement ends? Analysis begins</p> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
         <!-- <li class="navbar-item" role="none">
           <a href="#" class="navbar-link" role="menuitem">Pricing</a>
         </li> -->
@@ -259,8 +326,8 @@ import Logo from '@assets/images/logo.svg';
 
     <!-- Desktop Auth Links -->
     <div class="navbar-auth desktop-auth">
-      <a href="#" class="auth-link login">Log in</a>
-      <a href="#" class="auth-link demo">Book a Demo</a>
+      <a href="/" class="auth-link login">Log in</a>
+      <a href="/" class="auth-link demo">Book a Demo</a>
     </div>
 
     <!-- Mobile Hamburger Button -->
@@ -507,7 +574,7 @@ import Logo from '@assets/images/logo.svg';
   }
 
   .auth-link.demo {
-    background: oklch(75.65% 0.143 355.9);
+    background: #f771bf;
     color: white;
     padding: 8px 16px;
     border-radius: 8px;
@@ -870,13 +937,13 @@ import Logo from '@assets/images/logo.svg';
 
     /* Z-index and dimensions */
     z-index: 1001;
-    width: min(1152px, calc(100vw - 48px)); /* Responsive width with max constraint */
+    /* width: min(1152px, calc(100vw - 48px)); Responsive width with max constraint */
     max-width: 1152px;
     margin-top: 8px; /* Small gap below navbar */
   }
 
   .mega-menu.small {
-    width: auto; /* Smaller width for specific use cases */
+    /* width: auto; */
   }
 
   /* Hover state with corrected transform */
@@ -923,7 +990,7 @@ import Logo from '@assets/images/logo.svg';
   .feature-card-mini {
     padding: 16px;
     border-radius: 12px;
-    background: #f8fafc;
+    /* background: #f8fafc; */
     transition: all 0.2s ease;
   }
 
