@@ -1,13 +1,15 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-import Hero from '@components/Hero.astro';
 import DynamicFeatures from '@components/DynamicFeatures.astro';
+import Hero from '@components/Hero.astro';
+import TwoColumnText from '@components/TwoColumnText.astro';
 ---
 
 <BaseLayout title="Air360 | Simplify UX analysis, boost conversion">
   <Hero />
   <!-- Dynamic Features Section -->
   <DynamicFeatures title="Image on the bottom" layout="image-bottom" />
+  <TwoColumnText />
   <DynamicFeatures title="Image on the top" layout="image-top" />
 </BaseLayout>
 
