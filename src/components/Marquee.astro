@@ -1,0 +1,61 @@
+<div class="container">
+  <img class="h-9 object-contain grayscale md:h-14" src="/public/brand-logos/empruntis.svg" />
+  <img class="h-9 object-contain grayscale md:h-14" src="/public/brand-logos/product.svg" />
+  <img class="h-9 object-contain grayscale md:h-14" src="/public/brand-logos/dubreuil.svg" />
+  <img class="h-9 object-contain grayscale md:h-14" src="/public/brand-logos/stellantis.svg" />
+  <img
+    class="h-9 object-contain grayscale md:h-14"
+    src="/public/brand-logos/olympique-lyonnais.svg"
+  />
+  <img class="h-9 object-contain grayscale md:h-14" src="/public/brand-logos/club-med.svg" />
+  <img
+    class="h-9 object-contain grayscale md:h-14"
+    src="/public/brand-logos/ma-ville-mon-shopping.svg"
+  />
+  <img class="h-9 object-contain grayscale md:h-14" src="/public/brand-logos/playbac.svg" />
+  <img class="h-9 object-contain grayscale md:h-14" src="/public/brand-logos/psa-bank.svg" />
+  <img class="h-9 object-contain grayscale md:h-14" src="/public/brand-logos/verychic.svg" />
+  <img class="h-9 object-contain grayscale md:h-14" src="/public/brand-logos/air-caraibes.svg" />
+</div>
+
+<style>
+  .container {
+    --s: 150px; /* size of the logo */
+    --d: 50s; /* animation duration*/
+    --n: 3; /* number of visible logos */
+
+    display: flex;
+    overflow: hidden;
+  }
+
+  img {
+    width: var(--s);
+    offset: shape(
+      from calc(var(--s) / -2) 50%,
+      hline by calc(sibling-count() * max(100% / var(--n), var(--s) + 10px))
+    );
+    animation: x var(--d) linear infinite calc(-1 * sibling-index() * var(--d) / sibling-count());
+  }
+  @keyframes x {
+    to {
+      offset-distance: 100%;
+    }
+  }
+
+  /* extra styles */
+  .container {
+    padding-block: 5px;
+    margin: 15px auto;
+    max-width: 450px;
+    mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0) 0%,
+      rgb(0, 0, 0) 10%,
+      rgb(0, 0, 0) 90%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+  :nth-child(1 of .container) img {
+    animation-direction: reverse;
+  }
+</style>
