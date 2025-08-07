@@ -20,7 +20,7 @@
   font-family: 'ClashDisplay-Semibold';
   src: url('/fonts/ClashDisplay-Semibold.woff2') format('woff2');
   font-style: normal;
-  font-weight: normal;
+  font-weight: 600;
   font-display: swap;
 }
 
@@ -28,7 +28,7 @@
   font-family: 'ClashGrotesk-Variable';
   src: url('/fonts/ClashGrotesk-Variable.woff2') format('woff2');
   font-style: normal;
-  font-weight: normal;
+  font-weight: 100 900;
   font-display: swap;
 }
 
@@ -36,7 +36,7 @@
   font-family: 'bespoke-sans';
   src: url('/fonts/BespokeSans-Variable.woff2') format('woff2');
   font-style: normal;
-  font-weight: normal;
+  font-weight: 100 900;
   font-display: swap;
 }
 
@@ -44,7 +44,7 @@
   font-family: 'expose';
   src: url('/fonts/Expose-Variable.woff2') format('woff2');
   font-style: normal;
-  font-weight: normal;
+  font-weight: 100 900;
   font-display: swap;
 }
 
@@ -52,7 +52,7 @@
   font-family: 'space-grotesk';
   src: url('/fonts/SpaceGrotesk-Variable.woff2') format('woff2');
   font-style: normal;
-  font-weight: normal;
+  font-weight: 100 900;
   font-display: swap;
 }
 
@@ -60,7 +60,7 @@
   font-family: 'roundo';
   src: url('/fonts/Roundo-Variable.woff2') format('woff2');
   font-style: normal;
-  font-weight: normal;
+  font-weight: 100 900;
   font-display: swap;
 }
 
@@ -68,7 +68,7 @@
   font-family: 'fira-sans';
   src: url('/fonts/FiraSans-Variable.woff2') format('woff2');
   font-style: normal;
-  font-weight: normal;
+  font-weight: 100 900;
   font-display: swap;
 }
 
@@ -76,7 +76,7 @@
   font-family: 'be-vietnam-pro';
   src: url('/fonts/BeVietnamPro-Variable.woff2') format('woff2');
   font-style: normal;
-  font-weight: normal;
+  font-weight: 100 900;
   font-display: swap;
 }
 
@@ -84,7 +84,7 @@
   font-family: 'SplineSans-Variable';
   src: url('/fonts/SplineSans-Variable.woff2') format('woff2');
   font-style: normal;
-  font-weight: normal;
+  font-weight: 100 900;
   font-display: swap;
 }
 
@@ -92,7 +92,7 @@
   font-family: 'RedHatDisplay-Variable';
   src: url('/fonts/RedHatDisplay-Variable.woff2') format('woff2');
   font-style: normal;
-  font-weight: normal;
+  font-weight: 100 900;
   font-display: swap;
 }
 
