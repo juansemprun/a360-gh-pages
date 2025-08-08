@@ -6,87 +6,33 @@ const videoUrl =
   'https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true';
 ---
 
-<section class="bg-gradient-primary relative min-h-screen w-full overflow-hidden">
-  <!-- Background textures and gradients -->
-  <div class="absolute inset-0">
-    <div class="absolute h-full w-full opacity-30">
-      <!-- Noise texture overlays for visual depth -->
-      <div
-        class="absolute left-[380px] top-[849px] h-[1123px] w-[1140px] -rotate-12 bg-[url('/noise-play---ycl0qmtldn4ajk5nsm3tfjvxujq-webp.png')] bg-cover bg-center"
-      >
-      </div>
-      <div
-        class="absolute left-[832px] top-[-529px] h-[1331px] w-[1317px] rotate-[-56deg] bg-[url('/noise-t---hmp0xbcr9iuweonyo7eawoafp7q-webp.png')] bg-cover bg-center"
-      >
-      </div>
-    </div>
-  </div>
-
+<section class="relative min-h-screen w-full overflow-hidden">
   <!-- Main content container -->
   <div class="container-custom relative z-10 py-20 lg:py-32">
     <!-- Hero text and CTA section -->
     <div class="mb-16 text-center lg:mb-24">
       <div class="mb-8">
-        <!-- <h1 class="gradient-text animate-fade-in mb-4 text-7xl font-normal">Record</h1> -->
-        <!-- <h1 class="gradient-text animate-fade-in text-7xl font-normal">incredible videos</h1> -->
-        <h1 class="gradient-text animate-fade-in font-clash-display-bold text-8xl font-normal">
+        <h1 class="font-clash-display-bold text-8xl">
           <span class="block">CRO that clicks,</span>
           <span class="block">literally</span>
         </h1>
       </div>
 
-      <p class="animate-slide-up mb-12 text-2xl font-medium text-white">
+      <p class="animate-slide-up mb-12 text-2xl font-medium text-black/60">
         Air360 is the conversion whisperer that decodes your users for you
       </p>
 
       <a
         href="/"
-        class="animate-slide-up inline-flex items-center justify-center rounded-xl bg-[#F771BF] px-8 py-4 text-lg font-bold text-white transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2"
+        class="animate-slide-up inline-flex items-center justify-center rounded-xl bg-[#F771BF] px-8 py-4 text-lg transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2"
       >
-        <span class="text-lg font-bold">Get started with Air360</span>
+        <span class="text-lg font-semibold">Get started with Air360</span>
       </a>
-
-      <!-- <p class="text-xs font-medium text-white opacity-50">
-        7-day Free trial — no credit card required
-      </p> -->
     </div>
 
     <!-- Video section with tabs -->
     <div class="relative mb-16">
-      <!-- Tab navigation -->
-      <!-- <div class="mb-8 flex justify-center">
-        <div class="flex rounded-full bg-white/10 p-1" role="tablist" aria-label="Video categories">
-          <button
-            class="rounded-full px-6 py-2 text-base font-normal text-white/50 transition-all duration-200 hover:text-white"
-            role="tab"
-            aria-selected="false"
-          >
-            Demos
-          </button>
-          <button
-            class="rounded-full px-6 py-2 text-base font-normal text-white/50 transition-all duration-200 hover:text-white"
-            role="tab"
-            aria-selected="false"
-          >
-            Tutorials
-          </button>
-          <button
-            class="rounded-full bg-white/20 px-6 py-2 text-base font-normal text-white transition-all duration-200"
-            role="tab"
-            aria-selected="true"
-          >
-            Courses
-          </button>
-        </div>
-      </div> -->
-
-      <!-- Video placeholder -->
       <div class="relative mx-auto max-w-5xl">
-        <!-- <img
-          class="h-auto w-full rounded-2xl shadow-2xl"
-          alt="Video preview showing Air360 interface with course creation features"
-          src="/overlay-shadow.svg"
-        /> -->
         <video class="h-auto w-full rounded-2xl shadow-2xl" autoplay loop playsinline muted>
           <source
             src="https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4"
@@ -99,9 +45,7 @@ const videoUrl =
 
     <!-- Demo video card -->
     <div class="mb-16 flex justify-center">
-      <div
-        class="card w-full max-w-2xl rotate-1 transform border border-white/20 bg-white/10 p-6 backdrop-blur-sm"
-      >
+      <div class="card w-full max-w-2xl rotate-1 border border-[#F771BF] p-6">
         <div class="flex items-center gap-6">
           <div class="flex-shrink-0">
             <iframe
@@ -115,11 +59,11 @@ const videoUrl =
             </iframe>
           </div>
           <div class="flex-1">
-            <h3 class="mb-2 text-2xl font-normal text-white">
+            <h3 class="mb-2 text-2xl font-normal">
               Got a Minute? That's All You Need to know Air360
             </h3>
             <!-- <h3 class="mb-4 text-2xl font-normal text-white">60 Seconds! ⚡</h3> -->
-            <p class="text-xl font-medium text-white/70">Watch the video!</p>
+            <p class="text-xl font-medium text-black/70">Watch the video!</p>
           </div>
         </div>
       </div>
@@ -134,3 +78,9 @@ const videoUrl =
   class="bottom-0 h-0.5 w-full bg-gradient-to-r from-[#F771BF] via-[#f04d66] to-[#fd7043] shadow-lg"
 >
 </div>
+
+<style is:global>
+  h2 {
+    font-family: var(--font-inter) !important;
+  }
+</style>
