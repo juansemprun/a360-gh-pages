@@ -266,7 +266,12 @@ import Logo from '@assets/images/logo.svg';
     <!-- Desktop Auth Links -->
     <div class="navbar-auth desktop-auth">
       <a href="/" class="auth-link login">Log in</a>
-      <a href="/" class="auth-link demo">Book a Demo</a>
+      <!-- <a href="/" class="auth-link demo text-black">Book a Demo</a> -->
+      <a  href="#"
+        class="inline-block text-white font-semibold text-base px-4 py-2 rounded-lg transition-all duration-200 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
+      >
+        Book a Demo
+      </a>
     </div>
 
     <!-- Mobile Hamburger Button -->
@@ -501,7 +506,8 @@ import Logo from '@assets/images/logo.svg';
   }
 
   .auth-link {
-    color: #374151;
+    /* color: #374151; */
+    color: black
     text-decoration: none;
     font-size: 16px;
     font-weight: 500;
@@ -514,15 +520,14 @@ import Logo from '@assets/images/logo.svg';
 
   .auth-link.demo {
     background: #f771bf;
-    color: white;
     padding: 8px 16px;
     border-radius: 8px;
     transition: all 0.2s ease;
   }
 
   .auth-link.demo:hover {
-    background: #4c3aed;
-    color: white;
+    /* background: #4c3aed; */
+    color: black;
   }
 
   /* Mobile Menu Toggle Button */
