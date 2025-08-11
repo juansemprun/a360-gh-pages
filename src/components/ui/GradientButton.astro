@@ -1,7 +1,4 @@
-<a
-  href="/"
-  class="relative inline-block rounded-lg bg-gradient-to-r px-4 py-2 font-semibold text-white"
->
+<a href="/" class="relative inline-block rounded-lg px-4 py-2 font-semibold text-white">
   <span class="bg-button-start rounded-lg" aria-hidden="true"></span>
   <span class="bg-button-middle rounded-lg" aria-hidden="true"></span>
   <span class="bg-button-end rounded-lg" aria-hidden="true"></span>
@@ -25,11 +22,14 @@
     animation: button-change-color-end 8s infinite;
   }
 
-  span {
-    content: ' ';
+  .bg-button-start,
+  .bg-button-middle,
+  .bg-button-end {
     background-image: linear-gradient(90deg, var(--start-color), var(--end-color));
+    content: ' ';
     height: 100%;
     left: 0;
+    pointer-events: none;
     position: absolute;
     top: 0;
     width: 100%;
