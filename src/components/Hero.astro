@@ -1,12 +1,13 @@
 ---
 import Marquee from '@components/Marquee.astro';
+import DynamicFeatures from './DynamicFeatures.astro';
 
 // Hero Section Component - Main landing section with gradient background
 const videoUrl =
-  'https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true';
+  'https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true';
 ---
 
-<section class="relative min-h-screen w-full overflow-hidden">
+<section class="min-h-screen w-full overflow-hidden py-16">
   <!-- Main content container -->
   <div class="container-custom relative z-10 py-20 lg:py-32">
     <!-- Hero text and CTA section -->
@@ -31,7 +32,7 @@ const videoUrl =
     </div>
 
     <!-- Video section with tabs -->
-    <div class="relative mb-16">
+    <!-- <div class="relative mb-16">
       <div class="relative mx-auto max-w-5xl">
         <video class="h-auto w-full rounded-2xl shadow-2xl" autoplay loop playsinline muted>
           <source
@@ -41,6 +42,10 @@ const videoUrl =
           Sorry, your browser does not support embedded videos.
         </video>
       </div>
+    </div> -->
+
+    <div class="mx-auto mb-16 max-w-5xl">
+      <DynamicFeatures cardType="tabs" layout="image-bottom" />
     </div>
 
     <!-- Demo video card -->
