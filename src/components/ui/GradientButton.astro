@@ -1,0 +1,78 @@
+<a
+  href="/"
+  class="relative inline-block rounded-lg bg-gradient-to-r px-4 py-2 font-semibold text-white"
+>
+  <span class="bg-button-start rounded-lg" aria-hidden="true"></span>
+  <span class="bg-button-middle rounded-lg" aria-hidden="true"></span>
+  <span class="bg-button-end rounded-lg" aria-hidden="true"></span>
+  Book a Demo
+</a>
+
+<style>
+  .bg-button-start {
+    --start-color: #c141ac;
+    --end-color: #e72192;
+    animation: button-change-color-start 8s infinite;
+  }
+  .bg-button-middle {
+    --start-color: #2d92e9;
+    --end-color: #644ad5;
+    animation: button-change-color-middle 8s infinite;
+  }
+  .bg-button-end {
+    --start-color: #f04d66;
+    --end-color: #fd7043;
+    animation: button-change-color-end 8s infinite;
+  }
+
+  span {
+    content: ' ';
+    background-image: linear-gradient(90deg, var(--start-color), var(--end-color));
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+  }
+
+  @keyframes button-change-color-start {
+    0%,
+    16.667%,
+    to {
+      opacity: 1;
+    }
+
+    33%,
+    83.333% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes button-change-color-middle {
+    0%,
+    16.667%,
+    66.667%,
+    to {
+      opacity: 0;
+    }
+
+    33.333%,
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes button-change-color-end {
+    0%,
+    50%,
+    to {
+      opacity: 0;
+    }
+
+    66.667%,
+    83.333% {
+      opacity: 1;
+    }
+  }
+</style>

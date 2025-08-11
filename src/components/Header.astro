@@ -1,5 +1,6 @@
 ---
 import Logo from '@assets/images/logo.svg';
+import GradientButton from '@ui/GradientButton.astro';
 // Mobile-Responsive Navbar Component with Hamburger Menu
 ---
 
@@ -268,11 +269,7 @@ import Logo from '@assets/images/logo.svg';
     <div class="navbar-auth desktop-auth">
       <a href="/" class="auth-link login">Log in</a>
       <!-- <a href="/" class="auth-link demo text-black">Book a Demo</a> -->
-      <a  href="#"
-        class="inline-block text-white font-semibold text-base px-4 py-2 rounded-lg transition-all duration-200 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
-      >
-        Book a Demo
-      </a>
+      <GradientButton />
     </div>
 
     <!-- Mobile Hamburger Button -->
