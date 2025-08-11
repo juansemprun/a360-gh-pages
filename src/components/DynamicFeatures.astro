@@ -22,21 +22,21 @@ const {
   description = '',
   features = [
     {
-      icon: 'svg-8.svg',
+      icon: '/svg-8.svg',
       title: 'Feature One',
       description: 'lorepsum dolor sit amet, consectetur adipiscing elit.',
       content:
         'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
     },
     {
-      icon: 'svg-8.svg',
+      icon: '/svg-8.svg',
       title: 'Feature Two',
       description: 'lorepsum dolor sit amet, consectetur adipiscing elit.',
       content:
         'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
     },
     {
-      icon: 'svg-4.svg',
+      icon: '/svg-4.svg',
       title: 'Feature Three',
       description: 'lorepsum dolor sit amet, consectetur adipiscing elit.',
       content:
@@ -57,7 +57,7 @@ const imageId = `${componentId}-image`;
 const textId = `${componentId}-text`;
 ---
 
-<section class={`w-full bg-white ${className} max-w-5xl mx-auto`}>
+<section class={`w-full max-w-5xl mx-auto ${className}`}>
   <div class="container-custom">
     <!-- Header Section -->
     <div class="mb-16 text-center lg:mb-20">
