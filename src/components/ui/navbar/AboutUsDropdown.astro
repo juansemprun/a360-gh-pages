@@ -1,58 +1,64 @@
----
-import Logo from '@assets/images/logo.svg';
-import GradientButton from '@ui/GradientButton.astro';
-import { FeaturesDropdown, UseCasesDropdown, AboutUsDropdown, NavbarMobile } from '@ui/navbar';
----
-
-<header>
-  <nav class="navbar" role="navigation" aria-label="Main navigation">
-    <div class="navbar-container">
-      <!-- Logo -->
-      <div class="navbar-logo">
-        <a href="/" aria-label="Air360 homepage">
-          <!-- <img src="/link---frame---svg.svg" alt="Air360" class="logo-image" /> -->
-          <Logo />
-        </a>
+<li class="navbar-item has-mega-menu" role="none">
+  <a href="#" class="navbar-link" role="menuitem" aria-haspopup="true" aria-expanded="false">
+    About Us
+  </a>
+  <div class="mega-menu small" role="menu" aria-label="Features menu">
+    <div class="mega-menu-content">
+      <div class="mega-menu-section p-8">
+        <h3 class="mega-menu-title">TITLE</h3>
+        <div class="mega-menu-list">
+          <div class="classic-feature">
+            <div class="classic-icon on-page-analytics"></div>
+            <div>
+              <h4>Company Info</h4>
+              <!-- <p>Click once, understand your page instantly</p> -->
+            </div>
+          </div>
+          <div class="classic-feature">
+            <div class="classic-icon session-replays"></div>
+            <div>
+              <h4>Stance on AI</h4>
+              <!-- <p>Watch user moves. Spot where they struggle</p> -->
+            </div>
+          </div>
+          <div class="classic-feature">
+            <div class="classic-icon funnel"></div>
+            <div>
+              <h4>Privacy Policy</h4>
+              <!-- <p>Drop-offs, detected. Fast, precise, no drama</p> -->
+            </div>
+          </div>
+          <div class="classic-feature">
+            <div class="classic-icon user-journey"></div>
+            <div>
+              <h4>Security and Compliance</h4>
+              <!-- <p>Engagement ends? Analysis begins</p> -->
+            </div>
+          </div>
+        </div>
       </div>
-
-      <!-- Desktop Navigation Links -->
-      <div class="navbar-menu desktop-menu">
-        <ul class="navbar-nav" role="menubar">
-          <!-- Features with Mega Menu -->
-          <FeaturesDropdown />
-
-          <!-- Use Cases with Mega Menu -->
-          <UseCasesDropdown />
-
-          <!-- About Us -->
-          <AboutUsDropdown />
-        </ul>
+      <div class="mega-menu-section bg-slate-50 p-8">
+        <h3 class="mega-menu-title">TITLE</h3>
+        <div class="flex flex-col justify-between">
+          <div class="mega-menu-item">
+            <div class="feature-card-mini">
+              <div class="feature-icon auto-layouts"></div>
+              <h4>Our Values</h4>
+            </div>
+          </div>
+          <div class="mega-menu-item">
+            <div class="feature-card-mini">
+              <div class="feature-icon auto-layouts"></div>
+              <h4>Manifesto</h4>
+              <!-- <p>Lorem ipsum dolor sit amet</p> -->
+            </div>
+          </div>
+        </div>
       </div>
-
-      <!-- Desktop Auth Links -->
-      <div class="navbar-auth desktop-auth">
-        <a href="/" class="auth-link login">Log in</a>
-        <!-- <a href="/" class="auth-link demo text-black">Book a Demo</a> -->
-        <GradientButton />
-      </div>
-
-      <!-- Mobile Hamburger Button -->
-      <button
-        class="mobile-menu-toggle"
-        aria-label="Toggle navigation menu"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-      >
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </button>
     </div>
+  </div>
+</li>
 
-    <!-- Mobile Menu Overlay -->
-    <NavbarMobile />
-  </nav>
-</header>
 <style>
   .navbar {
     position: fixed;

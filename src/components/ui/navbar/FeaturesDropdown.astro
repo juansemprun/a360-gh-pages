@@ -1,58 +1,98 @@
----
-import Logo from '@assets/images/logo.svg';
-import GradientButton from '@ui/GradientButton.astro';
-import { FeaturesDropdown, UseCasesDropdown, AboutUsDropdown, NavbarMobile } from '@ui/navbar';
----
-
-<header>
-  <nav class="navbar" role="navigation" aria-label="Main navigation">
-    <div class="navbar-container">
-      <!-- Logo -->
-      <div class="navbar-logo">
-        <a href="/" aria-label="Air360 homepage">
-          <!-- <img src="/link---frame---svg.svg" alt="Air360" class="logo-image" /> -->
-          <Logo />
-        </a>
+<li class="navbar-item has-mega-menu" role="none">
+  <a href="#" class="navbar-link" role="menuitem" aria-haspopup="true" aria-expanded="false">
+    Features
+  </a>
+  <div class="mega-menu" role="menu" aria-label="Features menu">
+    <div class="mega-menu-content">
+      <div class="mega-menu-section p-8">
+        <h3 class="mega-menu-title">THE CLASSICS</h3>
+        <div class="mega-menu-list">
+          <div class="classic-feature">
+            <div class="classic-icon on-page-analytics"></div>
+            <div>
+              <h4>On Page Analytics</h4>
+              <p>Click once, understand your page instantly</p>
+            </div>
+          </div>
+          <div class="classic-feature">
+            <div class="classic-icon session-replays"></div>
+            <div>
+              <h4>Session Replays</h4>
+              <p>Watch user moves. Spot where they struggle</p>
+            </div>
+          </div>
+          <div class="classic-feature">
+            <div class="classic-icon funnel"></div>
+            <div>
+              <h4>Funnel Analysis</h4>
+              <p>Drop-offs, detected. Fast, precise, no drama</p>
+            </div>
+          </div>
+          <div class="classic-feature">
+            <div class="classic-icon user-journey"></div>
+            <div>
+              <h4>User Journeys</h4>
+              <p>Engagement ends? Analysis begins</p>
+            </div>
+          </div>
+          <div class="classic-feature">
+            <div class="classic-icon on-page-analytics"></div>
+            <div>
+              <h4>Snapshots</h4>
+              <p>Lorem ipsum dolor sit amet</p>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <!-- Desktop Navigation Links -->
-      <div class="navbar-menu desktop-menu">
-        <ul class="navbar-nav" role="menubar">
-          <!-- Features with Mega Menu -->
-          <FeaturesDropdown />
-
-          <!-- Use Cases with Mega Menu -->
-          <UseCasesDropdown />
-
-          <!-- About Us -->
-          <AboutUsDropdown />
-        </ul>
+      <div class="mega-menu-section bg-slate-50 p-8">
+        <h3 class="mega-menu-title">NEW RELEASE</h3>
+        <div class="">
+          <div class="mega-menu-item">
+            <div class="feature-card-mini">
+              <!-- <div class="feature-icon auto-layouts"></div> -->
+              <video class="mb-5 h-auto w-full rounded-2xl" autoplay loop playsinline muted>
+                <source
+                  src="https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4"
+                  type="video/mp4"
+                />
+                Sorry, your browser does not support embedded videos.
+              </video>
+              <h4>Release</h4>
+              <p>Lorem ipsum dolor sit amet</p>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <!-- Desktop Auth Links -->
-      <div class="navbar-auth desktop-auth">
-        <a href="/" class="auth-link login">Log in</a>
-        <!-- <a href="/" class="auth-link demo text-black">Book a Demo</a> -->
-        <GradientButton />
-      </div>
-
-      <!-- Mobile Hamburger Button -->
-      <button
-        class="mobile-menu-toggle"
-        aria-label="Toggle navigation menu"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-      >
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </button>
+      <!-- <div class="mega-menu-section">
+                  <h3 class="mega-menu-title">APPS</h3>
+                  <div class="apps-grid">
+                    <div class="app-item">
+                      <div class="app-icon mac"></div>
+                      <div>
+                        <h4>Air360 for Mac</h4>
+                        <p>Native performance</p>
+                      </div>
+                    </div>
+                    <div class="app-item">
+                      <div class="app-icon chrome"></div>
+                      <div>
+                        <h4>Air360 for Chrome</h4>
+                        <p>The camera for your browser</p>
+                      </div>
+                    </div>
+                    <div class="app-item">
+                      <div class="app-icon windows"></div>
+                      <div>
+                        <h4>Air360 for Windows</h4>
+                        <p>Coming soon...</p>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
     </div>
+  </div>
+</li>
 
-    <!-- Mobile Menu Overlay -->
-    <NavbarMobile />
-  </nav>
-</header>
 <style>
   .navbar {
     position: fixed;
