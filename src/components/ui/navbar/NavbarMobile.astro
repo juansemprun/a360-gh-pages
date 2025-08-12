@@ -1,58 +1,151 @@
----
-import Logo from '@assets/images/logo.svg';
-import GradientButton from '@ui/GradientButton.astro';
-import { FeaturesDropdown, UseCasesDropdown, AboutUsDropdown, NavbarMobile } from '@ui/navbar';
----
-
-<header>
-  <nav class="navbar" role="navigation" aria-label="Main navigation">
-    <div class="navbar-container">
-      <!-- Logo -->
-      <div class="navbar-logo">
-        <a href="/" aria-label="Air360 homepage">
-          <!-- <img src="/link---frame---svg.svg" alt="Air360" class="logo-image" /> -->
-          <Logo />
-        </a>
-      </div>
-
-      <!-- Desktop Navigation Links -->
-      <div class="navbar-menu desktop-menu">
-        <ul class="navbar-nav" role="menubar">
-          <!-- Features with Mega Menu -->
-          <FeaturesDropdown />
-
-          <!-- Use Cases with Mega Menu -->
-          <UseCasesDropdown />
-
-          <!-- About Us -->
-          <AboutUsDropdown />
-        </ul>
-      </div>
-
-      <!-- Desktop Auth Links -->
-      <div class="navbar-auth desktop-auth">
-        <a href="/" class="auth-link login">Log in</a>
-        <!-- <a href="/" class="auth-link demo text-black">Book a Demo</a> -->
-        <GradientButton />
-      </div>
-
-      <!-- Mobile Hamburger Button -->
-      <button
-        class="mobile-menu-toggle"
-        aria-label="Toggle navigation menu"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-      >
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
+<div class="mobile-menu-overlay" id="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu-content">
+    <!-- Mobile Auth Links -->
+    <div class="mobile-auth">
+      <a href="#" class="mobile-auth-link login">Log in</a>
+      <a href="#" class="mobile-auth-link demo">Sign up</a>
+      <button class="mobile-close-btn" aria-label="Close navigation menu">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
       </button>
     </div>
 
-    <!-- Mobile Menu Overlay -->
-    <NavbarMobile />
-  </nav>
-</header>
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" role="navigation">
+      <!-- Features Section -->
+      <div class="mobile-nav-section">
+        <button class="mobile-nav-header" aria-expanded="false" data-section="features">
+          <span>Features</span>
+          <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+            <path
+              fill-rule="evenodd"
+              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </button>
+        <div class="mobile-nav-content" data-content="features">
+          <div class="mobile-feature-item">
+            <div class="mobile-feature-icon on-page-analytics"></div>
+            <div>
+              <h4>Screen Recording</h4>
+              <p>Capture screen, camera or both</p>
+            </div>
+          </div>
+          <div class="mobile-feature-item">
+            <div class="mobile-feature-icon auto-cut"></div>
+            <div>
+              <h4>Auto Cut</h4>
+              <p>1-click video clean-up</p>
+            </div>
+          </div>
+          <div class="mobile-feature-item">
+            <div class="mobile-feature-icon auto-layouts"></div>
+            <div>
+              <h4>Auto Layouts</h4>
+              <p>AI-powered shot selection</p>
+            </div>
+          </div>
+          <div class="mobile-feature-item">
+            <div class="mobile-feature-icon session-replays"></div>
+            <div>
+              <h4>session-replays</h4>
+              <p>session-replays-in and track mouse movement</p>
+            </div>
+          </div>
+          <div class="mobile-feature-item">
+            <div class="mobile-feature-icon funnel"></div>
+            <div>
+              <h4>Instant link sharing</h4>
+              <p>Share with anyone, instantly</p>
+            </div>
+          </div>
+          <div class="mobile-feature-item">
+            <div class="mobile-feature-icon mac"></div>
+            <div>
+              <h4>Air360 for Mac</h4>
+              <p>Native performance</p>
+            </div>
+          </div>
+          <div class="mobile-feature-item">
+            <div class="mobile-feature-icon chrome"></div>
+            <div>
+              <h4>Air360 for Chrome</h4>
+              <p>The camera for your browser</p>
+            </div>
+          </div>
+          <div class="mobile-feature-item">
+            <div class="mobile-feature-icon windows"></div>
+            <div>
+              <h4>Air360 for Windows</h4>
+              <p>Coming soon...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resources Section -->
+      <div class="mobile-nav-section">
+        <button class="mobile-nav-header" aria-expanded="false" data-section="resources">
+          <span>Resources</span>
+          <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+            <path
+              fill-rule="evenodd"
+              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </button>
+        <div class="mobile-nav-content" data-content="resources">
+          <div class="mobile-resource-item">
+            <div class="mobile-resource-icon e-commerce"></div>
+            <div>
+              <h4>e-commerce</h4>
+              <p>News, tips and more</p>
+            </div>
+          </div>
+          <div class="mobile-resource-item">
+            <div class="mobile-resource-icon luxury-brands"></div>
+            <div>
+              <h4>Online luxury-brands</h4>
+              <p>Video for Entrepreneurs</p>
+            </div>
+          </div>
+          <div class="mobile-resource-item">
+            <div class="mobile-resource-icon airlines"></div>
+            <div>
+              <h4>Video Gear airlines</h4>
+              <p>Find the gear that's right for you</p>
+            </div>
+          </div>
+          <div class="mobile-resource-item">
+            <div class="mobile-resource-icon netflix"></div>
+            <div>
+              <h4>Best Product Videos</h4>
+              <p>Netflix and shill</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Simple Links -->
+      <div class="mobile-nav-section">
+        <a href="#" class="mobile-nav-link">Pricing</a>
+      </div>
+      <div class="mobile-nav-section">
+        <a href="#" class="mobile-nav-link">Help Center</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
 <style>
   .navbar {
     position: fixed;
@@ -79,71 +172,6 @@ import { FeaturesDropdown, UseCasesDropdown, AboutUsDropdown, NavbarMobile } fro
   .navbar-logo .logo-image {
     height: 24px;
     width: auto;
-  }
-
-  /* Desktop Menu Styles */
-  .desktop-menu {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-  }
-
-  .navbar-nav {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .navbar-item {
-    position: relative;
-  }
-
-  .navbar-link {
-    color: #374151;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-    padding: 8px 0;
-    transition: color 0.2s ease;
-    cursor: pointer;
-  }
-
-  .navbar-link:hover {
-    color: #5e51f8;
-  }
-
-  .desktop-auth {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-  }
-
-  .auth-link {
-    /* color: #374151; */
-    color: black;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-    transition: color 0.2s ease;
-  }
-
-  .auth-link:hover {
-    color: #5e51f8;
-  }
-
-  .auth-link.demo {
-    background: #f771bf;
-    padding: 8px 16px;
-    border-radius: 8px;
-    transition: all 0.2s ease;
-  }
-
-  .auth-link.demo:hover {
-    /* background: #4c3aed; */
-    color: black;
   }
 
   /* Mobile Menu Toggle Button */
@@ -460,93 +488,6 @@ import { FeaturesDropdown, UseCasesDropdown, AboutUsDropdown, NavbarMobile } fro
     color: white;
   }
 
-  /* Desktop Mega Menu Styles (preserved from original) */
-  .has-mega-menu:hover .mega-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0) scale(1);
-    transition:
-      opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-      transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
-      visibility 0ms 0ms;
-  }
-
-  .mega-menu {
-    /* Positioning: Fixed to viewport for perfect centering */
-    position: fixed;
-    top: 72px; /* Height of navbar */
-    left: 50%;
-    transform: translateY(-10px) scale(0.95);
-    transform: translateX(-50%) translateY(-10px) scale(0.95);
-    transform-origin: top center;
-
-    /* Styling and dimensions */
-    background: white;
-    border-radius: 16px;
-    box-shadow:
-      0 20px 25px -5px rgba(0, 0, 0, 0.1),
-      0 10px 10px -5px rgba(0, 0, 0, 0.04);
-
-    /* Animation states */
-    opacity: 0;
-    visibility: hidden;
-    transition:
-      opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-      transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
-      visibility 0ms 150ms;
-
-    /* Z-index and dimensions */
-    z-index: 1001;
-    /* width: min(1152px, calc(100vw - 48px)); Responsive width with max constraint */
-    max-width: 1152px;
-    margin-top: 8px; /* Small gap below navbar */
-  }
-
-  .mega-menu.small {
-    /* width: auto; */
-  }
-
-  /* Hover state with corrected transform */
-  .has-mega-menu:hover .mega-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0) scale(1);
-    transition:
-      opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-      transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
-      visibility 0ms 0ms;
-  }
-
-  .mega-menu-content {
-    /* padding: 32px; */
-    display: flex;
-    gap: 40px;
-  }
-
-  .mega-menu-section {
-    flex: 1;
-  }
-
-  .mega-menu-section.full-width {
-    flex: none;
-    width: 100%;
-  }
-
-  .mega-menu-title {
-    font-size: 12px;
-    font-weight: 600;
-    color: #9ca3af;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 20px;
-  }
-
-  .mega-menu-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-
   .feature-card-mini {
     padding: 16px;
     border-radius: 12px;
@@ -837,3 +778,131 @@ import { FeaturesDropdown, UseCasesDropdown, AboutUsDropdown, NavbarMobile } fro
     }
   }
 </style>
+<script>
+  // Mobile menu functionality
+  document.addEventListener('DOMContentLoaded', function () {
+    const mobileToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileOverlay = document.querySelector('.mobile-menu-overlay');
+    const mobileCloseBtn = document.querySelector('.mobile-close-btn');
+    const mobileNavHeaders = document.querySelectorAll('.mobile-nav-header');
+
+    // Toggle mobile menu
+    function toggleMobileMenu() {
+      const isOpen = mobileOverlay.classList.contains('active');
+
+      if (isOpen) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
+    }
+
+    function openMobileMenu() {
+      mobileOverlay.classList.add('active');
+      mobileToggle.classList.add('active');
+      mobileToggle.setAttribute('aria-expanded', 'true');
+      mobileOverlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileMenu() {
+      mobileOverlay.classList.remove('active');
+      mobileToggle.classList.remove('active');
+      mobileToggle.setAttribute('aria-expanded', 'false');
+      mobileOverlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    // Event listeners
+    mobileToggle.addEventListener('click', toggleMobileMenu);
+    mobileCloseBtn.addEventListener('click', closeMobileMenu);
+
+    // Close menu when clicking outside content
+    mobileOverlay.addEventListener('click', function (e) {
+      if (e.target === mobileOverlay) {
+        closeMobileMenu();
+      }
+    });
+
+    // Handle mobile nav section toggles
+    mobileNavHeaders.forEach((header) => {
+      header.addEventListener('click', function () {
+        const section = this.getAttribute('data-section');
+        const content = document.querySelector(`[data-content="${section}"]`);
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+        // Close all other sections (accordion behavior)
+        mobileNavHeaders.forEach((otherHeader) => {
+          if (otherHeader !== this) {
+            otherHeader.setAttribute('aria-expanded', 'false');
+            const otherSection = otherHeader.getAttribute('data-section');
+            const otherContent = document.querySelector(`[data-content="${otherSection}"]`);
+            if (otherContent) {
+              otherContent.classList.remove('active');
+            }
+          }
+        });
+
+        // Toggle current section
+        if (isExpanded) {
+          this.setAttribute('aria-expanded', 'false');
+          content.classList.remove('active');
+        } else {
+          this.setAttribute('aria-expanded', 'true');
+          content.classList.add('active');
+        }
+      });
+    });
+
+    // Handle escape key
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && mobileOverlay.classList.contains('active')) {
+        closeMobileMenu();
+      }
+    });
+
+    // Handle desktop mega menu hover delays
+    const megaMenuItems = document.querySelectorAll('.has-mega-menu');
+
+    megaMenuItems.forEach((item) => {
+      let hoverTimeout;
+      let leaveTimeout;
+
+      item.addEventListener('mouseenter', () => {
+        clearTimeout(hoverTimeout);
+        clearTimeout(leaveTimeout);
+        const link = item.querySelector('.navbar-link');
+        link.setAttribute('aria-expanded', 'true');
+      });
+
+      item.addEventListener('mouseleave', () => {
+        leaveTimeout = setTimeout(() => {
+          const link = item.querySelector('.navbar-link');
+          link.setAttribute('aria-expanded', 'false');
+        }, 100);
+      });
+
+      // Add hover tolerance for smooth transitions between nav item and dropdown
+      const megaMenu = item.querySelector('.mega-menu');
+      if (megaMenu) {
+        megaMenu.addEventListener('mouseenter', () => {
+          clearTimeout(leaveTimeout);
+        });
+
+        megaMenu.addEventListener('mouseleave', () => {
+          leaveTimeout = setTimeout(() => {
+            const link = item.querySelector('.navbar-link');
+            link.setAttribute('aria-expanded', 'false');
+          }, 100);
+        });
+      }
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 768 && mobileOverlay.classList.contains('active')) {
+        closeMobileMenu();
+      }
+    });
+  });
+</script>
