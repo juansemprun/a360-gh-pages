@@ -1,58 +1,134 @@
+---
+import {
+  Building,
+  CloudQuestion,
+  EnvelopeOpnText,
+  FileShield,
+  HandHoldingHeart,
+  MicrochipAi,
+  ShieldCheck,
+} from '@assets/icons';
+
+const primarySections = [
+  {
+    icon: HandHoldingHeart,
+    label: 'Our Values',
+    link: '/',
+  },
+  {
+    icon: EnvelopeOpnText,
+    label: 'Manifesto',
+    link: '/',
+  },
+];
+
+const secondarySections = [
+  {
+    icon: Building,
+    label: 'Company Info',
+    link: '/',
+  },
+  {
+    icon: MicrochipAi,
+    label: 'Stance on AI',
+    link: '/',
+  },
+  {
+    icon: FileShield,
+    label: 'Privacy Policy',
+    link: '/',
+  },
+  {
+    icon: ShieldCheck,
+    label: 'Security and Compliance',
+    link: '/',
+  },
+  {
+    icon: CloudQuestion,
+    label: 'Where is your data',
+    link: '/',
+  },
+];
+---
+
 <li class="navbar-item has-mega-menu" role="none">
-  <a href="#" class="navbar-link" role="menuitem" aria-haspopup="true" aria-expanded="false">
+  <a
+    href="#"
+    class="hover:text-primary-600 ease cursor-pointer py-2 text-base font-medium text-gray-700 no-underline transition-colors duration-200"
+    role="menuitem"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
     About Us
   </a>
-  <div class="mega-menu small" role="menu" aria-label="Features menu">
-    <div class="mega-menu-content">
-      <div class="mega-menu-section p-8">
-        <h3 class="mega-menu-title">TITLE</h3>
-        <div class="mega-menu-list">
-          <div class="classic-feature">
+  <div class="mega-menu" role="menu" aria-label="Features menu">
+    <div class="flex flex-row gap-8">
+      <div class="flex-1/2 rounded-2xl p-8 pr-0">
+        <h3 class="mb-5 text-xs font-semibold uppercase tracking-wider text-gray-400">TITLE</h3>
+        <div class="flex flex-col gap-4">
+          {
+            secondarySections.map(({ icon: Icon, label, link }) => (
+              <a
+                href={link}
+                class="group flex gap-3 rounded-xl p-2 transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:bg-slate-50"
+                role="menuitem"
+              >
+                <Icon
+                  width="20"
+                  height="20"
+                  class="group-hover:fill-primary-500 mx-1.5 flex justify-center fill-gray-400 transition-colors"
+                />
+                <div class="gap-2">
+                  <h4 class="text-sm">{label}</h4>
+                </div>
+              </a>
+            ))
+          }
+          <!-- <div class="classic-feature">
             <div class="classic-icon on-page-analytics"></div>
             <div>
               <h4>Company Info</h4>
-              <!-- <p>Click once, understand your page instantly</p> -->
             </div>
           </div>
           <div class="classic-feature">
             <div class="classic-icon session-replays"></div>
             <div>
               <h4>Stance on AI</h4>
-              <!-- <p>Watch user moves. Spot where they struggle</p> -->
             </div>
           </div>
           <div class="classic-feature">
             <div class="classic-icon funnel"></div>
             <div>
               <h4>Privacy Policy</h4>
-              <!-- <p>Drop-offs, detected. Fast, precise, no drama</p> -->
             </div>
           </div>
           <div class="classic-feature">
             <div class="classic-icon user-journey"></div>
             <div>
               <h4>Security and Compliance</h4>
-              <!-- <p>Engagement ends? Analysis begins</p> -->
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
-      <div class="mega-menu-section bg-slate-50 p-8">
-        <h3 class="mega-menu-title">TITLE</h3>
-        <div class="flex flex-col justify-between">
-          <div class="mega-menu-item">
-            <div class="feature-card-mini">
-              <div class="feature-icon auto-layouts"></div>
-              <h4>Our Values</h4>
-            </div>
-          </div>
-          <div class="mega-menu-item">
-            <div class="feature-card-mini">
-              <div class="feature-icon auto-layouts"></div>
-              <h4>Manifesto</h4>
-              <!-- <p>Lorem ipsum dolor sit amet</p> -->
-            </div>
-          </div>
+      <div class="rounded-2xl bg-slate-50 p-8">
+        <h3 class="mb-5 text-xs font-semibold uppercase tracking-wider text-gray-400">TITLE</h3>
+        <div class="flex flex-col justify-between gap-6">
+          {
+            primarySections.map(({ icon: Icon, label, link }) => (
+              <a
+                href={link}
+                class="group flex cursor-pointer flex-col items-center justify-center gap-2.5 rounded-xl p-4 transition-all duration-200 ease-in-out hover:-translate-y-0.5"
+                role="menuitem"
+              >
+                <Icon
+                  width="32"
+                  height="32"
+                  class="group-hover:fill-primary-500 fill-gray-400 transition-colors"
+                />
+                <h4>{label}</h4>
+              </a>
+            ))
+          }
         </div>
       </div>
     </div>
@@ -107,7 +183,7 @@
     position: relative;
   }
 
-  .navbar-link {
+  /* .navbar-link {
     color: #374151;
     text-decoration: none;
     font-size: 16px;
@@ -119,7 +195,7 @@
 
   .navbar-link:hover {
     color: #5e51f8;
-  }
+  } */
 
   .desktop-auth {
     display: flex;
@@ -508,10 +584,6 @@
     margin-top: 8px; /* Small gap below navbar */
   }
 
-  .mega-menu.small {
-    /* width: auto; */
-  }
-
   /* Hover state with corrected transform */
   .has-mega-menu:hover .mega-menu {
     opacity: 1;
@@ -556,7 +628,6 @@
   .feature-card-mini {
     padding: 16px;
     border-radius: 12px;
-    /* background: #f8fafc; */
     transition: all 0.2s ease;
   }
 
