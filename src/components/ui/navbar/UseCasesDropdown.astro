@@ -54,10 +54,10 @@ const useCasesByUseCase = [
 <li class="has-mega-menu" role="none">
   <a
     href="#"
-    class="hover:text-primary-600 ease cursor-pointer py-2 text-base font-medium text-gray-700 no-underline transition-colors duration-200"
     role="menuitem"
     aria-haspopup="true"
     aria-expanded="false"
+    class="hover:text-primary-600 ease cursor-pointer py-2 text-base font-medium text-gray-700 no-underline transition-colors duration-200"
   >
     Use Cases
   </a>
@@ -89,7 +89,7 @@ const useCasesByUseCase = [
           }
         </div>
       </div>
-      <div class="rounded-2xl bg-slate-50 p-8">
+      <div class="rounded-br-2xl rounded-tr-2xl bg-slate-50 p-8">
         <h3 class="mb-5 text-xs font-semibold uppercase tracking-wider text-gray-400">
           By industry
         </h3>
@@ -97,7 +97,7 @@ const useCasesByUseCase = [
           {
             useCasesByIndustry.map(({ icon: Icon, label, link }) => (
               <a href={link} role="menuitem">
-                <div class="group flex gap-2 rounded-xl py-4 transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:cursor-pointer hover:bg-slate-50">
+                <div class="group flex cursor-pointer gap-2 rounded-xl py-4 transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:bg-slate-50">
                   <div class="group-hover:fill-primary-500 flex justify-center fill-gray-400 transition-colors">
                     <Icon width="20" height="20" />
                   </div>
