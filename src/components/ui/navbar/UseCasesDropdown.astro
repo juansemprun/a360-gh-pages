@@ -52,7 +52,13 @@ const useCasesByUseCase = [
 ---
 
 <li class="has-mega-menu" role="none">
-  <a href="#" class="navbar-link" role="menuitem" aria-haspopup="true" aria-expanded="false">
+  <a
+    href="#"
+    class="hover:text-primary-600 ease cursor-pointer py-2 text-base font-medium text-gray-700 no-underline transition-colors duration-200"
+    role="menuitem"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
     Use Cases
   </a>
   <div class="mega-menu max-w-6xl" role="menu" aria-label="Resources menu">
@@ -64,15 +70,19 @@ const useCasesByUseCase = [
         <div class="grid grid-cols-2 gap-x-8">
           {
             useCasesByUseCase.map(({ icon: Icon, label, link }) => (
-              <a href={link} role="menuitem">
-                <div class="group flex gap-2 rounded-xl py-4 transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:cursor-pointer hover:bg-slate-50">
-                  <div class="group-hover:fill-primary-500 flex justify-center fill-gray-400 transition-colors">
-                    <Icon width="20" height="20" />
-                  </div>
-                  <div class="gap-2">
-                    <h4 class="text-sm">{label}</h4>
-                    <p class="text-xs text-gray-500">Lorem ipsum dolor</p>
-                  </div>
+              <a
+                href={link}
+                role="menuitem"
+                class="group flex gap-2 rounded-xl py-4 transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:cursor-pointer hover:bg-slate-50"
+              >
+                <Icon
+                  width="20"
+                  height="20"
+                  class="group-hover:fill-primary-500 mx-1.5 flex justify-center fill-gray-400 transition-colors"
+                />
+                <div class="gap-2">
+                  <h4 class="text-sm">{label}</h4>
+                  <p class="text-xs text-gray-500">Lorem ipsum dolor</p>
                 </div>
               </a>
             ))
