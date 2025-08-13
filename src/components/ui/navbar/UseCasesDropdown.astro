@@ -1,64 +1,101 @@
-<li class="navbar-item has-mega-menu" role="none">
+---
+import {
+  TicketAirline,
+  Sitemap,
+  Hotel,
+  Gem,
+  GamepadModern,
+  CourtSport,
+  BuildingColumns,
+  BagsShopping,
+} from '@assets/icons';
+
+const useCasesByIndustry = [
+  { icon: BagsShopping, label: 'E-commerce', link: '/' },
+  { icon: Hotel, label: 'Hotels', link: '/' },
+  { icon: Gem, label: 'Luxury brands', link: '/' },
+  { icon: TicketAirline, label: 'Airlines', link: '/' },
+  { icon: GamepadModern, label: 'Gaming', link: '/' },
+  { icon: BuildingColumns, label: 'Bank & Insurance', link: '/' },
+  { icon: Sitemap, label: 'Multi-brand companies', link: '/' },
+  { icon: CourtSport, label: 'Sport team', link: '/' },
+];
+
+const useCasesByUseCase = [
+  { icon: Gem, label: 'Refine funnels', description: 'Lorem ipsum dolor', link: '/' },
+  { icon: Gem, label: 'Resolve errors', description: 'Lorem ipsum dolor', link: '/' },
+  { icon: Gem, label: 'Increase conversions', description: 'Lorem ipsum dolor', link: '/' },
+  { icon: Gem, label: 'Centralize data', description: 'Lorem ipsum dolor', link: '/' },
+  {
+    icon: Gem,
+    label: 'Automate analysis',
+    description: 'Lorem ipsum dolor',
+    link: '/',
+  },
+  { icon: Gem, label: 'Uncover insights', description: 'Lorem ipsum dolor', link: '/' },
+  { icon: Gem, label: 'Upgrade mobile apps', description: 'Lorem ipsum dolor', link: '/' },
+  { icon: Gem, label: 'Boost productivity', description: 'Lorem ipsum dolor', link: '/' },
+  {
+    icon: Gem,
+    label: 'Accelerate innovation',
+    description: 'Lorem ipsum dolor',
+    link: '/',
+  },
+  { icon: Gem, label: 'Reduce spend', description: 'Lorem ipsum dolor', link: '/' },
+  {
+    icon: Gem,
+    label: 'Improve troubleshooting',
+    description: 'Lorem ipsum dolor',
+    link: '/',
+  },
+];
+---
+
+<li class="has-mega-menu" role="none">
   <a href="#" class="navbar-link" role="menuitem" aria-haspopup="true" aria-expanded="false">
     Use Cases
   </a>
-  <div class="mega-menu" role="menu" aria-label="Resources menu">
-    <div class="mega-menu-content">
-      <div class="mega-menu-section full-width p-8">
-        <h3 class="mega-menu-title">USE CASES</h3>
-        <div class="resources-grid">
-          <div class="resource-item">
-            <div class="use-cases-image e-commerce"></div>
-            <div>
-              <h4>E-commerce</h4>
-              <p>Lorem ipsum dolor</p>
-            </div>
-          </div>
-          <div class="resource-item">
-            <div class="use-cases-image luxury-brands"></div>
-            <div>
-              <h4>Luxury brands</h4>
-              <p>Lorem ipsum dolor</p>
-            </div>
-          </div>
-          <div class="resource-item">
-            <div class="use-cases-image airlines"></div>
-            <div>
-              <h4>Airlines</h4>
-              <p>Lorem ipsum dolor</p>
-            </div>
-          </div>
-          <div class="resource-item">
-            <div class="use-cases-image sport-team"></div>
-            <div>
-              <h4>Sport team</h4>
-              <p>Lorem ipsum dolor</p>
-            </div>
-          </div>
-          <div class="resource-item">
-            <div class="use-cases-image hotels"></div>
-            <div>
-              <h4>Hotels</h4>
-            </div>
-          </div>
-          <div class="resource-item">
-            <div class="use-cases-image bank-insurance"></div>
-            <div>
-              <h4>Bank & Insurance</h4>
-            </div>
-          </div>
-          <div class="resource-item">
-            <div class="use-cases-image gaming"></div>
-            <div>
-              <h4>Gaming</h4>
-            </div>
-          </div>
-          <div class="resource-item">
-            <div class="use-cases-image multi-brand"></div>
-            <div>
-              <h4>Multi-brand companies</h4>
-            </div>
-          </div>
+  <div class="mega-menu max-w-6xl" role="menu" aria-label="Resources menu">
+    <div class="flex flex-row gap-8">
+      <div class="flex-1/2 rounded-2xl p-8 pr-0">
+        <h3 class="mb-5 text-xs font-semibold uppercase tracking-wider text-gray-400">
+          By Use Case
+        </h3>
+        <div class="grid grid-cols-2 gap-x-8">
+          {
+            useCasesByUseCase.map(({ icon: Icon, label, link }) => (
+              <a href={link} role="menuitem">
+                <div class="group flex gap-2 rounded-xl py-4 transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:cursor-pointer hover:bg-slate-50">
+                  <div class="group-hover:fill-primary-500 flex justify-center fill-gray-400 transition-colors">
+                    <Icon width="20" height="20" />
+                  </div>
+                  <div class="gap-2">
+                    <h4 class="text-sm">{label}</h4>
+                    <p class="text-xs text-gray-500">Lorem ipsum dolor</p>
+                  </div>
+                </div>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+      <div class="rounded-2xl bg-slate-50 p-8">
+        <h3 class="mb-5 text-xs font-semibold uppercase tracking-wider text-gray-400">
+          By industry
+        </h3>
+        <div class="gap-2">
+          {
+            useCasesByIndustry.map(({ icon: Icon, label, link }) => (
+              <a href={link} role="menuitem">
+                <div class="group flex gap-2 rounded-xl py-4 transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:cursor-pointer hover:bg-slate-50">
+                  <div class="group-hover:fill-primary-500 flex justify-center fill-gray-400 transition-colors">
+                    <Icon width="20" height="20" />
+                  </div>
+                  <h4 class="text-sm">{label}</h4>
+                </div>
+              </a>
+            ))
+          }
         </div>
       </div>
     </div>
@@ -109,9 +146,9 @@
     padding: 0;
   }
 
-  .navbar-item {
+  /* .navbar-item {
     position: relative;
-  }
+  } */
 
   .navbar-link {
     color: #374151;
@@ -514,10 +551,6 @@
     margin-top: 8px; /* Small gap below navbar */
   }
 
-  .mega-menu.small {
-    /* width: auto; */
-  }
-
   /* Hover state with corrected transform */
   .has-mega-menu:hover .mega-menu {
     opacity: 1;
@@ -535,22 +568,22 @@
     gap: 40px;
   }
 
-  .mega-menu-section {
+  /* .mega-menu-section {
     flex: 1;
   }
 
   .mega-menu-section.full-width {
     flex: none;
     width: 100%;
-  }
+  } */
 
   .mega-menu-title {
-    font-size: 12px;
+    /* font-size: 12px;
     font-weight: 600;
     color: #9ca3af;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    margin-bottom: 20px;
+    margin-bottom: 20px; */
   }
 
   .mega-menu-grid {
