@@ -1,94 +1,101 @@
+---
+import { Building } from '@assets/icons';
+
+const features = [
+  {
+    description: 'Click once, understand your page instantly',
+    icon: Building,
+    label: 'On Page Analytics',
+    link: '/',
+  },
+  {
+    description: 'Watch user moves. Spot where they struggle',
+    icon: Building,
+    label: 'Session Replays',
+    link: '/',
+  },
+  {
+    description: 'Drop-offs, detected. Fast, precise, no drama',
+    icon: Building,
+    label: 'Funnel Analysis',
+    link: '/',
+  },
+  {
+    description: 'Engagement ends? Analysis begins',
+    icon: Building,
+    label: 'User Journeys',
+    link: '/',
+  },
+  {
+    description: 'Lorem ipsum dolor sit amet',
+    icon: Building,
+    label: 'Snapshots',
+    link: '/',
+  },
+];
+---
+
 <li class="navbar-item has-mega-menu" role="none">
-  <a href="#" class="navbar-link" role="menuitem" aria-haspopup="true" aria-expanded="false">
+  <a
+    href="#"
+    role="menuitem"
+    aria-haspopup="true"
+    aria-expanded="false"
+    class="hover:text-primary-600 ease cursor-pointer py-2 text-base font-medium text-gray-700 no-underline transition-colors duration-200"
+  >
     Features
   </a>
-  <div class="mega-menu" role="menu" aria-label="Features menu">
-    <div class="mega-menu-content">
-      <div class="mega-menu-section p-8">
-        <h3 class="mega-menu-title">THE CLASSICS</h3>
-        <div class="mega-menu-list">
-          <div class="classic-feature">
-            <div class="classic-icon on-page-analytics"></div>
-            <div>
-              <h4>On Page Analytics</h4>
-              <p>Click once, understand your page instantly</p>
-            </div>
-          </div>
-          <div class="classic-feature">
-            <div class="classic-icon session-replays"></div>
-            <div>
-              <h4>Session Replays</h4>
-              <p>Watch user moves. Spot where they struggle</p>
-            </div>
-          </div>
-          <div class="classic-feature">
-            <div class="classic-icon funnel"></div>
-            <div>
-              <h4>Funnel Analysis</h4>
-              <p>Drop-offs, detected. Fast, precise, no drama</p>
-            </div>
-          </div>
-          <div class="classic-feature">
-            <div class="classic-icon user-journey"></div>
-            <div>
-              <h4>User Journeys</h4>
-              <p>Engagement ends? Analysis begins</p>
-            </div>
-          </div>
-          <div class="classic-feature">
-            <div class="classic-icon on-page-analytics"></div>
-            <div>
-              <h4>Snapshots</h4>
-              <p>Lorem ipsum dolor sit amet</p>
-            </div>
-          </div>
+  <div class="mega-menu max-w-3xl" role="menu" aria-label="Features menu">
+    <div class="grid grid-cols-2 gap-8">
+      <div class="flex-1/2 rounded-2xl p-8 pr-0">
+        <h3 class="mb-5 text-xs font-semibold uppercase tracking-wider text-gray-400">
+          THE CLASSICS
+        </h3>
+        <div class="flex flex-col gap-x-3">
+          {
+            features.map(({ icon: Icon, label, link }) => (
+              <a
+                href={link}
+                role="menuitem"
+                class="group flex gap-2 rounded-xl py-4 transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:cursor-pointer hover:bg-slate-50"
+              >
+                <Icon
+                  width="20"
+                  height="20"
+                  class="group-hover:fill-primary-500 mx-1.5 flex justify-center fill-gray-400 transition-colors"
+                />
+                <div class="gap-2">
+                  <h4 class="text-sm">{label}</h4>
+                  <p class="text-xs text-gray-500">Lorem ipsum dolor</p>
+                </div>
+              </a>
+            ))
+          }
         </div>
       </div>
-      <div class="mega-menu-section bg-slate-50 p-8">
-        <h3 class="mega-menu-title">NEW RELEASE</h3>
-        <div class="">
-          <div class="mega-menu-item">
-            <div class="feature-card-mini">
-              <!-- <div class="feature-icon auto-layouts"></div> -->
-              <video class="mb-5 h-auto w-full rounded-2xl" autoplay loop playsinline muted>
+      <div class="rounded-br-2xl rounded-tr-2xl bg-slate-50 p-8">
+        <h3 class="mb-5 text-xs font-semibold uppercase tracking-wider text-gray-400">
+          NEW RELEASE
+        </h3>
+        <div class="gap-2">
+          <div class="">
+            <div
+              class="cursor-pointer transition-all duration-200 ease-in-out hover:-translate-y-0.5"
+            >
+              <video class="mb-5 h-auto w-full rounded-lg" autoplay loop playsinline muted>
                 <source
                   src="https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4"
                   type="video/mp4"
                 />
                 Sorry, your browser does not support embedded videos.
               </video>
-              <h4>Release</h4>
-              <p>Lorem ipsum dolor sit amet</p>
+              <h4 class="text-md mb-3 font-bold">Release Title</h4>
+              <p class="text-sm text-black/70">Lorem ipsum dolor sit amet</p>
             </div>
           </div>
+          {}
         </div>
       </div>
-      <!-- <div class="mega-menu-section">
-                  <h3 class="mega-menu-title">APPS</h3>
-                  <div class="apps-grid">
-                    <div class="app-item">
-                      <div class="app-icon mac"></div>
-                      <div>
-                        <h4>Air360 for Mac</h4>
-                        <p>Native performance</p>
-                      </div>
-                    </div>
-                    <div class="app-item">
-                      <div class="app-icon chrome"></div>
-                      <div>
-                        <h4>Air360 for Chrome</h4>
-                        <p>The camera for your browser</p>
-                      </div>
-                    </div>
-                    <div class="app-item">
-                      <div class="app-icon windows"></div>
-                      <div>
-                        <h4>Air360 for Windows</h4>
-                        <p>Coming soon...</p>
-                      </div>
-                    </div>
-                  </div>
-                </div> -->
     </div>
   </div>
 </li>
@@ -538,7 +545,7 @@
     /* Z-index and dimensions */
     z-index: 1001;
     /* width: min(1152px, calc(100vw - 48px)); Responsive width with max constraint */
-    max-width: 1152px;
+    /* max-width: 1152px; */
     margin-top: 8px; /* Small gap below navbar */
   }
 
