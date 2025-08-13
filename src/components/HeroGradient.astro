@@ -9,40 +9,28 @@ const videoUrl =
 
 <section class="bg-gradient-primary min-h-screen w-full overflow-hidden py-16">
   <!-- Main content container -->
-  <div class="container-custom relative z-10 py-20 lg:py-32">
+  <div class="container-custom relative z-10 flex flex-col items-center gap-6 py-20 lg:py-32">
     <!-- Hero text and CTA section -->
-    <div class="mb-16 text-center lg:mb-24">
-      <div class="mb-8">
-        <h1 class="font-clash-display-bold text-8xl text-white">
+    <div class="title-container">
+      <div>
+        <h1 class="font-clash-display-bold text-8xl">
           <span class="gradient-text block">CRO that clicks,</span>
           <span class="gradient-text block">literally</span>
         </h1>
       </div>
 
-      <p class="animate-slide-up mb-12 text-2xl font-medium text-white">
+      <h2 class="subtitle !font-inter !font-medium">
         Air360 is the conversion whisperer that decodes your users for you
-      </p>
+      </h2>
 
       <a
         href="/"
-        class="animate-slide-up inline-flex items-center justify-center rounded-xl bg-[#222223] px-8 py-4 text-lg transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2"
+        class="cta animate-slide-up inline-flex items-center justify-center rounded-xl bg-[#222223] px-8 py-4 text-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2"
       >
-        <span class="text-lg font-semibold text-white">Get started with Air360</span>
+        <span class="text-lg font-semibold text-white">Get started</span>
       </a>
+      <p class="text-xs font-bold text-white/50">7-day Free trial — no credit card required</p>
     </div>
-
-    <!-- Video section with tabs -->
-    <!-- <div class="relative mb-16">
-      <div class="relative mx-auto max-w-5xl">
-        <video class="h-auto w-full rounded-2xl shadow-2xl" autoplay loop playsinline muted>
-          <source
-            src="https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4"
-            type="video/mp4"
-          />
-          Sorry, your browser does not support embedded videos.
-        </video>
-      </div>
-    </div> -->
 
     <div class="mx-auto mb-16 max-w-5xl">
       <DynamicFeatures cardType="tabs" layout="image-bottom" className="bg-transparent" />
@@ -77,6 +65,7 @@ const videoUrl =
     </div>
 
     <!-- Footer section with customer logos -->
+    <p class="text-xs font-bold text-white/50">7-day Free trial — no credit card required</p>
     <Marquee />
   </div>
 </section>
@@ -87,7 +76,53 @@ const videoUrl =
 </div>
 
 <style is:global>
-  h2 {
+  h1 {
+    font-weight: 400 !important;
+    font-size: 84px !important;
+    line-height: 92px !important;
+    color: rgb(17, 17, 17) !important;
+    text-align: center;
+  }
+  .subtitle {
     font-family: var(--font-inter) !important;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 42px;
+    color: white;
+    margin-bottom: 24px;
+  }
+
+  .title-container {
+    align-items: center;
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 24px;
+    height: min-content;
+    justify-content: center;
+    /* max-width: 800px; */
+    padding: 0;
+    position: relative;
+    width: 100%;
+  }
+
+  .cta {
+    width: 320px;
+    box-shadow:
+      rgba(0, 0, 0, 0.08) 0px 0px 1px 1px,
+      rgba(0, 0, 0, 0.16) 0px 2px 4px 0px,
+      rgba(0, 0, 0, 0) 0px 4px 8px 0px,
+      rgba(0, 0, 0, 0) 0px 16px 16px 0px,
+      rgba(255, 255, 255, 0.25) 0px 1px 1px 0px inset;
+  }
+
+  .cta:hover {
+    box-shadow:
+      rgba(0, 0, 0, 0.08) 0px 0px 1px 1px,
+      rgba(0, 0, 0, 0.16) 0px 2px 4px 0px,
+      rgba(0, 0, 0, 0) 0px 4px 8px 0px,
+      rgba(0, 0, 0, 0.12) 0px 16px 16px 0px,
+      rgba(255, 255, 255, 0.25) 0px 1px 1px 0px inset;
   }
 </style>

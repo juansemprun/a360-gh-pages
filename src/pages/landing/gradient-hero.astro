@@ -1,17 +1,27 @@
 ---
-import BaseLayout from '@layouts/BaseLayout.astro';
 import DynamicFeatures from '@components/DynamicFeatures.astro';
 import TwoColumnText from '@components/TwoColumnText.astro';
 import HeroGradient from '@components/HeroGradient.astro';
+import BaseLayoutGradient from '@layouts/BaseLayoutGradient.astro';
 ---
 
-<BaseLayout title="Air360 | Simplify UX analysis, boost conversion">
+<BaseLayoutGradient title="Air360 | Simplify UX analysis, boost conversion">
   <HeroGradient />
   <!-- Dynamic Features Section -->
-  <DynamicFeatures title="Image on the bottom" layout="image-bottom" className="py-48" />
+  <DynamicFeatures
+    title="Image on the bottom"
+    description="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    layout="image-bottom"
+    className="py-48"
+  />
   <TwoColumnText />
-  <DynamicFeatures title="Image on the top" layout="image-top" className="py-48" />
-</BaseLayout>
+  <DynamicFeatures
+    title="Image on the top"
+    description="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    layout="image-top"
+    className="py-48"
+  />
+</BaseLayoutGradient>
 
 <style is:global>
   h1,

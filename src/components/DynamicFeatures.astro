@@ -23,21 +23,21 @@ const {
   features = [
     {
       icon: '/svg-8.svg',
-      title: 'Feature One',
+      title: 'Demo',
       description: 'lorepsum dolor sit amet, consectetur adipiscing elit.',
       content:
         'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
     },
     {
       icon: '/svg-8.svg',
-      title: 'Feature Two',
+      title: 'Turorials',
       description: 'lorepsum dolor sit amet, consectetur adipiscing elit.',
       content:
         'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
     },
     {
       icon: '/svg-4.svg',
-      title: 'Feature Three',
+      title: 'Courses',
       description: 'lorepsum dolor sit amet, consectetur adipiscing elit.',
       content:
         'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
@@ -61,8 +61,8 @@ const textId = `${componentId}-text`;
   <div class="container-custom">
     <!-- Header Section -->
     <div class="mb-16 text-center lg:mb-20">
-      {title ? <h2 class="mb-6 text-5xl font-normal text-slate-900">{title}</h2> : ''}
-      {description ? <p class="text-3xl font-medium text-slate-600">{description}</p> : ''}
+      {title ? <h2 class="mb-6 text-6xl font-bold text-black">{title}</h2> : ''}
+      {description ? <p class="text-2xl font-medium text-slate-600">{description}</p> : ''}
     </div>
   </div>
 
@@ -130,10 +130,14 @@ const textId = `${componentId}-text`;
       {
         cardType === 'tabs' ? (
           <div class="flex justify-center">
-            <div role="tablist" aria-label="Feature categories">
+            <div
+              role="tablist"
+              aria-label="Feature categories"
+              class="flex w-[360px] justify-between"
+            >
               {features.map((feature, index) => (
                 <button
-                  class={`cursor-pointer rounded-full px-6 py-2 text-base font-normal text-black/50 transition-all duration-200 hover:text-black`}
+                  class={`tab cursor-pointer rounded-full px-4 py-1 text-sm font-semibold text-white/50 transition-all duration-200 hover:text-white`}
                   role="tab"
                   aria-selected={index === 0 ? 'true' : 'false'}
                   data-feature-index={index}
@@ -183,7 +187,7 @@ const textId = `${componentId}-text`;
   @reference "../styles/global.css";
   /* Tab specific styles - these require attribute selectors that can't be done with utility classes */
   [role='tab'][aria-selected='true'] {
-    @apply bg-white text-black;
+    @apply bg-white/20 text-white;
   }
 
   /* [role='tab'][aria-selected='false'] {
@@ -200,6 +204,15 @@ const textId = `${componentId}-text`;
   }
 
   /* Smooth transitions */
+  .tab {
+    -webkit-font-smoothing: inherit;
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    border-color: #e5e7eb;
+    /* background-color: rgba(255, 255, 255, 0.15) !important; */
+    opacity: 1;
+  }
 </style>
 
 <script>

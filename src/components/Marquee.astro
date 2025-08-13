@@ -1,18 +1,32 @@
+---
+import Product from '@assets/brand-logos/product.svg';
+import Dubreuil from '@assets/brand-logos/dubreuil.svg';
+import Empruntis from '@assets/brand-logos/empruntis.svg';
+import OlympiqueLyonnais from '@assets/brand-logos/olympique-lyonnais.svg';
+import Stellantis from '@assets/brand-logos/stellantis.svg';
+import ClubMed from '@assets/brand-logos/club-med.svg';
+import MaVilleMonShopping from '@assets/brand-logos/ma-ville-mon-shopping.svg';
+import Playbac from '@assets/brand-logos/playbac.svg';
+import PSABank from '@assets/brand-logos/psa-bank.svg';
+import VeryChic from '@assets/brand-logos/verychic.svg';
+import AirCaraibes from '@assets/brand-logos/air-caraibes.svg';
+---
+
 <div class="container">
-  <img class="h-9 object-contain grayscale md:h-14" src="/brand-logos/empruntis.svg" />
-  <img class="h-9 object-contain grayscale md:h-14" src="/brand-logos/product.svg" />
-  <img class="h-9 object-contain grayscale md:h-14" src="/brand-logos/dubreuil.svg" />
-  <img class="h-9 object-contain grayscale md:h-14" src="/brand-logos/stellantis.svg" />
-  <img class="h-9 object-contain grayscale md:h-14" src="/brand-logos/olympique-lyonnais.svg" />
-  <img class="h-9 object-contain grayscale md:h-14" src="/brand-logos/club-med.svg" />
-  <img class="h-9 object-contain grayscale md:h-14" src="/brand-logos/ma-ville-mon-shopping.svg" />
-  <img class="h-9 object-contain grayscale md:h-14" src="/brand-logos/playbac.svg" />
-  <img class="h-9 object-contain grayscale md:h-14" src="/brand-logos/psa-bank.svg" />
-  <img class="h-9 object-contain grayscale md:h-14" src="/brand-logos/verychic.svg" />
-  <img class="h-9 object-contain grayscale md:h-14" src="/brand-logos/air-caraibes.svg" />
+  <Product class="fill-black" />
+  <Dubreuil class="fill-black" />
+  <Empruntis class="fill-black" />
+  <OlympiqueLyonnais class="fill-black" />
+  <Stellantis class="fill-black" />
+  <ClubMed class="fill-black" />
+  <MaVilleMonShopping class="fill-black" />
+  <Playbac class="fill-black" />
+  <PSABank class="fill-black" />
+  <VeryChic class="fill-black" />
+  <AirCaraibes class="fill-black" />
 </div>
 
-<style>
+<!-- <style>
   .container {
     --s: 150px; /* size of the logo */
     --d: 50s; /* animation duration*/
@@ -51,5 +65,40 @@
   }
   :nth-child(1 of .container) img {
     animation-direction: reverse;
+  }
+</style> -->
+
+<style>
+  .container {
+    --s: 150px;
+    --margin: 50px;
+    --d: 50s;
+    --n: 4;
+    display: flex;
+    align-items: center;
+    /* width: calc(var(--n) * (var(--s) + var(--margin))); */
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .container > * {
+    width: var(--s);
+    height: 50px;
+    flex-shrink: 0;
+    display: block;
+    margin: 0;
+    offset: shape(
+      from calc(var(--s) / -2) 50%,
+      hline by calc(sibling-count() * (var(--s) + var(--margin)))
+    );
+    animation: moveX var(--d) linear infinite
+      calc(-1 * sibling-index() * var(--d) / sibling-count());
+  }
+
+  @keyframes moveX {
+    to {
+      offset-distance: 100%;
+    }
   }
 </style>
