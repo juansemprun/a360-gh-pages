@@ -1,60 +1,37 @@
----
-import Product from '@assets/brand-logos/product.svg';
-import Dubreuil from '@assets/brand-logos/dubreuil.svg';
-import Empruntis from '@assets/brand-logos/empruntis.svg';
-import OlympiqueLyonnais from '@assets/brand-logos/olympique-lyonnais.svg';
-import Stellantis from '@assets/brand-logos/stellantis.svg';
-import ClubMed from '@assets/brand-logos/club-med.svg';
-import MaVilleMonShopping from '@assets/brand-logos/ma-ville-mon-shopping.svg';
-import Playbac from '@assets/brand-logos/playbac.svg';
-import PSABank from '@assets/brand-logos/psa-bank.svg';
-import VeryChic from '@assets/brand-logos/verychic.svg';
-import AirCaraibes from '@assets/brand-logos/air-caraibes.svg';
----
-
 <div class="container">
-  <Product class="fill-black" />
-  <Dubreuil class="fill-black" />
-  <Empruntis class="fill-black" />
-  <OlympiqueLyonnais class="fill-black" />
-  <Stellantis class="fill-black" />
-  <ClubMed class="fill-black" />
-  <MaVilleMonShopping class="fill-black" />
-  <Playbac class="fill-black" />
-  <PSABank class="fill-black" />
-  <VeryChic class="fill-black" />
-  <AirCaraibes class="fill-black" />
+  <div class="scrolling-logos">
+    <img class="logo" src="/brand-logos/empruntis.svg" alt="Empruntis" />
+    <img class="logo" src="/brand-logos/product.svg" alt="Product" />
+    <img class="logo" src="/brand-logos/dubreuil.svg" alt="Dubreuil" />
+    <img class="logo" src="/brand-logos/stellantis.svg" alt="Stellantis" />
+    <img class="logo" src="/brand-logos/olympique-lyonnais.svg" alt="Olympique Lyonnais" />
+    <img class="logo" src="/brand-logos/club-med.svg" alt="Club Med" />
+    <img class="logo" src="/brand-logos/ma-ville-mon-shopping.svg" alt="Ma Ville Mon Shopping" />
+    <img class="logo" src="/brand-logos/playbac.svg" alt="Playbac" />
+    <img class="logo" src="/brand-logos/psa-bank.svg" alt="PSA Bank" />
+    <img class="logo" src="/brand-logos/verychic.svg" alt="VeryChic" />
+    <img class="logo" src="/brand-logos/air-caraibes.svg" alt="Air Caraibes" />
+    <!-- Repeat logos to create seamless loop -->
+    <img class="logo" src="/brand-logos/empruntis.svg" alt="Empruntis" />
+    <img class="logo" src="/brand-logos/product.svg" alt="Product" />
+    <img class="logo" src="/brand-logos/dubreuil.svg" alt="Dubreuil" />
+    <img class="logo" src="/brand-logos/stellantis.svg" alt="Stellantis" />
+    <img class="logo" src="/brand-logos/olympique-lyonnais.svg" alt="Olympique Lyonnais" />
+    <img class="logo" src="/brand-logos/club-med.svg" alt="Club Med" />
+    <img class="logo" src="/brand-logos/ma-ville-mon-shopping.svg" alt="Ma Ville Mon Shopping" />
+    <img class="logo" src="/brand-logos/playbac.svg" alt="Playbac" />
+    <img class="logo" src="/brand-logos/psa-bank.svg" alt="PSA Bank" />
+    <img class="logo" src="/brand-logos/verychic.svg" alt="VeryChic" />
+    <img class="logo" src="/brand-logos/air-caraibes.svg" alt="Air Caraibes" />
+  </div>
 </div>
 
-<!-- <style>
+<style>
   .container {
-    --s: 150px; /* size of the logo */
-    --d: 50s; /* animation duration*/
-    --n: 5; /* number of visible logos */
-
-    display: flex;
     overflow: hidden;
-  }
-
-  img {
-    width: var(--s);
-    offset: shape(
-      from calc(var(--s) / -2) 50%,
-      hline by calc(sibling-count() * max(100% / var(--n), var(--s) + 10px))
-    );
-    animation: x var(--d) linear infinite calc(-1 * sibling-index() * var(--d) / sibling-count());
-  }
-  @keyframes x {
-    to {
-      offset-distance: 100%;
-    }
-  }
-
-  /* extra styles */
-  .container {
-    padding-block: 5px;
+    max-width: 100%;
+    padding: 10px 0;
     margin: 15px auto;
-    /* max-width: 450px; */
     mask-image: linear-gradient(
       to right,
       rgba(0, 0, 0, 0) 0%,
@@ -63,42 +40,33 @@ import AirCaraibes from '@assets/brand-logos/air-caraibes.svg';
       rgba(0, 0, 0, 0) 100%
     );
   }
-  :nth-child(1 of .container) img {
-    animation-direction: reverse;
-  }
-</style> -->
 
-<style>
-  .container {
-    --s: 150px;
-    --margin: 50px;
-    --d: 50s;
-    --n: 4;
+  .scrolling-logos {
     display: flex;
-    align-items: center;
-    /* width: calc(var(--n) * (var(--s) + var(--margin))); */
-    width: 100%;
-    height: auto;
-    overflow: hidden;
+    width: max-content; /* width based on content */
+    animation: scroll-left 50s linear infinite;
   }
 
-  .container > * {
-    width: var(--s);
-    height: 50px;
-    flex-shrink: 0;
-    display: block;
-    margin: 0;
-    offset: shape(
-      from calc(var(--s) / -2) 50%,
-      hline by calc(sibling-count() * (var(--s) + var(--margin)))
-    );
-    animation: moveX var(--d) linear infinite
-      calc(-1 * sibling-index() * var(--d) / sibling-count());
+  .logo {
+    height: 35px; /* You can adjust the size */
+    margin-right: 70px;
+    filter: grayscale(100%);
+    object-fit: contain;
   }
 
-  @keyframes moveX {
+  @keyframes scroll-left {
+    from {
+      transform: translateX(0);
+    }
     to {
-      offset-distance: 100%;
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Adjust height for medium screens */
+  @media (min-width: 768px) {
+    .logo {
+      height: 35px;
     }
   }
 </style>
