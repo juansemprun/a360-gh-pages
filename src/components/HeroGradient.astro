@@ -1,13 +1,13 @@
 ---
 import Marquee from '@components/Marquee.astro';
-import DynamicFeatures from './DynamicFeatures.astro';
+import DynamicFeatures from '@components/DynamicFeatures.astro';
 
 // Hero Section Component - Main landing section with gradient background
 const videoUrl =
   'https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true';
 ---
 
-<section class="bg-gradient-primary min-h-screen w-full overflow-hidden py-16">
+<section class="bg-gradient-primary min-h-screen w-full overflow-hidden py-16" data-theme="light">
   <!-- Background textures and gradients -->
   <div class="absolute inset-0">
     <div class="absolute h-full w-full opacity-30">

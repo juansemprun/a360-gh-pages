@@ -9,9 +9,14 @@ import HeroGradient from '@components/HeroGradient.astro';
 <BaseLayout title="Air360 | Simplify UX analysis, boost conversion">
   <HeroGradient />
   <!-- Dynamic Features Section -->
-  <DynamicFeatures title="Image on the bottom" layout="image-bottom" className="py-48" />
+  <DynamicFeatures
+    title="Image on the bottom"
+    layout="image-bottom"
+    className="py-48"
+    dataTheme="dark"
+  />
   <TwoColumnText />
-  <DynamicFeatures title="Image on the top" layout="image-top" className="py-48" />
+  <DynamicFeatures title="Image on the top" layout="image-top" className="py-48" dataTheme="dark" />
 </BaseLayout>
 
 <style is:global>

@@ -859,3 +859,181 @@ import {
     }
   }
 </style>
+
+<script>
+  // TypeScript interfaces for better type safety
+  interface NavbarElements {
+    navbar: HTMLElement | null;
+    backdrop: HTMLElement | null;
+    logo: HTMLElement | null;
+    mobileMenuButton: HTMLElement | null;
+    mobileMenu: HTMLElement | null;
+    navbarLinks: NodeListOf<HTMLElement>;
+  }
+
+  interface NavbarTheme {
+    backdrop: string;
+    logo: string;
+    links: string;
+  }
+
+  interface NavbarThemes {
+    light: NavbarTheme;
+    dark: NavbarTheme;
+  }
+
+  type ThemeType = 'light' | 'dark';
+
+  // Dynamic Navbar Theme Adaptation System
+  class DynamicNavbar {
+    private elements: NavbarElements;
+    private currentTheme: ThemeType = 'light';
+    private observer: IntersectionObserver | null = null;
+
+    private readonly themes: NavbarThemes = {
+      light: {
+        backdrop: '', // Default, no specific class needed
+        logo: '',
+        links: '',
+      },
+      dark: {
+        backdrop: 'dark-theme', // Class to apply for dark theme
+        logo: '',
+        links: '',
+      },
+    };
+
+    constructor() {
+      this.elements = this.getElements();
+      this.init();
+    }
+
+    private getElements(): NavbarElements {
+      return {
+        navbar: document.getElementById('dynamic-navbar'),
+        backdrop: document.getElementById('dynamic-navbar'), // Same as navbar for this implementation
+        logo: document.getElementById('navbar-logo'),
+        mobileMenuButton: document.getElementById('mobile-menu-button'),
+        mobileMenu: document.getElementById('mobile-menu'),
+        navbarLinks: document.querySelectorAll('.navbar-link, .mobile-nav-link'),
+      };
+    }
+
+    private init(): void {
+      if (!this.elements.navbar) {
+        console.warn('Dynamic navbar element not found');
+        return;
+      }
+
+      this.setupIntersectionObserver();
+      this.setupMobileMenu();
+
+      // Initial theme setup
+      this.applyTheme('light');
+
+      // Fallback for non-JS scenarios
+      this.elements.navbar.style.display = 'block';
+    }
+
+    private setupIntersectionObserver(): void {
+      if (!this.elements.navbar) return;
+
+      const navbarHeight: number = 72; // Fixed height from CSS
+
+      this.observer = new IntersectionObserver(
+        (entries: IntersectionObserverEntry[]) => {
+          entries.forEach((entry: IntersectionObserverEntry) => {
+            if (entry.isIntersecting) {
+              const target = entry.target as HTMLElement;
+              const sectionTheme: ThemeType = (target.dataset.theme as ThemeType) || 'light';
+              this.updateTheme(sectionTheme);
+            }
+          });
+        },
+        {
+          rootMargin: `-${navbarHeight}px 0px -80% 0px`,
+          threshold: 0,
+        },
+      );
+
+      // Observe all sections with data-theme attribute
+      const sections = document.querySelectorAll('[data-theme]');
+      sections.forEach((section: Element) => this.observer!.observe(section));
+    }
+
+    private updateTheme(theme: ThemeType): void {
+      if (this.currentTheme !== theme) {
+        this.currentTheme = theme;
+        this.applyTheme(theme);
+      }
+    }
+
+    private applyTheme(theme: ThemeType): void {
+      if (!this.elements.navbar) return;
+
+      this.elements.navbar.dataset.theme = theme;
+
+      const themeConfig = this.themes[theme];
+
+      // Apply theme class to navbar
+      if (themeConfig.backdrop) {
+        this.elements.navbar.classList.add(themeConfig.backdrop);
+      } else {
+        this.elements.navbar.classList.remove('dark-theme');
+      }
+    }
+
+    private setupMobileMenu(): void {
+      if (!this.elements.mobileMenuButton || !this.elements.mobileMenu) return;
+
+      // Toggle mobile menu
+      this.elements.mobileMenuButton.addEventListener('click', () => {
+        const isExpanded: boolean =
+          this.elements.mobileMenuButton!.getAttribute('aria-expanded') === 'true';
+
+        this.elements.mobileMenuButton!.setAttribute('aria-expanded', String(!isExpanded));
+        this.elements.mobileMenuButton!.classList.toggle('active');
+        this.elements.mobileMenu!.classList.toggle('active');
+      });
+
+      // Close mobile menu when clicking links
+      const mobileLinks = this.elements.mobileMenu.querySelectorAll('.mobile-nav-link');
+      mobileLinks.forEach((link: Element) => {
+        link.addEventListener('click', () => {
+          this.elements.mobileMenu!.classList.remove('active');
+          this.elements.mobileMenuButton!.classList.remove('active');
+          this.elements.mobileMenuButton!.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      // Close mobile menu when clicking close button
+      const closeBtn = this.elements.mobileMenu.querySelector('.mobile-close-btn');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+          this.elements.mobileMenu!.classList.remove('active');
+          this.elements.mobileMenuButton!.classList.remove('active');
+          this.elements.mobileMenuButton!.setAttribute('aria-expanded', 'false');
+        });
+      }
+    }
+
+    // Public methods for external use
+    public setTheme(theme: ThemeType): void {
+      this.updateTheme(theme);
+    }
+
+    public getCurrentTheme(): ThemeType {
+      return this.currentTheme;
+    }
+  }
+
+  // Initialize the dynamic navbar
+  document.addEventListener('DOMContentLoaded', () => {
+    new DynamicNavbar();
+  });
+
+  // Re-initialize on Astro page loads (for SPA navigation)
+  document.addEventListener('astro:page-load', () => {
+    new DynamicNavbar();
+  });
+</script>

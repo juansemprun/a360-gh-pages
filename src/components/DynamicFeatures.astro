@@ -15,6 +15,7 @@ export interface Props {
   layout?: 'image-top' | 'image-bottom' | 'image-left' | 'image-right';
   contentType?: 'image' | 'text' | 'video'; // Type of content to display (image, text, or video)
   className?: string;
+  dataTheme?: 'dark' | 'light';
 }
 
 const {
@@ -47,6 +48,7 @@ const {
   layout = 'image-top',
   contentType = 'video',
   className = '',
+  dataTheme = '',
 } = Astro.props;
 
 // maybe I need to add de src for the videos/images in the interface?
@@ -57,7 +59,7 @@ const imageId = `${componentId}-image`;
 const textId = `${componentId}-text`;
 ---
 
-<section class={`w-full max-w-5xl mx-auto ${className}`}>
+<section class={`w-full max-w-5xl mx-auto ${className}`} data-theme={dataTheme}>
   <div class="container-custom">
     <!-- Header Section -->
     <div class="mb-16 text-center lg:mb-20">
