@@ -1,28 +1,43 @@
+---
+import {
+  AirCaraibes,
+  ClubMed,
+  Dubreuil,
+  Empruntis,
+  MaVilleMonShopping,
+  OlympiqueLyonnais,
+  Playbac,
+  Product,
+  PsaBank,
+  Stellantis,
+  VeryChic,
+} from '@assets/brand-logos';
+---
+
 <div class="container">
   <div class="scrolling-logos">
-    <img class="logo" src="/brand-logos/empruntis.svg" alt="Empruntis" />
-    <img class="logo" src="/brand-logos/product.svg" alt="Product" />
-    <img class="logo" src="/brand-logos/dubreuil.svg" alt="Dubreuil" />
-    <img class="logo" src="/brand-logos/stellantis.svg" alt="Stellantis" />
-    <img class="logo" src="/brand-logos/olympique-lyonnais.svg" alt="Olympique Lyonnais" />
-    <img class="logo" src="/brand-logos/club-med.svg" alt="Club Med" />
-    <img class="logo" src="/brand-logos/ma-ville-mon-shopping.svg" alt="Ma Ville Mon Shopping" />
-    <img class="logo" src="/brand-logos/playbac.svg" alt="Playbac" />
-    <img class="logo" src="/brand-logos/psa-bank.svg" alt="PSA Bank" />
-    <img class="logo" src="/brand-logos/verychic.svg" alt="VeryChic" />
-    <img class="logo" src="/brand-logos/air-caraibes.svg" alt="Air Caraibes" />
-    <!-- Repeat logos to create seamless loop -->
-    <img class="logo" src="/brand-logos/empruntis.svg" alt="Empruntis" />
-    <img class="logo" src="/brand-logos/product.svg" alt="Product" />
-    <img class="logo" src="/brand-logos/dubreuil.svg" alt="Dubreuil" />
-    <img class="logo" src="/brand-logos/stellantis.svg" alt="Stellantis" />
-    <img class="logo" src="/brand-logos/olympique-lyonnais.svg" alt="Olympique Lyonnais" />
-    <img class="logo" src="/brand-logos/club-med.svg" alt="Club Med" />
-    <img class="logo" src="/brand-logos/ma-ville-mon-shopping.svg" alt="Ma Ville Mon Shopping" />
-    <img class="logo" src="/brand-logos/playbac.svg" alt="Playbac" />
-    <img class="logo" src="/brand-logos/psa-bank.svg" alt="PSA Bank" />
-    <img class="logo" src="/brand-logos/verychic.svg" alt="VeryChic" />
-    <img class="logo" src="/brand-logos/air-caraibes.svg" alt="Air Caraibes" />
+    <AirCaraibes class="logo" />
+    <ClubMed class="logo" />
+    <Dubreuil class="logo" />
+    <Empruntis class="logo" />
+    <MaVilleMonShopping class="logo" />
+    <OlympiqueLyonnais class="logo" />
+    <Playbac class="logo" />
+    <Product class="logo" />
+    <PsaBank class="logo scale-200" />
+    <Stellantis class="logo" />
+    <VeryChic class="logo" />
+    <AirCaraibes class="logo" />
+    <ClubMed class="logo" />
+    <Dubreuil class="logo" />
+    <Empruntis class="logo" />
+    <MaVilleMonShopping class="logo" />
+    <OlympiqueLyonnais class="logo" />
+    <Playbac class="logo" />
+    <Product class="logo" />
+    <PsaBank class="logo" />
+    <Stellantis class="logo" />
+    <VeryChic class="logo" />
   </div>
 </div>
 
@@ -44,11 +59,11 @@
   .scrolling-logos {
     display: flex;
     width: max-content; /* width based on content */
-    animation: scroll-left 50s linear infinite;
+    animation: scroll-left 45s linear infinite;
   }
 
   .logo {
-    height: 35px; /* You can adjust the size */
+    /*height: 35px; /* You can adjust the size */
     margin-right: 70px;
     filter: grayscale(100%);
     object-fit: contain;
