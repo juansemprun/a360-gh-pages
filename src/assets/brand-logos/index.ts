@@ -1,0 +1,11 @@
+export { default as AirCaraibes } from '@assets/brand-logos/air-caraibes.svg';
+export { default as ClubMed } from '@assets/brand-logos/club-med.svg';
+export { default as Dubreuil } from '@assets/brand-logos/dubreuil.svg';
+export { default as Empruntis } from '@assets/brand-logos/empruntis.svg';
+export { default as MaVilleMonShopping } from '@assets/brand-logos/ma-ville-mon-shopping.svg';
+export { default as OlympiqueLyonnais } from '@assets/brand-logos/olympique-lyonnais.svg';
+export { default as Playbac } from '@assets/brand-logos/playbac.svg';
+export { default as Product } from '@assets/brand-logos/product.svg';
+export { default as PsaBank } from '@assets/brand-logos/psa-bank.svg';
+export { default as Stellantis } from '@assets/brand-logos/stellantis.svg';
+export { default as VeryChic } from '@assets/brand-logos/verychic.svg';
