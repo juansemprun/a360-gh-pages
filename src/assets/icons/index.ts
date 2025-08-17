@@ -13,3 +13,4 @@ export { default as FileShield } from '@assets/icons/file-shield.svg';
 export { default as HandHoldingHeart } from '@assets/icons/hand-holding-heart.svg';
 export { default as MicrochipAi } from '@assets/icons/microchip-ai.svg';
 export { default as ShieldCheck } from '@assets/icons/shield-check.svg';
+export { default as ChevronDown } from '@assets/icons/chevron-down.svg';
