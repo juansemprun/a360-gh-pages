@@ -4,13 +4,15 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 
 <BaseLayout title="Air360 | Customer Stories">
   <section class="mx-auto max-w-5xl" data-theme="dark">
-    <header class="header">
+    <header class="mb-20 mt-40">
+      <h2 class="header-intro">We asked our customers:</h2>
+      <h1 class="font-clash-display-bold mb-5 text-4xl lg:text-6xl">
+        How has <mark class="bg-primary-500 p-1 text-white">Air360</mark> made things easier for you?
+      </h1>
       <p class="header-intro">
         When you build analytics that actually help people understand their users instead of
         drowning them in charts, magical things happen.
       </p>
-      <p class="header-intro">We asked our customers:</p>
-      <h1>What changed for the better since you switched to Air360?</h1>
     </header>
 
     <div class="testimonials-grid">
@@ -223,14 +225,16 @@ import BaseLayout from '@layouts/BaseLayout.astro';
     /* margin: 0 auto; */
   }
 
-  .header {
+  /* #f771bf */
+
+  /* .header {
     text-align: center;
     margin-bottom: 80px;
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 150px;
-  }
+  } */
 
   .header-intro {
     font-size: 22px;
@@ -241,12 +245,12 @@ import BaseLayout from '@layouts/BaseLayout.astro';
   }
 
   .header h1 {
-    font-size: 48px;
+    /* font-size: 48px;
     font-weight: 700;
     color: #1a1a1a;
     margin: 40px 0;
     line-height: 1.1;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.02em; */
   }
 
   .testimonials-grid {
@@ -266,15 +270,14 @@ import BaseLayout from '@layouts/BaseLayout.astro';
   .testimonial-quote {
     font-size: 20px;
     line-height: 1.45;
-    color: #1a1a1a;
+    color: #475569;
     margin-bottom: 20px;
     font-weight: 400;
   }
 
   .highlight {
-    background-color: #f176bd;
+    background-color: #f771bf;
     color: white;
-    padding: 0.1em 0.2em;
   }
 
   .testimonial-author {
