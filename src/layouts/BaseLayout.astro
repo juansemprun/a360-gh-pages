@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from 'astro:transitions';
 import '@styles/global.css';
 
 import Header from '@components/Header.astro';
@@ -31,6 +32,8 @@ const { title = 'Air360', description = 'Description' } = Astro.props;
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+
+    <ClientRouter />
   </head>
   <body>
     <!-- <HeaderGradient /> -->
