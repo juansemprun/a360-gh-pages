@@ -96,6 +96,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Jersey10';
+  src: url('/fonts/Jersey10-Regular.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
 /* @theme {
   --font-primary: 'Inter';
   --color-theme-tickle-me-pink: oklch(75.65% 0.143 355.9);
@@ -149,6 +157,7 @@ html {
   --font-be-vietnam-pro: 'be-vietnam-pro', sans-serif;
   --font-spline-sans: 'SplineSans-Variable', sans-serif;
   --font-red-hat-display: 'RedHatDisplay-Variable', sans-serif;
+  --font-jersey-10: 'Jersey10', sans-serif;
 }
 
 @layer base {
