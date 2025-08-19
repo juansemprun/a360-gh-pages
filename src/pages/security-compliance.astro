@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import BaseLayout from '@layouts/BaseLayout.astro';
+const pageTitle = 'Security & Compliance';
 
 import {
   BinaryLock,
@@ -21,7 +22,7 @@ import gdprComplianceImg from '@assets/images/gdpr-compliance.webp';
 import dataBaseImg from '@assets/images/database.webp';
 ---
 
-<BaseLayout title="Air360 | Security & Compliance">
+<BaseLayout title={pageTitle}>
   <section class="pt-24 text-center md:pt-32" data-theme="dark">
     <h1 class="font-clash-display-bold mb-8 text-4xl leading-tight text-slate-800 md:text-6xl">
       Committed to<br />
