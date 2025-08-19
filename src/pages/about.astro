@@ -1,0 +1,66 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+const pageTitle = 'Company Profile';
+---
+
+<BaseLayout title={pageTitle}>
+  <div class="container-custom">
+    <section class="my-24 px-5 md:my-36" data-theme="dark">
+      <!-- Company profile -->
+      <h1
+        class="font-clash-display-bold mb-8 text-center text-4xl leading-tight text-slate-800 md:text-6xl"
+      >
+        Company Profile
+      </h1>
+      <dl class="mb-10 divide-y divide-slate-200">
+        <div class="flex flex-col py-4 md:flex-row">
+          <dt class="font-semibold text-slate-800 md:w-1/3">Company name</dt>
+          <dd class="text-slate-500 md:w-2/3 md:pl-4">AIR360, Inc</dd>
+        </div>
+        <div class="flex flex-col py-4 md:flex-row">
+          <dt class="font-semibold text-slate-800 md:w-1/3">Date of incorporation</dt>
+          <dd class="text-slate-500 md:w-2/3 md:pl-4">December 25, 2023</dd>
+        </div>
+        <div class="flex flex-col py-4 md:flex-row">
+          <dt class="font-semibold text-slate-800 md:w-1/3">Capital</dt>
+          <dd class="text-slate-500 md:w-2/3 md:pl-4">2,000,000 JPY</dd>
+        </div>
+        <div class="flex flex-col py-4 md:flex-row">
+          <dt class="font-semibold text-slate-800 md:w-1/3">Head office</dt>
+          <dd class="text-slate-500 md:w-2/3 md:pl-4">
+            Level 9 Marunouchi Kitaguchi Building, 1-6-5, Marunouchi, Chiyoda-ku, Tokyo
+          </dd>
+        </div>
+        <div class="flex flex-col py-4 md:flex-row">
+          <dt class="font-semibold text-slate-800 md:w-1/3">Company No.</dt>
+          <dd class="text-slate-500 md:w-2/3 md:pl-4">0100-01-241171</dd>
+        </div>
+        <div class="flex flex-col py-4 md:flex-row">
+          <dt class="font-semibold text-slate-800 md:w-1/3">Member</dt>
+          <dd class="text-slate-500 md:w-2/3 md:pl-4">Director: Florent Defontis</dd>
+        </div>
+      </dl>
+
+      <!-- History -->
+      <h2 class="mb-6 text-2xl font-bold text-slate-800 md:text-3xl">History</h2>
+      <dl class="divide-y divide-slate-200">
+        <div class="flex flex-col py-4 md:flex-row">
+          <dt class="font-semibold text-slate-800 md:w-1/3">2017</dt>
+          <dd class="text-slate-500 md:w-2/3 md:pl-4">Creation of Air360.</dd>
+        </div>
+        <div class="flex flex-col py-4 md:flex-row">
+          <dt class="font-semibold text-slate-800 md:w-1/3">2021</dt>
+          <dd class="text-slate-500 md:w-2/3 md:pl-4">
+            Acquisition of Air360 by eCommerce US company, Scalefast Inc.
+          </dd>
+        </div>
+        <div class="flex flex-col py-4 md:flex-row">
+          <dt class="font-semibold text-slate-800 md:w-1/3">2024</dt>
+          <dd class="text-slate-500 md:w-2/3 md:pl-4">
+            Air360 spins off as separate company with new head office.
+          </dd>
+        </div>
+      </dl>
+    </section>
+  </div>
+</BaseLayout>
