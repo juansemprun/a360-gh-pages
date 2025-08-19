@@ -1,0 +1,62 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { Building } from '@assets/icons';
+---
+
+<BaseLayout title="Air360 | Security & Compliance">
+  <section class="py-30 mx-auto max-w-5xl px-5" data-theme="dark">
+    <h1 class="font-clash-display-bold mx-auto max-w-xl text-center text-4xl lg:text-6xl">
+      Committed to Privacy & Security
+    </h1>
+    <p class="mt-10 text-center text-lg text-slate-500">
+      We are fully committed to providing features that help you be compliant with privacy
+      regulations by taking a privacy by design approach. As well as partnering with the best in
+      class security providers to keep all your data safe.
+    </p>
+  </section>
+  <section class="py-30 mx-auto max-w-5xl px-5" data-theme="dark">
+    <h2 class="font-clash-display-bold mb-10 text-center text-3xl lg:text-5xl">
+      Enabled compliance
+    </h2>
+    <div class="flex flex-col items-center lg:flex-row">
+      <div class="flex-1">
+        <div class="py-8">
+          <div class="bg-primary-100 mb-2 flex h-14 w-14 items-center justify-center rounded-lg">
+            <Building class="text-primary-600 inline-block h-14 w-14 fill-current p-1" />
+          </div>
+          <h3 class="text-black-500 mb-5 text-2xl font-bold">Lawful basis and transparency</h3>
+          <p class="text-slate-500">
+            As part of our compliance to data protection regulation, we enter into Data Processing
+            Agreements (DPAs) with all our customers. This DPA, a binding agreement signed between
+            the controller and the processor when the latter processes data from the controller,
+            details the standard contractual terms required under the GDPR. We are also transparent
+            as regard internal organizations and processes and as regard the sub-processors, we are
+            working with.
+          </p>
+        </div>
+        <div class="py-8">
+          <div class="bg-primary-100 mb-2 flex h-14 w-14 items-center justify-center rounded-lg">
+            <Building class="text-primary-600 inline-block h-14 w-14 fill-current p-1" />
+          </div>
+          <h3 class="text-black-500 mb-5 text-2xl font-bold">Lawful basis and transparency</h3>
+          <p class="text-slate-500">
+            As part of our compliance to data protection regulation, we enter into Data Processing
+            Agreements (DPAs) with all our customers. This DPA, a binding agreement signed between
+            the controller and the processor when the latter processes data from the controller,
+            details the standard contractual terms required under the GDPR. We are also transparent
+            as regard internal organizations and processes and as regard the sub-processors, we are
+            working with.
+          </p>
+        </div>
+      </div>
+      <div class="flex-1">
+        <Image
+          alt="GDPR Compliance"
+          inferSize
+          src="https://www.air360.io/images/security/nextImageExportOptimizer/gdpr-compliance-opt-640.WEBP"
+        />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
