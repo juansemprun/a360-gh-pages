@@ -1,0 +1,98 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+const pageTitle = 'Where is your data';
+
+import UnderlineTextDecoration from '@assets/graphics/underline-text-decoration.svg';
+---
+
+<BaseLayout title={pageTitle}>
+  <div class="container-custom">
+    <section class="mx-auto my-24 max-w-4xl px-5 md:my-36" data-theme="dark">
+      <div class="mb-8 flex flex-col items-center">
+        <h1
+          class="font-clash-display-bold text-center text-4xl leading-tight text-slate-800 md:text-6xl"
+        >
+          Where is your data
+        </h1>
+        <UnderlineTextDecoration class="mb-8" />
+      </div>
+      <div class="text-lg leading-8 text-slate-700 md:text-lg">
+        <p class="mb-8">
+          Since services like AWS appeared, cloud computing is everywhere and seems like the only
+          option to run code.
+        </p>
+        <p class="mb-8">
+          Cloud providers make it incredibly easy to scale resources without a second thought.
+          However, the “cloud” isn't that magic place we've been sold, where everything is more
+          efficient, cheaper, better or cleaner. Actually, quite the opposite.
+        </p>
+        <p class="mb-8">
+          <strong>It's convenient, yes. It also comes at a cost.</strong>
+        </p>
+        <p class="mb-8">
+          First, this convenience makes us, tech companies, complacent about code & resource
+          optimization. After all, software engineer's time is expensive, especially experienced
+          ones. So when more performance is needed, tech companies' common wisdom is “just throw
+          money at the problem”.
+        </p>
+        <p class="mb-8">
+          In our tech careers, we've seen our fair share of badly written code that took an absurd
+          amount of resources on cloud services.
+        </p>
+        <p class="mb-8">
+          Useless frameworks, libraries, tools, virtualization and unnecessary abstractions are
+          commonplace.
+        </p>
+        <p class="mb-8">
+          The result? Bloated and inefficient software hungry for power for… little output.
+        </p>
+        <p class="mb-8">
+          Truth is, efficiency is rarely at the core of decisions anymore (it used to be, not so
+          long ago). It is now just an afterthought, at best.
+        </p>
+        <p class="mb-8">
+          Bitcoin transactions are great examples of this: they have an absurdly high energy cost.
+          The “let's put it in the blockchain” attitude for about everything is a terrible idea from
+          an energy consumption standpoint (sorry cryptofans!).
+        </p>
+        <p class="mb-8">
+          We have news for you: The cloud is a power hungry monster that profits bigtech, not you.
+        </p>
+        <p class="mb-8">
+          <strong>
+            At Air360, we believe that code and architecture should be designed to be efficient from
+            the ground up. That's why we prioritize energy efficiency in everything we do. Our
+            servers are energy efficient, and we're always looking for ways to reduce our energy
+            consumption.
+          </strong>
+        </p>
+        <p class="mb-8">
+          We optimize our code to use as little energy as possible, a consideration that many
+          companies overlook at the design stage.
+        </p>
+        <div class="mt-10">
+          <h2 class="mb-4 text-2xl font-semibold text-slate-800">What does it mean for you?</h2>
+          <ul class="space-y-4 text-slate-700">
+            <li class="flex items-center gap-2">
+              <span class="text-xl">✔️</span>
+              <span
+                >A cost-effective solution with a fair pricing <span
+                  role="img"
+                  aria-label="money and chart">💰📉</span
+                ></span
+              >
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-xl">✔️</span>
+              <span
+                >Lower energy consumption footprint <span role="img" aria-label="leaf and lightning"
+                  >🌿⚡</span
+                ></span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
