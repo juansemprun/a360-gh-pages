@@ -1,0 +1,77 @@
+---
+import { Image } from 'astro:assets';
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+import Testimonial from '@ui/use-cases/Testimonial.astro';
+import FooterSection from '@ui/use-cases/FooterSection.astro';
+
+const pageTitle = 'E-commerce Companies';
+
+import dataBaseImg from '@assets/images/database.webp';
+---
+
+<BaseLayout title={pageTitle}>
+  <div class="container-custom" data-theme="dark">
+    <section class="mx-auto my-24 max-w-5xl px-5 md:my-36">
+      <!-- <section class="container-custom my-24 px-5 md:my-36"> -->
+      {/* Section 1: Heading + Image */}
+      <div class="flex flex-col gap-10 md:flex-row md:items-center md:justify-between">
+        <div class="flex flex-1 flex-col justify-center">
+          <h1 class="font-clash-display-bold mb-4 text-3xl text-slate-800 md:text-5xl">
+            Loved by<br /> E-commerce – <br />CRO made simple
+          </h1>
+          <p class="mb-6 text-lg text-slate-600">
+            Air360 helps E-commerce companies elevate their online presence by delivering enjoyable
+            and seamless shopping experiences on their website.
+          </p>
+          {/* Logos placeholder */}
+          <div class="mt-2 flex items-center gap-6">
+            <span
+              class="flex h-12 w-28 items-center justify-center rounded bg-slate-200 font-bold text-slate-700"
+              >PRODUCT Logo</span
+            >
+            <span
+              class="flex h-12 w-28 items-center justify-center rounded bg-slate-200 font-bold text-slate-700"
+              >Okaidi Logo</span
+            >
+          </div>
+        </div>
+        <div class="flex flex-1 justify-center md:justify-end">
+          {/* Image with updated src */}
+          <Image
+            src={dataBaseImg}
+            alt="E-commerce shopper"
+            class="h-56 w-72 rounded-xl object-cover"
+          />
+        </div>
+      </div>
+
+      <Testimonial />
+
+      {/* Section 3: How does Air360 help */}
+      <div class="my-16 grid grid-cols-1 items-center gap-10 md:grid-cols-2">
+        <div class="flex justify-center">
+          {/* Image with updated src */}
+          <Image
+            src={dataBaseImg}
+            alt="Air360 dashboard Black Friday"
+            class="w-full max-w-md rounded-xl object-cover"
+          />
+        </div>
+        <div>
+          <h2 class="font-clash-display-bold mb-4 text-2xl text-slate-800">
+            How does Air360 help e-commerce?
+          </h2>
+          <h3 class="mb-2 text-xl font-bold text-slate-800">Create experiences that convert</h3>
+          <p class="text-lg text-slate-600">
+            Make online shopping a breeze and watch visitors turn into loyal customers. Segment
+            shoppers and personalize their journey with Air360!
+          </p>
+        </div>
+      </div>
+
+      <FooterSection />
+    </section>
+  </div>
+</BaseLayout>
