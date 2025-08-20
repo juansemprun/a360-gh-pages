@@ -1,4 +1,5 @@
 export { default as AirCaraibes } from '@assets/brand-logos/air-caraibes.svg';
+export { default as AirCaraibesColor } from '@assets/brand-logos/air-caraibes-color.svg';
 export { default as ClubMed } from '@assets/brand-logos/club-med.svg';
 export { default as Dubreuil } from '@assets/brand-logos/dubreuil.svg';
 export { default as Empruntis } from '@assets/brand-logos/empruntis.svg';
