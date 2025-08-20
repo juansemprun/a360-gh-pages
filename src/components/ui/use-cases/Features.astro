@@ -1,0 +1,53 @@
+---
+import { BoltAuto, Code, Tag, RobotAstromech } from '@assets/icons';
+
+const features = [
+  {
+    description:
+      'Capture every click, scroll, pageview, tap, any user interaction by default with your CSS & html elements.',
+    icon: RobotAstromech,
+    label: 'Auto-Tracking',
+  },
+  {
+    description:
+      'Use Air360 total capacity from day 1, avoid extra configuration steps, and reduce time to insights.',
+    icon: BoltAuto,
+    label: 'Plug and Play',
+  },
+  {
+    description:
+      'Forget about manual tagging to track any product, purchase, or user interaction even if your website changes its design constantly.',
+    icon: Tag,
+    label: 'Tagless',
+  },
+  {
+    description:
+      'User your tag management system to implement Air360 and track any data type without requiring technical deployment.',
+    icon: Code,
+    label: 'Codeless',
+  },
+];
+---
+
+<section class="mx-auto my-32">
+  <h2
+    class="font-clash-display-semibold mx-auto my-20 max-w-xl text-center text-2xl text-slate-800 md:text-3xl"
+  >
+    Like Time Travel - But Easier!
+  </h2>
+  <div class="mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
+    {
+      features.map(({ icon: Icon, label, description }) => (
+        <div class="flex flex-col items-start gap-4">
+          <span class="h-15 w-15 flex items-center justify-center rounded-xl bg-pink-100 text-xl text-pink-600">
+            <Icon class="text-primary-600 h-10 w-10 fill-current p-1" aria-hidden="true" />
+          </span>
+          <div>
+            <h3 class="mb-2 text-xl font-semibold text-slate-800">{label}</h3>
+            <p class="text-slate-600">{description}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

@@ -1,0 +1,18 @@
+---
+import GradientButton from '@ui/GradientButton.astro';
+import MochiFlying from '@assets/images/mochi/svg/mochi-flying.svg';
+---
+
+<section class="my-32 flex flex-col items-center">
+  <MochiFlying class="mb-4 w-24" />
+  <h2
+    class="font-clash-display-bold font-really mx-auto mb-4 select-none text-center text-5xl font-bold text-gray-700 md:text-7xl"
+  >
+    Increase your <br />
+    <span
+      class="from-primary-600/70 to-primary-700/80 overflow-visible bg-gradient-to-r bg-clip-text px-2 leading-relaxed text-transparent"
+      >conversion</span
+    >
+  </h2>
+  <GradientButton class="text-red-600" />
+</section>
