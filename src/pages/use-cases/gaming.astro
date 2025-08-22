@@ -1,77 +1,84 @@
 ---
-import { Image } from 'astro:assets';
-
 import BaseLayout from '@layouts/BaseLayout.astro';
 
 import Testimonial from '@ui/use-cases/Testimonial.astro';
-import FooterSection from '@ui/use-cases/FooterSection.astro';
+import ListSummary from '@ui/use-cases/ListSummary.astro';
 
+import CallToAction from '@ui/use-cases/CallToAction.astro';
 const pageTitle = 'E-commerce Companies';
 
-import dataBaseImg from '@assets/images/database.webp';
+const highlightsList = [
+  {
+    title: 'Create experiences that convert',
+    text: 'Level up your user engagement and turn casual visitors into committed fans. Segment users and deliver tailored shopping experiences with Air360!',
+  },
+  {
+    title: 'The best possible version of every page',
+    text: 'Every click counts! Ensure every page is optimized for peak performance. Refine interactions to keep gamers immersed with Air360.',
+  },
+  {
+    title: 'Simplify the buying experience',
+    text: 'Don’t let gamers quit before checkout. Air360 highlight where they drop off, helping you streamline the process and maximize purchases.',
+  },
+  {
+    title: 'Keep your site running smoothly',
+    text: 'No lag, no frustration! Air360 reveals your UX issues so you fix issues fast and keep things humming.',
+  },
+  {
+    title: 'Keep your customers happy',
+    text: 'Help players find the games and upgrades they love, and keep them coming back for more. Air360 optimize visibility and engagement to drive loyalty.',
+  },
+];
 ---
 
 <BaseLayout title={pageTitle}>
   <div class="container-custom" data-theme="dark">
-    <section class="mx-auto my-24 max-w-5xl px-5 md:my-36">
-      <!-- <section class="container-custom my-24 px-5 md:my-36"> -->
-      {/* Section 1: Heading + Image */}
-      <div class="flex flex-col gap-10 md:flex-row md:items-center md:justify-between">
-        <div class="flex flex-1 flex-col justify-center">
-          <h1 class="font-clash-display-bold mb-4 text-3xl text-slate-800 md:text-5xl">
-            Loved by<br /> E-commerce – <br />CRO made simple
-          </h1>
-          <p class="mb-6 text-lg text-slate-600">
-            Air360 helps E-commerce companies elevate their online presence by delivering enjoyable
-            and seamless shopping experiences on their website.
-          </p>
-          {/* Logos placeholder */}
-          <div class="mt-2 flex items-center gap-6">
-            <span
-              class="flex h-12 w-28 items-center justify-center rounded bg-slate-200 font-bold text-slate-700"
-              >PRODUCT Logo</span
-            >
-            <span
-              class="flex h-12 w-28 items-center justify-center rounded bg-slate-200 font-bold text-slate-700"
-              >Okaidi Logo</span
-            >
-          </div>
-        </div>
-        <div class="flex flex-1 justify-center md:justify-end">
-          {/* Image with updated src */}
-          <Image
-            src={dataBaseImg}
-            alt="E-commerce shopper"
-            class="h-56 w-72 rounded-xl object-cover"
-          />
-        </div>
-      </div>
+    <section class="mx-auto my-32 max-w-5xl px-5 md:my-36">
+      <h1
+        class="font-clash-display-bold text-center text-2xl leading-tight text-slate-700 md:text-6xl"
+      >
+        Create the best possible <br />
+        <mark class="bg-primary-500 p-1 text-white">online shopping</mark> experience
+      </h1>
 
       <Testimonial />
 
-      {/* Section 3: How does Air360 help */}
-      <div class="my-16 grid grid-cols-1 items-center gap-10 md:grid-cols-2">
-        <div class="flex justify-center">
-          {/* Image with updated src */}
-          <Image
-            src={dataBaseImg}
-            alt="Air360 dashboard Black Friday"
-            class="w-full max-w-md rounded-xl object-cover"
-          />
-        </div>
-        <div>
-          <h2 class="font-clash-display-bold mb-4 text-2xl text-slate-800">
-            How does Air360 help e-commerce?
-          </h2>
-          <h3 class="mb-2 text-xl font-bold text-slate-800">Create experiences that convert</h3>
-          <p class="text-lg text-slate-600">
-            Make online shopping a breeze and watch visitors turn into loyal customers. Segment
-            shoppers and personalize their journey with Air360!
-          </p>
-        </div>
-      </div>
+      <section class="space-y-10">
+        {
+          highlightsList.map(({ title, text }) => (
+            <div>
+              <h3 class="font-clash-display-bold mb-2.5 text-xl text-slate-600 md:text-2xl">
+                {title}
+              </h3>
+              <p class="text-base text-slate-600 md:text-lg">{text}</p>
+            </div>
+          ))
+        }
+      </section>
 
-      <FooterSection />
+      <section class="my-28 flex flex-col justify-center">
+        <h2
+          class="font-clash-display-bold mb-10 text-center text-2xl leading-tight text-slate-600 md:text-3xl"
+        >
+          Want to see how <mark class="bg-primary-500 p-1 text-white">easy</mark> it is?
+        </h2>
+        <video
+          class="h-auto w-full rounded-2xl shadow-lg transition-opacity duration-300"
+          autoplay
+          loop
+          muted
+          playsinline
+        >
+          <source
+            src="https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4"
+            type="video/mp4"
+          />
+          Sorry, your browser does not support embedded videos.
+        </video>
+      </section>
+
+      <ListSummary />
+      <CallToAction />
     </section>
   </div>
 </BaseLayout>
