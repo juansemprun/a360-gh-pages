@@ -1,0 +1,23 @@
+---
+interface HighlightedItem {
+  title: string;
+  text: string;
+}
+
+interface Props {
+  highlightsList: HighlightedItem[];
+}
+
+const { highlightsList }: Props = Astro.props;
+---
+
+<section class="space-y-10">
+  {
+    highlightsList.map(({ title, text }) => (
+      <div>
+        <h3 class="font-clash-display-bold mb-2.5 text-xl text-slate-600 md:text-2xl">{title}</h3>
+        <p class="text-base text-slate-600 md:text-lg">{text}</p>
+      </div>
+    ))
+  }
+</section>

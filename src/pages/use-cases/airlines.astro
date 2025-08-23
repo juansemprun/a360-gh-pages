@@ -1,10 +1,11 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
 
-import Testimonial from '@ui/use-cases/Testimonial.astro';
-import ListSummary from '@ui/use-cases/ListSummary.astro';
-
 import CallToAction from '@ui/use-cases/CallToAction.astro';
+import Highlights from '@ui/use-cases/Highlights.astro';
+import HighlightsSummary from '@ui/use-cases/HighlightsSummary.astro';
+import Testimonial from '@ui/use-cases/Testimonial.astro';
+
 const pageTitle = 'Airline companies';
 
 const highlightsList = [
@@ -43,18 +44,7 @@ const highlightsList = [
 
       <Testimonial />
 
-      <section class="space-y-10">
-        {
-          highlightsList.map(({ title, text }) => (
-            <div>
-              <h3 class="font-clash-display-bold mb-2.5 text-xl text-slate-600 md:text-2xl">
-                {title}
-              </h3>
-              <p class="text-base text-slate-600 md:text-lg">{text}</p>
-            </div>
-          ))
-        }
-      </section>
+      <Highlights highlightsList={highlightsList} />
 
       <section class="my-28 flex flex-col justify-center">
         <h2
@@ -77,7 +67,7 @@ const highlightsList = [
         </video>
       </section>
 
-      <ListSummary />
+      <HighlightsSummary highlightsList={highlightsList} />
       <CallToAction />
     </section>
   </div>
