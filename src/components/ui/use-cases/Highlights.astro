@@ -11,13 +11,39 @@ interface Props {
 const { highlightsList }: Props = Astro.props;
 ---
 
-<section class="space-y-10">
+<section class="mx-auto max-w-2xl">
   {
     highlightsList.map(({ title, text }) => (
-      <div>
-        <h3 class="font-clash-display-bold mb-2.5 text-xl text-slate-600 md:text-2xl">{title}</h3>
-        <p class="text-base text-slate-600 md:text-lg">{text}</p>
+      <div class="sticky-statement mt-0 h-[75vh]">
+        <div class="sticky top-[40vh] text-center">
+          <h3 class="split font-clash-display-bold mb-2.5 text-xl text-slate-600 md:text-6xl">
+            {title}
+          </h3>
+          <p class="mt-10 text-base text-slate-600 md:text-3xl">{text}</p>
+        </div>
       </div>
     ))
   }
 </section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const stickyEls = document.querySelectorAll('.sticky-statement');
+
+  stickyEls.forEach((el) => {
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: el,
+        start: 'bottom 70%',
+        end: 'bottom center',
+        toggleActions: 'play none reverse none',
+        scrub: 2,
+      },
+    });
+    tl.to(el, { opacity: 0, yPercent: -40 });
+  });
+</script>

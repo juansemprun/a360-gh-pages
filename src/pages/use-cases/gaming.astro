@@ -6,6 +6,8 @@ import Highlights from '@ui/use-cases/Highlights.astro';
 import HighlightsSummary from '@ui/use-cases/HighlightsSummary.astro';
 import Testimonial from '@ui/use-cases/Testimonial.astro';
 
+import { ChevronDown } from '@assets/icons';
+
 const pageTitle = 'Gaming Companies';
 
 const highlightsList = [
@@ -34,21 +36,25 @@ const highlightsList = [
 
 <BaseLayout title={pageTitle}>
   <div class="container-custom" data-theme="dark">
-    <section class="mx-auto my-32 max-w-5xl px-5 md:my-36">
-      <h1
-        class="font-clash-display-bold text-center text-2xl leading-tight text-slate-700 md:text-6xl"
-      >
-        Create the best possible <br />
-        <mark class="bg-primary-500 p-1 text-white">online shopping</mark> experience
-      </h1>
+    <section class="mx-auto my-32 px-5 md:my-20">
+      <div class="flex h-screen flex-col items-center justify-center">
+        <h1
+          class="font-clash-display-bold text-center text-2xl leading-tight tracking-wide text-slate-700 md:text-7xl"
+        >
+          Create the best possible <br />
+          <mark class="bg-primary-500 p-1 text-white">online shopping</mark> experience
+        </h1>
 
-      <Testimonial />
+        <Testimonial />
+
+        <ChevronDown class="mt-40 animate-bounce fill-pink-400" width="20" height="20" />
+      </div>
 
       <Highlights highlightsList={highlightsList} />
 
       <section class="my-28 flex flex-col justify-center">
         <h2
-          class="font-clash-display-bold mb-10 text-center text-2xl leading-tight text-slate-600 md:text-3xl"
+          class="font-clash-display-bold mb-10 text-center text-2xl leading-tight tracking-wide text-slate-600 md:text-4xl"
         >
           Want to see how <mark class="bg-primary-500 p-1 text-white">easy</mark> it is?
         </h2>
