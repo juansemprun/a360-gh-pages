@@ -13,16 +13,16 @@ const highlightsListTitles = highlightsList.map(({ title }) => ({ title }));
 ---
 
 <section class="mx-auto my-32">
-  <p class="mb-4 text-lg font-semibold md:text-3xl">
+  <p class="mb-12 text-lg font-semibold md:text-3xl">
     Simple yet packed with <span class="font-bold text-pink-500">everything you need.</span>
   </p>
   <ul class="font-clash-display-bold mb-12 space-y-3 text-3xl text-slate-600 md:text-5xl">
     {
       highlightsListTitles.map(({ title }) => (
-        <li class="hover:text-primary-300 mb-10 cursor-default transition duration-300">{title}</li>
+        <li class="hover:text-primary-300 mb-7 cursor-default gap-y-4 transition duration-300">
+          {title}
+        </li>
       ))
     }
   </ul>
 </section>
-
-<script></script>

@@ -35,8 +35,12 @@ const highlightsList = [
 ---
 
 <BaseLayout title={pageTitle}>
-  <div class="container-custom" data-theme="dark">
-    <section class="mx-auto my-32 px-5 md:my-20">
+  <div
+    class="absolute inset-0 top-0 z-[-2] rotate-180 transform bg-white bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(252,205,238,.5)_100%)]"
+  >
+  </div>
+  <div class="container-custom">
+    <section class="mx-auto my-32 px-5 md:my-20" data-theme="light">
       <div class="flex h-screen flex-col items-center justify-center">
         <h1
           class="font-clash-display-bold text-center text-2xl leading-tight tracking-wide text-slate-700 md:text-7xl"
@@ -47,7 +51,7 @@ const highlightsList = [
 
         <Testimonial />
 
-        <ChevronDown class="mt-40 animate-bounce fill-pink-400" width="20" height="20" />
+        <ChevronDown class="mt-40 animate-bounce fill-pink-400" width="32" height="32" />
       </div>
 
       <Highlights highlightsList={highlightsList} />
@@ -64,11 +68,12 @@ const highlightsList = [
           loop
           muted
           playsinline
+          src="https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4"
         >
-          <source
+          <!-- <source
             src="https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4"
             type="video/mp4"
-          />
+          /> -->
           Sorry, your browser does not support embedded videos.
         </video>
       </section>
