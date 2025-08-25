@@ -41,17 +41,14 @@ const { highlightsList }: Props = Astro.props;
           trigger: el,
           start: 'top 80%',
           end: 'bottom 30%',
-          // markers: true,
           toggleActions: 'play none reverse none',
           scrub: 2,
         },
       });
       tl.from(el, { opacity: 0, scale: 0.8, yPercent: 20 });
       tl.to(el, { opacity: 0, scale: 0.8, yPercent: -20 });
-      // tl.to(el, { opacity: 0, yPercent: -40 });
     });
   }
 
-  // document.addEventListener('DOMContentLoaded', startAnimation);
   document.addEventListener('astro:page-load', startHighlightsAnimation, { once: false });
 </script>
