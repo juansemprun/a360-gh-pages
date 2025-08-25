@@ -11,7 +11,7 @@ interface Props {
 const { highlightsList }: Props = Astro.props;
 ---
 
-<section class="mx-auto">
+<section class="mx-auto" data-theme="dark">
   {
     highlightsList.map(({ title, text }) => (
       <div class="sticky-statement mt-0 h-[65vh]">
