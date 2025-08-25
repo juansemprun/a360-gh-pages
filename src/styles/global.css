@@ -236,7 +236,7 @@ html {
   }
 
   .bg-gradient-primary-darker {
-    background: radial-gradient(125% 125% at 50% 10%, #000 30%, #63e 100%);
+    background: radial-gradient(125% 125% at 50% 10%, #000 15%, #63e 100%);
   }
 
   .bg-gradient-text {
