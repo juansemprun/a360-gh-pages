@@ -3,17 +3,13 @@ import GradientButton from '@ui/GradientButton.astro';
 import MochiFlying from '@assets/images/mochi/svg/mochi-flying.svg';
 ---
 
-<section class="my-32 flex flex-col items-center">
+<section class="my-32 flex flex-col items-center" data-theme="dark">
   <MochiFlying class="mb-4 w-24" />
   <h2
     class="font-clash-display-bold mx-auto mb-10 text-center text-5xl font-bold text-gray-700 md:text-7xl"
   >
     Increase your <br />
-    <span
-      class="from-primary-500/70 to-primary-500/80 block bg-gradient-to-r bg-clip-text text-transparent"
-    >
-      conversions
-    </span>
+    <span class="text-primary-500"> conversions </span>
   </h2>
   <GradientButton
     title="Get started"
