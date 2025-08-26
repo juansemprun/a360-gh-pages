@@ -7,6 +7,7 @@ import {
   UseCasesDropdownGradient,
   AboutUsDropdownGradient,
   NavbarMobile,
+  UseCasesDropdown,
 } from '@ui/navbar';
 ---
 
@@ -28,6 +29,7 @@ import {
 
           <!-- Use Cases with Mega Menu -->
           <UseCasesDropdownGradient />
+          <UseCasesDropdown />
 
           <!-- About Us -->
           <AboutUsDropdownGradient />
@@ -401,9 +403,10 @@ import {
   }
 
   /* Responsive Design */
-  @media (max-width: 768px) {
+  @media (max-width: 1280px) {
     .navbar-container {
       padding: 0 16px;
+      background-color: red;
     }
 
     /* Hide desktop menu and auth */
@@ -423,7 +426,7 @@ import {
     }
   }
 
-  @media (min-width: 769px) {
+  @media (min-width: 1281px) {
     /* Hide mobile elements on desktop */
     .mobile-menu-toggle,
     .mobile-menu-overlay {
@@ -432,7 +435,7 @@ import {
   }
 
   /* Ensure proper touch targets on mobile */
-  @media (max-width: 768px) {
+  @media (max-width: 1280px) {
     .mobile-nav-link,
     .mobile-auth-link,
     .mobile-close-btn {
