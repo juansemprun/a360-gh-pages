@@ -11,23 +11,14 @@ const videoUrl =
   class="bg-gradient-primary-darker min-h-screen w-full overflow-hidden py-16"
   data-theme="light"
 >
-  <!-- noise -->
-  <div
-    class="absolute left-0 z-0 flex h-screen w-full flex-col justify-center gap-5 overflow-hidden"
-  >
-    <div
-      class="absolute left-0 top-[-529px] z-10 h-[1331px] w-[1317px] rotate-[-56deg] bg-[url('/noise-t---hmp0xbcr9iuweonyo7eawoafp7q-webp.png')] bg-cover bg-center"
-    >
-    </div>
-  </div>
   <!-- Main content container -->
   <div class="container-custom relative z-10 flex flex-col items-center gap-6 py-20 lg:py-32">
     <!-- Hero text and CTA section -->
     <div class="title-container">
       <div>
         <h1 class="font-clash-display-bold text-center text-6xl lg:text-8xl">
-          <span class="gradient-text block">CRO that clicks,</span>
-          <span class="gradient-text block">literally</span>
+          <span class="gradient-text-darker block">CRO that clicks,</span>
+          <span class="gradient-text-darker block">literally</span>
         </h1>
       </div>
 
@@ -37,7 +28,7 @@ const videoUrl =
 
       <a
         href="/"
-        class="cta animate-slide-up inline-flex items-center justify-center rounded-xl bg-pink-500 px-8 py-4 text-lg transition-all duration-200 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2"
+        class="cta animate-slide-up bg-primary-500 inline-flex items-center justify-center rounded-xl px-8 py-4 text-lg transition-all duration-200 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2"
       >
         <span class="text-lg font-semibold text-white">Get started</span>
       </a>
@@ -77,7 +68,7 @@ const videoUrl =
     </div>
 
     <!-- Footer section with customer logos -->
-    <p class="text-xs font-bold text-white/50">7-day Free trial — no credit card required</p>
+    <p class="mt-10 text-xs font-bold text-white/50">7-day Free trial — no credit card required</p>
     <Marquee />
   </div>
 </section>

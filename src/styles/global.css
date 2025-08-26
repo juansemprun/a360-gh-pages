@@ -201,6 +201,14 @@ html {
     color: transparent;
   }
 
+  .gradient-text-darker {
+    background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.7) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
   .card {
     @apply rounded-3xl bg-white transition-all duration-300 hover:shadow-xl;
   }
@@ -236,7 +244,7 @@ html {
   }
 
   .bg-gradient-primary-darker {
-    background: radial-gradient(125% 125% at 50% 10%, #000 15%, #63e 100%);
+    background: radial-gradient(125% 125% at 50% 10%, #000 5%, rgb(102, 51, 238) 100%);
   }
 
   .bg-gradient-text {
