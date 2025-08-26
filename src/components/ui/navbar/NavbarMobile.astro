@@ -620,7 +620,7 @@ import Logo from '@assets/images/logo.svg';
   }
 
   /* Responsive Design */
-  @media (max-width: 768px) {
+  @media (max-width: 1280px) {
     .navbar-container {
       padding: 0 16px;
     }
@@ -642,7 +642,7 @@ import Logo from '@assets/images/logo.svg';
     }
   }
 
-  @media (min-width: 769px) {
+  @media (min-width: 1281px) {
     /* Hide mobile elements on desktop */
     .mobile-menu-toggle,
     .mobile-menu-overlay {
@@ -651,7 +651,7 @@ import Logo from '@assets/images/logo.svg';
   }
 
   /* Ensure proper touch targets on mobile */
-  @media (max-width: 768px) {
+  @media (max-width: 1280px) {
     .mobile-nav-header,
     .mobile-nav-link,
     .mobile-auth-link,
@@ -805,7 +805,7 @@ import Logo from '@assets/images/logo.svg';
 
     // Handle window resize
     window.addEventListener('resize', function () {
-      if (window.innerWidth > 768 && mobileOverlay.classList.contains('active')) {
+      if (window.innerWidth > 1280 && mobileOverlay.classList.contains('active')) {
         closeMobileMenu();
       }
     });
