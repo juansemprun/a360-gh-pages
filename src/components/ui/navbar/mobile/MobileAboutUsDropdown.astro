@@ -1,52 +1,81 @@
 ---
-import MobileAboutUsDropdown from '@components/ui/navbar/mobile/MobileAboutUsDropdown.astro';
-import MobileFeaturesDropdown from '@components/ui/navbar/mobile/MobileFeaturesDropdown.astro';
-import MobileUseCasesDropdown from '@components/ui/navbar/mobile/MobileUseCasesDropdown.astro';
+import {
+  Building,
+  ChevronDown,
+  CloudQuestion,
+  EnvelopeOpnText,
+  FileShield,
+  HandHoldingHeart,
+  MicrochipAi,
+  ShieldCheck,
+} from '@assets/icons';
 
-import Logo from '@assets/images/logo.svg';
+const primarySections = [
+  {
+    icon: HandHoldingHeart,
+    label: 'Our Values',
+    link: '/values',
+  },
+  {
+    icon: EnvelopeOpnText,
+    label: 'Manifesto',
+    link: '/manifesto',
+  },
+];
+
+const secondarySections = [
+  {
+    icon: Building,
+    label: 'Company Info',
+    link: '/about',
+  },
+  {
+    icon: MicrochipAi,
+    label: 'Stance on AI',
+    link: '/ai',
+  },
+  {
+    icon: FileShield,
+    label: 'Privacy Policy',
+    link: '/privacy-policy',
+  },
+  {
+    icon: ShieldCheck,
+    label: 'Security and Compliance',
+    link: '/security-compliance',
+  },
+  {
+    icon: CloudQuestion,
+    label: 'Where is your data',
+    link: '/where-is-your-data',
+  },
+];
+
+const comibenedSections = [...primarySections, ...secondarySections];
 ---
 
-<div class="mobile-menu-overlay" id="mobile-menu" aria-hidden="true">
-  <div class="mobile-menu-content">
-    <!-- Mobile Auth Links -->
-    <div class="mb-10 flex items-center justify-between">
-      <a href="/" aria-label="Project homepage" id="navbar-logo">
-        <Logo id="logo" class="fill-black" />
-      </a>
-
-      <button class="mobile-close-btn" aria-label="Close navigation menu">
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-    </div>
-
-    <!-- Mobile Navigation -->
-    <nav class="mobile-nav" role="navigation">
-      <!-- Features Section -->
-      <MobileFeaturesDropdown />
-
-      <MobileUseCasesDropdown />
-
-      <MobileAboutUsDropdown />
-
-      <div class="mobile-nav-section">
-        <a href="/testimonials" class="mobile-nav-link">Testimonials</a>
-      </div>
-    </nav>
-
-    <div class="mt-10 flex items-center justify-around">
-      <a href="#" class="mobile-auth-link login border">Log in</a>
-      <a href="#" class="mobile-auth-link demo">Book a Demo</a>
-    </div>
+<div class="mobile-nav-section">
+  <button class="mobile-nav-header group" aria-expanded="false" data-section="about-us">
+    <span>About Us</span>
+    <ChevronDown
+      width={16}
+      height={16}
+      class="fill-current transition-transform duration-300 ease-in-out group-aria-[expanded=true]:rotate-180"
+    />
+  </button>
+  <div class="mobile-nav-content" data-content="about-us">
+    {
+      comibenedSections.map(({ icon: Icon, label, link }) => (
+        <div class="flex items-center gap-4 py-4">
+          <a href={link} role="menuitem" class="flex items-center gap-x-2 rounded-xl py-1">
+            <Icon width={20} height={20} class="fill-primary-500" />
+            <div>
+              <h4 class="text-black">{label}</h4>
+            </div>
+          </a>
+        </div>
+      ))
+    }
   </div>
 </div>
 
@@ -98,10 +127,10 @@ import Logo from '@assets/images/logo.svg';
     background-color: rgba(0, 0, 0, 0.05);
   }
 
-  .mobile-menu-toggle:focus {
-    outline: 2px solid #5e51f8;
-    outline-offset: 2px;
-  }
+  /* .mobile-menu-toggle:focus {
+  outline: 2px solid #5e51f8;
+  outline-offset: 2px;
+} */
 
   .hamburger-line {
     width: 24px;
@@ -153,13 +182,13 @@ import Logo from '@assets/images/logo.svg';
   }
 
   /* Mobile Auth Header */
-  .mobile-auth {
+  /* .mobile-auth {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 32px;
     padding-top: 20px;
-  }
+  } */
 
   .mobile-auth-link {
     color: #374151;
@@ -219,20 +248,20 @@ import Logo from '@assets/images/logo.svg';
     min-height: 44px;
   }
 
-  .mobile-nav-header:focus {
-    outline: 2px solid #5e51f8;
-    outline-offset: 2px;
-    border-radius: 4px;
-  }
+  /* .mobile-nav-header:focus {
+  outline: 2px solid #5e51f8;
+  outline-offset: 2px;
+  border-radius: 4px;
+} */
 
-  .chevron {
+  /* .chevron {
     transition: transform 0.3s ease;
     color: #6b7280;
-  }
+  } */
 
-  .mobile-nav-header[aria-expanded='true'] .chevron {
+  /* .mobile-nav-header[aria-expanded='true'] .chevron {
     transform: rotate(180deg);
-  }
+  } */
 
   .mobile-nav-content {
     max-height: 0;
@@ -332,20 +361,20 @@ import Logo from '@assets/images/logo.svg';
     background: linear-gradient(135deg, #111827, #374151);
   }
 
-  .mobile-feature-item h4,
-  .mobile-resource-item h4 {
-    font-size: 16px;
-    font-weight: 600;
-    color: #111827;
-    margin: 0 0 4px 0;
-  }
+  /* .mobile-feature-item h4,
+.mobile-resource-item h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 4px 0;
+} */
 
-  .mobile-feature-item p,
-  .mobile-resource-item p {
-    font-size: 14px;
-    color: #6b7280;
-    margin: 0;
-  }
+  /* .mobile-feature-item p,
+.mobile-resource-item p {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+} */
 
   /* Mobile CTA Section */
   .mobile-cta {
@@ -620,47 +649,6 @@ import Logo from '@assets/images/logo.svg';
   }
 
   /* Responsive Design */
-  @media (max-width: 768px) {
-    .navbar-container {
-      padding: 0 16px;
-    }
-
-    /* Hide desktop menu and auth */
-    .desktop-menu,
-    .desktop-auth {
-      display: none;
-    }
-
-    /* Show mobile menu toggle */
-    .mobile-menu-toggle {
-      display: flex;
-    }
-
-    /* Ensure mobile menu is accessible */
-    .mobile-menu-overlay {
-      display: block;
-    }
-  }
-
-  @media (min-width: 769px) {
-    /* Hide mobile elements on desktop */
-    .mobile-menu-toggle,
-    .mobile-menu-overlay {
-      display: none;
-    }
-  }
-
-  /* Ensure proper touch targets on mobile */
-  @media (max-width: 768px) {
-    .mobile-nav-header,
-    .mobile-nav-link,
-    .mobile-auth-link,
-    .mobile-close-btn,
-    .mobile-tab {
-      min-height: 44px;
-      min-width: 44px;
-    }
-  }
 
   /* High contrast mode support */
   @media (prefers-contrast: high) {
@@ -683,131 +671,3 @@ import Logo from '@assets/images/logo.svg';
     }
   }
 </style>
-<script>
-  // Mobile menu functionality
-  document.addEventListener('astro:page-load', function () {
-    const mobileToggle = document.querySelector('.mobile-menu-toggle');
-    const mobileOverlay = document.querySelector('.mobile-menu-overlay');
-    const mobileCloseBtn = document.querySelector('.mobile-close-btn');
-    const mobileNavHeaders = document.querySelectorAll('.mobile-nav-header');
-
-    // Toggle mobile menu
-    function toggleMobileMenu() {
-      const isOpen = mobileOverlay.classList.contains('active');
-
-      if (isOpen) {
-        closeMobileMenu();
-      } else {
-        openMobileMenu();
-      }
-    }
-
-    function openMobileMenu() {
-      mobileOverlay.classList.add('active');
-      mobileToggle.classList.add('active');
-      mobileToggle.setAttribute('aria-expanded', 'true');
-      mobileOverlay.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeMobileMenu() {
-      mobileOverlay.classList.remove('active');
-      mobileToggle.classList.remove('active');
-      mobileToggle.setAttribute('aria-expanded', 'false');
-      mobileOverlay.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-
-    // Event listeners
-    mobileToggle.addEventListener('click', toggleMobileMenu);
-    mobileCloseBtn.addEventListener('click', closeMobileMenu);
-
-    // Close menu when clicking outside content
-    mobileOverlay.addEventListener('click', function (e) {
-      if (e.target === mobileOverlay) {
-        closeMobileMenu();
-      }
-    });
-
-    // Handle mobile nav section toggles
-    mobileNavHeaders.forEach((header) => {
-      header.addEventListener('click', function () {
-        const section = this.getAttribute('data-section');
-        const content = document.querySelector(`[data-content="${section}"]`);
-        const isExpanded = this.getAttribute('aria-expanded') === 'true';
-
-        // Close all other sections (accordion behavior)
-        mobileNavHeaders.forEach((otherHeader) => {
-          if (otherHeader !== this) {
-            otherHeader.setAttribute('aria-expanded', 'false');
-            const otherSection = otherHeader.getAttribute('data-section');
-            const otherContent = document.querySelector(`[data-content="${otherSection}"]`);
-            if (otherContent) {
-              otherContent.classList.remove('active');
-            }
-          }
-        });
-
-        // Toggle current section
-        if (isExpanded) {
-          this.setAttribute('aria-expanded', 'false');
-          content.classList.remove('active');
-        } else {
-          this.setAttribute('aria-expanded', 'true');
-          content.classList.add('active');
-        }
-      });
-    });
-
-    // Handle escape key
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && mobileOverlay.classList.contains('active')) {
-        closeMobileMenu();
-      }
-    });
-
-    // Handle desktop mega menu hover delays
-    const megaMenuItems = document.querySelectorAll('.has-mega-menu');
-
-    megaMenuItems.forEach((item) => {
-      let hoverTimeout;
-      let leaveTimeout;
-
-      item.addEventListener('mouseenter', () => {
-        clearTimeout(hoverTimeout);
-        clearTimeout(leaveTimeout);
-        const link = item.querySelector('.navbar-link');
-        link.setAttribute('aria-expanded', 'true');
-      });
-
-      item.addEventListener('mouseleave', () => {
-        leaveTimeout = setTimeout(() => {
-          const link = item.querySelector('.navbar-link');
-          link.setAttribute('aria-expanded', 'false');
-        }, 100);
-      });
-
-      // Add hover tolerance for smooth transitions between nav item and dropdown
-      const megaMenu = item.querySelector('.mega-menu');
-      if (megaMenu) {
-        megaMenu.addEventListener('mouseenter', () => {
-          clearTimeout(leaveTimeout);
-        });
-
-        megaMenu.addEventListener('mouseleave', () => {
-          leaveTimeout = setTimeout(() => {
-            const link = item.querySelector('.navbar-link');
-            link.setAttribute('aria-expanded', 'false');
-          }, 100);
-        });
-      }
-    });
-
-    // Handle window resize
-    window.addEventListener('resize', function () {
-      if (window.innerWidth > 768 && mobileOverlay.classList.contains('active')) {
-        closeMobileMenu();
-      }
-    });
-  });
-</script>
