@@ -1,0 +1,91 @@
+---
+import Marquee from '@components/Marquee.astro';
+import DynamicFeatures from './DynamicFeatures.astro';
+
+// Hero Section Component - Main landing section with gradient background
+const videoUrl =
+  'https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true';
+---
+
+<section class="min-h-screen w-full overflow-hidden py-16">
+  <!-- Main content container -->
+  <div class="container-custom relative z-10 py-20 lg:py-32">
+    <!-- Hero text and CTA section -->
+    <div class="mb-16 text-center lg:mb-24">
+      <div class="mb-8">
+        <h1 class="font-clash-display-bold text-8xl">
+          <span class="block">CRO that clicks,</span>
+          <span class="block">literally</span>
+        </h1>
+      </div>
+
+      <p class="animate-slide-up mb-12 text-2xl font-medium text-black/60">
+        Air360 is the conversion whisperer that decodes your users for you
+      </p>
+
+      <a
+        href="/"
+        class="animate-slide-up inline-flex items-center justify-center rounded-xl bg-[#F771BF] px-8 py-4 text-lg transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2"
+      >
+        <span class="text-lg font-semibold text-white">Get started with Air360</span>
+      </a>
+    </div>
+
+    <!-- Video section with tabs -->
+    <!-- <div class="relative mb-16">
+      <div class="relative mx-auto max-w-5xl">
+        <video class="h-auto w-full rounded-2xl shadow-2xl" autoplay loop playsinline muted>
+          <source
+            src="https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4"
+            type="video/mp4"
+          />
+          Sorry, your browser does not support embedded videos.
+        </video>
+      </div>
+    </div> -->
+
+    <div class="mx-auto mb-16 max-w-5xl">
+      <DynamicFeatures cardType="tabs" layout="image-bottom" />
+    </div>
+
+    <!-- Demo video card -->
+    <div class="mb-16 flex justify-center">
+      <div class="card w-full max-w-2xl rotate-1 border border-[#F771BF] p-6">
+        <div class="flex items-center gap-6">
+          <div class="flex-shrink-0">
+            <iframe
+              src={videoUrl}
+              allow="autoplay; clipboard-write"
+              title="Loom video"
+              allowfullscreen
+              loading="lazy"
+              class="h-28 w-48 -rotate-1 rounded-lg"
+            >
+            </iframe>
+          </div>
+          <div class="flex-1">
+            <h3 class="mb-2 text-2xl font-normal">
+              Got a Minute? That's All You Need to know Air360
+            </h3>
+            <!-- <h3 class="mb-4 text-2xl font-normal text-white">60 Seconds! ⚡</h3> -->
+            <p class="text-xl font-medium text-black/70">Watch the video!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer section with customer logos -->
+    <Marquee />
+  </div>
+</section>
+<!-- Bottom gradient line -->
+<div
+  class="bottom-0 h-0.5 w-full bg-gradient-to-r from-[#F771BF] via-[#f04d66] to-[#fd7043] shadow-lg"
+>
+</div>
+
+<style is:global>
+  h2 {
+    font-family: var(--font-inter) !important;
+  }
+</style>
