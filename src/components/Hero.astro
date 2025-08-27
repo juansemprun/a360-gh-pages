@@ -2,7 +2,6 @@
 import Marquee from '@components/Marquee.astro';
 import DynamicFeatures from '@components/DynamicFeatures.astro';
 
-// Hero Section Component - Main landing section with gradient background
 const videoUrl =
   'https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true';
 ---
@@ -14,7 +13,7 @@ const videoUrl =
   <!-- Main content container -->
   <div class="container-custom relative z-10 flex flex-col items-center gap-6 py-20 lg:py-32">
     <!-- Hero text and CTA section -->
-    <div class="title-container">
+    <div class="flex w-full flex-col items-center justify-center gap-6 text-center">
       <div>
         <h1 class="font-clash-display-bold text-center text-6xl lg:text-8xl">
           <span class="gradient-text-darker block">CRO that clicks,</span>
@@ -22,13 +21,13 @@ const videoUrl =
         </h1>
       </div>
 
-      <h2 class="subtitle !font-inter text-2xl !font-medium lg:text-3xl">
+      <h2 class="font-inter text-2xl font-medium text-stone-300 lg:text-3xl">
         Air360 is the conversion whisperer that decodes your users for you
       </h2>
 
       <a
         href="/"
-        class="cta animate-slide-up bg-primary-500 inline-flex items-center justify-center rounded-xl px-8 py-4 text-lg transition-all duration-200 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2"
+        class="bg-primary-500 inline-flex w-80 items-center justify-center rounded-xl px-8 py-4 text-lg transition-all duration-200 hover:-translate-y-0.5"
       >
         <span class="text-lg font-semibold text-white">Get started</span>
       </a>
@@ -40,29 +39,26 @@ const videoUrl =
     </div>
 
     <!-- Demo video card -->
-    <div class="mb-16 flex justify-center">
-      <div
-        class="card w-full max-w-2xl rotate-1 transform cursor-pointer border border-white/20 bg-transparent p-6 backdrop-blur-sm hover:rotate-0 hover:bg-white/10"
-      >
-        <div class="flex items-center gap-6">
-          <div class="flex-shrink-0">
-            <iframe
-              src={videoUrl}
-              allow="autoplay; clipboard-write"
-              title="Loom video"
-              allowfullscreen
-              loading="lazy"
-              class="h-28 w-48 -rotate-1 rounded-lg"
-            >
-            </iframe>
-          </div>
-          <div class="flex-1">
-            <h3 class="mb-2 text-2xl font-normal text-white">
-              Got a Minute? That's All You Need to know Air360
-            </h3>
-            <!-- <h3 class="mb-4 text-2xl font-normal text-white">60 Seconds! ⚡</h3> -->
-            <p class="text-xl font-medium text-white/60">Watch the video!</p>
-          </div>
+    <div
+      class="max-w-2xl rotate-1 transform cursor-pointer rounded-xl border border-white/20 bg-transparent px-4 backdrop-blur-sm transition duration-200 hover:rotate-0 hover:bg-white/10 md:rounded-3xl md:p-6"
+    >
+      <div class="flex h-28 items-center gap-6">
+        <div class="">
+          <iframe
+            src={videoUrl}
+            allow="autoplay; clipboard-write"
+            title="Loom video"
+            allowfullscreen
+            loading="lazy"
+            class="h-16 w-28 rounded-lg md:h-28 md:w-48"
+          >
+          </iframe>
+        </div>
+        <div class="">
+          <h3 class="mb-2 text-sm font-semibold text-white md:text-2xl">
+            Got a Minute? That's All You Need to know Air360
+          </h3>
+          <p class="text-xs font-medium text-white/60 md:text-xl">Watch the video!</p>
         </div>
       </div>
     </div>
@@ -77,49 +73,3 @@ const videoUrl =
   class="bottom-0 h-0.5 w-full bg-gradient-to-r from-[#F771BF] via-[#f04d66] to-[#fd7043] shadow-lg"
 >
 </div>
-
-<style is:global>
-  .subtitle {
-    font-family: var(--font-inter) !important;
-    font-weight: 500;
-    font-size: 28px;
-    line-height: 42px;
-    color: white;
-    margin-bottom: 24px;
-  }
-
-  .title-container {
-    align-items: center;
-    display: flex;
-    flex: none;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    gap: 24px;
-    height: min-content;
-    justify-content: center;
-    /* max-width: 800px; */
-    padding: 0;
-    position: relative;
-    width: 100%;
-    text-align: center;
-  }
-
-  .cta {
-    width: 320px;
-    box-shadow:
-      rgba(0, 0, 0, 0.08) 0px 0px 1px 1px,
-      rgba(0, 0, 0, 0.16) 0px 2px 4px 0px,
-      rgba(0, 0, 0, 0) 0px 4px 8px 0px,
-      rgba(0, 0, 0, 0) 0px 16px 16px 0px,
-      rgba(255, 255, 255, 0.25) 0px 1px 1px 0px inset;
-  }
-
-  .cta:hover {
-    box-shadow:
-      rgba(0, 0, 0, 0.08) 0px 0px 1px 1px,
-      rgba(0, 0, 0, 0.16) 0px 2px 4px 0px,
-      rgba(0, 0, 0, 0) 0px 4px 8px 0px,
-      rgba(0, 0, 0, 0.12) 0px 16px 16px 0px,
-      rgba(255, 255, 255, 0.25) 0px 1px 1px 0px inset;
-  }
-</style>
