@@ -3,40 +3,42 @@ import { Image } from 'astro:assets';
 import signature from '@assets/images/signature.webp';
 ---
 
-<section class="lg:px-8; mx-auto max-w-7xl px-4 sm:px-6" data-theme="dark">
-  <header class="mb-20 text-center">
-    <h2 class="text-5xl font-normal text-slate-900">Title here</h2>
-  </header>
-  <article class="flex flex-col gap-8 lg:flex-row lg:items-start">
-    <div class="grid flex-1 content-start">
-      <p class="text-2xl">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe tenetur excepturi nulla
-        incidunt aut, dolore at totam perferendis
-      </p>
+<div class="container-custom">
+  <section class="lg:px-8; mx-auto max-w-7xl px-4 sm:px-6" data-theme="dark">
+    <header class="mb-20 text-center">
+      <h2 class="text-5xl font-normal text-slate-900">Title here</h2>
+    </header>
+    <article class="flex flex-col gap-8 lg:flex-row lg:items-start">
+      <div class="grid flex-1 content-start">
+        <p class="text-xl md:text-2xl">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe tenetur excepturi nulla
+          incidunt aut, dolore at totam perferendis
+        </p>
 
-      <p class="pt-12 text-2xl">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe tenetur excepturi nulla
-        incidunt aut, dolore at totam perferendis
-      </p>
+        <p class="pt-12 text-xl md:text-2xl">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe tenetur excepturi nulla
+          incidunt aut, dolore at totam perferendis
+        </p>
 
-      <p class="pt-12 text-2xl font-bold">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis possimus cum voluptatem at ut
-        ducimus nisi exercitationem repellendus, libero error
-      </p>
-    </div>
-    <div class="grid flex-1 content-start">
-      <p class="text-2xl">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi nihil, obcaecati amet quis
-        corrupti ea voluptatem sint totam explicabo sit vero nobis, Saepe tenetur excepturi nulla
-        incidunt aut, dolore at totam perferendis
-      </p>
+        <p class="pt-12 text-xl font-bold md:text-2xl">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis possimus cum voluptatem at
+          ut ducimus nisi exercitationem repellendus, libero error
+        </p>
+      </div>
+      <div class="grid flex-1 content-start">
+        <p class="text-xl md:text-2xl">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi nihil, obcaecati amet quis
+          corrupti ea voluptatem sint totam explicabo sit vero nobis, Saepe tenetur excepturi nulla
+          incidunt aut, dolore at totam perferendis
+        </p>
 
-      <p class="pt-12 text-2xl">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe tenetur excepturi nulla
-        incidunt aut, dolore at totam perferendis
-      </p>
+        <p class="pt-12 text-xl md:text-2xl">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe tenetur excepturi nulla
+          incidunt aut, dolore at totam perferendis
+        </p>
 
-      <Image src={signature} alt="Signature of Air360 CEO" class="mt-8 h-16 w-auto p-2" />
-    </div>
-  </article>
-</section>
+        <Image src={signature} alt="Signature of Air360 CEO" class="mt-8 h-16 w-auto p-2" />
+      </div>
+    </article>
+  </section>
+</div>
