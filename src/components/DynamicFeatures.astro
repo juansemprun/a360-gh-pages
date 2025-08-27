@@ -59,18 +59,19 @@ const imageId = `${componentId}-image`;
 const textId = `${componentId}-text`;
 ---
 
-<section class={`w-full max-w-5xl mx-auto ${className}`} data-theme={dataTheme}>
-  <div class="container-custom">
-    <!-- Header Section -->
-    <div class="mb-16 text-center lg:mb-20">
-      {title ? <h2 class="mb-6 text-6xl font-bold text-black">{title}</h2> : ''}
-      {description ? <p class="text-2xl font-medium text-slate-600">{description}</p> : ''}
+<div class="container-custom">
+  <section class={`w-full max-w-5xl mx-auto ${className}`} data-theme={dataTheme}>
+    <div class="container-custom">
+      <!-- Header Section -->
+      <div class="mb-16 text-center lg:mb-20">
+        {title ? <h2 class="mb-6 text-6xl font-bold text-black">{title}</h2> : ''}
+        {description ? <p class="text-2xl font-medium text-slate-600">{description}</p> : ''}
+      </div>
     </div>
-  </div>
 
-  <!-- Dynamic Layout Container -->
-  <div
-    class={`
+    <!-- Dynamic Layout Container -->
+    <div
+      class={`
       ${
         layout === 'image-left' || layout === 'image-right'
           ? 'flex flex-col lg:flex-row items-center gap-12 lg:gap-16'
@@ -78,113 +79,115 @@ const textId = `${componentId}-text`;
       }
       ${layout === 'image-right' ? 'lg:flex-row-reverse' : ''}
     `}
-  >
-    <!-- Dynamic Content Display -->
-    <div
-      class={`
+    >
+      <!-- Dynamic Content Display -->
+      <div
+        class={`
         ${layout === 'image-left' || layout === 'image-right' ? 'w-full lg:w-2/3' : 'w-full'}
         ${layout === 'image-bottom' ? 'order-2' : ''}
       `}
-    >
-      {
-        contentType === 'image' ? (
-          <img
-            id={imageId}
-            class="h-auto w-full rounded-2xl shadow-lg transition-opacity duration-300"
-            alt="Dynamic feature content"
-            src={features[0].content}
-            data-component-id={componentId}
-          />
-        ) : contentType === 'video' ? (
-          <video
-            id={`${componentId}-video`}
-            class="h-auto w-full rounded-2xl shadow-lg transition-opacity duration-300"
-            autoplay
-            loop
-            muted
-            playsinline
-            data-component-id={componentId}
-          >
-            <source src={features[0].content} type="video/mp4" />
-            Sorry, your browser does not support embedded videos.
-          </video>
-        ) : (
-          <div
-            id={textId}
-            class="w-full rounded-2xl border border-slate-200 bg-slate-50 p-8 transition-opacity duration-300"
-            data-component-id={componentId}
-          >
-            <div class="text-lg font-medium leading-relaxed text-slate-700">
-              {features[0].content}
+      >
+        {
+          contentType === 'image' ? (
+            <img
+              id={imageId}
+              class="h-auto w-full rounded-2xl shadow-lg transition-opacity duration-300"
+              alt="Dynamic feature content"
+              src={features[0].content}
+              data-component-id={componentId}
+            />
+          ) : contentType === 'video' ? (
+            <video
+              id={`${componentId}-video`}
+              class="h-auto w-full rounded-2xl shadow-lg transition-opacity duration-300"
+              autoplay
+              loop
+              muted
+              playsinline
+              data-component-id={componentId}
+            >
+              <source src={features[0].content} type="video/mp4" />
+              Sorry, your browser does not support embedded videos.
+            </video>
+          ) : (
+            <div
+              id={textId}
+              class="w-full rounded-2xl border border-slate-200 bg-slate-50 p-8 transition-opacity duration-300"
+              data-component-id={componentId}
+            >
+              <div class="text-lg font-medium leading-relaxed text-slate-700">
+                {features[0].content}
+              </div>
             </div>
-          </div>
-        )
-      }
-    </div>
+          )
+        }
+      </div>
 
-    <!-- Feature Cards/Tabs -->
-    <div
-      class={`
+      <!-- Feature Cards/Tabs -->
+      <div
+        class={`
         ${layout === 'image-left' || layout === 'image-right' ? 'w-full lg:w-1/3' : 'w-full'}
         ${layout === 'image-bottom' ? 'order-1' : ''}
       `}
-    >
-      {
-        cardType === 'tabs' ? (
-          <div class="flex justify-center">
+      >
+        {
+          cardType === 'tabs' ? (
+            <div class="flex justify-center">
+              <div
+                role="tablist"
+                aria-label="Feature categories"
+                class="flex w-[360px] justify-between"
+              >
+                {features.map((feature, index) => (
+                  <button
+                    class={`tab cursor-pointer rounded-full px-4 py-1 text-base font-semibold text-white/50 transition-all duration-200 hover:text-white`}
+                    role="tab"
+                    aria-selected={index === 0 ? 'true' : 'false'}
+                    data-feature-index={index}
+                    data-component-id={componentId}
+                    data-feature-content={feature.content}
+                  >
+                    {feature.title}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ) : (
             <div
-              role="tablist"
-              aria-label="Feature categories"
-              class="flex w-[360px] justify-between"
+              class={` ${
+                layout === 'image-left' || layout === 'image-right'
+                  ? 'flex flex-col gap-6'
+                  : 'grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-10'
+              } `}
             >
               {features.map((feature, index) => (
-                <button
-                  class={`tab cursor-pointer rounded-full px-4 py-1 text-base font-semibold text-white/50 transition-all duration-200 hover:text-white`}
-                  role="tab"
-                  aria-selected={index === 0 ? 'true' : 'false'}
+                <article
+                  class={`cursor-pointer rounded-3xl border-0 bg-white p-8 shadow-lg transition-all duration-300 ${index === 0 ? 'bg-slate-50 opacity-100' : 'opacity-75 hover:opacity-100'} `}
                   data-feature-index={index}
                   data-component-id={componentId}
                   data-feature-content={feature.content}
                 >
-                  {feature.title}
-                </button>
+                  <header class="mb-6 flex items-center">
+                    <img class="h-6 w-6 flex-shrink-0" alt="" src={feature.icon} />
+                    <h3 class="ml-3 text-xl font-normal text-slate-900">{feature.title}</h3>
+                  </header>
+                  <p class="text-base font-medium leading-6 text-slate-600">
+                    {feature.description}
+                  </p>
+                  {index === 0 && (
+                    <div class="mt-5" aria-label="Currently active feature">
+                      <img class="h-1 w-11" alt="Active indicator" src="/loader.svg" />
+                    </div>
+                  )}
+                </article>
               ))}
             </div>
-          </div>
-        ) : (
-          <div
-            class={` ${
-              layout === 'image-left' || layout === 'image-right'
-                ? 'flex flex-col gap-6'
-                : 'grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-10'
-            } `}
-          >
-            {features.map((feature, index) => (
-              <article
-                class={`cursor-pointer rounded-3xl border-0 bg-white p-8 shadow-lg transition-all duration-300 ${index === 0 ? 'bg-slate-50 opacity-100' : 'opacity-75 hover:opacity-100'} `}
-                data-feature-index={index}
-                data-component-id={componentId}
-                data-feature-content={feature.content}
-              >
-                <header class="mb-6 flex items-center">
-                  <img class="h-6 w-6 flex-shrink-0" alt="" src={feature.icon} />
-                  <h3 class="ml-3 text-xl font-normal text-slate-900">{feature.title}</h3>
-                </header>
-                <p class="text-base font-medium leading-6 text-slate-600">{feature.description}</p>
-                {index === 0 && (
-                  <div class="mt-5" aria-label="Currently active feature">
-                    <img class="h-1 w-11" alt="Active indicator" src="/loader.svg" />
-                  </div>
-                )}
-              </article>
-            ))}
-          </div>
-        )
-      }
+          )
+        }
+      </div>
     </div>
-  </div>
-</section>
-
+  </section>
+</div>
 <style>
   @reference "../styles/global.css";
   /* Tab specific styles - these require attribute selectors that can't be done with utility classes */
