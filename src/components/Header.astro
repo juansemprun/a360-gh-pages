@@ -1,13 +1,11 @@
 ---
 // Dynamic Navbar Component with automatic theme adaptation
 import Logo from '@assets/images/logo.svg';
-import GradientButton from '@ui/GradientButton.astro';
 import {
-  FeaturesDropdownGradient,
-  UseCasesDropdownGradient,
-  AboutUsDropdownGradient,
+  DesktopAboutUsDropdown,
+  DesktopFeaturesDropdown,
+  DesktopUseCasesDropdown,
   NavbarMobile,
-  UseCasesDropdown,
 } from '@ui/navbar';
 ---
 
@@ -25,13 +23,13 @@ import {
       <div class="navbar-menu desktop-menu">
         <ul class="navbar-nav" role="menubar">
           <!-- Features with Mega Menu -->
-          <FeaturesDropdownGradient />
+          <DesktopFeaturesDropdown />
 
           <!-- Use Cases with Mega Menu -->
-          <UseCasesDropdownGradient />
+          <DesktopUseCasesDropdown />
 
           <!-- About Us -->
-          <AboutUsDropdownGradient />
+          <DesktopAboutUsDropdown />
 
           <li class="transition-colors duration-300 hover:text-gray-400">
             <a href="/testimonials"> Testimonials </a>
