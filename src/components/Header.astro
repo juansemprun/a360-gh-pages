@@ -1,17 +1,23 @@
 ---
+// Dynamic Navbar Component with automatic theme adaptation
 import Logo from '@assets/images/logo.svg';
 import GradientButton from '@ui/GradientButton.astro';
-import { FeaturesDropdown, UseCasesDropdown, AboutUsDropdown, NavbarMobile } from '@ui/navbar';
+import {
+  FeaturesDropdownGradient,
+  UseCasesDropdownGradient,
+  AboutUsDropdownGradient,
+  NavbarMobile,
+  UseCasesDropdown,
+} from '@ui/navbar';
 ---
 
-<header>
+<header id="dynamic-navbar">
   <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="navbar-container">
       <!-- Logo -->
       <div class="navbar-logo">
-        <a href="/" aria-label="Air360 homepage">
-          <!-- <img src="/link---frame---svg.svg" alt="Air360" class="logo-image" /> -->
-          <Logo />
+        <a href="/" aria-label="Project homepage" id="navbar-logo">
+          <Logo id="logo" class="fill-white" />
         </a>
       </div>
 
@@ -19,21 +25,24 @@ import { FeaturesDropdown, UseCasesDropdown, AboutUsDropdown, NavbarMobile } fro
       <div class="navbar-menu desktop-menu">
         <ul class="navbar-nav" role="menubar">
           <!-- Features with Mega Menu -->
-          <FeaturesDropdown />
+          <FeaturesDropdownGradient />
 
           <!-- Use Cases with Mega Menu -->
-          <UseCasesDropdown />
+          <UseCasesDropdownGradient />
 
           <!-- About Us -->
-          <AboutUsDropdown />
+          <AboutUsDropdownGradient />
+
+          <li class="transition-colors duration-300 hover:text-gray-400">
+            <a href="/testimonials"> Testimonials </a>
+          </li>
         </ul>
       </div>
 
       <!-- Desktop Auth Links -->
       <div class="navbar-auth desktop-auth">
-        <a href="/" class="auth-link login">Log in</a>
-        <!-- <a href="/" class="auth-link demo text-black">Book a Demo</a> -->
-        <GradientButton />
+        <a href="/login" class="auth-link login">Log in</a>
+        <a href="/demo" class="auth-link demo">Book a Demo</a>
       </div>
 
       <!-- Mobile Hamburger Button -->
@@ -42,6 +51,7 @@ import { FeaturesDropdown, UseCasesDropdown, AboutUsDropdown, NavbarMobile } fro
         aria-label="Toggle navigation menu"
         aria-expanded="false"
         aria-controls="mobile-menu"
+        id="mobile-menu-button"
       >
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
@@ -50,20 +60,106 @@ import { FeaturesDropdown, UseCasesDropdown, AboutUsDropdown, NavbarMobile } fro
     </div>
 
     <!-- Mobile Menu Overlay -->
-    <NavbarMobile />
+    <div id="mobile-menu">
+      <NavbarMobile />
+    </div>
   </nav>
 </header>
+
 <style>
-  .navbar {
+  header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.01);
+    backdrop-filter: blur(24px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
+  }
+
+  /* Dark theme styles for the header */
+  header.dark-theme {
+    /*background-color: rgba(31, 41, 55, 0.95); /* Darker background */
+    background-color: rgb(255, 255, 255); /* Darker background */
+    border-bottom: 1px solid rgba(167, 166, 166, 0.247); /* Lighter border */
+  }
+
+  header.dark-theme .navbar-logo a {
+    color: rgb(0, 0, 0); /* Logo text color in dark theme */
+    fill: rgb(0, 0, 0);
+  }
+
+  header.dark-theme .navbar-logo #logo {
+    fill: black;
+  }
+
+  header.dark-theme .navbar-link {
+    color: #000 !important; /* Link color in dark theme */
+  }
+
+  header.dark-theme .navbar-nav {
+    color: black;
+  }
+
+  header.dark-theme .navbar-link:hover {
+    color: #000; /* Link hover color in dark theme */
+  }
+
+  header.dark-theme .auth-link {
+    color: #000; /* Auth link color in dark theme */
+  }
+
+  header.dark-theme .auth-link:hover {
+    color: #000; /* Auth link hover color in dark theme */
+  }
+
+  header.dark-theme .auth-link.demo {
+    background: #f771bf; /* Demo button background in dark theme */
+    color: white; /* Demo button text color in dark theme */
+  }
+
+  header.dark-theme .mobile-menu-toggle .hamburger-line {
+    background-color: black; /* Hamburger line color in dark theme */
+  }
+
+  header.dark-theme .mobile-menu-overlay {
+    background: rgba(31, 41, 55, 0.98); /* Mobile menu overlay background in dark theme */
+  }
+
+  header.dark-theme .mobile-menu-content {
+    background-color: rgba(31, 41, 55, 1); /* Mobile menu content background in dark theme */
+  }
+
+  header.dark-theme .mobile-nav-link {
+    color: #d1d5db; /* Mobile nav link color in dark theme */
+  }
+
+  header.dark-theme .mobile-nav-link:hover {
+    color: white; /* Mobile nav link hover color in dark theme */
+  }
+
+  header.dark-theme .mobile-auth-link {
+    color: #d1d5db; /* Mobile auth link color in dark theme */
+  }
+
+  header.dark-theme .mobile-auth-link:hover {
+    color: white; /* Mobile auth link hover color in dark theme */
+  }
+
+  header.dark-theme .mobile-close-btn {
+    color: #d1d5db; /* Mobile close button color in dark theme */
+  }
+
+  header.dark-theme .mobile-close-btn:hover {
+    color: white; /* Mobile close button hover color in dark theme */
+    background-color: rgba(
+      255,
+      255,
+      255,
+      0.1
+    ); /* Mobile close button hover background in dark theme */
   }
 
   .navbar-container {
@@ -95,6 +191,7 @@ import { FeaturesDropdown, UseCasesDropdown, AboutUsDropdown, NavbarMobile } fro
     list-style: none;
     margin: 0;
     padding: 0;
+    color: white;
   }
 
   .navbar-item {
@@ -102,7 +199,7 @@ import { FeaturesDropdown, UseCasesDropdown, AboutUsDropdown, NavbarMobile } fro
   }
 
   .navbar-link {
-    color: #374151;
+    color: white; /* Changed to white for gradient background */
     text-decoration: none;
     font-size: 16px;
     font-weight: 500;
@@ -112,7 +209,7 @@ import { FeaturesDropdown, UseCasesDropdown, AboutUsDropdown, NavbarMobile } fro
   }
 
   .navbar-link:hover {
-    color: #5e51f8;
+    color: #f8fafc; /* Lighter hover for white text */
   }
 
   .desktop-auth {
@@ -122,27 +219,42 @@ import { FeaturesDropdown, UseCasesDropdown, AboutUsDropdown, NavbarMobile } fro
   }
 
   .auth-link {
-    /* color: #374151; */
-    color: black;
+    color: white;
     text-decoration: none;
     font-size: 16px;
     font-weight: 500;
-    transition: color 0.2s ease;
+    transition: color 0.2s ease-in-out;
   }
 
   .auth-link:hover {
-    color: #5e51f8;
+    color: #f8fafc;
+  }
+
+  .auth-link.login:hover {
+    color: #b8bbbe;
   }
 
   .auth-link.demo {
-    background: #f771bf;
+    color: #000;
     padding: 8px 16px;
     border-radius: 8px;
     transition: all 0.2s ease;
+    border-color: rgba(34, 34, 34, 0.15);
+    box-shadow:
+      rgba(0, 0, 0, 0.12) 0px 1px 2px 0px,
+      rgba(0, 0, 0, 0.08) 0px 4px 6px 0px,
+      rgba(0, 0, 0, 0) 0px 0.5px 1px 1px,
+      rgba(0, 0, 0, 0) 0px 4px 12px 0px,
+      rgba(255, 255, 255, 0.25) 0px 1px 1px 0px inset;
+    background: radial-gradient(
+        39.8% 100% at 50% 0%,
+        rgb(255, 255, 255) 0%,
+        rgb(249, 249, 250) 100%
+      )
+      rgba(0, 0, 0, 0);
   }
 
   .auth-link.demo:hover {
-    /* background: #4c3aed; */
     color: black;
   }
 
@@ -163,7 +275,7 @@ import { FeaturesDropdown, UseCasesDropdown, AboutUsDropdown, NavbarMobile } fro
   }
 
   .mobile-menu-toggle:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(255, 255, 255, 0.05); /* Changed for gradient background */
   }
 
   .mobile-menu-toggle:focus {
@@ -174,7 +286,7 @@ import { FeaturesDropdown, UseCasesDropdown, AboutUsDropdown, NavbarMobile } fro
   .hamburger-line {
     width: 24px;
     height: 2px;
-    background-color: #374151;
+    background-color: white; /* Changed to white for gradient background */
     margin: 2px 0;
     transition: all 0.3s ease;
     border-radius: 1px;
@@ -268,51 +380,8 @@ import { FeaturesDropdown, UseCasesDropdown, AboutUsDropdown, NavbarMobile } fro
   /* Mobile Navigation Sections */
   .mobile-nav-section {
     border-bottom: 1px solid #f3f4f6;
-  }
-
-  .mobile-nav-header {
-    width: 100%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 0;
-    background: none;
-    border: none;
-    font-size: 18px;
-    font-weight: 500;
-    color: #111827;
-    cursor: pointer;
-    text-align: left;
-    min-height: 44px;
-  }
-
-  .mobile-nav-header:focus {
-    outline: 2px solid #5e51f8;
-    outline-offset: 2px;
-    border-radius: 4px;
-  }
-
-  .chevron {
-    transition: transform 0.3s ease;
-    color: #6b7280;
-  }
-
-  .mobile-nav-header[aria-expanded='true'] .chevron {
-    transform: rotate(180deg);
-  }
-
-  .mobile-nav-content {
-    max-height: 0;
-    overflow: hidden;
-    transition:
-      max-height 0.3s ease,
-      opacity 0.2s ease;
-    opacity: 0;
-  }
-
-  .mobile-nav-content.active {
-    max-height: 800px;
-    opacity: 1;
+    flex-direction: column;
   }
 
   .mobile-nav-link {
@@ -325,456 +394,15 @@ import { FeaturesDropdown, UseCasesDropdown, AboutUsDropdown, NavbarMobile } fro
     min-height: 44px;
     display: flex;
     align-items: center;
+    transition: color 0.2s ease;
   }
 
-  /* Mobile Feature Items */
-  .mobile-feature-item,
-  .mobile-resource-item {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 16px 0;
-    border-bottom: 1px solid #f9fafb;
-  }
-
-  .mobile-feature-item:last-child,
-  .mobile-resource-item:last-child {
-    border-bottom: none;
-    margin-bottom: 20px;
-  }
-
-  .mobile-feature-icon,
-  .mobile-resource-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    flex-shrink: 0;
-  }
-
-  .mobile-feature-icon.on-page-analytics {
-    background: linear-gradient(135deg, #ef4444, #dc2626);
-  }
-
-  .mobile-feature-icon.auto-cut {
-    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
-  }
-
-  .mobile-feature-icon.auto-layouts {
-    background: linear-gradient(135deg, #a855f7, #8b5cf6);
-  }
-
-  .mobile-feature-icon.session-replays {
-    background: linear-gradient(135deg, #3b82f6, #2563eb);
-  }
-
-  .mobile-feature-icon.funnel {
-    background: linear-gradient(135deg, #10b981, #059669);
-  }
-
-  .mobile-feature-icon.mac {
-    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
-  }
-
-  .mobile-feature-icon.chrome {
-    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-  }
-
-  .mobile-feature-icon.windows {
-    background: linear-gradient(135deg, #10b981, #047857);
-  }
-
-  .mobile-resource-icon.e-commerce {
-    background: linear-gradient(135deg, #f59e0b, #d97706);
-  }
-
-  .mobile-resource-icon.luxury-brands {
-    background: linear-gradient(135deg, #111827, #374151);
-  }
-
-  .mobile-resource-icon.airlines {
-    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-  }
-
-  .mobile-resource-icon.netflix {
-    background: linear-gradient(135deg, #111827, #374151);
-  }
-
-  .mobile-feature-item h4,
-  .mobile-resource-item h4 {
-    font-size: 16px;
-    font-weight: 600;
-    color: #111827;
-    margin: 0 0 4px 0;
-  }
-
-  .mobile-feature-item p,
-  .mobile-resource-item p {
-    font-size: 14px;
-    color: #6b7280;
-    margin: 0;
-  }
-
-  /* Mobile CTA Section */
-  .mobile-cta {
-    margin-top: auto;
-    padding: 32px 0;
-    text-align: center;
-    background: linear-gradient(135deg, #5e51f8, #955ceb);
-    margin: 32px -20px -20px -20px;
-    padding: 32px 20px;
-    border-radius: 20px 20px 0 0;
-  }
-
-  .mobile-cta-text {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 14px;
-    margin: 0 0 24px 0;
-  }
-
-  .mobile-video-tabs {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 4px;
-    border-radius: 12px;
-    backdrop-filter: blur(10px);
-  }
-
-  .mobile-tab {
-    flex: 1;
-    padding: 12px 16px;
-    background: none;
-    border: none;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 16px;
-    font-weight: 500;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    min-height: 44px;
-  }
-
-  .mobile-tab.active {
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-  }
-
-  /* Desktop Mega Menu Styles (preserved from original) */
-  .has-mega-menu:hover .mega-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0) scale(1);
-    transition:
-      opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-      transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
-      visibility 0ms 0ms;
-  }
-
-  .mega-menu {
-    /* Positioning: Fixed to viewport for perfect centering */
-    position: fixed;
-    top: 72px; /* Height of navbar */
-    left: 50%;
-    transform: translateY(-10px) scale(0.95);
-    transform: translateX(-50%) translateY(-10px) scale(0.95);
-    transform-origin: top center;
-
-    /* Styling and dimensions */
-    background: white;
-    border-radius: 16px;
-    box-shadow:
-      0 20px 25px -5px rgba(0, 0, 0, 0.1),
-      0 10px 10px -5px rgba(0, 0, 0, 0.04);
-
-    /* Animation states */
-    opacity: 0;
-    visibility: hidden;
-    transition:
-      opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-      transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
-      visibility 0ms 150ms;
-
-    /* Z-index and dimensions */
-    z-index: 1001;
-    /* width: min(1152px, calc(100vw - 48px)); Responsive width with max constraint */
-    max-width: 1152px;
-    margin-top: 8px; /* Small gap below navbar */
-  }
-
-  .mega-menu.small {
-    /* width: auto; */
-  }
-
-  /* Hover state with corrected transform */
-  .has-mega-menu:hover .mega-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0) scale(1);
-    transition:
-      opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-      transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
-      visibility 0ms 0ms;
-  }
-
-  .mega-menu-content {
-    /* padding: 32px; */
-    display: flex;
-    gap: 40px;
-  }
-
-  .mega-menu-section {
-    flex: 1;
-  }
-
-  .mega-menu-section.full-width {
-    flex: none;
-    width: 100%;
-  }
-
-  .mega-menu-title {
-    font-size: 12px;
-    font-weight: 600;
-    color: #9ca3af;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 20px;
-  }
-
-  .mega-menu-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-
-  .feature-card-mini {
-    padding: 16px;
-    border-radius: 12px;
-    /* background: #f8fafc; */
-    transition: all 0.2s ease;
-  }
-
-  .feature-card-mini:hover {
-    background: #f1f5f9;
-    transform: translateY(-2px);
-    cursor: pointer;
-  }
-
-  .feature-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 8px;
-    margin-bottom: 12px;
-  }
-
-  .feature-icon.auto-layouts {
-    background: linear-gradient(135deg, #a855f7, #8b5cf6);
-  }
-
-  .feature-icon.auto-cut {
-    background: linear-gradient(135deg, #06b6d4, #0891b2);
-  }
-
-  .feature-card-mini h4 {
-    font-size: 16px;
-    font-weight: 600;
-    color: #111827;
-    margin: 0 0 4px 0;
-  }
-
-  .feature-card-mini p {
-    font-size: 14px;
-    color: #6b7280;
-    margin: 0;
-  }
-
-  .mega-menu-list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .classic-feature {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 8px;
-    border-radius: 8px;
-    transition: background 0.2s ease;
-  }
-
-  .classic-feature:hover {
-    background: #f8fafc;
-    cursor: pointer;
-  }
-
-  .classic-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    flex-shrink: 0;
-  }
-
-  .classic-icon.on-page-analytics {
-    background: linear-gradient(135deg, #ef4444, #dc2626);
-  }
-
-  .classic-icon.session-replays {
-    background: linear-gradient(135deg, #3b82f6, #2563eb);
-  }
-
-  .classic-icon.funnel {
-    background: linear-gradient(135deg, #10b981, #059669);
-  }
-
-  .classic-icon.user-journey {
-    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
-  }
-
-  .classic-feature h4 {
-    font-size: 14px;
-    font-weight: 600;
-    color: #111827;
-    margin: 0 0 2px 0;
-  }
-
-  .classic-feature p {
-    font-size: 12px;
-    color: #6b7280;
-    margin: 0;
-  }
-
-  .apps-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .app-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 8px;
-    border-radius: 8px;
-    transition: background 0.2s ease;
-  }
-
-  .app-item:hover {
-    background: #f8fafc;
-  }
-
-  .app-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    flex-shrink: 0;
-  }
-
-  .app-icon.mac {
-    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
-  }
-
-  .app-icon.chrome {
-    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-  }
-
-  .app-icon.windows {
-    background: linear-gradient(135deg, #10b981, #047857);
-  }
-
-  .app-item h4 {
-    font-size: 14px;
-    font-weight: 600;
-    color: #111827;
-    margin: 0 0 2px 0;
-  }
-
-  .app-item p {
-    font-size: 12px;
-    color: #6b7280;
-    margin: 0;
-  }
-
-  .resources-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-  }
-
-  .resource-item {
-    text-align: center;
-    padding: 16px;
-    border-radius: 12px;
-    transition: all 0.2s ease;
-  }
-
-  .resource-item:hover {
-    cursor: pointer;
-  }
-
-  .resource-item:hover {
-    background: #f8fafc;
-    transform: translateY(-2px);
-  }
-
-  .use-cases-image {
-    width: 80px;
-    height: 60px;
-    border-radius: 8px;
-    margin: 0 auto 12px;
-  }
-
-  .use-cases-image.e-commerce {
-    background: linear-gradient(135deg, #f59e0b, #d97706);
-  }
-
-  .use-cases-image.luxury-brands {
-    background: linear-gradient(135deg, #06b6d4, #0891b2);
-  }
-
-  .use-cases-image.airlines {
-    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
-  }
-
-  .use-cases-image.netflix {
-    background: linear-gradient(135deg, #111827, #374151);
-  }
-
-  .use-cases-image.sport-team {
-    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-  }
-
-  .use-cases-image.hotels {
-    background: linear-gradient(135deg, #10b981, #047857);
-  }
-
-  .use-cases-image.bank-insurance {
-    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
-  }
-
-  .use-cases-image.gaming {
-    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-  }
-
-  .use-cases-image.multi-brand {
-    background: linear-gradient(135deg, #10b981, #047857);
-  }
-
-  .resource-item h4 {
-    font-size: 14px;
-    font-weight: 600;
-    color: #111827;
-    margin: 0 0 4px 0;
-  }
-
-  .resource-item p {
-    font-size: 12px;
-    color: #6b7280;
-    margin: 0;
+  .mobile-nav-link:hover {
+    color: #5e51f8;
   }
 
   /* Responsive Design */
-  @media (max-width: 768px) {
+  @media (max-width: 1280px) {
     .navbar-container {
       padding: 0 16px;
     }
@@ -796,7 +424,7 @@ import { FeaturesDropdown, UseCasesDropdown, AboutUsDropdown, NavbarMobile } fro
     }
   }
 
-  @media (min-width: 769px) {
+  @media (min-width: 1281px) {
     /* Hide mobile elements on desktop */
     .mobile-menu-toggle,
     .mobile-menu-overlay {
@@ -805,12 +433,10 @@ import { FeaturesDropdown, UseCasesDropdown, AboutUsDropdown, NavbarMobile } fro
   }
 
   /* Ensure proper touch targets on mobile */
-  @media (max-width: 768px) {
-    .mobile-nav-header,
+  @media (max-width: 1280px) {
     .mobile-nav-link,
     .mobile-auth-link,
-    .mobile-close-btn,
-    .mobile-tab {
+    .mobile-close-btn {
       min-height: 44px;
       min-width: 44px;
     }
@@ -830,10 +456,214 @@ import { FeaturesDropdown, UseCasesDropdown, AboutUsDropdown, NavbarMobile } fro
   /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
     .mobile-menu-overlay,
-    .hamburger-line,
-    .chevron,
-    .mobile-nav-content {
+    .hamburger-line {
       transition: none;
     }
   }
+
+  /* Fallback styles for non-JS scenarios */
+  #dynamic-navbar {
+    backdrop-filter: blur(12px);
+  }
+
+  /* Ensure proper contrast ratios for accessibility */
+  .navbar-link:focus,
+  .mobile-nav-link:focus {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+
+  /* Enhanced mobile menu animation */
+  #mobile-menu {
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Improve backdrop blur support across browsers */
+  @supports not (backdrop-filter: blur(12px)) {
+    .navbar {
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    .navbar.dark-theme {
+      background: rgba(31, 41, 55, 0.95);
+    }
+  }
 </style>
+
+<script>
+  // TypeScript interfaces for better type safety
+  interface NavbarElements {
+    navbar: HTMLElement | null;
+    backdrop: HTMLElement | null;
+    logo: HTMLElement | null;
+    mobileMenuButton: HTMLElement | null;
+    mobileMenu: HTMLElement | null;
+    navbarLinks: NodeListOf<HTMLElement>;
+  }
+
+  interface NavbarTheme {
+    backdrop: string;
+    logo: string;
+    links: string;
+  }
+
+  interface NavbarThemes {
+    light: NavbarTheme;
+    dark: NavbarTheme;
+  }
+
+  type ThemeType = 'light' | 'dark';
+
+  // Dynamic Navbar Theme Adaptation System
+  class DynamicNavbar {
+    private elements: NavbarElements;
+    private currentTheme: ThemeType = 'light';
+    private observer: IntersectionObserver | null = null;
+
+    private readonly themes: NavbarThemes = {
+      light: {
+        backdrop: '', // Default, no specific class needed
+        logo: '',
+        links: '',
+      },
+      dark: {
+        backdrop: 'dark-theme', // Class to apply for dark theme
+        logo: '',
+        links: '',
+      },
+    };
+
+    constructor() {
+      this.elements = this.getElements();
+      this.init();
+    }
+
+    private getElements(): NavbarElements {
+      return {
+        navbar: document.getElementById('dynamic-navbar'),
+        backdrop: document.getElementById('dynamic-navbar'), // Same as navbar for this implementation
+        logo: document.getElementById('navbar-logo'),
+        mobileMenuButton: document.getElementById('mobile-menu-button'),
+        mobileMenu: document.getElementById('mobile-menu'),
+        navbarLinks: document.querySelectorAll('.navbar-link, .mobile-nav-link'),
+      };
+    }
+
+    private init(): void {
+      if (!this.elements.navbar) {
+        console.warn('Dynamic navbar element not found');
+        return;
+      }
+
+      this.setupIntersectionObserver();
+      this.setupMobileMenu();
+
+      // Initial theme setup
+      this.applyTheme('light');
+
+      // Fallback for non-JS scenarios
+      this.elements.navbar.style.display = 'block';
+    }
+
+    private setupIntersectionObserver(): void {
+      if (!this.elements.navbar) return;
+
+      const navbarHeight: number = 72; // Fixed height from CSS
+
+      this.observer = new IntersectionObserver(
+        (entries: IntersectionObserverEntry[]) => {
+          entries.forEach((entry: IntersectionObserverEntry) => {
+            if (entry.isIntersecting) {
+              const target = entry.target as HTMLElement;
+              const sectionTheme: ThemeType = (target.dataset.theme as ThemeType) || 'light';
+              this.updateTheme(sectionTheme);
+            }
+          });
+        },
+        {
+          rootMargin: `-${navbarHeight}px 0px -80% 0px`,
+          threshold: 0,
+        },
+      );
+
+      // Observe all sections with data-theme attribute
+      const sections = document.querySelectorAll('[data-theme]');
+      sections.forEach((section: Element) => this.observer!.observe(section));
+    }
+
+    private updateTheme(theme: ThemeType): void {
+      if (this.currentTheme !== theme) {
+        this.currentTheme = theme;
+        this.applyTheme(theme);
+      }
+    }
+
+    private applyTheme(theme: ThemeType): void {
+      if (!this.elements.navbar) return;
+
+      this.elements.navbar.dataset.theme = theme;
+
+      const themeConfig = this.themes[theme];
+
+      // Apply theme class to navbar
+      if (themeConfig.backdrop) {
+        this.elements.navbar.classList.add(themeConfig.backdrop);
+      } else {
+        this.elements.navbar.classList.remove('dark-theme');
+      }
+    }
+
+    private setupMobileMenu(): void {
+      if (!this.elements.mobileMenuButton || !this.elements.mobileMenu) return;
+
+      // Toggle mobile menu
+      this.elements.mobileMenuButton.addEventListener('click', () => {
+        const isExpanded: boolean =
+          this.elements.mobileMenuButton!.getAttribute('aria-expanded') === 'true';
+
+        this.elements.mobileMenuButton!.setAttribute('aria-expanded', String(!isExpanded));
+        this.elements.mobileMenuButton!.classList.toggle('active');
+        this.elements.mobileMenu!.classList.toggle('active');
+      });
+
+      // Close mobile menu when clicking links
+      const mobileLinks = this.elements.mobileMenu.querySelectorAll('.mobile-nav-link');
+      mobileLinks.forEach((link: Element) => {
+        link.addEventListener('click', () => {
+          this.elements.mobileMenu!.classList.remove('active');
+          this.elements.mobileMenuButton!.classList.remove('active');
+          this.elements.mobileMenuButton!.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      // Close mobile menu when clicking close button
+      const closeBtn = this.elements.mobileMenu.querySelector('.mobile-close-btn');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+          this.elements.mobileMenu!.classList.remove('active');
+          this.elements.mobileMenuButton!.classList.remove('active');
+          this.elements.mobileMenuButton!.setAttribute('aria-expanded', 'false');
+        });
+      }
+    }
+
+    // Public methods for external use
+    public setTheme(theme: ThemeType): void {
+      this.updateTheme(theme);
+    }
+
+    public getCurrentTheme(): ThemeType {
+      return this.currentTheme;
+    }
+  }
+
+  // Initialize the dynamic navbar
+  document.addEventListener('DOMContentLoaded', () => {
+    new DynamicNavbar();
+  });
+
+  // Re-initialize on Astro page loads (for SPA navigation)
+  document.addEventListener('astro:page-load', () => {
+    new DynamicNavbar();
+  });
+</script>
