@@ -66,14 +66,14 @@ const comibenedSections = [...primarySections, ...secondarySections];
   <div class="mobile-nav-content" data-content="about-us">
     {
       comibenedSections.map(({ icon: Icon, label, link }) => (
-        <div class="flex items-center gap-4 py-4">
-          <a href={link} role="menuitem" class="flex items-center gap-x-2 rounded-xl py-1">
+        <a href={link} role="menuitem" class="flex items-center gap-x-2 rounded-xl py-1">
+          <div class="flex items-center gap-4 py-4">
             <Icon width={20} height={20} class="fill-primary-500" />
             <div>
               <h4 class="text-black">{label}</h4>
             </div>
-          </a>
-        </div>
+          </div>
+        </a>
       ))
     }
   </div>
