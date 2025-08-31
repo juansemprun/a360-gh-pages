@@ -1,12 +1,15 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
+
 import DynamicFeatures from '@components/DynamicFeatures.astro';
 import Hero from '@components/Hero.astro';
+import StaticFeatures from '@components/StaticFeatures.astro';
 import TwoColumnText from '@components/TwoColumnText.astro';
 ---
 
 <BaseLayout title="Air360 | Simplify UX analysis, boost conversion">
   <Hero />
+  <StaticFeatures />
   <DynamicFeatures
     title="Image on the bottom"
     layout="image-bottom"
@@ -14,5 +17,6 @@ import TwoColumnText from '@components/TwoColumnText.astro';
     dataTheme="dark"
   />
   <TwoColumnText />
+  <StaticFeatures />
   <DynamicFeatures title="Image on the top" layout="image-top" className="py-48" dataTheme="dark" />
 </BaseLayout>

@@ -1,0 +1,100 @@
+---
+import { Image } from 'astro:assets';
+import { TicketAirline } from '@assets/icons';
+---
+
+<div class="container-custom lg:hidden" data-theme="dark">
+  <div class="my-32 flex flex-col md:my-20">
+    <!-- title -->
+    <div class="flex flex-col text-center">
+      <h2 class="font-clash-display-bold mb-6 text-5xl text-black md:text-6xl">Title here</h2>
+      <p class="text-2xl font-medium text-slate-600">some text here</p>
+    </div>
+    <!-- content -->
+    <div class="flex flex-col">
+      <!-- content 1 -->
+      <div class="flex flex-col items-center p-8">
+        <!-- title -->
+        <div class="flex max-w-80 flex-col items-center gap-2 p-6 text-center">
+          <div class="flex items-center gap-2">
+            <TicketAirline width={24} height={24} class="fill-gray-400" />
+            <h3 class="text-xl font-semibold text-slate-900">Title</h3>
+          </div>
+          <p class="max-w-3xs text-center text-base font-medium leading-6 text-slate-600">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus esse laboriosam
+          </p>
+        </div>
+        <!-- multimedia -->
+        <div class="bg-linear-90 rounded-2xl from-[#2d92e9] to-[#644ad5] p-0.5">
+          <div class="rounded-xl bg-white p-1">
+            <div class="rounded-xl shadow-xl">
+              <Image
+                src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
+                alt="Clip editor screenshot"
+                width={600}
+                height={400}
+                class="block rounded-xl border border-slate-200"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- content 2 -->
+      <div class="flex flex-col items-center p-8">
+        <!-- title -->
+        <div class="flex max-w-80 flex-col items-center gap-2 p-6 text-center">
+          <div class="flex items-center gap-2">
+            <TicketAirline width={24} height={24} class="fill-gray-400" />
+            <h3 class="text-xl font-semibold text-slate-900">Title</h3>
+          </div>
+          <p class="max-w-3xs text-center text-base font-medium leading-6 text-slate-600">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus esse laboriosam
+          </p>
+        </div>
+        <!-- multimedia -->
+        <div class="bg-linear-90 rounded-2xl from-[#c147ac] to-[#e72192] p-0.5">
+          <div class="rounded-xl bg-white p-1">
+            <div class="rounded-xl shadow-xl">
+              <Image
+                src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
+                alt="Clip editor screenshot"
+                width={600}
+                height={400}
+                class="block rounded-xl border border-slate-200"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- content 3 -->
+      <div class="flex flex-col items-center p-8">
+        <!-- title -->
+        <div class="flex max-w-80 flex-col items-center gap-2 p-6 text-center">
+          <div class="flex items-center gap-2">
+            <TicketAirline width={24} height={24} class="fill-gray-400" />
+            <h3 class="text-xl font-semibold text-slate-900">Title</h3>
+          </div>
+          <p class="max-w-3xs text-center text-base font-medium leading-6 text-slate-600">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus esse laboriosam
+          </p>
+        </div>
+        <!-- multimedia -->
+        <div class="bg-linear-90 rounded-2xl from-[#f04d66] to-[#fd7043] p-0.5">
+          <div class="rounded-xl bg-white p-1">
+            <div class="rounded-xl shadow-xl">
+              <Image
+                src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
+                alt="Clip editor screenshot"
+                width={600}
+                height={400}
+                class="block rounded-xl border border-slate-200"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
