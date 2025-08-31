@@ -226,74 +226,87 @@ const textId = `${componentId}-text`;
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('astro:page-load', function () {
     const componentInstances = new Set();
+    const activeIndexMap = new Map();
+    const intervalMap = new Map();
+    const ROTATE_INTERVAL = 5000; // 5 seconds
 
-    // Find all feature buttons/cards and group by component instance
-    const featureElements = document.querySelectorAll('[data-component-id][data-feature-index]');
+    // --- Core Rotation Functions ---
 
-    featureElements.forEach((element) => {
-      const componentId = element.getAttribute('data-component-id');
-      componentInstances.add(componentId);
-    });
+    function startAutoRotate(componentId) {
+      if (intervalMap.has(componentId)) return; // Rotation is already running
 
-    // Initialize each component instance
-    componentInstances.forEach((componentId) => {
-      initializeComponent(componentId);
-    });
-
-    function initializeComponent(componentId) {
       const featureButtons = document.querySelectorAll(
         `[data-component-id="${componentId}"][data-feature-index]`,
       );
+      const count = featureButtons.length;
+      if (count <= 1) return;
+
       const dynamicImage = document.getElementById(`${componentId}-image`);
       const dynamicText = document.getElementById(`${componentId}-text`);
       const dynamicVideo = document.getElementById(`${componentId}-video`);
 
-      if (featureButtons.length === 0) return;
+      const intervalId = setInterval(() => {
+        const currentIndex = activeIndexMap.get(componentId) || 0;
+        const nextIndex = (currentIndex + 1) % count;
 
-      featureButtons.forEach((button, index) => {
-        button.addEventListener('click', function () {
-          const featureIndex = parseInt(this.getAttribute('data-feature-index'));
-          const featureContent = this.getAttribute('data-feature-content');
+        const nextButton = document.querySelector(
+          `[data-component-id="${componentId}"][data-feature-index="${nextIndex}"]`,
+        );
+        if (!nextButton) return;
 
-          // Update active states
-          updateActiveStates(componentId, featureIndex);
+        const nextContent = nextButton.getAttribute('data-feature-content');
 
-          // Update dynamic content
-          updateDynamicContent(dynamicImage, dynamicText, dynamicVideo, featureContent);
-        });
-      });
+        // Update state and UI directly
+        activeIndexMap.set(componentId, nextIndex);
+        updateActiveStates(componentId, nextIndex);
+        updateDynamicContent(dynamicImage, dynamicText, dynamicVideo, nextContent);
+      }, ROTATE_INTERVAL);
+
+      intervalMap.set(componentId, intervalId);
     }
+
+    function stopAutoRotate(componentId) {
+      if (intervalMap.has(componentId)) {
+        clearInterval(intervalMap.get(componentId));
+        intervalMap.delete(componentId);
+      }
+    }
+
+    function restartAutoRotate(componentId) {
+      stopAutoRotate(componentId);
+      startAutoRotate(componentId);
+    }
+
+    // --- UI Update Functions ---
 
     function updateActiveStates(componentId, activeIndex) {
       const featureButtons = document.querySelectorAll(
         `[data-component-id="${componentId}"][data-feature-index]`,
       );
 
-      featureButtons.forEach((button, index) => {
-        const isActive = index === activeIndex;
+      featureButtons.forEach((button) => {
+        const buttonIndexStr = button.getAttribute('data-feature-index');
+        const buttonIndex = buttonIndexStr ? parseInt(buttonIndexStr, 10) : -1;
+        const isActive = buttonIndex === activeIndex;
 
         // Handle tab styles
         if (button.getAttribute('role') === 'tab') {
           button.setAttribute('aria-selected', isActive.toString());
           if (isActive) {
             button.classList.add('bg-white', 'shadow-sm');
-            // button.classList.remove('text-primary-500');
           } else {
             button.classList.remove('bg-white', 'shadow-sm');
-            // button.classList.add('text-primary-500');
           }
         }
 
         // Handle card styles
         if (!button.getAttribute('role')) {
-          // This is a card, not a tab
           if (isActive) {
             button.classList.add('bg-slate-50', 'opacity-100');
-            button.classList.remove('opacity-75');
+            button.classList.remove('opacity-50', 'hover:opacity-100');
 
-            // Add active indicator
             const existingIndicator = button.querySelector(
               '[aria-label="Currently active feature"]',
             );
@@ -302,14 +315,13 @@ const textId = `${componentId}-text`;
               indicator.className = 'mt-5';
               indicator.setAttribute('aria-label', 'Currently active feature');
               indicator.innerHTML =
-                '<img class="w-11 h-1" alt="Active indicator" src="/loader.svg" />';
+                '<img class="h-1 w-11" alt="Active indicator" src="/loader.svg" />';
               button.appendChild(indicator);
             }
           } else {
             button.classList.remove('bg-slate-50', 'opacity-100');
-            button.classList.add('opacity-75');
+            button.classList.add('opacity-50', 'hover:opacity-100');
 
-            // Remove active indicator
             const indicator = button.querySelector('[aria-label="Currently active feature"]');
             if (indicator) {
               indicator.remove();
@@ -321,7 +333,6 @@ const textId = `${componentId}-text`;
 
     function updateDynamicContent(imageElement, textElement, videoElement, content) {
       if (imageElement) {
-        // Handle image content
         imageElement.style.opacity = '0';
         setTimeout(() => {
           imageElement.src = content;
@@ -330,17 +341,20 @@ const textId = `${componentId}-text`;
       }
 
       if (videoElement) {
-        // Handle video content
         videoElement.style.opacity = '0';
         setTimeout(() => {
-          videoElement.src = content;
+          const source = videoElement.querySelector('source');
+          if (source) {
+            source.src = content;
+          } else {
+            videoElement.src = content;
+          }
           videoElement.load();
           videoElement.style.opacity = '1';
         }, 150);
       }
 
       if (textElement) {
-        // Handle text content
         const textContainer = textElement.querySelector('div');
         if (textContainer) {
           textElement.style.opacity = '0';
@@ -351,5 +365,66 @@ const textId = `${componentId}-text`;
         }
       }
     }
+
+    // --- Initialization ---
+
+    function initializeComponent(componentId) {
+      const featureButtons = document.querySelectorAll(
+        `[data-component-id="${componentId}"][data-feature-index]`,
+      );
+      const dynamicImage = document.getElementById(`${componentId}-image`);
+      const dynamicText = document.getElementById(`${componentId}-text`);
+      const dynamicVideo = document.getElementById(`${componentId}-video`);
+
+      if (featureButtons.length === 0) return;
+
+      activeIndexMap.set(componentId, 0);
+
+      // Handle manual clicks
+      featureButtons.forEach((button) => {
+        button.addEventListener('click', function () {
+          const featureIndexStr = this.getAttribute('data-feature-index');
+          if (featureIndexStr === null) return;
+
+          const featureIndex = parseInt(featureIndexStr, 10);
+          const featureContent = this.getAttribute('data-feature-content');
+
+          activeIndexMap.set(componentId, featureIndex);
+          updateActiveStates(componentId, featureIndex);
+          updateDynamicContent(dynamicImage, dynamicText, dynamicVideo, featureContent);
+          restartAutoRotate(componentId);
+        });
+      });
+
+      // Handle hover
+      const componentSection = document
+        .querySelector(`[data-component-id="${componentId}"]`)
+        ?.closest('section');
+      if (componentSection) {
+        componentSection.addEventListener('mouseenter', () => stopAutoRotate(componentId));
+        componentSection.addEventListener('mouseleave', () => startAutoRotate(componentId));
+      }
+
+      // Initial start
+      startAutoRotate(componentId);
+    }
+
+    // Find all component instances on the page and initialize them
+    const featureElements = document.querySelectorAll('[data-component-id][data-feature-index]');
+    featureElements.forEach((element) => {
+      const componentId = element.getAttribute('data-component-id');
+      if (componentId) {
+        componentInstances.add(componentId);
+      }
+    });
+
+    componentInstances.forEach((componentId) => {
+      initializeComponent(componentId);
+    });
+
+    // Clean up intervals when the user navigates away
+    window.addEventListener('beforeunload', () => {
+      intervalMap.forEach((_, componentId) => stopAutoRotate(componentId));
+    });
   });
 </script>
