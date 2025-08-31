@@ -13,10 +13,15 @@ import TwoColumnText from '@components/TwoColumnText.astro';
   <DynamicFeatures
     title="Image on the bottom"
     layout="image-bottom"
-    className="py-48"
+    className="hidden py-48 lg:block"
     dataTheme="dark"
   />
   <TwoColumnText />
   <StaticFeatures />
-  <DynamicFeatures title="Image on the top" layout="image-top" className="py-48" dataTheme="dark" />
+  <DynamicFeatures
+    title="Image on the top"
+    layout="image-top"
+    className="hidden py-48 lg:block"
+    dataTheme="dark"
+  />
 </BaseLayout>
