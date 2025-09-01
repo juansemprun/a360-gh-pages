@@ -16,6 +16,7 @@ export interface Props {
   contentType?: 'image' | 'text' | 'video'; // Type of content to display (image, text, or video)
   className?: string;
   dataTheme?: 'dark' | 'light';
+  gradient?: string;
 }
 
 const {
@@ -49,6 +50,7 @@ const {
   contentType = 'video',
   className = '',
   dataTheme = '',
+  gradient = 'from-blue-500 to-indigo-600',
 } = Astro.props;
 
 // maybe I need to add de src for the videos/images in the interface?
@@ -100,7 +102,26 @@ const textId = `${componentId}-text`;
               src={features[0].content}
               data-component-id={componentId}
             />
-          ) : contentType === 'video' ? (
+          ) : contentType === 'video' && cardType === 'cards' ? (
+            <div class={`bg-linear-90 rounded-2xl ${gradient} p-0.5`}>
+              <div class="rounded-[13px] bg-white p-2">
+                <div class="rounded-lg">
+                  <video
+                    id={`${componentId}-video`}
+                    class="h-auto w-full rounded-xl shadow-lg transition-opacity duration-300"
+                    autoplay
+                    loop
+                    muted
+                    playsinline
+                    data-component-id={componentId}
+                  >
+                    <source src={features[0].content} type="video/mp4" />
+                    Sorry, your browser does not support embedded videos.
+                  </video>
+                </div>
+              </div>
+            </div>
+          ) : (
             <video
               id={`${componentId}-video`}
               class="h-auto w-full rounded-2xl shadow-lg transition-opacity duration-300"
@@ -113,16 +134,6 @@ const textId = `${componentId}-text`;
               <source src={features[0].content} type="video/mp4" />
               Sorry, your browser does not support embedded videos.
             </video>
-          ) : (
-            <div
-              id={textId}
-              class="w-full rounded-2xl border border-slate-200 bg-slate-50 p-8 transition-opacity duration-300"
-              data-component-id={componentId}
-            >
-              <div class="text-lg font-medium leading-relaxed text-slate-700">
-                {features[0].content}
-              </div>
-            </div>
           )
         }
       </div>
@@ -178,11 +189,6 @@ const textId = `${componentId}-text`;
                   <p class="text-base font-medium leading-6 text-slate-600">
                     {feature.description}
                   </p>
-                  {index === 0 && (
-                    <div class="mt-5" aria-label="Currently active feature">
-                      <img class="h-1 w-11" alt="Active indicator" src="/loader.svg" />
-                    </div>
-                  )}
                 </article>
               ))}
             </div>
@@ -314,9 +320,6 @@ const textId = `${componentId}-text`;
               const indicator = document.createElement('div');
               indicator.className = 'mt-5';
               indicator.setAttribute('aria-label', 'Currently active feature');
-              indicator.innerHTML =
-                '<img class="h-1 w-11" alt="Active indicator" src="/loader.svg" />';
-              button.appendChild(indicator);
             }
           } else {
             button.classList.remove('bg-slate-50', 'opacity-100');
