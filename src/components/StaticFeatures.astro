@@ -1,100 +1,102 @@
 ---
-import { Image } from 'astro:assets';
 import { TicketAirline } from '@assets/icons';
+
+export type IconComponent = (props?: { width?: number; height?: number; class?: string }) => any;
+
+export interface StaticFeatureItem {
+  icon: IconComponent;
+  title: string;
+  description: string;
+  content: string;
+}
+
+export interface Props {
+  title?: string;
+  description?: string;
+  features?: StaticFeatureItem[];
+  className?: string;
+}
+
+const gradients = [
+  'from-blue-500 to-indigo-600',
+  'from-pink-500 to-pink-600',
+  'from-rose-500 to-orange-400',
+];
+
+const {
+  title = 'Title Here',
+  description = 'Some text here',
+  features = [
+    {
+      icon: TicketAirline,
+      title: 'Demo',
+      description:
+        'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus esse laboriosam',
+      content:
+        'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
+    },
+    {
+      icon: TicketAirline,
+      title: 'Demo',
+      description:
+        'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus esse laboriosam',
+      content:
+        'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
+    },
+    {
+      icon: TicketAirline,
+      title: 'Demo',
+      description:
+        'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus esse laboriosam',
+      content:
+        'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
+    },
+  ],
+  className = '',
+} = Astro.props;
 ---
 
 <div class="container-custom lg:hidden" data-theme="dark">
   <div class="my-32 flex flex-col md:my-20">
-    <!-- title -->
     <div class="flex flex-col text-center">
       <h2 class="font-clash-display-bold mb-6 text-5xl text-black md:text-6xl">Title here</h2>
       <p class="text-2xl font-medium text-slate-600">some text here</p>
     </div>
-    <!-- content -->
     <div class="flex flex-col">
-      <!-- content 1 -->
-      <div class="flex flex-col items-center p-8">
-        <!-- title -->
-        <div class="flex max-w-80 flex-col items-center gap-2 p-6 text-center">
-          <div class="flex items-center gap-2">
-            <TicketAirline width={24} height={24} class="fill-gray-400" />
-            <h3 class="text-xl font-semibold text-slate-900">Title</h3>
-          </div>
-          <p class="max-w-3xs text-center text-base font-medium leading-6 text-slate-600">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus esse laboriosam
-          </p>
-        </div>
-        <!-- multimedia -->
-        <div class="bg-linear-90 rounded-2xl from-[#2d92e9] to-[#644ad5] p-0.5">
-          <div class="rounded-xl bg-white p-1">
-            <div class="rounded-xl shadow-xl">
-              <Image
-                src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
-                alt="Clip editor screenshot"
-                width={600}
-                height={400}
-                class="block rounded-xl border border-slate-200"
-              />
+      {
+        features.map(({ title, description, content, icon: Icon }, index) => (
+          <div class="flex flex-col items-center p-8">
+            <div class="flex max-w-80 flex-col items-center gap-2 p-6 text-center">
+              <div class="flex items-center gap-2">
+                <Icon width={24} height={24} class="fill-gray-400" />
+                <h3 class="text-xl font-semibold text-slate-900">{title}</h3>
+              </div>
+              <p class="max-w-3xs text-center text-base font-medium leading-6 text-slate-600">
+                {description}
+              </p>
+            </div>
+            <div class={`bg-linear-90 rounded-2xl ${gradients[index]} p-0.5`}>
+              <div class="rounded-[13px] bg-white p-0.5">
+                <div class="rounded-lg">
+                  <video
+                    autoplay
+                    loop
+                    muted
+                    playsinline
+                    src={content}
+                    width="600"
+                    height="400"
+                    class="h-auto w-full rounded-xl shadow-lg"
+                  >
+                    <source src={content} type="video/mp4" />
+                    Sorry, your browser does not support embedded videos.
+                  </video>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <!-- content 2 -->
-      <div class="flex flex-col items-center p-8">
-        <!-- title -->
-        <div class="flex max-w-80 flex-col items-center gap-2 p-6 text-center">
-          <div class="flex items-center gap-2">
-            <TicketAirline width={24} height={24} class="fill-gray-400" />
-            <h3 class="text-xl font-semibold text-slate-900">Title</h3>
-          </div>
-          <p class="max-w-3xs text-center text-base font-medium leading-6 text-slate-600">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus esse laboriosam
-          </p>
-        </div>
-        <!-- multimedia -->
-        <div class="bg-linear-90 rounded-2xl from-[#c147ac] to-[#e72192] p-0.5">
-          <div class="rounded-xl bg-white p-1">
-            <div class="rounded-xl shadow-xl">
-              <Image
-                src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
-                alt="Clip editor screenshot"
-                width={600}
-                height={400}
-                class="block rounded-xl border border-slate-200"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- content 3 -->
-      <div class="flex flex-col items-center p-8">
-        <!-- title -->
-        <div class="flex max-w-80 flex-col items-center gap-2 p-6 text-center">
-          <div class="flex items-center gap-2">
-            <TicketAirline width={24} height={24} class="fill-gray-400" />
-            <h3 class="text-xl font-semibold text-slate-900">Title</h3>
-          </div>
-          <p class="max-w-3xs text-center text-base font-medium leading-6 text-slate-600">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus esse laboriosam
-          </p>
-        </div>
-        <!-- multimedia -->
-        <div class="bg-linear-90 rounded-2xl from-[#f04d66] to-[#fd7043] p-0.5">
-          <div class="rounded-xl bg-white p-1">
-            <div class="rounded-xl shadow-xl">
-              <Image
-                src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
-                alt="Clip editor screenshot"
-                width={600}
-                height={400}
-                class="block rounded-xl border border-slate-200"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+        ))
+      }
     </div>
   </div>
 </div>
