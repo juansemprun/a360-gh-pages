@@ -17,12 +17,6 @@ export interface Props {
   className?: string;
 }
 
-const gradients = [
-  'from-blue-500 to-indigo-600',
-  'from-pink-500 to-pink-600',
-  'from-rose-500 to-orange-400',
-];
-
 const {
   title = 'Title Here',
   description = 'Some text here',
@@ -75,25 +69,19 @@ const {
                 {description}
               </p>
             </div>
-            <div class={`bg-linear-90 rounded-2xl ${gradients[index]} p-0.5`}>
-              <div class="rounded-[13px] bg-white p-1">
-                <div class="rounded-lg">
-                  <video
-                    autoplay
-                    loop
-                    muted
-                    playsinline
-                    src={content}
-                    width="600"
-                    height="400"
-                    class="h-auto w-full rounded-xl shadow-lg"
-                  >
-                    <source src={content} type="video/mp4" />
-                    Sorry, your browser does not support embedded videos.
-                  </video>
-                </div>
-              </div>
-            </div>
+            <video
+              autoplay
+              loop
+              muted
+              playsinline
+              src={content}
+              width="600"
+              height="400"
+              class="h-auto w-full rounded-xl shadow-lg"
+            >
+              <source src={content} type="video/mp4" />
+              Sorry, your browser does not support embedded videos.
+            </video>
           </div>
         ))
       }

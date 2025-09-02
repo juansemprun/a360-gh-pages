@@ -102,25 +102,6 @@ const textId = `${componentId}-text`;
               src={features[0].content}
               data-component-id={componentId}
             />
-          ) : contentType === 'video' && cardType === 'cards' ? (
-            <div class={`bg-linear-90 rounded-2xl ${gradient} p-0.5`}>
-              <div class="rounded-[13px] bg-white p-2">
-                <div class="rounded-lg">
-                  <video
-                    id={`${componentId}-video`}
-                    class="h-auto w-full rounded-xl shadow-lg transition-opacity duration-300"
-                    autoplay
-                    loop
-                    muted
-                    playsinline
-                    data-component-id={componentId}
-                  >
-                    <source src={features[0].content} type="video/mp4" />
-                    Sorry, your browser does not support embedded videos.
-                  </video>
-                </div>
-              </div>
-            </div>
           ) : (
             <video
               id={`${componentId}-video`}
