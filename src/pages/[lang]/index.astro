@@ -1,0 +1,41 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Hero from '@components/Hero.astro';
+import StaticFeatures from '@components/StaticFeatures.astro';
+import DynamicFeatures from '@components/DynamicFeatures.astro';
+import TwoColumnText from '@components/TwoColumnText.astro';
+
+const { lang } = Astro.params;
+const heroEntry = await getEntry('hero', lang + '/hero');
+
+export async function getStaticPaths() {
+  const languages = ['en', 'fr'];
+  return languages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+console.log('lang:', lang);
+---
+
+<BaseLayout title="Air360 | Simplify UX analysis, boost conversion">
+  <Hero heroEntry={heroEntry} />
+  <StaticFeatures />
+  <DynamicFeatures
+    title="Image on the bottom"
+    layout="image-bottom"
+    className="hidden py-48 lg:block"
+    dataTheme="dark"
+  />
+  <TwoColumnText />
+  <StaticFeatures />
+  <DynamicFeatures
+    title="Image on the top"
+    layout="image-top"
+    className="hidden py-48 lg:block"
+    dataTheme="dark"
+    gradient="from-rose-500 to-orange-400"
+  />
+</BaseLayout>

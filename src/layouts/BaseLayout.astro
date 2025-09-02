@@ -8,16 +8,18 @@ import Footer from '@components/Footer.astro';
 export interface Props {
   title: string;
   description?: string;
+  lang?: string;
 }
 
 const {
   title = 'Air360',
   description = 'Air360 is the UX analytics platform that uncovers hidden user behaviors and decodes the end-to-end user experience, speeding up CRO efforts.',
+  lang = 'en',
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta name="robots" content="noindex" />
     <meta charset="UTF-8" />
@@ -59,10 +61,10 @@ const {
     <ClientRouter />
   </head>
   <body>
-    <Header />
+    <Header lang={lang} />
     <main>
       <slot />
     </main>
-    <Footer />
+    <Footer lang={lang} />
   </body>
 </html>
