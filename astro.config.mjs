@@ -8,7 +8,7 @@ import react from '@astrojs/react';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://juansemprun.github.io',
-  base: '/a360-gh-pages/',
+  base: '/a360-gh-pages',
   build: {
     inlineStylesheets: 'always',
   },
