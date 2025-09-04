@@ -1,6 +1,6 @@
 ---
 title_line_1: 'CRO that clicks,'
-title_line_2: 'literally'
+title_line_2: 'literally!'
 subtitle: 'Air360 is the conversion whisperer that decodes your users for you'
 cta: 'Get started'
 promo: '7-day Free trial — no credit card required'
