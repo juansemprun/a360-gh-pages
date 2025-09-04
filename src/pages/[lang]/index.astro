@@ -1,5 +1,5 @@
 ---
-import { getCollection, getEntry } from 'astro:content';
+import { getEntry } from 'astro:content';
 
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Hero from '@components/Hero.astro';
@@ -8,16 +8,15 @@ import DynamicFeatures from '@components/DynamicFeatures.astro';
 import TwoColumnText from '@components/TwoColumnText.astro';
 
 const { lang } = Astro.params;
-const heroEntry = await getEntry('hero', lang + '/hero');
+const heroEntry = await getEntry('hero', `${lang}/hero`);
 
 export async function getStaticPaths() {
   const languages = ['en', 'fr'];
+
   return languages.map((lang) => ({
     params: { lang },
   }));
 }
-
-console.log('lang:', lang);
 ---
 
 <BaseLayout title="Air360 | Simplify UX analysis, boost conversion">
