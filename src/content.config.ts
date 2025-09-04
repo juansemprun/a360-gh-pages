@@ -13,6 +13,15 @@ const heroCollection = defineCollection({
   }),
 });
 
+const useCasesCollection = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    videoSrc: z.string().url(),
+  }),
+});
+
 export const collections = {
   hero: heroCollection,
+  'use-cases': useCasesCollection,
 };
