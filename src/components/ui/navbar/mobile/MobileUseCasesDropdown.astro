@@ -11,6 +11,8 @@ import {
   ChevronDown,
 } from '@assets/icons';
 
+const { lang } = Astro.params;
+
 const useCasesByIndustry = [
   { icon: BagsShopping, label: 'E-commerce', link: '/use-cases/e-commerce' },
   { icon: Hotel, label: 'Hotels', link: '/use-cases/hotels' },
@@ -65,7 +67,11 @@ const useCasesByUseCase = [
     <h3 class="text-xs font-semibold uppercase tracking-wider text-gray-400">By industry</h3>
     {
       useCasesByIndustry.map(({ icon: Icon, label, link }) => (
-        <a href={link} role="menuitem" class="flex items-center gap-x-2 rounded-xl py-1">
+        <a
+          href={`/${lang}${link}`}
+          role="menuitem"
+          class="flex items-center gap-x-2 rounded-xl py-1"
+        >
           <div class="flex items-center gap-4 py-4">
             <Icon width={20} height={20} class="fill-primary-500" />
             <div>

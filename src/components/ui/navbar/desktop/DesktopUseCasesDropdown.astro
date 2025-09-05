@@ -11,6 +11,8 @@ import {
   ChevronDown,
 } from '@assets/icons';
 
+const { lang } = Astro.params;
+
 const useCasesByIndustry = [
   { icon: BagsShopping, label: 'E-commerce', link: '/use-cases/e-commerce' },
   { icon: Hotel, label: 'Hotels', link: '/use-cases/hotels' },
@@ -80,7 +82,7 @@ const useCasesByUseCase = [
           {
             useCasesByUseCase.map(({ icon: Icon, label, link }) => (
               <a
-                href={link}
+                href={`/${lang}${link}`}
                 role="menuitem"
                 class="group flex gap-2 rounded-xl py-4 transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:cursor-pointer hover:bg-slate-50"
               >
@@ -105,7 +107,7 @@ const useCasesByUseCase = [
         <div class="gap-2">
           {
             useCasesByIndustry.map(({ icon: Icon, label, link }) => (
-              <a href={link} role="menuitem">
+              <a href={`/${lang}${link}`} role="menuitem">
                 <div class="group flex cursor-pointer gap-2 rounded-xl py-4 transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-slate-50">
                   <div class="group-hover:fill-primary-500 flex justify-center fill-gray-400 transition-colors">
                     <Icon width="20" height="20" />
