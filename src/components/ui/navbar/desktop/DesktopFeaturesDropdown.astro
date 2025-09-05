@@ -1,6 +1,8 @@
 ---
 import { Building, ChevronDown } from '@assets/icons';
 
+const { lang } = Astro.params;
+
 const features = [
   {
     description: 'Click once, understand your page instantly',
@@ -65,7 +67,7 @@ const features = [
           {
             features.map(({ icon: Icon, label, link }) => (
               <a
-                href={link}
+                href={`/${lang}${link}`}
                 role="menuitem"
                 class="group flex gap-2 rounded-xl py-4 transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:cursor-pointer hover:bg-slate-50"
               >

@@ -1,6 +1,8 @@
 ---
 import { Building, ChevronDown } from '@assets/icons';
 
+const { lang } = Astro.params;
+
 const features = [
   {
     description: 'Click once, understand your page instantly',
@@ -47,7 +49,11 @@ const features = [
   <div class="mobile-nav-content" data-content="features">
     {
       features.map(({ description, icon: Icon, label, link }) => (
-        <a href={link} role="menuitem" class="flex items-center gap-x-2 rounded-xl py-1">
+        <a
+          href={`/${lang}${link}`}
+          role="menuitem"
+          class="flex items-center gap-x-2 rounded-xl py-1"
+        >
           <div class="flex items-center gap-4 py-4">
             <Icon width={20} height={20} class="fill-primary-500" />
             <div>
