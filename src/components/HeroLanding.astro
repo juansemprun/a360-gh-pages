@@ -1,0 +1,56 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+
+// const { heroEntry } = Astro.props;
+
+import Marquee from '@components/Marquee.astro';
+import DynamicFeatures from '@components/DynamicFeatures.astro';
+
+const videoUrl =
+  'https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true';
+
+import HeroHeader from '@ui/hero/HeroHeader.astro';
+import HeroCTAButton from '@ui/hero/HeroCTAButton.astro';
+import HeroFooter from '@ui/hero/HeroFooter.astro';
+import HeroVideoCard from '@ui/hero/HeroVideoCard.astro';
+import HeroNote from '@ui/hero/HeroNote.astro';
+
+interface HeroLandingProps {
+  heroEntry: CollectionEntry<'hero'>;
+  lang: string;
+}
+
+const { heroEntry, lang } = Astro.props as HeroLandingProps;
+
+const { Content, remarkPluginFrontmatter } = await render(heroEntry);
+---
+
+<section
+  class="bg-gradient-primary-darker min-h-screen w-full overflow-hidden py-16"
+  data-theme="light"
+>
+  <!-- Main content container -->
+  <div class="container-custom relative z-10 flex flex-col items-center gap-6 py-20 lg:py-32">
+    <!-- <HeroHeader
+      titleFirstLine={heroEntry?.data.title_line_1}
+      titleSecondLine={heroEntry?.data.title_line_2}
+      subtitle={heroEntry?.data.subtitle}
+    />
+
+    <HeroCTAButton ctaText={heroEntry?.data.ctaText} lang={lang} />
+
+    <HeroNote> 7-day Free trial — no credit card required </HeroNote>
+
+    <DynamicFeatures cardType="tabs" layout="image-bottom" className="mb-10" />
+
+    <HeroVideoCard videoUrl={videoUrl} />
+
+    <HeroFooter /> -->
+    <Content />
+  </div>
+</section>
+<!-- Bottom gradient line -->
+<div
+  class="bottom-0 h-0.5 w-full bg-gradient-to-r from-[#F771BF] via-[#f04d66] to-[#fd7043] shadow-lg"
+>
+</div>

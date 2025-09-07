@@ -1,0 +1,34 @@
+---
+cta_text: Commencer
+lang: fr
+promo_text: Essai gratuit de 7 jours — aucune carte de crédit requise
+subtitle: Air360 est le spécialiste de la conversion qui décrypte vos utilisateurs pour vous
+title_first_line: CRO qui clique,
+title_second_line: littéralement
+video_subtitle: Regardez la vidéo !
+video_title: Une minute ? C'est tout ce dont vous avez besoin pour connaître Air360
+video_url: https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true
+---
+
+import HeroHeader from '@components/ui/hero/HeroHeader.astro';
+import HeroCTAButton from '@components/ui/hero/HeroCTAButton.astro';
+import HeroNote from '@components/ui/hero/HeroNote.astro';
+import HeroVideoCard from '@components/ui/hero/HeroVideoCard.astro';
+import DynamicFeatures from '@components/DynamicFeatures.astro';
+import HeroFooter from '@components/ui/hero/HeroFooter.astro';
+
+<HeroHeader
+  titleFirstLine={frontmatter.title_first_line}
+  titleSecondLine={frontmatter.title_second_line}
+  subtitle={frontmatter.subtitle}
+/>
+
+<HeroCTAButton ctaText={frontmatter.cta_text} lang={frontmatter.lang} />
+
+<HeroNote> {frontmatter.promo_text} </HeroNote>
+
+<DynamicFeatures cardType="tabs" layout="image-bottom" className="mb-10" />
+
+<HeroVideoCard videoUrl={frontmatter.video_url} />
+
+<HeroFooter />

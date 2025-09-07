@@ -1,0 +1,31 @@
+---
+interface HeroVideoCardProps {
+  videoUrl: string;
+}
+
+const { videoUrl } = Astro.props as HeroVideoCardProps;
+---
+
+<div
+  class="max-w-2xl transform cursor-pointer rounded-xl border border-white/20 bg-transparent px-4 backdrop-blur-sm transition duration-200 hover:rotate-0 hover:bg-white/10 md:rotate-1 md:rounded-3xl md:p-6"
+>
+  <div class="flex h-28 items-center gap-6">
+    <div class="">
+      <iframe
+        src={videoUrl}
+        allow="autoplay; clipboard-write"
+        title="Loom video"
+        allowfullscreen
+        loading="lazy"
+        class="h-16 w-28 rounded-lg md:h-28 md:w-48"
+      >
+      </iframe>
+    </div>
+    <div class="">
+      <h3 class="mb-2 text-sm font-semibold text-white md:text-2xl">
+        Got a Minute? That's All You Need to know Air360
+      </h3>
+      <p class="text-xs font-medium text-white/60 md:text-xl">Watch the video!</p>
+    </div>
+  </div>
+</div>

@@ -1,15 +1,18 @@
 // src/content.config.ts
 import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
 
 const heroCollection = defineCollection({
+  // loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/hero' }),
   schema: z.object({
-    title_line_1: z.string(),
-    title_line_2: z.string(),
+    cta_text: z.string(),
+    promo_text: z.string(),
+    lang: z.string(),
     subtitle: z.string(),
-    cta: z.string(),
-    promo: z.string(),
-    video_title: z.string(),
+    title_first_line: z.string(),
+    title_second_line: z.string(),
     video_subtitle: z.string(),
+    video_title: z.string(),
   }),
 });
 
