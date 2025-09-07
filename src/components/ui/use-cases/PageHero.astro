@@ -1,0 +1,22 @@
+---
+import { ChevronDown } from '@assets/icons';
+import Testimonial from '@ui/use-cases/Testimonial.astro';
+
+interface PageHeroProps {
+  title: string;
+  subtitle: string;
+  videoUrl: string;
+}
+---
+
+<section class="flex h-screen flex-col items-center justify-center">
+  <h1
+    class="font-clash-display-bold text-center text-5xl leading-tight tracking-wide text-gray-100 md:text-7xl"
+  >
+    <slot />
+  </h1>
+
+  <Testimonial />
+
+  <ChevronDown class="fill-primary-600 mt-20 animate-bounce" width="40" height="40" />
+</section>

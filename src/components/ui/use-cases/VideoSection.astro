@@ -1,0 +1,29 @@
+---
+interface VideoSectionProps {
+  videoSrc: string;
+}
+
+const { videoUrl } = Astro.props;
+---
+
+<section class="my-28 flex flex-col justify-center">
+  <h2
+    class="font-clash-display-bold mb-10 text-center text-2xl leading-tight tracking-wide text-slate-600 md:text-4xl"
+  >
+    Want to see how <mark class="bg-primary-500 p-1 text-white">easy</mark> it is?
+  </h2>
+  <video
+    class="h-auto w-full rounded-2xl shadow-lg transition-opacity duration-300"
+    autoplay
+    loop
+    muted
+    playsinline
+    src={videoUrl}
+  >
+    <!-- <source
+            src="https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4"
+            type="video/mp4"
+          /> -->
+    Sorry, your browser does not support embedded videos.
+  </video>
+</section>
