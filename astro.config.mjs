@@ -4,6 +4,8 @@ import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 
+import { languageCodes } from './src/config/language';
+
 // https://astro.build/config
 export default defineConfig({
   build: {
@@ -14,7 +16,7 @@ export default defineConfig({
   },
   integrations: [react(), mdx()],
   i18n: {
-    locales: ['en', 'fr'],
+    locales: languageCodes,
     defaultLocale: 'en',
     routing: {
       prefixDefaultLocale: true,
