@@ -1,6 +1,8 @@
 ---
 import { getCollection, getEntry, render } from 'astro:content';
 
+import BaseLayout from '@layouts/BaseLayout.astro';
+
 export async function getStaticPaths() {
   const pages = await getCollection('use-cases');
 
@@ -15,19 +17,19 @@ export async function getStaticPaths() {
 
 const { lang, slug } = Astro.params;
 
-console.log('lang, slug:', lang, slug);
-
 const useCasesEntry = await getEntry('use-cases', `${lang}/${slug}`);
-console.log('useCasesEntry:', useCasesEntry);
 
-import BaseLayout from '@layouts/BaseLayout.astro';
+if (!useCasesEntry) {
+  return Astro.redirect(`${lang}/404`);
+}
 
-const pageTitle = 'Gaming Companies';
+const title = useCasesEntry?.data?.title;
+const description = useCasesEntry?.data?.description;
 
 const { Content } = await render(useCasesEntry);
 ---
 
-<BaseLayout title={pageTitle}>
+<BaseLayout title={title} description={description} lang={lang}>
   <div
     data-theme="light"
     class="bg-gradient-primary-darker absolute inset-0 -z-10 h-full w-full items-center px-5 py-24"
