@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://juansemprun.github.io',
+  site: 'https://juansemprun.github.io/a360-gh-pages',
   base: '/a360-gh-pages/',
   build: {
     inlineStylesheets: 'always',
