@@ -3,26 +3,28 @@ import { getEntry } from 'astro:content';
 
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Hero from '@components/Hero.astro';
-import HeroLanding from '@components/HeroLanding.astro';
 import StaticFeatures from '@components/StaticFeatures.astro';
 import DynamicFeatures from '@components/DynamicFeatures.astro';
 import TwoColumnText from '@components/TwoColumnText.astro';
 
+import { languageCodes } from '@config/language';
+
 const { lang } = Astro.params;
 const heroEntry = await getEntry('hero', `${lang}/hero`);
 
-export async function getStaticPaths() {
-  const languages = ['en', 'fr'];
+if (!heroEntry) {
+  throw new Error(`Hero entry not found for language: ${lang}`);
+}
 
-  return languages.map((lang) => ({
+export async function getStaticPaths() {
+  return languageCodes.map((lang) => ({
     params: { lang },
   }));
 }
 ---
 
 <BaseLayout title="Air360 | Simplify UX analysis, boost conversion">
-  <!-- <Hero heroEntry={heroEntry} /> -->
-  <HeroLanding heroEntry={heroEntry} lang={lang} />
+  <Hero heroEntry={heroEntry} lang={lang} />
   <StaticFeatures />
   <DynamicFeatures
     title="Image on the bottom"
