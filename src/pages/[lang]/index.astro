@@ -13,7 +13,7 @@ const { lang } = Astro.params;
 const heroEntry = await getEntry('hero', `${lang}/hero`);
 
 if (!heroEntry) {
-  throw new Error(`Hero entry not found for language: ${lang}`);
+  return Astro.redirect('/404');
 }
 
 export async function getStaticPaths() {
