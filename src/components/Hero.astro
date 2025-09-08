@@ -1,13 +1,13 @@
 ---
-const { heroEntry } = Astro.props;
+import { render, type CollectionEntry } from 'astro:content';
 
-console.log('heroEntry in Hero component:', heroEntry);
+interface HeroLandingProps {
+  heroEntry: CollectionEntry<'hero'>;
+}
 
-import Marquee from '@components/Marquee.astro';
-import DynamicFeatures from '@components/DynamicFeatures.astro';
+const { heroEntry } = Astro.props as HeroLandingProps;
 
-const videoUrl =
-  'https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true';
+const { Content } = await render(heroEntry);
 ---
 
 <section
@@ -16,58 +16,7 @@ const videoUrl =
 >
   <!-- Main content container -->
   <div class="container-custom relative z-10 flex flex-col items-center gap-6 py-20 lg:py-32">
-    <!-- Hero text and CTA section -->
-    <div class="flex w-full flex-col items-center justify-center gap-6 text-center">
-      <div>
-        <h1 class="font-clash-display-bold text-center text-6xl lg:text-8xl">
-          <span class="gradient-text-darker block">{heroEntry?.data.title_line_1}</span>
-          <span class="gradient-text-darker block">{heroEntry?.data.title_line_2}</span>
-        </h1>
-      </div>
-
-      <h2 class="font-inter text-2xl font-medium text-stone-300 lg:text-3xl">
-        {heroEntry?.data.subtitle}
-      </h2>
-
-      <a
-        href="/request-demo"
-        class="bg-primary-500 inline-flex w-80 items-center justify-center rounded-xl px-8 py-4 text-lg transition-all duration-200 hover:-translate-y-0.5"
-      >
-        <span class="text-lg font-semibold text-white">{heroEntry?.data.cta}</span>
-      </a>
-      <p class="text-xs font-bold text-white/50">7-day Free trial — no credit card required</p>
-    </div>
-
-    <DynamicFeatures cardType="tabs" layout="image-bottom" className="mb-10" />
-
-    <!-- Demo video card -->
-    <div
-      class="max-w-2xl transform cursor-pointer rounded-xl border border-white/20 bg-transparent px-4 backdrop-blur-sm transition duration-200 hover:rotate-0 hover:bg-white/10 md:rotate-1 md:rounded-3xl md:p-6"
-    >
-      <div class="flex h-28 items-center gap-6">
-        <div class="">
-          <iframe
-            src={videoUrl}
-            allow="autoplay; clipboard-write"
-            title="Loom video"
-            allowfullscreen
-            loading="lazy"
-            class="h-16 w-28 rounded-lg md:h-28 md:w-48"
-          >
-          </iframe>
-        </div>
-        <div class="">
-          <h3 class="mb-2 text-sm font-semibold text-white md:text-2xl">
-            Got a Minute? That's All You Need to know Air360
-          </h3>
-          <p class="text-xs font-medium text-white/60 md:text-xl">Watch the video!</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Footer section with customer logos -->
-    <p class="mt-10 text-xs font-bold text-white/50">7-day Free trial — no credit card required</p>
-    <Marquee />
+    <Content />
   </div>
 </section>
 <!-- Bottom gradient line -->
