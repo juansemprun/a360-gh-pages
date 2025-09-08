@@ -1,4 +1,11 @@
-export const languages = [
+export interface Language {
+  code: string; // Language code, e.g., 'en'
+  label: string; // Display label, e.g., 'English'
+  locale: string; // Locale string, e.g., 'en-US'
+  default: boolean; // Marks the default language
+}
+
+export const languages: Language[] = [
   {
     code: 'en',
     label: 'English',

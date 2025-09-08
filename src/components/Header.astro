@@ -1,12 +1,15 @@
 ---
-// Dynamic Navbar Component with automatic theme adaptation
 import Logo from '@assets/images/logo.svg';
+
+import LanguagePicker from '@components/ui/LanguagePicker.astro';
 import {
   DesktopAboutUsDropdown,
   DesktopFeaturesDropdown,
   DesktopUseCasesDropdown,
   NavbarMobile,
 } from '@ui/navbar';
+
+const { lang } = Astro.props;
 ---
 
 <header id="dynamic-navbar">
@@ -34,6 +37,8 @@ import {
           <li class="transition-colors duration-300 hover:text-gray-400">
             <a href="/testimonials"> Testimonials </a>
           </li>
+
+          <LanguagePicker lang={lang} />
         </ul>
       </div>
 
