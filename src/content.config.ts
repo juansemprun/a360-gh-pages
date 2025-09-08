@@ -20,7 +20,10 @@ const useCasesCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    video_url: z.string().url(),
+    video: z.object({
+      title: z.string(),
+      url: z.string().url(),
+    }),
     highlights: z.array(
       z.object({
         title: z.string(),

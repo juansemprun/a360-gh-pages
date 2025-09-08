@@ -1,44 +1,47 @@
 ---
-title: 'Gaming Companies'
-description: Create the best possible online booking experience with Air360, with personalized journeys, smooth booking, and optimized customer engagement.
-video_url: https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4
+title: 'Entreprises de jeux vidéo'
+description: Créez la meilleure expérience de réservation en ligne avec Air360, grâce à des parcours personnalisés, une réservation fluide et un engagement client optimisé.
+video:
+  title: 'Entreprises de jeux vidéo'
+  url: https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true
+highlights:
+  - title: Créez des expériences qui convertissent
+    text: Transformez les rêveurs en voyageurs en personnalisant leur parcours. Segmentez vos visiteurs et adaptez leur séjour avant même leur arrivée, grâce à Air360 !
+  - title: La meilleure version possible de chaque page
+    text: Chaque clic est un pas vers un séjour parfait — faites briller chaque page. Affinez les interactions pour refléter le luxe et le confort que vous promettez avec Air360.
+  - title: Simplifiez l'expérience de réservation
+    text: Ne laissez pas vos visiteurs abandonner leur processus de réservation. Air360 identifie les points de friction et vous aide à créer un parcours fluide.
+  - title: Gardez votre site toujours performant
+    text: Pas de bugs, pas de stress ! Air360 détecte les problèmes UX afin que votre site reste fiable et continue de générer des réservations.
+  - title: Gardez vos clients satisfaits
+    text: Assurez-vous que vos visiteurs trouvent facilement les chambres et services qu’ils recherchent. Air360 optimise la visibilité pour les garder engagés et prêts à réserver.
 ---
 
 import PageHero from '@ui/use-cases/PageHero.astro';
 import MarkHighlight from '@ui/use-cases/MarkHighlight.astro';
 import Highlights from '@ui/use-cases/Highlights.astro';
-import HighlightItem from '@ui/use-cases/HighlightItem.astro';
 import VideoSection from '@ui/use-cases/VideoSection.astro';
 import CallToAction from '@ui/use-cases/CallToAction.astro';
+import HighlightsSummary from '@ui/use-cases/HighlightsSummary.astro';
 
 <PageHero>
-  Create the best possible <br />
-  <MarkHighlight>online shopping</MarkHighlight> experience
+  {
+    <span>
+      Créez la meilleure expérience possible d'<MarkHighlight>achat en ligne</MarkHighlight>
+    </span>
+  }
 </PageHero>
 
-<Highlights>
-  <HighlightItem
-    title="Create experiences that convert"
-    text="Turn dreamers into bookers by personalizing their journey. Segment visitors and tailor their stay even before they arrive, with Air360!"
-  />
-  <HighlightItem
-    title="The best possible version of every page"
-    text="Every click is a step toward a perfect stay—make every page shine. Refine interactions to match the luxury and comfort you promise with Air360."
-  />
-  <HighlightItem
-    title="Simplify the booking experience"
-    text="Don’t let potential guests abandon their reservations. Air360 pinpoint friction points, helping you create a smooth booking process."
-  />
-  <HighlightItem
-    title="Keep your site running smoothly"
-    text="No glitches, no stress! Air360 identify UX issues so your site stays reliable and keeps bookings rolling in."
-  />
-  <HighlightItem
-    title="Keep your customers happy"
-    text="Ensure guests find the rooms and services they love with ease. Air360 optimize visibility to keep them engaged and ready to book."
-  />
-</Highlights>
+<Highlights highlightsList={frontmatter.highlights} />
 
-<VideoSection videoUrl={frontmatter.video_url} />
+<VideoSection videoSrc={frontmatter.video.url}>
+  {
+    <span>
+      Vous voulez voir à quel point c'est <MarkHighlight>simple</MarkHighlight> ?
+    </span>
+  }
+</VideoSection>
+
+<HighlightsSummary highlightsList={frontmatter.highlights} />
 
 <CallToAction />
