@@ -8,6 +8,8 @@ import { languageCodes } from './src/config/language';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://airthreesixty.github.io',
+  base: '/website',
   build: {
     inlineStylesheets: 'always',
   },
