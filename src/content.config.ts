@@ -33,7 +33,15 @@ const useCasesCollection = defineCollection({
   }),
 });
 
+const pagesCollection = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+  }),
+});
+
 export const collections = {
   hero: heroCollection,
   'use-cases': useCasesCollection,
+  pages: pagesCollection,
 };
