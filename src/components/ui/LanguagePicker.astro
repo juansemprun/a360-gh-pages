@@ -46,13 +46,19 @@ const getHomeUrl = (code: string) => `/website/${code}`;
       <div class="flex-1/2 rounded-2xl p-5">
         <div class="flex flex-col gap-4">
           {
-            languages.map(({ code, label, icon: Icon }) => (
+            languages.map(({ code, label }) => (
               <a
                 href={getHomeUrl(code)}
                 role="menuitem"
                 class="group flex gap-3 rounded-xl p-2 text-sm text-black transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-slate-50"
               >
-                <Icon width="20" height="20" class="mx-1.5 flex justify-center" />
+                {code === 'en' ? (
+                  <America width="16" height="16" />
+                ) : code === 'fr' ? (
+                  <France width="16" height="16" />
+                ) : code === 'ja' ? (
+                  <Japan width="16" height="16" />
+                ) : null}
                 {label}
               </a>
             ))
