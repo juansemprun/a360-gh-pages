@@ -1,29 +1,41 @@
 ---
+import { languages } from '@config/language';
+import { ChevronDown } from '@assets/icons';
+
+import Japan from '@assets/icons/flags/japan.svg';
+import France from '@assets/icons/flags/france.svg';
+import America from '@assets/icons/flags/america.svg';
+
 interface LanguagePickerProps {
   lang: string;
 }
 
-import { ChevronDown } from '@assets/icons';
-import { languages } from '@config/language';
-
 const { lang } = Astro.props as LanguagePickerProps;
 
-const getHomeUrl = (code: string) => `/${code}`;
+const getHomeUrl = (code: string) => `/website/${code}`;
 ---
 
 <li class="group/dropdown relative" role="none">
   <button
-    class="ease cursor-pointer py-2 text-base font-medium text-inherit no-underline transition-colors duration-300 group-hover/dropdown:text-gray-400"
+    class="ease flex cursor-pointer gap-2.5 py-2 text-base font-medium text-inherit no-underline transition-colors duration-300 group-hover/dropdown:text-gray-400"
     role="menuitem"
     aria-haspopup="true"
     aria-expanded="false"
   >
-    {lang?.toUpperCase()}
-    <ChevronDown
+    {
+      lang === 'en' ? (
+        <America width="16" height="16" />
+      ) : lang === 'fr' ? (
+        <France width="16" height="16" />
+      ) : lang === 'ja' ? (
+        <Japan width="16" height="16" />
+      ) : null
+    }
+    <!-- <ChevronDown
       width="16"
       height="16"
       class="inline fill-current transition-transform duration-300 ease-in-out group-hover/dropdown:rotate-180 group-hover/dropdown:fill-gray-400"
-    />
+    /> -->
   </button>
   <div
     role="menu"
@@ -34,12 +46,13 @@ const getHomeUrl = (code: string) => `/${code}`;
       <div class="flex-1/2 rounded-2xl p-5">
         <div class="flex flex-col gap-4">
           {
-            languages.map(({ code, label }) => (
+            languages.map(({ code, label, icon: Icon }) => (
               <a
                 href={getHomeUrl(code)}
                 role="menuitem"
                 class="group flex gap-3 rounded-xl p-2 text-sm text-black transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-slate-50"
               >
+                <Icon width="20" height="20" class="mx-1.5 flex justify-center" />
                 {label}
               </a>
             ))
