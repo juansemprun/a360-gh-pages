@@ -4,13 +4,15 @@ import MobileFeaturesDropdown from '@components/ui/navbar/mobile/MobileFeaturesD
 import MobileUseCasesDropdown from '@components/ui/navbar/mobile/MobileUseCasesDropdown.astro';
 
 import Logo from '@assets/images/logo.svg';
+
+const { lang } = Astro.params;
 ---
 
 <div class="mobile-menu-overlay" id="mobile-menu" aria-hidden="true">
   <div class="mobile-menu-content">
     <!-- Mobile Auth Links -->
     <div class="mb-10 flex items-center justify-between">
-      <a href="/" aria-label="Project homepage" id="navbar-logo">
+      <a href={`/website/${lang}`} aria-label="Project homepage" id="navbar-logo">
         <Logo id="logo" class="fill-black" />
       </a>
 
@@ -39,13 +41,13 @@ import Logo from '@assets/images/logo.svg';
       <MobileAboutUsDropdown />
 
       <div class="mobile-nav-section">
-        <a href="/testimonials" class="mobile-nav-link">Testimonials</a>
+        <a href={`/website/${lang}/testimonials`} class="mobile-nav-link">Testimonials</a>
       </div>
     </nav>
 
     <div class="mt-10 flex items-center justify-around">
       <a href="#" class="mobile-auth-link login border">Log in</a>
-      <a href="/request-demo" class="mobile-auth-link demo">Book a Demo</a>
+      <a href={`/website/${lang}/request-demo`} class="mobile-auth-link demo">Book a Demo</a>
     </div>
   </div>
 </div>

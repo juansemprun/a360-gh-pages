@@ -34,6 +34,8 @@ const legalLinks = [
   { label: 'Terms of service', href: '#' },
   { label: 'Privacy policy', href: '#' },
 ];
+
+const { lang } = Astro.props;
 ---
 
 <footer
@@ -48,7 +50,7 @@ const legalLinks = [
 
     <!-- Top section with logo and social links -->
     <div class="relative mb-20 flex items-center justify-between">
-      <a href="/" class="relative" aria-label="Air360 homepage">
+      <a href={`/website/${lang}`} class="relative" aria-label="Air360 homepage">
         <!-- <img class="h-[22px] w-[75px]" alt="Air360 Logo" src="/link---frame---svg.svg" /> -->
         <Logo class="text-white" />
       </a>

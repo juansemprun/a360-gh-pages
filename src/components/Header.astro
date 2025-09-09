@@ -17,7 +17,7 @@ const { lang } = Astro.props;
     <div class="navbar-container">
       <!-- Logo -->
       <div class="navbar-logo">
-        <a href="/" aria-label="Project homepage" id="navbar-logo">
+        <a href={`/website/${lang}`} aria-label="Project homepage" id="navbar-logo">
           <Logo id="logo" class="fill-white" />
         </a>
       </div>
@@ -35,7 +35,7 @@ const { lang } = Astro.props;
           <DesktopAboutUsDropdown />
 
           <li class="transition-colors duration-300 hover:text-gray-400">
-            <a href="/testimonials"> Testimonials </a>
+            <a href={`/website/${lang}/testimonials`}> Testimonials </a>
           </li>
 
           <LanguagePicker lang={lang} />
@@ -45,7 +45,7 @@ const { lang } = Astro.props;
       <!-- Desktop Auth Links -->
       <div class="navbar-auth desktop-auth">
         <a href="/login" class="auth-link login">Log in</a>
-        <a href="/request-demo" class="auth-link demo">Book a Demo</a>
+        <a href={`/website/${lang}/request-demo`} class="auth-link demo">Book a Demo</a>
       </div>
 
       <!-- Mobile Hamburger Button -->

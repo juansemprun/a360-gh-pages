@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: 'Inter';
-  src: url('/fonts/inter.woff2') format('woff2');
+  src: url('/website/fonts/inter.woff2') format('woff2');
   font-style: normal;
   font-weight: 100 700;
   font-display: swap;
@@ -10,7 +10,7 @@
 
 @font-face {
   font-family: 'ClashDisplay-Bold';
-  src: url('/fonts/ClashDisplay-Bold.woff2') format('woff2');
+  src: url('/website/fonts/ClashDisplay-Bold.woff2') format('woff2');
   font-style: normal;
   font-weight: bold;
   font-display: swap;
@@ -18,7 +18,7 @@
 
 @font-face {
   font-family: 'Jersey10';
-  src: url('/fonts/Jersey10-Regular.woff2') format('woff2');
+  src: url('/website/fonts/Jersey10-Regular.woff2') format('woff2');
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
