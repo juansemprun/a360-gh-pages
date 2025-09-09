@@ -17,7 +17,7 @@ const getHomeUrl = (code: string) => `/website/${code}`;
 
 <li class="group/dropdown relative" role="none">
   <button
-    class="ease flex cursor-pointer gap-2.5 py-2 text-base font-medium text-inherit no-underline transition-colors duration-300 group-hover/dropdown:text-gray-400"
+    class="ease flex cursor-pointer items-center gap-2.5 py-2 text-base font-medium text-inherit no-underline transition-colors duration-300 group-hover/dropdown:text-gray-400"
     role="menuitem"
     aria-haspopup="true"
     aria-expanded="false"
@@ -31,11 +31,12 @@ const getHomeUrl = (code: string) => `/website/${code}`;
         <Japan width="16" height="16" />
       ) : null
     }
-    <!-- <ChevronDown
+    {lang === 'ja' ? '日本' : lang.toUpperCase()}
+    <ChevronDown
       width="16"
       height="16"
       class="inline fill-current transition-transform duration-300 ease-in-out group-hover/dropdown:rotate-180 group-hover/dropdown:fill-gray-400"
-    /> -->
+    />
   </button>
   <div
     role="menu"
