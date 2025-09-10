@@ -1,4 +1,6 @@
 ---
+import GradientText from '@components/ui/GradientText.astro';
+
 interface HighlightedItem {
   title: string;
   text: string;
@@ -16,8 +18,16 @@ const highlightsListTitles = highlightsList.map(({ title }) => ({ title }));
   <ul class="font-clash-display-bold mb-12 space-y-3 text-3xl text-slate-600 md:text-5xl">
     {
       highlightsListTitles.map(({ title }) => (
-        <li class="hover:text-primary-300 mb-7 cursor-default gap-y-4 transition duration-300">
-          {title}
+        <li class="mb-7 cursor-default gap-y-4 transition duration-300">
+          <GradientText
+            animationSpeed={3}
+            className="transition duration-300"
+            hoverOnly={true}
+            showBorder={true}
+            colors={['#2d92e9', '#644ad5', '#c147ac', '#f04d66', '#fd7043']}
+          >
+            {title}
+          </GradientText>
         </li>
       ))
     }
