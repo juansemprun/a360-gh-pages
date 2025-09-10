@@ -165,7 +165,11 @@ html {
   }
 
   .bg-gradient-primary-darker {
-    background: radial-gradient(125% 125% at 50% 10%, #000 5%, rgb(102, 51, 238) 100%);
+    background: radial-gradient(125% 125% at 50% 10%, #000 15%, rgb(102, 51, 238) 130%);
+  }
+
+  .bg-gradient-primary-darker-variant {
+    background: radial-gradient(125% 125% at 50% 10%, #000 1%, rgb(102, 51, 238) 300%);
   }
 
   .bg-gradient-text {
@@ -188,5 +192,44 @@ html {
 
   .bg-gradient-cta {
     background: radial-gradient(50% 50% at 50% 100%, #addeff 0%, #f8fafc 100%);
+  }
+}
+
+@property --border-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes border-rotate {
+  to {
+    --border-angle: 360deg;
+  }
+}
+
+@layer utilities {
+  .animate-rotate-border {
+    animation: border-rotate 7s linear infinite;
+  }
+
+  .glow-border {
+    background: conic-gradient(from var(--border-angle), #e721918f, #4f46e5, #e72191);
+    border-radius: 0.75rem;
+    filter: drop-shadow(0 0 6px rgba(231, 33, 146, 0.4)) drop-shadow(0 0 4px rgba(79, 70, 229, 0.3));
+  }
+}
+
+@theme {
+  --animate-background: background-move linear infinite;
+
+  @keyframes background-move {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
   }
 }

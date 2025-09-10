@@ -5,11 +5,41 @@ interface HeroCTAButtonProps {
 }
 
 const { ctaText, lang } = Astro.props as HeroCTAButtonProps;
+
+console.log('lang', lang);
 ---
 
-<a
-  href={`/${lang}/request-demo`}
-  class="bg-primary-500 inline-flex w-80 items-center justify-center rounded-xl px-8 py-4 text-lg transition-all duration-200 hover:-translate-y-0.5"
->
-  <span class="text-lg font-semibold text-white">{ctaText}</span>
-</a>
+{
+  lang === 'en' && (
+    <div class="animate-rotate-border glow-border relative w-80 max-w-sm cursor-pointer rounded-xl p-[4px] transition-all duration-500 ease-out hover:scale-[1.03]">
+      <a
+        href={`/${lang}/request-demo`}
+        class="block rounded-xl border border-black bg-black px-8 py-4 text-center text-lg text-white"
+      >
+        <span class="text-lg font-semibold text-white">{ctaText}</span>
+      </a>
+    </div>
+  )
+}
+
+{
+  lang === 'fr' && (
+    <a
+      href={`/${lang}/request-demo`}
+      class="bg-primary-600 inline-flex w-80 items-center justify-center rounded-xl px-8 py-4 text-lg transition-all duration-200 hover:-translate-y-0.5"
+    >
+      <span class="text-lg font-semibold text-white">{ctaText}</span>
+    </a>
+  )
+}
+
+{
+  lang === 'ja' && (
+    <a
+      href={`/${lang}/request-demo`}
+      class="animate-background block w-80 rounded-xl bg-gradient-to-r from-[#e72192] via-[#4f46e5] to-[#e72192] bg-[length:_400%_400%] p-1 text-center text-white transition duration-500 ease-out [animation-duration:_6s] hover:-translate-y-0.5"
+    >
+      <span class="block rounded-lg bg-black px-10 py-4 text-lg font-semibold"> Get started </span>
+    </a>
+  )
+}
