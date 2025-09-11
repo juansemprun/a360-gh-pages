@@ -1,57 +1,17 @@
 ---
-import {
-  Building,
-  ChevronDown,
-  CloudQuestion,
-  EnvelopeOpnText,
-  FileShield,
-  HandHoldingHeart,
-  MicrochipAi,
-  ShieldCheck,
-} from '@assets/icons';
+import { getEntry } from 'astro:content';
+
+import Icon from '@components/ui/Icon.astro';
 
 const { lang } = Astro.params;
+const entry = await getEntry('navigation', `${lang}/about-us`);
 
-const primarySections = [
-  {
-    icon: HandHoldingHeart,
-    label: 'Our Values',
-    link: '/values',
-  },
-  {
-    icon: EnvelopeOpnText,
-    label: 'Manifesto',
-    link: '/manifesto',
-  },
-];
+if (!entry) {
+  return Astro.redirect('/404');
+}
 
-const secondarySections = [
-  {
-    icon: Building,
-    label: 'Company Info',
-    link: '/about',
-  },
-  {
-    icon: MicrochipAi,
-    label: 'Stance on AI',
-    link: '/ai',
-  },
-  {
-    icon: FileShield,
-    label: 'Privacy Policy',
-    link: '/privacy-policy',
-  },
-  {
-    icon: ShieldCheck,
-    label: 'Security and Compliance',
-    link: '/security-compliance',
-  },
-  {
-    icon: CloudQuestion,
-    label: 'Where is your data',
-    link: '/where-is-your-data',
-  },
-];
+const primarySections = entry.data.aboutUsNav?.primary || [];
+const secondarySections = entry.data.aboutUsNav?.secondary || [];
 ---
 
 <li class="group/dropdown relative" role="none">
@@ -61,10 +21,11 @@ const secondarySections = [
     aria-haspopup="true"
     aria-expanded="false"
   >
-    About Us
-    <ChevronDown
-      width="16"
-      height="16"
+    {entry?.data.title}
+    <Icon
+      name="ChevronDown"
+      width={16}
+      height={16}
       class="inline fill-current transition-transform duration-300 ease-in-out group-hover/dropdown:rotate-180 group-hover/dropdown:fill-gray-400"
     />
   </button>
@@ -78,22 +39,26 @@ const secondarySections = [
         <h3 class="mb-5 text-xs font-semibold uppercase tracking-wider text-gray-400">TITLE</h3>
         <div class="flex flex-col gap-4">
           {
-            secondarySections.map(({ icon: Icon, label, link }) => (
-              <a
-                href={`/website/${lang}${link}`}
-                class="group flex gap-3 rounded-xl p-2 transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-slate-50"
-                role="menuitem"
-              >
-                <Icon
-                  width="20"
-                  height="20"
-                  class="group-hover:fill-primary-500 mx-1.5 flex justify-center fill-gray-400 transition-colors"
-                />
-                <div class="gap-2">
-                  <h4 class="text-sm text-black">{label}</h4>
-                </div>
-              </a>
-            ))
+            secondarySections.map(({ icon, label, link }) => {
+              return (
+                <a
+                  href={`/website/${lang}${link}`}
+                  class="group flex gap-3 rounded-xl p-2 transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-slate-50"
+                  role="menuitem"
+                >
+                  <Icon
+                    name={icon}
+                    width={20}
+                    height={20}
+                    class="group-hover:fill-primary-500 mx-1.5 flex justify-center fill-gray-400 transition-colors"
+                  />
+
+                  <div class="gap-2">
+                    <h4 class="text-sm text-black">{label}</h4>
+                  </div>
+                </a>
+              );
+            })
           }
         </div>
       </div>
@@ -101,20 +66,23 @@ const secondarySections = [
         <h3 class="mb-5 text-xs font-semibold uppercase tracking-wider text-gray-400">TITLE</h3>
         <div class="flex flex-col justify-between gap-6">
           {
-            primarySections.map(({ icon: Icon, label, link }) => (
-              <a
-                href={`/website/${lang}${link}`}
-                class="group flex cursor-pointer flex-col items-center justify-center gap-2.5 rounded-xl p-4 transition-all duration-300 ease-in-out hover:-translate-y-0.5"
-                role="menuitem"
-              >
-                <Icon
-                  width="32"
-                  height="32"
-                  class="group-hover:fill-primary-500 fill-gray-400 transition-colors"
-                />
-                <h4 class="text-black">{label}</h4>
-              </a>
-            ))
+            primarySections.map(({ icon, label, link }) => {
+              return (
+                <a
+                  href={`/website/${lang}${link}`}
+                  class="group flex cursor-pointer flex-col items-center justify-center gap-2.5 rounded-xl p-4 transition-all duration-300 ease-in-out hover:-translate-y-0.5"
+                  role="menuitem"
+                >
+                  <Icon
+                    name={icon}
+                    width={32}
+                    height={32}
+                    class="group-hover:fill-primary-500 mx-1.5 flex justify-center fill-gray-400 transition-colors"
+                  />
+                  <h4 class="text-black">{label}</h4>
+                </a>
+              );
+            })
           }
         </div>
       </div>

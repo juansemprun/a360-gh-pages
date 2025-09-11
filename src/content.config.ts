@@ -40,8 +40,51 @@ const pagesCollection = defineCollection({
   }),
 });
 
+const links = z.object({
+  description: z.string().optional(),
+  icon: z.string().optional(),
+  label: z.string().optional(),
+  link: z.string().optional(),
+});
+
+const navigationCollection = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    lang: z.string(),
+    navigation: z.array(links).optional(),
+    sectionTitles: z
+      .object({
+        classics: z.string().optional(),
+        release: z.string().optional(),
+        industry: z.string().optional(),
+        useCase: z.string().optional(),
+      })
+      .optional(),
+    video: z
+      .object({
+        title: z.string(),
+        description: z.string(),
+        url: z.string().url(),
+      })
+      .optional(),
+    useCasesNav: z
+      .object({
+        industry: z.array(links).optional(),
+        useCase: z.array(links).optional(),
+      })
+      .optional(),
+    aboutUsNav: z
+      .object({
+        primary: z.array(links).optional(),
+        secondary: z.array(links).optional(),
+      })
+      .optional(),
+  }),
+});
+
 export const collections = {
   hero: heroCollection,
   'use-cases': useCasesCollection,
   pages: pagesCollection,
+  navigation: navigationCollection,
 };

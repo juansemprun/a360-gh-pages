@@ -1,40 +1,17 @@
 ---
-import { Building, ChevronDown } from '@assets/icons';
+import { getEntry } from 'astro:content';
+
+import Icon from '@ui/Icon.astro';
 
 const { lang } = Astro.params;
 
-const features = [
-  {
-    description: 'Click once, understand your page instantly',
-    icon: Building,
-    label: 'On Page Analytics',
-    link: '/',
-  },
-  {
-    description: 'Watch user moves. Spot where they struggle',
-    icon: Building,
-    label: 'Session Replays',
-    link: '/',
-  },
-  {
-    description: 'Drop-offs, detected. Fast, precise, no drama',
-    icon: Building,
-    label: 'Funnel Analysis',
-    link: '/',
-  },
-  {
-    description: 'Engagement ends? Analysis begins',
-    icon: Building,
-    label: 'User Journeys',
-    link: '/',
-  },
-  {
-    description: 'Lorem ipsum dolor sit amet',
-    icon: Building,
-    label: 'Snapshots',
-    link: '/',
-  },
-];
+const entry = await getEntry('navigation', `${lang}/features`);
+
+if (!entry) {
+  return Astro.redirect('/404');
+}
+
+const navigation = entry.data.navigation || [];
 ---
 
 <li class="group/dropdown relative" role="none">
@@ -44,10 +21,11 @@ const features = [
     aria-expanded="false"
     class="ease cursor-pointer py-2 text-base font-medium text-inherit no-underline transition-colors duration-300 group-hover/dropdown:text-gray-400"
   >
-    Features
-    <ChevronDown
-      width="16"
-      height="16"
+    {entry.data.title}
+    <Icon
+      name="ChevronDown"
+      width={16}
+      height={16}
       class="inline fill-current transition-transform duration-300 ease-in-out group-hover/dropdown:rotate-180 group-hover/dropdown:fill-gray-400"
     />
   </button>
@@ -61,24 +39,25 @@ const features = [
     <div class="grid grid-cols-2 gap-8">
       <div class="flex-1/2 rounded-2xl p-8 pr-0">
         <h3 class="mb-5 text-xs font-semibold uppercase tracking-wider text-gray-400">
-          THE CLASSICS
+          {entry.data.sectionTitles?.classics}
         </h3>
         <div class="flex flex-col gap-x-3">
           {
-            features.map(({ icon: Icon, label, link }) => (
+            navigation.map(({ icon, label, link, description }) => (
               <a
                 href={`/${lang}${link}`}
                 role="menuitem"
                 class="group flex gap-2 rounded-xl py-4 transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:cursor-pointer hover:bg-slate-50"
               >
                 <Icon
-                  width="20"
-                  height="20"
+                  name={icon}
+                  width={20}
+                  height={20}
                   class="group-hover:fill-primary-500 mx-1.5 flex justify-center fill-gray-400 transition-colors"
                 />
                 <div class="gap-2">
                   <h4 class="text-sm text-black">{label}</h4>
-                  <p class="text-xs text-gray-500">Lorem ipsum dolor</p>
+                  <p class="text-xs text-gray-500">{description}</p>
                 </div>
               </a>
             ))
@@ -87,7 +66,7 @@ const features = [
       </div>
       <div class="rounded-br-2xl rounded-tr-2xl bg-slate-50 p-8">
         <h3 class="mb-5 text-xs font-semibold uppercase tracking-wider text-gray-400">
-          NEW RELEASE
+          {entry.data.sectionTitles?.release}
         </h3>
         <div class="gap-2">
           <div class="">
@@ -101,8 +80,8 @@ const features = [
                 />
                 Sorry, your browser does not support embedded videos.
               </video>
-              <h4 class="text-md mb-3 font-bold text-black">Release Title</h4>
-              <p class="text-sm text-black/70">Lorem ipsum dolor sit amet</p>
+              <h4 class="text-md mb-3 font-bold text-black">{entry?.data?.video?.title}</h4>
+              <p class="text-sm text-black/70">{entry?.data?.video?.description}</p>
             </div>
           </div>
         </div>
