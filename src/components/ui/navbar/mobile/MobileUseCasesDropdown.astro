@@ -1,79 +1,38 @@
 ---
-import {
-  TicketAirline,
-  Sitemap,
-  Hotel,
-  Gem,
-  GamepadModern,
-  CourtSport,
-  BuildingColumns,
-  BagsShopping,
-  ChevronDown,
-} from '@assets/icons';
+import { getEntry } from 'astro:content';
+
+import Icon from '@ui/Icon.astro';
 
 const { lang } = Astro.params;
 
-const useCasesByIndustry = [
-  { icon: BagsShopping, label: 'E-commerce', link: '/use-cases/e-commerce' },
-  { icon: Hotel, label: 'Hotels', link: '/use-cases/hotels' },
-  { icon: Gem, label: 'Luxury brands', link: '/use-cases/luxury-brands' },
-  { icon: TicketAirline, label: 'Airlines', link: '/use-cases/airlines' },
-  { icon: GamepadModern, label: 'Gaming', link: '/use-cases/gaming' },
-  { icon: BuildingColumns, label: 'Bank & Insurance', link: '/use-cases/banks-and-insurance' },
-  { icon: Sitemap, label: 'Multi-brand companies', link: '/use-cases/multi-brand-companies' },
-  { icon: CourtSport, label: 'Sport team', link: '/use-cases/sport-team' },
-];
+const entry = await getEntry('navigation', `${lang}/use-cases`);
 
-const useCasesByUseCase = [
-  { icon: Gem, label: 'Refine funnels', description: 'Lorem ipsum dolor', link: '/' },
-  { icon: Gem, label: 'Resolve errors', description: 'Lorem ipsum dolor', link: '/' },
-  { icon: Gem, label: 'Increase conversions', description: 'Lorem ipsum dolor', link: '/' },
-  { icon: Gem, label: 'Centralize data', description: 'Lorem ipsum dolor', link: '/' },
-  {
-    icon: Gem,
-    label: 'Automate analysis',
-    description: 'Lorem ipsum dolor',
-    link: '/',
-  },
-  { icon: Gem, label: 'Uncover insights', description: 'Lorem ipsum dolor', link: '/' },
-  { icon: Gem, label: 'Upgrade mobile apps', description: 'Lorem ipsum dolor', link: '/' },
-  { icon: Gem, label: 'Boost productivity', description: 'Lorem ipsum dolor', link: '/' },
-  {
-    icon: Gem,
-    label: 'Accelerate innovation',
-    description: 'Lorem ipsum dolor',
-    link: '/',
-  },
-  { icon: Gem, label: 'Reduce spend', description: 'Lorem ipsum dolor', link: '/' },
-  {
-    icon: Gem,
-    label: 'Improve troubleshooting',
-    description: 'Lorem ipsum dolor',
-    link: '/',
-  },
-];
+const useCasesByIndustry = entry?.data.useCasesNav?.industry || [];
 ---
 
 <div class="mobile-nav-section">
   <button class="mobile-nav-header group" aria-expanded="false" data-section="use-cases">
-    <span>Use Cases</span>
-    <ChevronDown
+    <span>{entry?.data?.title}</span>
+    <Icon
+      name="ChevronDown"
       width={16}
       height={16}
       class="fill-current transition-transform duration-300 ease-in-out group-aria-[expanded=true]:rotate-180"
     />
   </button>
   <div class="mobile-nav-content" data-content="use-cases">
-    <h3 class="text-xs font-semibold uppercase tracking-wider text-gray-400">By industry</h3>
+    <h3 class="text-xs font-semibold uppercase tracking-wider text-gray-400">
+      {entry?.data?.sectionTitles?.industry}
+    </h3>
     {
-      useCasesByIndustry.map(({ icon: Icon, label, link }) => (
+      useCasesByIndustry.map(({ icon, label, link }) => (
         <a
           href={`/${lang}${link}`}
           role="menuitem"
           class="flex items-center gap-x-2 rounded-xl py-1"
         >
           <div class="flex items-center gap-4 py-4">
-            <Icon width={20} height={20} class="fill-primary-500" />
+            <Icon name={icon} width={20} height={20} class="fill-primary-500" />
             <div>
               <h4 class="text-black">{label}</h4>
             </div>
