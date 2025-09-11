@@ -1,0 +1,16 @@
+---
+import * as icons from '@assets/icons';
+
+interface IconProps {
+  class?: string;
+  height: number;
+  name: string;
+  width: number;
+}
+
+const { name = 'Building', class: className, height, width } = Astro.props as IconProps;
+
+const IconComponent = icons[name as keyof typeof icons];
+---
+
+<IconComponent class={className} height={height} width={width} />

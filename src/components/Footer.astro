@@ -1,4 +1,6 @@
 ---
+import type { CollectionEntry } from 'astro:content';
+
 import Logo from '@assets/images/logo.svg';
 
 // Footer Section Component - Site navigation and company information
@@ -35,7 +37,14 @@ const legalLinks = [
   { label: 'Privacy policy', href: '#' },
 ];
 
-const { lang } = Astro.props;
+interface FooterProps {
+  lang: string;
+  navigationCollection: CollectionEntry<'navigation'>[];
+}
+
+const { lang, navigationCollection } = Astro.props as FooterProps;
+
+// console.log('footer', navigationCollection);
 ---
 
 <footer

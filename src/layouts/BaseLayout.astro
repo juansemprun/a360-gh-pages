@@ -1,5 +1,7 @@
 ---
 import { ClientRouter } from 'astro:transitions';
+import { getEntry, getCollection } from 'astro:content';
+
 import '@styles/global.css';
 
 import Header from '@components/Header.astro';
@@ -16,6 +18,14 @@ const {
   lang = 'en',
   description = 'Air360 is the UX analytics platform that uncovers hidden user behaviors and decodes the end-to-end user experience, speeding up CRO efforts.',
 } = Astro.props as BaseLayoutProps;
+
+const navigationCollection = await getCollection('navigation', ({ data }) => data.lang === lang);
+
+// const aboutUsEntry = await getEntry('navigation', `${lang}/about-us`);
+
+// if (!aboutUsEntry) {
+//   return Astro.redirect('/404');
+// }
 ---
 
 <!doctype html>
@@ -65,6 +75,6 @@ const {
     <main>
       <slot />
     </main>
-    <Footer lang={lang} />
+    <Footer lang={lang} navigationCollection={navigationCollection} />
   </body>
 </html>

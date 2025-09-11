@@ -40,8 +40,40 @@ const pagesCollection = defineCollection({
   }),
 });
 
+const links = z.object({
+  description: z.string().optional(),
+  icon: z.string().optional(),
+  label: z.string().optional(),
+  link: z.string().optional(),
+});
+
+const navigationCollection = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    lang: z.string(),
+    sectionTitles: z
+      .object({
+        classics: z.string().optional(),
+        release: z.string().optional(),
+      })
+      .optional(),
+    video: z
+      .object({
+        title: z.string(),
+        description: z.string(),
+        url: z.string().url(),
+      })
+      .optional(),
+    // aboutUs: z.array(links).optional(),
+    // features: z.array(links).optional(),
+    // useCases: z.array(links).optional(),
+    navigation: z.array(links).optional(),
+  }),
+});
+
 export const collections = {
   hero: heroCollection,
   'use-cases': useCasesCollection,
   pages: pagesCollection,
+  navigation: navigationCollection,
 };
