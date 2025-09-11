@@ -20,12 +20,6 @@ const {
 } = Astro.props as BaseLayoutProps;
 
 const navigationCollection = await getCollection('navigation', ({ data }) => data.lang === lang);
-
-// const aboutUsEntry = await getEntry('navigation', `${lang}/about-us`);
-
-// if (!aboutUsEntry) {
-//   return Astro.redirect('/404');
-// }
 ---
 
 <!doctype html>

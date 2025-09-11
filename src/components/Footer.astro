@@ -3,28 +3,6 @@ import type { CollectionEntry } from 'astro:content';
 
 import Logo from '@assets/images/logo.svg';
 
-// Footer Section Component - Site navigation and company information
-const useCasesLinks = [
-  { label: 'E-commerce', href: '/use-cases/e-commerce' },
-  { label: 'Luxury brands', href: '/use-cases/luxury-brands' },
-  { label: 'Airlines', href: '/use-cases/airlines' },
-  { label: 'Sport team', href: '/use-cases/sport-team' },
-  { label: 'Hotels', href: '/use-cases/hotels' },
-  { label: 'Banks & Insurance', href: '/use-cases/banks-and-insurance' },
-  { label: 'Gaming', href: '/use-cases/gaming' },
-  { label: 'Multi-brand companies', href: '/use-cases/multi-brand-companies' },
-];
-
-const aboutUsLinks = [
-  { label: 'Company Info', href: '/about' },
-  { label: 'Manifesto', href: 'manifesto' },
-  { label: 'Our Values', href: 'values' },
-  { label: 'Stance on AI', href: '/ai' },
-  { label: 'Where is your data', href: '/where-is-your-data' },
-  { label: 'Privacy Policy', href: '/privacy-policy' },
-  { label: 'Security & Compliance', href: 'security-compliance' },
-];
-
 const inspirationLinks = [
   { label: 'Blog', href: '#' },
   { label: 'Changelog', href: '#' },
@@ -44,7 +22,9 @@ interface FooterProps {
 
 const { lang, navigationCollection } = Astro.props as FooterProps;
 
-// console.log('footer', navigationCollection);
+const [aboutUs, features, useCases] = navigationCollection;
+
+console.log('footer', aboutUs);
 ---
 
 <footer
@@ -52,11 +32,6 @@ const { lang, navigationCollection } = Astro.props as FooterProps;
   class="relative w-full bg-[linear-gradient(180deg,rgba(39,21,76,1)_0%,rgba(24,17,39,1)_100%)]"
 >
   <div class="relative mx-auto max-w-[1200px] px-4 py-[100px]">
-    <!-- Background noise texture -->
-    <div class="absolute inset-0 overflow-hidden">
-      <div class="relative left-[391px] top-[-31px] h-[1063px] w-[1079px] rotate-[138deg]"></div>
-    </div>
-
     <!-- Top section with logo and social links -->
     <div class="relative mb-20 flex items-center justify-between">
       <a href={`/website/${lang}`} class="relative" aria-label="Air360 homepage">
@@ -82,33 +57,43 @@ const { lang, navigationCollection } = Astro.props as FooterProps;
       class="relative mb-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4"
       aria-label="Footer navigation"
     >
-      <!-- Product column -->
+      <!-- Use Cases -->
       <div class="flex flex-col gap-9">
-        <h3 class="text-sm font-normal leading-[22.4px] text-white">Product</h3>
+        <h3 class="text-lg font-bold leading-[22.4px] text-white">{useCases.data.title}</h3>
 
         {
-          useCasesLinks.map((link) => (
+          useCases?.data?.useCasesNav?.industry?.map(({ link, label }) => (
             <a
-              href={link.href}
-              class="text-sm font-medium leading-[22.4px] text-white transition-all duration-200 hover:underline"
+              href={`/website/${lang}${link}`}
+              class="text-sm font-medium leading-[22.4px] text-white transition-all duration-300 ease-in-out hover:translate-x-0.5 hover:underline"
             >
-              {link.label}
+              {label}
             </a>
           ))
         }
       </div>
 
-      <!-- Air360 for column -->
+      <!-- About Us -->
       <div class="flex flex-col gap-[46px]">
-        <h3 class="text-sm font-normal leading-[22.4px] text-white">About Us</h3>
+        <h3 class="text-lg font-bold leading-[22.4px] text-white">{aboutUs.data.title}</h3>
 
         {
-          aboutUsLinks.map((link) => (
+          aboutUs?.data?.aboutUsNav?.primary?.map(({ link, label }) => (
             <a
-              href={link.href}
-              class="text-sm font-medium leading-[22.4px] text-white transition-all duration-200 hover:underline"
+              href={`/website/${lang}${link}`}
+              class="text-sm font-medium leading-[22.4px] text-white transition-all duration-300 ease-in-out hover:translate-x-0.5 hover:underline"
             >
-              {link.label}
+              {label}
+            </a>
+          ))
+        }
+        {
+          aboutUs?.data?.aboutUsNav?.secondary?.map(({ link, label }) => (
+            <a
+              href={`/website/${lang}${link}`}
+              class="text-sm font-medium leading-[22.4px] text-white transition-all duration-300 ease-in-out hover:translate-x-0.5 hover:underline"
+            >
+              {label}
             </a>
           ))
         }
