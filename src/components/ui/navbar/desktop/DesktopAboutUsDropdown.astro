@@ -10,11 +10,8 @@ if (!entry) {
   return Astro.redirect('/404');
 }
 
-const navigation = entry.data.navigation || [];
-
-const primaryLinks = ['/values', '/manifesto'];
-const primarySections = navigation.filter((item) => primaryLinks.includes(item.link ?? ''));
-const secondarySections = navigation.filter((item) => !primaryLinks.includes(item.link ?? ''));
+const primarySections = entry.data.aboutUsNav?.primary || [];
+const secondarySections = entry.data.aboutUsNav?.secondary || [];
 ---
 
 <li class="group/dropdown relative" role="none">
