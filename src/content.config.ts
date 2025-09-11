@@ -51,10 +51,13 @@ const navigationCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     lang: z.string(),
+    navigation: z.array(links).optional(),
     sectionTitles: z
       .object({
         classics: z.string().optional(),
         release: z.string().optional(),
+        industry: z.string().optional(),
+        useCase: z.string().optional(),
       })
       .optional(),
     video: z
@@ -64,10 +67,18 @@ const navigationCollection = defineCollection({
         url: z.string().url(),
       })
       .optional(),
-    // aboutUs: z.array(links).optional(),
-    // features: z.array(links).optional(),
-    // useCases: z.array(links).optional(),
-    navigation: z.array(links).optional(),
+    useCasesNav: z
+      .object({
+        industry: z.array(links).optional(),
+        useCase: z.array(links).optional(),
+      })
+      .optional(),
+    aboutUsNav: z
+      .object({
+        primary: z.array(links).optional(),
+        secondary: z.array(links).optional(),
+      })
+      .optional(),
   }),
 });
 
