@@ -209,7 +209,7 @@ html {
 
 @layer utilities {
   .animate-rotate-border {
-    animation: border-rotate 7s linear infinite;
+    animation: border-rotate 3s linear infinite;
   }
 
   .glow-border {
