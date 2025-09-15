@@ -4,8 +4,8 @@ import type { CollectionEntry } from 'astro:content';
 import Logo from '@assets/images/logo.svg';
 
 const inspirationLinks = [
-  { label: 'Blog', href: '#' },
-  { label: 'Changelog', href: '#' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Changelog', href: '/changelog' },
 ];
 
 const helpLinks = [{ label: 'Contact', href: '#' }];
@@ -106,7 +106,7 @@ console.log('footer', aboutUs);
         {
           inspirationLinks.map((link) => (
             <a
-              href={link.href}
+              href={`/website/${lang}${link.href}`}
               class="text-sm font-medium leading-[22.4px] text-white transition-all duration-200 hover:underline"
             >
               {link.label}
