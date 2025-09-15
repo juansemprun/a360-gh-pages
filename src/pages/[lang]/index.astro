@@ -7,6 +7,8 @@ import StaticFeatures from '@components/StaticFeatures.astro';
 import DynamicFeatures from '@components/DynamicFeatures.astro';
 import TwoColumnText from '@components/TwoColumnText.astro';
 
+import { Testimonials } from '@/components/react/Testimonials';
+
 import { languageCodes } from '@config/language';
 
 const { lang } = Astro.params;
@@ -45,4 +47,5 @@ export async function getStaticPaths() {
     dataTheme="dark"
     gradient="from-rose-500 to-orange-400"
   />
+  <Testimonials client:visible />
 </BaseLayout>
