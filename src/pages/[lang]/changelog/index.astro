@@ -3,7 +3,6 @@ import { getCollection, getEntry, render } from 'astro:content';
 
 import Changelog from '@/components/Changelog.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import GradientText from '@/components/ui/GradientText.astro';
 
 export async function getStaticPaths() {
   const pages = await getCollection('use-cases');
