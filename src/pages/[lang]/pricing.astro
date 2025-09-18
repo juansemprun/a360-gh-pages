@@ -5,7 +5,14 @@ import { Banknote, Repeat, ShoppingBag } from 'lucide-react';
 
 import { AspectRatio } from '@ui/shadcn/aspect-ratio';
 
-import { ProductColor, DubreuilColor, OlympiqueLyonnaisColor } from '@/assets/brand-logos';
+import {
+  ProductColor,
+  DubreuilColor,
+  OlympiqueLyonnaisColor,
+  AirCaraibesColor,
+} from '@/assets/brand-logos';
+
+import Circles from '@assets/graphics/circles.svg';
 
 import BaseLayout from '@layouts/BaseLayout.astro';
 import GradientText from '@ui/GradientText.astro';
@@ -81,23 +88,21 @@ const services = [
     class="relative overflow-hidden py-32 font-sans after:absolute after:bottom-0 after:left-0 after:block after:h-20 after:w-full after:bg-[linear-gradient(var(--color-transparent),var(--color-white))] after:content-[''] md:py-40"
     data-theme="dark"
   >
-    <div
+    <!-- <div
       class="absolute inset-0 -z-10 h-full w-full bg-[radial-gradient(var(--primary)_1px,transparent_1px)] opacity-25 [background-size:20px_20px]"
     >
-    </div>
-    <div class="relative h-full w-full bg-white">
+    </div> -->
+    <!-- <div class="relative h-full w-full bg-white">
       <div
         class="absolute h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"
       >
       </div>
-    </div>
+    </div> -->
     <div class="container-custom relative">
       {/* Background pattern with dots */}
-      <!-- <img
-        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/patterns/circles.svg"
-        alt=""
-        class="absolute right-[-86.25rem] top-[-68.75rem] z-[-1] block aspect-square h-auto w-[181.25rem] max-w-none"
-      /> -->
+      <Circles
+        class="absolute right-[-86.25rem] top-[-68.75rem] z-[-1] block aspect-square h-auto w-[181.25rem] max-w-none fill-white stroke-indigo-200/30"
+      />
       <div class="grid grid-cols-1 items-center justify-center gap-16 lg:grid-cols-2">
         <div class="flex flex-col gap-6">
           <GradientText
@@ -165,17 +170,10 @@ const services = [
   <!-- Customer Section -->
   <section class="py-20" data-theme="dark">
     <div class="container-custom">
-      <div
-        class="flex w-full flex-col items-stretch justify-between gap-10 rounded-[.5rem] bg-gradient-to-tr from-[#f04d66] via-[#f04d66] to-[#fd7043] p-10 lg:flex-row"
-      >
-        <div class="bg-background flex w-full max-w-[30rem] flex-col gap-10 rounded-[.5rem] p-5">
-          <div class="max-w-[4.875rem]">
-            <!-- <img
-              src={CUSTOMER_DATA.company.logo}
-              alt={CUSTOMER_DATA.company.name}
-              class="block size-full object-contain object-center"
-            /> -->
-            Company Logo
+      <div class="flex w-full flex-col items-stretch justify-between p-3 lg:flex-row">
+        <div class="bg-background flex w-full max-w-[30rem] flex-col gap-10 p-3">
+          <div>
+            <AirCaraibesColor class="w-48" />
           </div>
           <div class="flex w-full flex-col gap-8 sm:flex-row">
             {
@@ -183,7 +181,7 @@ const services = [
                 <div class="flex flex-col gap-1">
                   <div class="text-xl font-semibold">
                     <GradientText
-                      animationSpeed={15}
+                      animationSpeed={20}
                       colors={['#2d92e9', '#644ad5', '#c147ac', '#f04d66', '#fd7043']}
                     >
                       <span class="font-clash-display-bold text-lg md:text-2xl">{item.number}</span>
@@ -195,9 +193,14 @@ const services = [
             }
           </div>
         </div>
-        <div class="flex max-w-[32rem] flex-col gap-5 text-white">
+        <div class="flex max-w-[32rem] flex-col gap-5">
           <h2 class="font-clash-display-bold text-xl leading-none md:text-3xl lg:text-4xl">
-            {CUSTOMER_DATA.title}
+            <GradientText
+              animationSpeed={20}
+              colors={['#2d92e9', '#644ad5', '#c147ac', '#f04d66', '#fd7043']}
+            >
+              <span>{CUSTOMER_DATA.title}</span>
+            </GradientText>
           </h2>
           <p class="text-lg font-medium">
             {CUSTOMER_DATA.summary}
@@ -225,10 +228,10 @@ const services = [
         <div class="w-full space-y-10">
           {
             services.map(({ number, title, icon: Icon }) => (
-              <div class="border-primary-500 flex items-center justify-between border-b pb-6">
+              <div class="flex items-center justify-between border-b border-[#644ad5] pb-6">
                 <div>
                   <GradientText
-                    animationSpeed={15}
+                    animationSpeed={20}
                     colors={['#2d92e9', '#644ad5', '#c147ac', '#f04d66', '#fd7043']}
                   >
                     <span class="font-clash-display-bold text-lg md:text-2xl">{number}</span>
@@ -247,7 +250,7 @@ const services = [
           }
         </div>
         <div
-          class="flex max-w-[32rem] flex-col gap-5 rounded-lg bg-gradient-to-tr from-[#f04d66] via-[#f04d66] to-[#fd7043] p-10 shadow-lg"
+          class="flex max-w-[32rem] flex-col gap-5 rounded-lg bg-gradient-to-r from-[#2d92e9] to-[#644ad5] p-10 shadow-lg"
         >
           <h2
             class="font-clash-display-bold text-xl leading-none text-white md:text-3xl lg:text-4xl"
