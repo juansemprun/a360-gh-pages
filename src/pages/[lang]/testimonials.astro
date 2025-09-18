@@ -1,5 +1,16 @@
 ---
+import { getEntry, render } from 'astro:content';
+
+import { languageCodes } from '@config/language';
+
 import BaseLayout from '@layouts/BaseLayout.astro';
+
+const { lang } = Astro.params;
+export async function getStaticPaths() {
+  return languageCodes.map((lang) => ({
+    params: { lang },
+  }));
+}
 ---
 
 <BaseLayout title="Air360 | Customer Stories">
