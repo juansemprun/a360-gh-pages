@@ -18,6 +18,9 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import GradientText from '@ui/GradientText.astro';
 import Marquee from '@components/Marquee.astro';
 import CallToAction from '@ui/use-cases/CallToAction.astro';
+import RequestDemoComponent from '@components/RequestDemo';
+import { Image } from 'astro:assets';
+import g2 from '@assets/images/g2.png';
 
 const { lang } = Astro.params;
 
@@ -88,18 +91,7 @@ const services = [
     class="relative overflow-hidden py-32 font-sans after:absolute after:bottom-0 after:left-0 after:block after:h-20 after:w-full after:bg-[linear-gradient(var(--color-transparent),var(--color-white))] after:content-[''] md:py-40"
     data-theme="dark"
   >
-    <!-- <div
-      class="absolute inset-0 -z-10 h-full w-full bg-[radial-gradient(var(--primary)_1px,transparent_1px)] opacity-25 [background-size:20px_20px]"
-    >
-    </div> -->
-    <!-- <div class="relative h-full w-full bg-white">
-      <div
-        class="absolute h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"
-      >
-      </div>
-    </div> -->
     <div class="container-custom relative">
-      {/* Background pattern with dots */}
       <Circles
         class="absolute right-[-86.25rem] top-[-68.75rem] z-[-1] block aspect-square h-auto w-[181.25rem] max-w-none fill-white stroke-indigo-200/30"
       />
@@ -127,35 +119,13 @@ const services = [
             We'd love to prepare a customized proposal for you! Simply fill out the form to get
             started.
           </p>
+          <Image src={g2} alt="Air360 G2 Badge" class="w-24" />
         </div>
-        <div class="justify-self-center lg:justify-self-end">
+        <div class="justify-self-center">
           <div
-            class="bg-background flex aspect-[0.955145119/1] flex-col rounded-xl border p-3 shadow-xl sm:w-[22.625rem]"
+            class="bg-background flex aspect-square flex-col rounded-xl border p-3 shadow-md sm:w-[22.625rem]"
           >
-            <AspectRatio
-              ratio={1.110367893 / 1}
-              className="bg-muted w-full overflow-hidden rounded-lg"
-            >
-              <!-- <img
-                src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
-                alt=""
-                class="block h-full w-full object-cover object-center"
-              /> -->
-            </AspectRatio>
-            <div class="m-auto flex w-full items-center justify-between">
-              <div class="flex items-center gap-1 rounded-md bg-black/5 px-2 py-1">
-                <Repeat className="h-4" />
-                <p class="text-xs font-semibold sm:text-sm">Step 1</p>
-              </div>
-              <div class="bg-background flex items-center gap-1 rounded-md px-2 py-1">
-                <ShoppingBag className="h-4 stroke-black/40" />
-                <p class="text-xs font-semibold text-black/40 sm:text-sm">Step 2</p>
-              </div>
-              <div class="bg-background flex items-center gap-1 rounded-md px-2 py-1">
-                <Banknote className="h-4 stroke-black/40" />
-                <p class="text-xs font-semibold text-black/40 sm:text-sm">Step 3</p>
-              </div>
-            </div>
+            <RequestDemoComponent client:load />
           </div>
         </div>
       </div>
@@ -163,14 +133,17 @@ const services = [
   </section>
 
   <!-- Marquee Section -->
-  <section data-theme="dark">
+  <section class="py-20" data-theme="dark">
+    <h5 class="text-muted-foreground py-5 text-center text-sm tracking-wide">
+      SOME OF OUR CUSTOMERS
+    </h5>
     <Marquee theme="dark" />
   </section>
 
   <!-- Customer Section -->
   <section class="py-20" data-theme="dark">
     <div class="container-custom">
-      <div class="flex w-full flex-col items-stretch justify-between p-3 lg:flex-row">
+      <div class="flex w-full flex-col items-stretch justify-between gap-5 p-3 lg:flex-row">
         <div class="bg-background flex w-full max-w-[30rem] flex-col gap-10 p-3">
           <div>
             <AirCaraibesColor class="w-48" />
@@ -184,7 +157,9 @@ const services = [
                       animationSpeed={20}
                       colors={['#2d92e9', '#644ad5', '#c147ac', '#f04d66', '#fd7043']}
                     >
-                      <span class="font-clash-display-bold text-lg md:text-2xl">{item.number}</span>
+                      <span class="font-clash-display-bold text-lg tracking-wide md:text-2xl">
+                        {item.number}
+                      </span>
                     </GradientText>
                   </div>
                   <div class="text-muted-foreground text-sm font-medium">{item.text}</div>

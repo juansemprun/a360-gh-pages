@@ -77,7 +77,6 @@ const { theme = 'light' } = Astro.props as MarqueeProps;
 <style>
   .marquee {
     overflow: hidden;
-    margin-top: 20px;
     --speed: 25s;
     --single-slide-speed: calc(var(--speed) / var(--numItems));
     --item-width: 120px;
@@ -91,6 +90,7 @@ const { theme = 'light' } = Astro.props as MarqueeProps;
     display: grid;
     grid-template-columns: var(--track-width) [track] 0px [resting];
     width: max-content;
+    align-items: center;
   }
 
   .marquee-item {
@@ -99,6 +99,7 @@ const { theme = 'light' } = Astro.props as MarqueeProps;
     animation-delay: calc(var(--single-slide-speed) * var(--item-position) * -1);
 
     width: var(--item-width);
+    height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -2,8 +2,17 @@
 import BaseLayout from '@layouts/BaseLayout.astro';
 const pageTitle = 'Request a Demo';
 
+import { languageCodes } from '@config/language';
+
 import RequestDemoComponent from '@components/RequestDemo';
 import UnderlineTextDecoration from '@assets/graphics/underline-text-decoration.svg';
+
+const { lang } = Astro.params;
+export async function getStaticPaths() {
+  return languageCodes.map((lang) => ({
+    params: { lang },
+  }));
+}
 ---
 
 <BaseLayout title={pageTitle}>
