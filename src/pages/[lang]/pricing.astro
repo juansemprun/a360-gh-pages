@@ -1,0 +1,275 @@
+---
+import { languageCodes } from '@config/language';
+
+import { Banknote, Repeat, ShoppingBag } from 'lucide-react';
+
+import { AspectRatio } from '@ui/shadcn/aspect-ratio';
+
+import { ProductColor, DubreuilColor, OlympiqueLyonnaisColor } from '@/assets/brand-logos';
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import GradientText from '@ui/GradientText.astro';
+import Marquee from '@components/Marquee.astro';
+import CallToAction from '@ui/use-cases/CallToAction.astro';
+
+const { lang } = Astro.params;
+
+export async function getStaticPaths() {
+  return languageCodes.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const title = 'Pricing';
+const description = 'Simple, transparent pricing that scales with your business.';
+
+const CUSTOMER_DATA = {
+  company: {
+    logo: 'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-8.svg',
+    name: '',
+  },
+  stats: [
+    {
+      number: '45%',
+      text: 'improvement in onboarding completion',
+    },
+    {
+      number: '61%',
+      text: 'reduction in time-to-value',
+    },
+    {
+      number: '3x',
+      text: 'increase in user activation',
+    },
+  ],
+  author: {
+    name: 'Sarah Williams',
+    image: 'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-1.webp',
+    role: 'CTO, monzo',
+  },
+  title: 'WHY INDUSTRY EXPERTS CHOOSE AIR360',
+  summary:
+    'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+  link: '#',
+};
+
+const services = [
+  {
+    title: 'Pipeline Conversion',
+    items: ['Market Research', 'User Personas'],
+    number: '4X',
+    icon: ProductColor,
+  },
+  {
+    title: 'Forecast Accuracy',
+    items: ['UI/UX Design', 'Prototyping', 'Interaction Design'],
+    number: '95%',
+    icon: DubreuilColor,
+  },
+  {
+    title: 'Email Response Rates',
+    items: ['Frontend Dev', 'Backend Dev'],
+    number: '80%+',
+    icon: OlympiqueLyonnaisColor,
+  },
+];
+---
+
+<BaseLayout title={title} description={description} lang={lang}>
+  <!-- Hero Section -->
+  <section
+    class="relative overflow-hidden py-32 font-sans after:absolute after:bottom-0 after:left-0 after:block after:h-20 after:w-full after:bg-[linear-gradient(var(--color-transparent),var(--color-white))] after:content-[''] md:py-40"
+    data-theme="dark"
+  >
+    <div
+      class="absolute inset-0 -z-10 h-full w-full bg-[radial-gradient(var(--primary)_1px,transparent_1px)] opacity-25 [background-size:20px_20px]"
+    >
+    </div>
+    <div class="relative h-full w-full bg-white">
+      <div
+        class="absolute h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"
+      >
+      </div>
+    </div>
+    <div class="container-custom relative">
+      {/* Background pattern with dots */}
+      <!-- <img
+        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/patterns/circles.svg"
+        alt=""
+        class="absolute right-[-86.25rem] top-[-68.75rem] z-[-1] block aspect-square h-auto w-[181.25rem] max-w-none"
+      /> -->
+      <div class="grid grid-cols-1 items-center justify-center gap-16 lg:grid-cols-2">
+        <div class="flex flex-col gap-6">
+          <GradientText
+            animationSpeed={15}
+            class="font-clash-display-bold text-5xl transition duration-300 md:text-7xl"
+            showBorder={true}
+            colors={['#2d92e9', '#644ad5', '#c147ac', '#f04d66', '#fd7043']}
+          >
+            <h1 class="font-clash-display-bold text-4xl leading-tight xl:text-5xl">
+              GET THE SCOOP ON AIR360 PRICING
+            </h1>
+          </GradientText>
+          <p class="text-2xl leading-snug text-slate-700">
+            Air360's pricing model depends on a few factors specific to your team.
+          </p>
+          <ul class="mb-4 list-inside list-disc space-y-2 text-lg leading-8 text-slate-700">
+            <li>Licenses are priced per user</li>
+            <li>There is a platform fee based on the number of users supported</li>
+            <li>You can integrate your existing tech stack for free.</li>
+          </ul>
+          <p class="text-xl leading-snug text-slate-700">
+            We'd love to prepare a customized proposal for you! Simply fill out the form to get
+            started.
+          </p>
+        </div>
+        <div class="justify-self-center lg:justify-self-end">
+          <div
+            class="bg-background flex aspect-[0.955145119/1] flex-col rounded-xl border p-3 shadow-xl sm:w-[22.625rem]"
+          >
+            <AspectRatio
+              ratio={1.110367893 / 1}
+              className="bg-muted w-full overflow-hidden rounded-lg"
+            >
+              <!-- <img
+                src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
+                alt=""
+                class="block h-full w-full object-cover object-center"
+              /> -->
+            </AspectRatio>
+            <div class="m-auto flex w-full items-center justify-between">
+              <div class="flex items-center gap-1 rounded-md bg-black/5 px-2 py-1">
+                <Repeat className="h-4" />
+                <p class="text-xs font-semibold sm:text-sm">Step 1</p>
+              </div>
+              <div class="bg-background flex items-center gap-1 rounded-md px-2 py-1">
+                <ShoppingBag className="h-4 stroke-black/40" />
+                <p class="text-xs font-semibold text-black/40 sm:text-sm">Step 2</p>
+              </div>
+              <div class="bg-background flex items-center gap-1 rounded-md px-2 py-1">
+                <Banknote className="h-4 stroke-black/40" />
+                <p class="text-xs font-semibold text-black/40 sm:text-sm">Step 3</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marquee Section -->
+  <section data-theme="dark">
+    <Marquee theme="dark" />
+  </section>
+
+  <!-- Customer Section -->
+  <section class="py-20" data-theme="dark">
+    <div class="container-custom">
+      <div
+        class="flex w-full flex-col items-stretch justify-between gap-10 rounded-[.5rem] bg-gradient-to-tr from-[#f04d66] via-[#f04d66] to-[#fd7043] p-10 lg:flex-row"
+      >
+        <div class="bg-background flex w-full max-w-[30rem] flex-col gap-10 rounded-[.5rem] p-5">
+          <div class="max-w-[4.875rem]">
+            <!-- <img
+              src={CUSTOMER_DATA.company.logo}
+              alt={CUSTOMER_DATA.company.name}
+              class="block size-full object-contain object-center"
+            /> -->
+            Company Logo
+          </div>
+          <div class="flex w-full flex-col gap-8 sm:flex-row">
+            {
+              CUSTOMER_DATA.stats.map((item, i) => (
+                <div class="flex flex-col gap-1">
+                  <div class="text-xl font-semibold">
+                    <GradientText
+                      animationSpeed={15}
+                      colors={['#2d92e9', '#644ad5', '#c147ac', '#f04d66', '#fd7043']}
+                    >
+                      <span class="font-clash-display-bold text-lg md:text-2xl">{item.number}</span>
+                    </GradientText>
+                  </div>
+                  <div class="text-muted-foreground text-sm font-medium">{item.text}</div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+        <div class="flex max-w-[32rem] flex-col gap-5 text-white">
+          <h2 class="font-clash-display-bold text-xl leading-none md:text-3xl lg:text-4xl">
+            {CUSTOMER_DATA.title}
+          </h2>
+          <p class="text-lg font-medium">
+            {CUSTOMER_DATA.summary}
+          </p>
+          <div class="shrink-0">
+            <!-- <Button asChild variant="outline" size="lg">
+              <a href={CUSTOMER_DATA.link}>
+                Read Story
+                <ArrowRight />
+              </a>
+            </Button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Section 2 -->
+
+  <section class="py-20" data-theme="dark">
+    <div class="container-custom">
+      <div
+        class="flex w-full flex-col items-center justify-between gap-20 rounded-[.5rem] p-3 md:p-10 lg:flex-row"
+      >
+        <div class="w-full space-y-10">
+          {
+            services.map(({ number, title, icon: Icon }) => (
+              <div class="border-primary-500 flex items-center justify-between border-b pb-6">
+                <div>
+                  <GradientText
+                    animationSpeed={15}
+                    colors={['#2d92e9', '#644ad5', '#c147ac', '#f04d66', '#fd7043']}
+                  >
+                    <span class="font-clash-display-bold text-lg md:text-2xl">{number}</span>
+                  </GradientText>
+                </div>
+
+                <div class="flex items-center gap-4">
+                  <h2 class="text-sm font-medium">{title}</h2>
+                </div>
+
+                <div class="w-14">
+                  <Icon />
+                </div>
+              </div>
+            ))
+          }
+        </div>
+        <div
+          class="flex max-w-[32rem] flex-col gap-5 rounded-lg bg-gradient-to-tr from-[#f04d66] via-[#f04d66] to-[#fd7043] p-10 shadow-lg"
+        >
+          <h2
+            class="font-clash-display-bold text-xl leading-none text-white md:text-3xl lg:text-4xl"
+          >
+            {CUSTOMER_DATA.title}
+          </h2>
+          <p class="text-lg font-medium text-white">
+            {CUSTOMER_DATA.summary}
+          </p>
+          <div class="shrink-0">
+            <!-- <Button asChild variant="outline" size="lg">
+              <a href={CUSTOMER_DATA.link}>
+                Read Story
+                <ArrowRight />
+              </a>
+            </Button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CallToAction />
+</BaseLayout>
