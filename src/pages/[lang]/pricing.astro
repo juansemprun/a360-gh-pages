@@ -93,23 +93,67 @@ const services = [
 
 const badges = [
   {
+    alt: 'Air360 G2 Badge',
+    className: 'h-18 w-auto',
+    image: g2,
+    link: 'https://www.g2.com/products/air360/reviews',
+    title: 'G2',
+  },
+  {
+    alt: 'Air360 Top Business Software Badge',
+    className: 'h-18 w-auto',
+    image: topBusinessSoftware,
+    link: 'https://topbusinesssoftware.com/products/Air360/reviews/',
+    title: 'Top Business Software',
+  },
+  {
+    alt: 'Air360 Crozdesk Happiest Users Badge',
+    className: 'h-16 w-auto',
+    image: crozdeskHappiestUsers,
+    link: 'https://crozdesk.com/software/air360-inc',
+    title: 'Crozdesk Happiest Users',
+  },
+  {
+    alt: 'Air360 Crozdesk Quality Choice Badge',
+    className: 'h-16 w-auto',
+    image: crozdeskQualityChoice,
+    link: 'https://crozdesk.com/software/air360-inc',
+    title: 'Crozdesk Quality Choice',
+  },
+  {
+    alt: 'Air360 Source Forge Badge',
+    className: 'h-16 w-auto',
+    image: sourceForge,
+    link: 'https://sourceforge.net/software/product/Air360/',
     title: 'Source Forge',
-    image: '',
+  },
+  {
+    alt: 'Air360 Software Suggest Badge',
+    className: 'h-20 w-auto',
+    image: softwareSuggest,
+    link: 'https://www.softwaresuggest.com/award_logo/highly-recommended-winter-2025.png',
+    title: 'Software Suggest',
+  },
+  {
+    alt: 'Air360 Capterra Badge',
+    className: 'h-16 w-auto',
+    image: capterra,
+    link: 'https://www.capterra.es/software/169581/air360',
+    title: 'Capterra',
   },
 ];
+
+console.log(badges[0].image);
 ---
 
 <BaseLayout title={title} description={description} lang={lang}>
   <!-- Hero Section -->
   <section
-    class="relative overflow-hidden py-32 font-sans after:absolute after:bottom-0 after:left-0 after:block after:h-20 after:w-full after:bg-[linear-gradient(var(--color-transparent),var(--color-white))] after:content-[''] md:py-40"
+    class="relative overflow-hidden py-20 font-sans after:absolute after:bottom-0 after:left-0 after:block after:h-20 after:w-full after:bg-[linear-gradient(var(--color-transparent),var(--color-white))] after:content-[''] md:py-40"
     data-theme="dark"
   >
     <div class="container-custom relative">
-      <Circles
-        class="absolute right-[-86.25rem] top-[-68.75rem] z-[-1] block aspect-square h-auto w-[181.25rem] max-w-none fill-white stroke-indigo-200/30"
-      />
-      <div class="grid grid-cols-1 items-center justify-center gap-16 lg:grid-cols-2">
+      <div class="grid grid-cols-1 justify-center gap-16 lg:grid-cols-2">
         <div class="flex flex-col gap-6">
           <GradientText
             animationSpeed={15}
@@ -133,33 +177,8 @@ const badges = [
             We'd love to prepare a customized proposal for you! Simply fill out the form to get
             started.
           </p>
-
-          <!-- Badges -->
-          <h5 class="text-muted-foreground my-5 text-xl font-bold">
-            The Undisputed Leader in Revenue Intelligence
-          </h5>
-          <div class="grid grid-cols-4 items-center gap-y-5">
-            <Image src={g2} alt="Air360 G2 Badge" class="h-20 w-auto" />
-            <Image
-              src={topBusinessSoftware}
-              alt="Air360 Top Business Software Badge"
-              class="h-20 w-auto"
-            />
-            <Image
-              src={crozdeskHappiestUsers}
-              alt="Air360 Crozdesk Happiest Users Badge"
-              class="h-20 w-auto"
-            />
-            <Image
-              src={crozdeskQualityChoice}
-              alt="Air360 Crozdesk Quality Choice Badge"
-              class="h-20 w-auto"
-            />
-            <Image src={sourceForge} alt="Air360 Source Forge Badge" class="h-20 w-auto" />
-            <Image src={softwareSuggest} alt="Air360 Software Suggest Badge" class="h-20 w-auto" />
-            <Image src={capterra} alt="Air360 Capterra Badge" class="h-auto w-auto" />
-          </div>
         </div>
+
         <div class="justify-self-center">
           <div
             class="bg-background flex aspect-square flex-col rounded-xl border p-3 shadow-md sm:w-[22.625rem]"
@@ -167,22 +186,58 @@ const badges = [
           </div>
         </div>
       </div>
+
+      <div class="mt-20">
+        <!-- Badges -->
+        <h5 class="text-muted-foreground my-5 text-xl font-bold">
+          The Undisputed Leader in Revenue Intelligence
+        </h5>
+        <div class="flex max-w-3xl flex-wrap items-center justify-between gap-5 md:flex-nowrap">
+          {
+            badges.map(({ alt, className, image, link, title }) => (
+              <a href={link} target="_blank" rel="noopener noreferrer">
+                <Image src={image} alt={alt} class={className} title={title} />
+              </a>
+            ))
+          }
+
+          <!-- <Image src={g2} alt="Air360 G2 Badge" class="h-18 w-auto" />
+          <Image
+            src={topBusinessSoftware}
+            alt="Air360 Top Business Software Badge"
+            class="h-18 w-auto"
+          />
+          <Image
+            src={crozdeskHappiestUsers}
+            alt="Air360 Crozdesk Happiest Users Badge"
+            class="h-16 w-auto"
+          />
+          <Image
+            src={crozdeskQualityChoice}
+            alt="Air360 Crozdesk Quality Choice Badge"
+            class="h-16 w-auto"
+          />
+          <Image src={sourceForge} alt="Air360 Source Forge Badge" class="h-16 w-auto" />
+          <Image src={softwareSuggest} alt="Air360 Software Suggest Badge" class="h-20 w-auto" />
+          <Image src={capterra} alt="Air360 Capterra Badge" class="h-16 w-auto" /> -->
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Marquee Section -->
-  <section class="py-20" data-theme="dark">
+  <section class="" data-theme="dark">
     <h5 class="text-muted-foreground py-5 text-center text-sm tracking-wide">
       SOME OF OUR CUSTOMERS
     </h5>
     <Marquee theme="dark" />
   </section>
 
-  <section class="py-10">
+  <!-- Demo Section -->
+  <section class="py-20" data-theme="dark">
     <div class="container-custom flex flex-col items-center gap-10">
       <GradientText
         animationSpeed={15}
-        class="font-clash-display-bold text-5xl transition duration-300 md:text-7xl"
         showBorder={true}
         colors={['#2d92e9', '#644ad5', '#c147ac', '#f04d66', '#fd7043']}
       >
@@ -211,7 +266,7 @@ const badges = [
                       animationSpeed={20}
                       colors={['#2d92e9', '#644ad5', '#c147ac', '#f04d66', '#fd7043']}
                     >
-                      <span class="font-clash-display-bold text-lg tracking-wide md:text-2xl">
+                      <span class="font-clash-display-bold text-xl tracking-wide md:text-3xl">
                         {item.number}
                       </span>
                     </GradientText>
@@ -223,32 +278,23 @@ const badges = [
           </div>
         </div>
         <div class="flex max-w-[32rem] flex-col gap-5">
-          <h2 class="font-clash-display-bold text-xl leading-none md:text-3xl lg:text-4xl">
+          <h3 class="font-clash-display-bold text-xl leading-none md:text-3xl lg:text-4xl">
             <GradientText
               animationSpeed={20}
               colors={['#2d92e9', '#644ad5', '#c147ac', '#f04d66', '#fd7043']}
             >
               <span>{CUSTOMER_DATA.title}</span>
             </GradientText>
-          </h2>
-          <p class="text-lg font-medium">
+          </h3>
+          <p class="text-muted-foreground text-lg font-medium">
             {CUSTOMER_DATA.summary}
           </p>
-          <div class="shrink-0">
-            <!-- <Button asChild variant="outline" size="lg">
-              <a href={CUSTOMER_DATA.link}>
-                Read Story
-                <ArrowRight />
-              </a>
-            </Button> -->
-          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Customer Section 2 -->
-
   <section class="py-20" data-theme="dark">
     <div class="container-custom">
       <div
@@ -263,12 +309,12 @@ const badges = [
                     animationSpeed={20}
                     colors={['#2d92e9', '#644ad5', '#c147ac', '#f04d66', '#fd7043']}
                   >
-                    <span class="font-clash-display-bold text-lg md:text-2xl">{number}</span>
+                    <span class="font-clash-display-bold text-xl md:text-3xl">{number}</span>
                   </GradientText>
                 </div>
 
                 <div class="flex items-center gap-4">
-                  <h2 class="text-sm font-medium">{title}</h2>
+                  <span class="text-muted-foreground text-sm font-medium md:text-lg">{title}</span>
                 </div>
 
                 <div class="w-14">
@@ -279,24 +325,18 @@ const badges = [
           }
         </div>
         <div
-          class="flex max-w-[32rem] flex-col gap-5 rounded-lg bg-gradient-to-r from-[#2d92e9] to-[#644ad5] p-10 shadow-lg"
+          class="flex max-w-[32rem] flex-col gap-5 rounded-lg bg-gradient-to-r from-[#2d92e9] to-[#644ad5] p-14 shadow-lg"
         >
-          <h2
+          <h3
             class="font-clash-display-bold text-xl leading-none text-white md:text-3xl lg:text-4xl"
           >
             {CUSTOMER_DATA.title}
-          </h2>
+          </h3>
           <p class="text-lg font-medium text-white">
             {CUSTOMER_DATA.summary}
           </p>
-          <div class="shrink-0">
-            <!-- <Button asChild variant="outline" size="lg">
-              <a href={CUSTOMER_DATA.link}>
-                Read Story
-                <ArrowRight />
-              </a>
-            </Button> -->
-          </div>
+
+          <p class="mt-12 text-white">Lorem ipsum</p>
         </div>
       </div>
     </div>
