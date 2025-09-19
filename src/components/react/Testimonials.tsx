@@ -152,11 +152,10 @@ const Testimonials = () => {
           Discover how <strong className="text-primary-500 font-bold">Air360</strong> is
           transforming workflows across industries
         </p>
-        {/* <Button className="mt-6">Get started for free</Button> */}
         <div className="animate-rotate-border glow-border relative mt-5 w-80 max-w-sm cursor-pointer rounded-xl p-[4px] transition-all duration-500 ease-out hover:scale-[1.03]">
           <a
             href={`/en/request-demo`}
-            className="block rounded-lg border border-black bg-white px-4 py-4 text-center text-lg text-black"
+            className="block rounded-lg border bg-white px-4 py-4 text-center text-lg text-black"
           >
             <span className="text-lg font-semibold">Get Started</span>
           </a>
