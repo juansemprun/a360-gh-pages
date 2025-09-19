@@ -20,7 +20,14 @@ import Marquee from '@components/Marquee.astro';
 import CallToAction from '@ui/use-cases/CallToAction.astro';
 import RequestDemoComponent from '@components/RequestDemo';
 import { Image } from 'astro:assets';
-import g2 from '@assets/images/g2.png';
+
+import g2 from '@assets/badges/g2.webp';
+import sourceForge from '@assets/badges/source-forge.svg';
+import topBusinessSoftware from '@assets/badges/top-business-software.svg';
+import crozdeskHappiestUsers from '@assets/badges/crozdesk-happiest-users.webp';
+import crozdeskQualityChoice from '@assets/badges/crozdesk-quality-choice.webp';
+import softwareSuggest from '@assets/badges/software-suggest.webp';
+import capterra from '@assets/badges/capterra.webp';
 
 const { lang } = Astro.params;
 
@@ -83,6 +90,13 @@ const services = [
     icon: OlympiqueLyonnaisColor,
   },
 ];
+
+const badges = [
+  {
+    title: 'Source Forge',
+    image: '',
+  },
+];
 ---
 
 <BaseLayout title={title} description={description} lang={lang}>
@@ -119,13 +133,37 @@ const services = [
             We'd love to prepare a customized proposal for you! Simply fill out the form to get
             started.
           </p>
-          <Image src={g2} alt="Air360 G2 Badge" class="w-24" />
+
+          <!-- Badges -->
+          <h5 class="text-muted-foreground my-5 text-xl font-bold">
+            The Undisputed Leader in Revenue Intelligence
+          </h5>
+          <div class="grid grid-cols-4 items-center gap-y-5">
+            <Image src={g2} alt="Air360 G2 Badge" class="h-20 w-auto" />
+            <Image
+              src={topBusinessSoftware}
+              alt="Air360 Top Business Software Badge"
+              class="h-20 w-auto"
+            />
+            <Image
+              src={crozdeskHappiestUsers}
+              alt="Air360 Crozdesk Happiest Users Badge"
+              class="h-20 w-auto"
+            />
+            <Image
+              src={crozdeskQualityChoice}
+              alt="Air360 Crozdesk Quality Choice Badge"
+              class="h-20 w-auto"
+            />
+            <Image src={sourceForge} alt="Air360 Source Forge Badge" class="h-20 w-auto" />
+            <Image src={softwareSuggest} alt="Air360 Software Suggest Badge" class="h-20 w-auto" />
+            <Image src={capterra} alt="Air360 Capterra Badge" class="h-auto w-auto" />
+          </div>
         </div>
         <div class="justify-self-center">
           <div
             class="bg-background flex aspect-square flex-col rounded-xl border p-3 shadow-md sm:w-[22.625rem]"
           >
-            <RequestDemoComponent client:load />
           </div>
         </div>
       </div>
@@ -138,6 +176,22 @@ const services = [
       SOME OF OUR CUSTOMERS
     </h5>
     <Marquee theme="dark" />
+  </section>
+
+  <section class="py-10">
+    <div class="container-custom flex flex-col items-center gap-10">
+      <GradientText
+        animationSpeed={15}
+        class="font-clash-display-bold text-5xl transition duration-300 md:text-7xl"
+        showBorder={true}
+        colors={['#2d92e9', '#644ad5', '#c147ac', '#f04d66', '#fd7043']}
+      >
+        <h2 class="font-clash-display-bold text-center text-4xl leading-tight xl:text-5xl">
+          Book a demo!
+        </h2>
+      </GradientText>
+      <RequestDemoComponent client:load />
+    </div>
   </section>
 
   <!-- Customer Section -->
