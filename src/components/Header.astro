@@ -13,7 +13,7 @@ const { lang } = Astro.props;
 ---
 
 <header id="dynamic-navbar">
-  <nav class="navbar" role="navigation" aria-label="Main navigation">
+  <nav class="navbar container-custom" role="navigation" aria-label="Main navigation">
     <div class="navbar-container">
       <!-- Logo -->
       <div class="navbar-logo">
@@ -166,9 +166,6 @@ const { lang } = Astro.props;
   }
 
   .navbar-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
