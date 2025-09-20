@@ -1,7 +1,8 @@
 ---
 import { Image } from 'astro:assets';
 import BaseLayout from '@layouts/BaseLayout.astro';
-const pageTitle = 'Security & Compliance';
+
+import { languageCodes } from '@config/language';
 
 import {
   BinaryLock,
@@ -20,6 +21,14 @@ import {
 } from '@assets/icons';
 import gdprComplianceImg from '@assets/images/gdpr-compliance.webp';
 import dataBaseImg from '@assets/images/database.webp';
+
+export async function getStaticPaths() {
+  return languageCodes.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const pageTitle = 'Security & Compliance';
 ---
 
 <BaseLayout title={pageTitle}>
