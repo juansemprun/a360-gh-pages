@@ -10,14 +10,13 @@ interface FooterProps {
 
 const { lang, navigationCollection } = Astro.props as FooterProps;
 
-const [aboutUs, features, useCases, resources] = navigationCollection;
+const findBySlug = (slug: string) => navigationCollection.find((item) => item.slug === slug);
 
-console.log('Footer navigationCollection:', navigationCollection);
+const aboutUs = findBySlug(`${lang}/about-us`);
+const useCases = findBySlug(`${lang}/use-cases`);
+const resources = findBySlug(`${lang}/resources`);
 
-console.log('aboutUs:', aboutUs);
-console.log('features:', features);
-console.log('useCases:', useCases);
-console.log('resources:', resources);
+console.log;
 ---
 
 <footer data-theme="dark" class="bg-linear-180 from-[#27154c] to-[#181127]">
@@ -33,7 +32,7 @@ console.log('resources:', resources);
     <nav class="mb-16 grid grid-cols-2 gap-8 md:grid-cols-4" aria-label="Footer navigation">
       <!-- Use Cases -->
       <div class="flex flex-col gap-9">
-        <h3 class="text-lg font-bold text-white">{useCases.data.title}</h3>
+        <h3 class="text-lg font-bold text-white">{useCases?.data.title}</h3>
 
         {
           useCases?.data?.useCasesNav?.industry?.map(({ link, label }) => (
@@ -49,7 +48,7 @@ console.log('resources:', resources);
 
       <!-- About Us -->
       <div class="flex flex-col gap-9">
-        <h3 class="text-lg font-bold text-white">{aboutUs.data.title}</h3>
+        <h3 class="text-lg font-bold text-white">{aboutUs?.data.title}</h3>
 
         {
           aboutUs?.data?.aboutUsNav?.primary?.map(({ link, label }) => (
@@ -75,7 +74,7 @@ console.log('resources:', resources);
 
       <!-- Resources column -->
       <div class="flex flex-col gap-9">
-        <h3 class="text-lg font-bold text-white">{resources.data.title}</h3>
+        <h3 class="text-lg font-bold text-white">{resources?.data.title}</h3>
 
         {
           resources?.data?.navigation?.map(({ link, label }) => (
