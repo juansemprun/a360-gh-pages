@@ -1,0 +1,13 @@
+---
+import BlogPostCard, { type BlogPostCardProps } from '@ui/blog/BlogPostCard.astro';
+
+export interface BlogPostListProps {
+  posts: BlogPostCardProps[];
+}
+
+const { posts } = Astro.props as BlogPostListProps;
+---
+
+<section aria-label="Blog posts list" class="mt-20 grid gap-10 md:grid-cols-2">
+  {posts.map((post) => <BlogPostCard {...post} />)}
+</section>

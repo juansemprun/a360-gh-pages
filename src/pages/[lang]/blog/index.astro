@@ -1,10 +1,7 @@
 ---
 import { getCollection, getEntry, render } from 'astro:content';
 
-import Changelog from '@/components/Changelog.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
-
-import { Blog } from '@components/react/Blog';
 
 export async function getStaticPaths() {
   const pages = await getCollection('use-cases');
@@ -17,8 +14,54 @@ export async function getStaticPaths() {
 
   return paths;
 }
+
+import BlogNav from '@ui/blog/BlogNav.astro';
+import BlogHeader from '@ui/blog/BlogHeader.astro';
+import BlogPostCard from '@ui/blog/BlogPostCard.astro';
+import BlogPostList from '@ui/blog/BlogPostList.astro';
+
+const posts = [
+  {
+    image:
+      'https://images.unsplash.com/photo-1653288973812-81d1951b8127?q=80&w=2022&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==',
+    category: 'Design',
+    title: 'The difference between UI and UX',
+    date: 'April, 07, 2024',
+    url: '#',
+  },
+  {
+    image:
+      'https://images.unsplash.com/photo-1653288973812-81d1951b8127?q=80&w=2022&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==',
+    category: 'Design',
+    title: 'The difference between UI and UX',
+    date: 'April, 07, 2024',
+    url: '#',
+  },
+  {
+    image:
+      'https://images.unsplash.com/photo-1653288973812-81d1951b8127?q=80&w=2022&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==',
+    category: 'Design',
+    title: 'The difference between UI and UX',
+    date: 'April, 07, 2024',
+    url: '#',
+  },
+  {
+    image:
+      'https://images.unsplash.com/photo-1653288973812-81d1951b8127?q=80&w=2022&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==',
+    category: 'Design',
+    title: 'The difference between UI and UX',
+    date: 'April, 07, 2024',
+    url: '#',
+  },
+];
 ---
 
 <BaseLayout lang={Astro.params.lang} page={Astro.props}>
-  <Blog client:idle />
+  <section class="container-custom py-32" data-theme="dark">
+    <div class="flex flex-col gap-10">
+      <BlogHeader />
+      <BlogNav />
+    </div>
+    <BlogPostList posts={posts} />
+  </section>
 </BaseLayout>

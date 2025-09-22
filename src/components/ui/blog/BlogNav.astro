@@ -1,0 +1,28 @@
+---
+import { Badge } from '@ui/shadcn/badge';
+---
+
+<nav aria-label="Blog categories navigation">
+  <ul class="flex flex-wrap justify-center gap-4 lg:gap-2" role="list">
+    <li class="font-medium" role="listitem">
+      <a href="#" aria-current="page"
+        ><Badge className="bg-primary-500 h-fit px-3 py-1">All</Badge></a
+      >
+    </li>
+    <li role="listitem">
+      <a href="#">
+        <Badge variant="outline" className="h-fit px-3 py-1">Design</Badge>
+      </a>
+    </li>
+    <li role="listitem">
+      <a href="#">
+        <Badge variant="outline" className="h-fit px-3 py-1">Development</Badge>
+      </a>
+    </li>
+    <li role="listitem">
+      <a href="#">
+        <Badge variant="outline" className="h-fit px-3 py-1">Marketing</Badge>
+      </a>
+    </li>
+  </ul>
+</nav>
