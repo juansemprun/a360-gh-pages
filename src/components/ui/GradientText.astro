@@ -1,17 +1,25 @@
 ---
+interface GradientTextProps {
+  colors?: string[];
+  animationSpeed?: number;
+  hoverOnly?: boolean;
+  className?: string;
+  baseColor?: string;
+}
+
 const {
   colors = ['#2d92e9', '#644ad5', '#c147ac', '#f04d66', '#fd7043'],
   animationSpeed = 8,
   hoverOnly = false,
   className = '',
   baseColor = 'currentColor',
-} = Astro.props;
+} = Astro.props as GradientTextProps;
 
 const gradientColors = colors.join(', ');
 ---
 
 <div
-  class={`relative inline-block cursor-pointer ${hoverOnly ? 'group' : ''} ${className}`}
+  class={`relative inline-block  ${hoverOnly ? 'group' : ''} ${className}`}
   style={`--base-color: ${baseColor}; --gradient-colors: linear-gradient(to right, ${gradientColors}); --animation-duration: ${animationSpeed}s; color: var(--base-color);`}
 >
   <div class="relative z-10">
