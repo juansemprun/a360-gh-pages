@@ -1,67 +1,62 @@
 ---
-import { getCollection, getEntry, render } from 'astro:content';
-
-import BaseLayout from '@/layouts/BaseLayout.astro';
-
-export async function getStaticPaths() {
-  const pages = await getCollection('use-cases');
-
-  const paths = pages.map((page) => {
-    const [lang, ...slug] = page.slug.split('/');
-
-    return { params: { lang, slug: slug.join('/') || undefined }, props: page };
-  });
-
-  return paths;
-}
+// import type { GetStaticPaths } from "astro";
+import { getCollection } from 'astro:content';
+import { languageCodes } from '@config/language';
 
 import BlogNav from '@ui/blog/BlogNav.astro';
 import BlogHeader from '@ui/blog/BlogHeader.astro';
-import BlogPostCard from '@ui/blog/BlogPostCard.astro';
 import BlogPostList from '@ui/blog/BlogPostList.astro';
 
-const posts = [
-  {
-    image:
-      'https://images.unsplash.com/photo-1653288973812-81d1951b8127?q=80&w=2022&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==',
-    category: 'Design',
-    title: 'The difference between UI and UX',
-    date: 'April, 07, 2024',
-    url: '#',
-  },
-  {
-    image:
-      'https://images.unsplash.com/photo-1653288973812-81d1951b8127?q=80&w=2022&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==',
-    category: 'Design',
-    title: 'The difference between UI and UX',
-    date: 'April, 07, 2024',
-    url: '#',
-  },
-  {
-    image:
-      'https://images.unsplash.com/photo-1653288973812-81d1951b8127?q=80&w=2022&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==',
-    category: 'Design',
-    title: 'The difference between UI and UX',
-    date: 'April, 07, 2024',
-    url: '#',
-  },
-  {
-    image:
-      'https://images.unsplash.com/photo-1653288973812-81d1951b8127?q=80&w=2022&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==',
-    category: 'Design',
-    title: 'The difference between UI and UX',
-    date: 'April, 07, 2024',
-    url: '#',
-  },
-];
+import type { InferGetStaticParamsType, InferGetStaticPropsType, GetStaticPaths } from 'astro';
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+export const getStaticPaths = (async () => {
+  const blogCollection = await getCollection('blog');
+
+  const paths = languageCodes.map((lang) => {
+    const posts = blogCollection
+      .filter((post) => post.slug.startsWith(lang))
+      .map((post) => {
+        const [lang, slug] = post.slug.split('/');
+        return {
+          title: post.data.title,
+          published: post.data.published,
+          readingTime: post.data.readingTime,
+          image: post.data.image,
+          metaDesc: post.data.metaDesc,
+          tags: post.data.tags,
+          url: `/website/${lang}/blog/${slug}`,
+          slug: slug,
+        };
+      });
+
+    return {
+      params: { lang },
+      props: { posts },
+    };
+  });
+
+  return paths;
+}) satisfies GetStaticPaths;
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { posts } = Astro.props as Props;
+const { lang } = Astro.params as Params;
+
+const pageTitle = 'Blog';
+const pageDescription =
+  'Learn about the latest trends in eCommerce UX, tips and tricks for improving conversion rates, and how Air360 can help you deliver.';
 ---
 
-<BaseLayout lang={Astro.params.lang} page={Astro.props}>
+<BaseLayout title={pageTitle} lang={lang} description={pageDescription}>
   <section class="container-custom py-32" data-theme="dark">
     <div class="flex flex-col gap-10">
       <BlogHeader />
       <BlogNav />
     </div>
-    <BlogPostList posts={posts} />
+    <BlogPostList posts={posts} lang={lang} />
   </section>
 </BaseLayout>

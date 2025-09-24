@@ -1,11 +1,18 @@
 ---
-import BlogPostCard, { type BlogPostCardProps } from '@ui/blog/BlogPostCard.astro';
+import type { InferGetStaticParamsType, InferGetStaticPropsType, GetStaticPaths } from 'astro';
 
-export interface BlogPostListProps {
+import BlogPostCard, { type BlogPostCardProps } from '@ui/blog/BlogPostCard.astro';
+import { getCollection, getEntry, render, type CollectionEntry } from 'astro:content';
+
+export interface BlogPostListProperties {
   posts: BlogPostCardProps[];
 }
 
-const { posts } = Astro.props as BlogPostListProps;
+// type Props = CollectionEntry<'blog'>['data'];
+
+// type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { posts } = Astro.props as BlogPostListProperties;
 ---
 
 <section aria-label="Blog posts list" class="mt-20 grid gap-10 md:grid-cols-2">

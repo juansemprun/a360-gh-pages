@@ -1,0 +1,96 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { getCollection, getEntry, render } from 'astro:content';
+
+import { format, type Locale } from 'date-fns';
+import { fr, ja } from 'date-fns/locale';
+
+const localeMap: Record<string, Locale> = {
+  fr: fr,
+  ja: ja,
+};
+
+import { Lightbulb } from 'lucide-react';
+
+import { Alert, AlertDescription, AlertTitle } from '@ui/shadcn/alert';
+
+const defaultPost = {
+  title: 'Designing websites faster with shadcn/ui',
+  pubDate: new Date(),
+  readingTime: 6,
+  image: 'https://www.air360.io/blog/nextImageExportOptimizer/email-marketing-tips-opt-1920.WEBP',
+  metaDesc:
+    'A step-by-step guide to building a modern, responsive blog using React and Tailwind CSS.',
+};
+
+interface BlogPostData {
+  title: string;
+  authorName: string;
+  image: string;
+  pubDate: Date;
+  description: string;
+  authorImage: string;
+}
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+
+  const paths = posts.map((post) => {
+    const [lang, ...slug] = post.slug.split('/');
+
+    return { params: { lang, slug: slug.join('/') || undefined }, props: post };
+  });
+
+  return paths;
+}
+const post = Astro.props;
+
+const { lang, slug } = Astro.params;
+
+console.log('## slug', slug);
+
+const postEntry = await getEntry('blog', `${lang}/${slug}`);
+
+if (!postEntry) {
+  return Astro.redirect(`${lang}/404`);
+}
+
+const { Content } = await render(postEntry);
+
+import GradientText from '@ui/GradientText.astro';
+import { Image } from 'astro:assets';
+import MochiComputer from '@assets/images/mochi/svg/mochi-computer.svg';
+---
+
+<BaseLayout title={postEntry?.data?.title} description={postEntry?.data?.metaDesc} lang={lang}>
+  <section class="container-custom py-32" data-theme="dark">
+    <div class="mx-auto flex max-w-3xl flex-col gap-4">
+      <GradientText animationSpeed={30}>
+        <h1 class="font-clash-display-bold text-4xl tracking-wide md:text-5xl">
+          {postEntry.data.title}
+        </h1>
+      </GradientText>
+      <div class="my-5 flex items-center gap-3 text-sm md:text-base">
+        <Image src={MochiComputer} alt="Mochi using a computer" width={32} height={32} />
+        <span>
+          <span class="font-semibold">Air360 Team</span>
+          <span
+            >on {
+              format(postEntry.data.published, 'MMMM d, yyyy', { locale: localeMap[lang] })
+            }</span
+          >
+        </span>
+      </div>
+      <Image
+        src={postEntry.data.image}
+        alt="placeholder"
+        class="mb-8 mt-4 aspect-video w-full rounded-lg object-cover"
+        transition:name={`blog-image-${slug}`}
+      />
+    </div>
+
+    <div class="prose prose-lg mx-auto max-w-3xl text-pretty">
+      <Content />
+    </div>
+  </section>
+</BaseLayout>

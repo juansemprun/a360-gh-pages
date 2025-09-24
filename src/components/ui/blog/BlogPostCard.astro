@@ -1,51 +1,70 @@
 ---
-import { Badge } from '@ui/shadcn/badge';
+import { format, type Locale } from 'date-fns';
+import { fr, ja } from 'date-fns/locale';
 
-import { Calendar, ChevronRight } from 'lucide-react';
+import { Badge } from '@ui/shadcn/badge';
+import { Image } from 'astro:assets';
+
+import { Calendar, Clock } from 'lucide-react';
 
 export interface BlogPostCardProps {
-  image: string;
-  category: string;
   title: string;
-  date: string;
+  published: string;
+  readingTime: number;
+  image: any;
+  metaDesc: string;
+  tags: string[];
   url: string;
+  slug: string;
 }
 
-const { image, category, title, date, url } = Astro.props as BlogPostCardProps;
+const { lang = 'en' } = Astro.params;
+
+const { title, published, readingTime, image, metaDesc, tags, url, slug } =
+  Astro.props as BlogPostCardProps;
+
+console.log('slug', slug);
+
+const localeMap: Record<string, Locale> = {
+  fr: fr,
+  ja: ja,
+};
 ---
 
 <article class="flex flex-col" aria-label={`Blog post titled ${title}`}>
-  <div class="relative">
-    <img
-      src={image}
-      alt={`Featured image for ${title}`}
-      class="aspect-video w-full rounded-lg object-cover"
-      loading="lazy"
-      decoding="async"
-    />
-    <Badge
-      variant="secondary"
-      className="bg-background/70 absolute right-4 top-4 px-3 py-1 text-sm backdrop-blur-sm"
-    >
-      {category}
-    </Badge>
-  </div>
-  <div class="flex h-full flex-col justify-between p-4">
-    <h2 class="mb-5 text-xl font-semibold">
-      <a href={url} class="hover:underline">{title}</a>
-    </h2>
-    <footer class="flex justify-between gap-6 text-sm" aria-label="Post metadata">
-      <time
-        datetime={new Date(date).toISOString()}
-        class="text-muted-foreground flex items-center gap-1"
+  <a href={url} class="" aria-label={`Read more about ${title}`}>
+    <div class="relative">
+      <Image
+        src={image}
+        alt={`Featured image for ${title}`}
+        class="aspect-video w-full rounded-lg object-cover"
+        transition:name={`blog-image-${slug}`}
+      />
+      <Badge
+        variant="secondary"
+        className="bg-background/70 absolute right-4 top-4 px-3 py-1 text-sm backdrop-blur-sm"
       >
-        <Calendar className="h-4 w-4" aria-hidden="true" />
-        {date}
-      </time>
-      <a href={url} class="flex items-center gap-1" aria-label={`Read more about ${title}`}>
-        Read more
-        <ChevronRight className="h-full w-3" aria-hidden="true" />
-      </a>
-    </footer>
-  </div>
+        {tags[0]}
+      </Badge>
+    </div>
+    <div class="flex h-full flex-col justify-between p-4">
+      <h2 class="mb-5 text-xl font-semibold">
+        <a href={url} class="hover:underline">{title}</a>
+      </h2>
+      <footer
+        class="text-muted-foreground flex justify-between gap-6 text-sm"
+        aria-label="Post metadata"
+      >
+        <time datetime={new Date(published).toISOString()} class="flex items-center gap-1">
+          <Calendar className="h-4 w-4" aria-hidden="true" />
+          {format(new Date(published), 'MMMM dd, yyyy', { locale: localeMap[lang] })}
+        </time>
+
+        <span class="flex items-center gap-1" aria-label="Reading time">
+          <Clock className="h-4 w-4" aria-hidden="true" />
+          {`${readingTime} min`}
+        </span>
+      </footer>
+    </div>
+  </a>
 </article>
