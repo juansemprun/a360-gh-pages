@@ -82,9 +82,22 @@ const navigationCollection = defineCollection({
   }),
 });
 
+const blogCollection = defineCollection({
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      published: z.coerce.date(),
+      readingTime: z.number(),
+      image: image(),
+      metaDesc: z.string(),
+      tags: z.array(z.string()),
+    }),
+});
+
 export const collections = {
   hero: heroCollection,
   'use-cases': useCasesCollection,
   pages: pagesCollection,
   navigation: navigationCollection,
+  blog: blogCollection,
 };
