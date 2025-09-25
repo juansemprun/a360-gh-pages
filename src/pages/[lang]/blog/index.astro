@@ -53,8 +53,8 @@ const pageDescription =
 <BaseLayout title={pageTitle} lang={lang} description={pageDescription}>
   <section class="container-custom py-32" data-theme="dark">
     <div class="flex flex-col gap-10">
-      <BlogHeader />
-      <BlogNav />
+      <BlogHeader lang={lang} />
+      <BlogNav lang={lang} />
     </div>
     <BlogPostList posts={posts} lang={lang} />
   </section>
