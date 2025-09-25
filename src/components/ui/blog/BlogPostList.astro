@@ -1,16 +1,9 @@
 ---
-import type { InferGetStaticParamsType, InferGetStaticPropsType, GetStaticPaths } from 'astro';
-
 import BlogPostCard, { type BlogPostCardProps } from '@ui/blog/BlogPostCard.astro';
-import { getCollection, getEntry, render, type CollectionEntry } from 'astro:content';
 
 export interface BlogPostListProperties {
   posts: BlogPostCardProps[];
 }
-
-// type Props = CollectionEntry<'blog'>['data'];
-
-// type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { posts } = Astro.props as BlogPostListProperties;
 ---
