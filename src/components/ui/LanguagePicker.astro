@@ -11,8 +11,18 @@ interface LanguagePickerProps {
 }
 
 const { lang } = Astro.props as LanguagePickerProps;
+const pathname = Astro.url.pathname;
 
-const getHomeUrl = (code: string) => `/website/${code}`;
+// Split into ["", "website", "en", ...subpath]
+const segments = pathname.split('/');
+
+// Helper to generate new language URL from path
+const getLocaleUrl = (targetCode: string) => {
+  // Clone and swap out the lang code
+  const newSegments = [...segments];
+  newSegments[2] = targetCode;
+  return newSegments.join('/') || '/';
+};
 ---
 
 <li class="group/dropdown relative" role="none">
@@ -40,7 +50,7 @@ const getHomeUrl = (code: string) => `/website/${code}`;
   </button>
   <div
     role="menu"
-    aria-label="About Us menu"
+    aria-label="Language Selector"
     class="invisible fixed max-w-3xl -translate-x-1/2 -translate-y-2.5 scale-95 transform rounded-2xl bg-white opacity-0 duration-300 group-hover/dropdown:visible group-hover/dropdown:-translate-x-1/2 group-hover/dropdown:translate-y-0 group-hover/dropdown:scale-100 group-hover/dropdown:transform group-hover/dropdown:opacity-100 group-hover/dropdown:duration-300"
   >
     <div class="flex flex-row gap-8">
@@ -49,7 +59,7 @@ const getHomeUrl = (code: string) => `/website/${code}`;
           {
             languages.map(({ code, label }) => (
               <a
-                href={getHomeUrl(code)}
+                href={getLocaleUrl(code)}
                 role="menuitem"
                 class="group flex gap-3 rounded-xl p-2 text-sm text-black transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-slate-50"
               >
