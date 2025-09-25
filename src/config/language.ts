@@ -1,5 +1,3 @@
-import type { SvgComponentProps } from 'astro/assets/runtime';
-
 export interface Language {
   code: string; // Language code, e.g., 'en'
   label: string; // Display label, e.g., 'English'
