@@ -1,28 +1,53 @@
 ---
 import { Badge } from '@ui/shadcn/badge';
+
+import { useTranslations } from '@/i18n/utils';
+
+const { lang = 'en' } = Astro.props;
+const pathname = Astro.request.url;
+
+const t = useTranslations(lang);
+
+const tagSlugs = ['all', 'marketing', 'ux', 'ecommerce', 'data', 'other'];
+
+// Determine the current tag by checking which slug exists in the pathname; fallback to 'all'
+const currentSlug = tagSlugs.find((slug) => slug !== 'all' && pathname.includes(slug)) || 'all';
+
+// Build tags array with translated names and current status
+const tags = tagSlugs.map((slug) => ({
+  name: t(
+    `tag.${slug}` as
+      | 'tag.all'
+      | 'tag.marketing'
+      | 'tag.ux'
+      | 'tag.ecommerce'
+      | 'tag.data'
+      | 'tag.other',
+  ),
+  href: slug === 'all' ? `/website/${lang}/blog` : `/website/${lang}/blog/tag/${slug}`,
+  current: slug === currentSlug,
+}));
 ---
 
 <nav aria-label="Blog categories navigation">
   <ul class="flex flex-wrap justify-center gap-4 lg:gap-2" role="list">
-    <li class="font-medium" role="listitem">
-      <a href="#" aria-current="page"
-        ><Badge className="bg-primary-500 h-fit px-3 py-1">All</Badge></a
-      >
-    </li>
-    <li role="listitem">
-      <a href="#">
-        <Badge variant="outline" className="h-fit px-3 py-1">Design</Badge>
-      </a>
-    </li>
-    <li role="listitem">
-      <a href="#">
-        <Badge variant="outline" className="h-fit px-3 py-1">Development</Badge>
-      </a>
-    </li>
-    <li role="listitem">
-      <a href="#">
-        <Badge variant="outline" className="h-fit px-3 py-1">Marketing</Badge>
-      </a>
-    </li>
+    {
+      tags.map((tag) => (
+        <li role="listitem">
+          <a href={tag.href} aria-current={tag.current ? 'page' : undefined}>
+            <Badge
+              variant="outline"
+              className={
+                tag.current
+                  ? 'bg-primary-500 h-fit px-3 py-1 font-semibold text-white'
+                  : 'h-fit px-3 py-1'
+              }
+            >
+              {tag.name}
+            </Badge>
+          </a>
+        </li>
+      ))
+    }
   </ul>
 </nav>
