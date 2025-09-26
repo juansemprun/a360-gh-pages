@@ -23,8 +23,6 @@ const { lang = 'en' } = Astro.params;
 const { title, published, readingTime, image, metaDesc, tags, url, slug } =
   Astro.props as BlogPostCardProps;
 
-console.log('slug', slug);
-
 const localeMap: Record<string, Locale> = {
   fr: fr,
   ja: ja,
