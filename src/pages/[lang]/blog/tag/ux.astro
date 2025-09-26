@@ -20,7 +20,6 @@ export const getStaticPaths = (async () => {
       .filter((post) => post.slug.startsWith(lang))
       .map((post) => {
         const [lang, slug] = post.slug.split('/');
-        console.log('### slug', slug);
         return {
           title: post.data.title,
           published: post.data.published,

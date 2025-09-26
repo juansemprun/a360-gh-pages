@@ -47,8 +47,6 @@ const post = Astro.props;
 
 const { lang, slug } = Astro.params;
 
-console.log('## slug', slug);
-
 const postEntry = await getEntry('blog', `${lang}/${slug}`);
 
 if (!postEntry) {
