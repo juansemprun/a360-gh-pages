@@ -1,6 +1,8 @@
 ---
 import { Badge } from '@ui/shadcn/badge';
 
+import clsx from 'clsx';
+
 import { useTranslations } from '@/i18n/utils';
 
 const { lang = 'en' } = Astro.props;
@@ -25,7 +27,7 @@ const tags = tagSlugs.map((slug) => ({
       | 'tag.other',
   ),
   href: slug === 'all' ? `/website/${lang}/blog` : `/website/${lang}/blog/tag/${slug}`,
-  current: slug === currentSlug,
+  isCurrentSlug: slug === currentSlug,
 }));
 ---
 
@@ -34,14 +36,13 @@ const tags = tagSlugs.map((slug) => ({
     {
       tags.map((tag) => (
         <li role="listitem">
-          <a href={tag.href} aria-current={tag.current ? 'page' : undefined}>
+          <a href={tag.href} aria-current={tag.isCurrentSlug ? 'page' : undefined}>
             <Badge
               variant="outline"
-              className={
-                tag.current
-                  ? 'bg-primary-500 h-fit px-3 py-1 font-semibold text-white'
-                  : 'h-fit px-3 py-1'
-              }
+              className={clsx(
+                'h-fit px-3 py-1 text-sm',
+                tag.isCurrentSlug && 'bg-primary-500 text-white',
+              )}
             >
               {tag.name}
             </Badge>
