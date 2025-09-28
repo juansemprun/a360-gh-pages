@@ -1,4 +1,5 @@
 import { ui, defaultLang } from './blog';
+import { localizedChangelog } from './changelog';
 
 export function useTranslations(lang: keyof typeof ui) {
   return function t(key: keyof (typeof ui)[typeof defaultLang]) {

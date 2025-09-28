@@ -1,5 +1,5 @@
 ---
-import GradientText from '@/components/ui/GradientText.astro';
+import ChangelogHeader from '@ui/changelog/ChangelogHeader.astro';
 
 import { Card, CardContent } from '@/components/ui/shadcn/card';
 import { Separator } from '@/components/ui/shadcn/separator';
@@ -39,73 +39,7 @@ const timelineData: TimelineEntry[] = [
 ---
 
 <section class="container-custom py-32" data-theme="dark">
-  <div class="mx-auto md:max-w-3xl">
-    <div class="text-center">
-      <GradientText
-        animationSpeed={15}
-        className="font-clash-display-bold text-5xl transition duration-300 md:text-7xl"
-        showBorder={true}
-        colors={['#2d92e9', '#644ad5', '#c147ac', '#f04d66', '#fd7043']}
-      >
-        <h1>Changelog</h1>
-      </GradientText>
-      <div
-        class="bg-muted mx-auto mt-10 flex w-full items-center justify-center gap-2 rounded-2xl p-3 md:gap-4"
-      >
-        <p class="text-muted-foreground text-xl">
-          New features, improvements, and fixes every week
-        </p>
-      </div>
-    </div>
-    <div class="border-border mx-auto mt-20 space-y-10 border-l border-dashed pl-6">
-      <div>
-        <p class="text-muted-foreground relative text-lg">
-          <time class="bg-primary-400 absolute -left-6 top-1 h-3 w-3 -translate-x-1/2 rounded-full"
-          ></time>
-          January 11, 2025
-        </p>
-        <img
-          src="https://www.air360.io/images/changelog/2025-06-30/nextImageExportOptimizer/hero-opt-1920.WEBP"
-          alt="Better export options"
-          class="my-4 rounded-2xl object-contain"
-        />
-        <h2 class="mb-2 text-3xl font-semibold">Better export options</h2>
-        <p class="prose text-primary/80 dark:prose-invert">
-          We've added a <a href="#">components</a> and <a href="#">analytics</a> to help you track your
-          website's performance. You can now see your website's performance over time, and get insights
-          into your users.
-          <br />
-          <br />
-          As with all of our <a href="#">integrations</a>, we do the heavy lifting for you. It's
-          easy to set up, privacy-focused, performant, and secure. We also handle cookie consent
-          where required, in a very Supertape way.
-        </p>
-      </div>
-      <div>
-        <p class="text-muted-foreground relative text-lg">
-          <time class="bg-primary-400 absolute -left-6 top-1 h-3 w-3 -translate-x-1/2 rounded-full"
-          ></time>
-          December 23, 2024
-        </p>
-        <img
-          src="https://www.air360.io/images/changelog/2024-02-26/nextImageExportOptimizer/headerImage-opt-1920.WEBP"
-          alt="placeholder"
-          class="my-4 rounded-2xl object-contain"
-        />
-        <h2 class="mb-2 text-3xl font-semibold">New dashboard and analytics</h2>
-        <p class="prose text-primary/80 dark:prose-invert">
-          We've added a <a href="#">components</a> and <a href="#">analytics</a> to help you track your
-          website's performance. You can now see your website's performance over time, and get insights
-          into your users.
-          <br />
-          <br />
-          As with all of our <a href="#">integrations</a>, we do the heavy lifting for you. It's
-          easy to set up, privacy-focused, performant, and secure. We also handle cookie consent
-          where required, in a very Supertape way.
-        </p>
-      </div>
-    </div>
-  </div>
+  <ChangelogHeader />
 </section>
 
 <section class="bg-background container-custom py-32" data-theme="dark">
