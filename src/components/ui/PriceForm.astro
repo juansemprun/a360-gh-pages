@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import MochiFlying from '@/assets/images/mochi/svg/mochi-flying.svg';
 ---
 
-<div class="container shadow-sm">
+<div class="max-w-96 rounded-xl border-2 p-8 shadow-lg">
   <form id="multiStepForm" action="https://usebasin.com/f/e08b97fa176e" method="POST">
     <!-- Step 1 -->
     <div class="form-step form-step-active">
@@ -48,28 +48,10 @@ import MochiFlying from '@/assets/images/mochi/svg/mochi-flying.svg';
       </div>
     </div>
   </form>
-
-  <!-- Confirmation Message -->
-  <!-- <div id="confirmationMessage" class="hidden">
-    <h2>Your details are saved!</h2>
-    <p>Thank you for submitting your information. Your details have been successfully saved!</p>
-  </div> -->
 </div>
 
 <style>
   /* Base Styles */
-
-  .container {
-    max-width: 450px;
-    /* width: 450px; */
-    /* min-height: 320px; */
-    margin: auto;
-    background-color: white;
-    padding: 30px;
-    border-radius: 15px;
-    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); */
-    transition: box-shadow 0.3s ease-in-out;
-  }
 
   /* Input Fields */
   input {
