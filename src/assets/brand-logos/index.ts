@@ -23,3 +23,8 @@ export { default as ProductColor } from '@assets/brand-logos/color/product.svg';
 export { default as PsaBankColor } from '@assets/brand-logos/color/psa-bank.svg';
 export { default as StellantisColor } from '@assets/brand-logos/color/stellantis.svg';
 export { default as VeryChicColor } from '@assets/brand-logos/color/verychic.svg';
+
+// Other
+export { default as PerplexityLogo } from '@/assets/brand-logos/perplexity-logo.svg';
+export { default as ClaudeLogo } from '@/assets/brand-logos/claude-logo.svg';
+export { default as OpenAiLogo } from '@/assets/brand-logos/open-ai-logo.svg';
