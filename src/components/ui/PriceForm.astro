@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import MochiFlying from '@/assets/images/mochi/svg/mochi-flying.svg';
 ---
 
-<div class="container shadow-lg">
+<div class="container shadow-sm">
   <form id="multiStepForm" action="https://usebasin.com/f/e08b97fa176e" method="POST">
     <!-- Step 1 -->
     <div class="form-step form-step-active">
@@ -58,13 +58,10 @@ import MochiFlying from '@/assets/images/mochi/svg/mochi-flying.svg';
 
 <style>
   /* Base Styles */
-  body {
-    background-color: #f7f8fc;
-  }
 
   .container {
     max-width: 450px;
-    width: 450px;
+    /* width: 450px; */
     /* min-height: 320px; */
     margin: auto;
     background-color: white;
@@ -74,10 +71,6 @@ import MochiFlying from '@/assets/images/mochi/svg/mochi-flying.svg';
     transition: box-shadow 0.3s ease-in-out;
   }
 
-  /* .container:hover {
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  } */
-
   /* Input Fields */
   input {
     width: 100%;
@@ -86,7 +79,7 @@ import MochiFlying from '@/assets/images/mochi/svg/mochi-flying.svg';
     border: 1px solid #ccc;
     border-radius: 8px;
     margin-bottom: 20px;
-    font-size: 1em;
+    /* font-size: 1em; */
     background-color: #fafafa;
     transition: all 0.3s ease;
   }
@@ -186,21 +179,21 @@ import MochiFlying from '@/assets/images/mochi/svg/mochi-flying.svg';
   sendForm?.addEventListener('click', () => {
     if (!form) return;
     const formData = new FormData(form);
-    fetch('https://usebasin.com/f/e08b97fa176e', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-      },
-      body: formData,
-    })
-      .then((response) => {
-        if (response.status === 200) {
-          console.log('success');
-        } else {
-          console.log('fail');
-        }
-      })
-      .catch((error) => console.log(error));
+    // fetch('https://usebasin.com/f/e08b97fa176e', {
+    //   method: 'POST',
+    //   headers: {
+    //     Accept: 'application/json',
+    //   },
+    //   body: formData,
+    // })
+    //   .then((response) => {
+    //     if (response.status === 200) {
+    //       console.log('success');
+    //     } else {
+    //       console.log('fail');
+    //     }
+    //   })
+    //   .catch((error) => console.log(error));
   });
 
   // Show the current form step
