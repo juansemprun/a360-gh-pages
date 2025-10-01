@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/shadcn/button';
 import { AspectRatio } from '@ui/shadcn/aspect-ratio';
 
 import MochiComputer from '@/assets/images/mochi/svg/mochi-computer.svg';
+import MochiMatrix from '@/assets/images/mochi/svg/matrix.svg';
 
 import { PerplexityLogo, ClaudeLogo, OpenAiLogo } from '@/assets/brand-logos';
 
@@ -35,7 +36,7 @@ import topBusinessSoftware from '@assets/badges/top-business-software.svg';
 import crozdeskHappiestUsers from '@assets/badges/crozdesk-happiest-users.webp';
 import crozdeskQualityChoice from '@assets/badges/crozdesk-quality-choice.webp';
 import softwareSuggest from '@assets/badges/software-suggest.webp';
-import capterra from '@assets/badges/capterra.webp';
+import capterra from '@assets/badges/capterra.svg';
 
 const { lang } = Astro.params;
 
@@ -300,101 +301,112 @@ console.log(badges[0].image);
             </a>
           </div>
         </div>
+        <div class="hidden md:block">
+          <Image
+            src={MochiMatrix}
+            alt="Mochi using Air360"
+            class="h-16 w-full object-cover object-center sm:h-80 md:h-full md:w-96 lg:w-[32rem]"
+          />
+        </div>
       </div>
     </div>
-  </section>
 
-  <!-- Customer Section -->
-  <section class="py-20" data-theme="dark">
-    <div class="container-custom">
-      <div class="flex w-full flex-col items-stretch justify-between gap-5 lg:flex-row">
-        <div class="flex w-full max-w-[30rem] flex-col gap-10 p-3">
-          <div>
-            <AirCaraibesColor class="w-48" />
+    <!-- Customer Section -->
+    <section class="py-20" data-theme="dark">
+      <div class="container-custom">
+        <div class="flex w-full flex-col items-stretch justify-between gap-5 lg:flex-row">
+          <div class="flex w-full max-w-[30rem] flex-col gap-10 p-3">
+            <div>
+              <AirCaraibesColor class="w-48" />
+            </div>
+            <div class="flex w-full flex-col gap-8 sm:flex-row">
+              {
+                CUSTOMER_DATA.stats.map((item, i) => (
+                  <div class="flex flex-col gap-1">
+                    <div class="text-xl font-semibold">
+                      <GradientText
+                        animationSpeed={20}
+                        colors={['#2d92e9', '#644ad5', '#c147ac', '#f04d66', '#fd7043']}
+                      >
+                        <span class="font-clash-display-bold text-xl tracking-wide md:text-3xl">
+                          {item.number}
+                        </span>
+                      </GradientText>
+                    </div>
+                    <div class="text-muted-foreground text-sm font-medium">{item.text}</div>
+                  </div>
+                ))
+              }
+            </div>
           </div>
-          <div class="flex w-full flex-col gap-8 sm:flex-row">
+          <div class="flex max-w-[32rem] flex-col gap-5">
+            <h3 class="font-clash-display-bold text-xl leading-none md:text-3xl lg:text-4xl">
+              <GradientText
+                animationSpeed={20}
+                colors={['#2d92e9', '#644ad5', '#c147ac', '#f04d66', '#fd7043']}
+              >
+                <span>{CUSTOMER_DATA.title}</span>
+              </GradientText>
+            </h3>
+            <p class="text-muted-foreground text-lg font-medium">
+              {CUSTOMER_DATA.summary}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer Section 2 -->
+    <section class="py-20" data-theme="dark">
+      <div class="container-custom">
+        <div
+          class="flex w-full flex-col items-center justify-between gap-20 rounded-lg lg:flex-row"
+        >
+          <div class="w-full space-y-24">
             {
-              CUSTOMER_DATA.stats.map((item, i) => (
-                <div class="flex flex-col gap-1">
-                  <div class="text-xl font-semibold">
+              services.map(({ number, title, icon: Icon }) => (
+                <div class="flex items-center justify-between border-b border-[#644ad5] pb-6">
+                  <div>
                     <GradientText
                       animationSpeed={20}
                       colors={['#2d92e9', '#644ad5', '#c147ac', '#f04d66', '#fd7043']}
                     >
-                      <span class="font-clash-display-bold text-xl tracking-wide md:text-3xl">
-                        {item.number}
-                      </span>
+                      <span class="font-clash-display-bold text-xl md:text-3xl">{number}</span>
                     </GradientText>
                   </div>
-                  <div class="text-muted-foreground text-sm font-medium">{item.text}</div>
+
+                  <div class="flex items-center gap-4">
+                    <span class="text-muted-foreground text-sm font-medium md:text-xl">
+                      {title}
+                    </span>
+                  </div>
+
+                  <div class="w-16">
+                    <Icon />
+                  </div>
                 </div>
               ))
             }
           </div>
-        </div>
-        <div class="flex max-w-[32rem] flex-col gap-5">
-          <h3 class="font-clash-display-bold text-xl leading-none md:text-3xl lg:text-4xl">
-            <GradientText
-              animationSpeed={20}
-              colors={['#2d92e9', '#644ad5', '#c147ac', '#f04d66', '#fd7043']}
-            >
-              <span>{CUSTOMER_DATA.title}</span>
-            </GradientText>
-          </h3>
-          <p class="text-muted-foreground text-lg font-medium">
-            {CUSTOMER_DATA.summary}
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Customer Section 2 -->
-  <section class="py-20" data-theme="dark">
-    <div class="container-custom">
-      <div class="flex w-full flex-col items-center justify-between gap-20 rounded-lg lg:flex-row">
-        <div class="w-full space-y-24">
-          {
-            services.map(({ number, title, icon: Icon }) => (
-              <div class="flex items-center justify-between border-b border-[#644ad5] pb-6">
-                <div>
-                  <GradientText
-                    animationSpeed={20}
-                    colors={['#2d92e9', '#644ad5', '#c147ac', '#f04d66', '#fd7043']}
-                  >
-                    <span class="font-clash-display-bold text-xl md:text-3xl">{number}</span>
-                  </GradientText>
-                </div>
-
-                <div class="flex items-center gap-4">
-                  <span class="text-muted-foreground text-sm font-medium md:text-xl">{title}</span>
-                </div>
-
-                <div class="w-16">
-                  <Icon />
-                </div>
-              </div>
-            ))
-          }
-        </div>
-        <div
-          class="flex max-w-[32rem] flex-col gap-5 rounded-lg bg-gradient-to-r from-[#2d92e9] to-[#644ad5] p-14 shadow-lg"
-        >
-          <h3
-            class="font-clash-display-bold text-xl leading-none text-white md:text-3xl lg:text-4xl"
+          <div
+            class="flex max-w-[32rem] flex-col gap-5 rounded-lg bg-gradient-to-r from-[#2d92e9] to-[#644ad5] p-14 shadow-lg"
           >
-            {CUSTOMER_DATA.title}
-          </h3>
-          <p class="text-lg font-medium text-white">
-            {CUSTOMER_DATA.summary}
-          </p>
+            <h3
+              class="font-clash-display-bold text-xl leading-none text-white md:text-3xl lg:text-4xl"
+            >
+              {CUSTOMER_DATA.title}
+            </h3>
+            <p class="text-lg font-medium text-white">
+              {CUSTOMER_DATA.summary}
+            </p>
 
-          <p class="mt-12 text-white">Lorem ipsum</p>
+            <p class="mt-12 text-white">Lorem ipsum</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA -->
-  <CallToAction />
+    <!-- CTA -->
+    <CallToAction />
+  </section>
 </BaseLayout>
