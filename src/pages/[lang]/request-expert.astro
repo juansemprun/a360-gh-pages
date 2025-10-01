@@ -1,8 +1,12 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import { Contact } from '@/components/react/contact';
 
 import GradientText from '@/components/ui/GradientText.astro';
+import Marquee from '@/components/Marquee.astro';
 import { Button } from '@/components/ui/shadcn/button';
+
+import { Check } from 'lucide-react';
 
 import { languageCodes } from '@/config/language';
 
@@ -19,33 +23,53 @@ export async function getStaticPaths() {
 ---
 
 <BaseLayout lang={lang} title={pageTitle} description={pageDescription}>
-  <section class="py-16" data-theme="dark">
-    <div class="mx-auto max-w-3xl space-y-6 text-center">
-      <h1
-        class="font-heading text-4xl font-bold leading-tight tracking-tighter sm:text-5xl lg:text-6xl"
+  <section class="py-32" data-theme="dark">
+    <div class="container-custom">
+      <div
+        class="mt-8 grid grid-cols-1 gap-8 md:gap-10 lg:grid-cols-2 lg:grid-rows-[min-content_1fr]"
       >
-        <GradientText>Request an Air360 Expert</GradientText>
-      </h1>
-      <p class="text-muted-foreground text-lg sm:text-xl">
-        Connect with a certified Air360 expert to elevate your analytics and digital experience.
-      </p>
-      <div>
-        <Button rel="noopener noreferrer" size="lg"> Request expert </Button>
-      </div>
-    </div>
-  </section>
-  <section class="container pb-20 lg:pb-32">
-    <div class="mx-auto max-w-4xl space-y-12">
-      <div class="space-y-6 text-center">
-        <h2
-          class="font-heading text-3xl font-bold leading-tight tracking-tighter sm:text-4xl lg:text-5xl"
-        >
-          Our Certified Partners
-        </h2>
-        <p class="text-muted">
-          These consultants, agencies and freelancers have been trained and certified by Air360 to
-          help you get the most out of your digital experience analysis.
-        </p>
+        <GradientText>
+          <h2
+            class="font-clash-display-bold order-1 text-4xl tracking-tight md:order-none md:text-5xl"
+          >
+            Get in touch
+          </h2>
+        </GradientText>
+
+        <Contact client:load />
+
+        <div class="order-3 my-6 md:order-none">
+          <ul class="space-y-2 font-medium">
+            <li class="flex items-center gap-2">
+              <span
+                class="bg-background flex size-6 shrink-0 items-center justify-center rounded-full"
+              >
+                <Check className="size-4" />
+              </span>
+              Share your project goals and requirements
+            </li>
+            <li class="flex items-center gap-2">
+              <span
+                class="bg-background flex size-6 shrink-0 items-center justify-center rounded-full"
+              >
+                <Check className="size-4" />
+              </span>
+              Receive a tailored proposal
+            </li>
+            <li class="flex items-center gap-2">
+              <span
+                class="bg-background flex size-6 shrink-0 items-center justify-center rounded-full"
+              >
+                <Check className="size-4" />
+              </span>
+              Schedule a strategy consultation
+            </li>
+          </ul>
+          <p class="my-6 font-bold">Trusted by businesses worldwide</p>
+          <div class="max-w-full">
+            <Marquee theme="dark" />
+          </div>
+        </div>
       </div>
     </div>
   </section>

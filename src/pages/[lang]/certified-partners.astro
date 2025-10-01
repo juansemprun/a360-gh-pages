@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import CallToAction from '@/components/ui/use-cases/CallToAction.astro';
 import PartnersHero from '@/components/ui/certified-partners/PartnersHero.astro';
@@ -6,6 +8,8 @@ import PartnersHero from '@/components/ui/certified-partners/PartnersHero.astro'
 import { Badge } from '@/components/ui/shadcn/badge';
 import GradientText from '@/components/ui/GradientText.astro';
 import { Card } from '@/components/ui/shadcn/card';
+
+import MochiMechanic from '@/assets/images/mochi/svg/mechanic.svg';
 
 import { ArrowRight } from 'lucide-react';
 
@@ -147,25 +151,34 @@ const agencies = [
 
 const heading = 'Find your expert';
 const description =
-  'Find an Air360 expert to guide you through your digital experience analysis. All consultants, agencies and freelancers listed here have been trained and certified by Air360.';
+  'Gain deeper insights into your digital experience with an Air360 Expert. Every consultancy, agency, and freelancer in our directory has been professionally trained and certified by Air360 to help you maximize your analytics potential.';
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription} lang={lang}>
   <PartnersHero />
-  <section class="py-16" data-theme="dark">
+  <section class="pb-16" data-theme="dark">
     <div class="container-custom">
-      <div class="mx-auto mb-24 max-w-3xl text-center">
-        <GradientText>
-          <h2 class="font-clash-display-bold mb-6 text-pretty text-3xl md:mb-4 md:text-5xl lg:mb-6">
+      <div
+        class="relative mx-auto flex flex-col justify-between gap-6 overflow-hidden rounded-xl border bg-gradient-to-r from-[#2d92e9] to-[#644ad5] md:flex-row"
+      >
+        <div class="max-w-xl self-center p-6 md:p-12">
+          <h2 class="font-clash-display-bold text-4xl text-white md:text-5xl">
             {heading}
           </h2>
-        </GradientText>
-        <p class="text-muted-foreground md:text-base lg:text-lg">
-          {description}
-        </p>
+          <p class="mt-4 font-semibold text-white md:text-lg">
+            {description}
+          </p>
+        </div>
+        <div class="hidden md:block">
+          <Image
+            src={MochiMechanic}
+            alt="Mochi using Air360"
+            class="h-16 w-full object-cover object-center sm:h-80 md:h-full md:w-96 lg:w-[32rem]"
+          />
+        </div>
       </div>
 
-      <div class="space-y-12">
+      <div class="space-y-12 pt-16">
         {
           agencies.map((agency) => (
             <Card key={agency.id} className="overflow-hidden border-0 bg-transparent shadow-none">
@@ -194,8 +207,6 @@ const description =
                   </div>
                   <a
                     href={`/website/${lang}/request-expert`}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     class="text-primary group inline-flex items-center hover:underline"
                   >
                     Request expert
