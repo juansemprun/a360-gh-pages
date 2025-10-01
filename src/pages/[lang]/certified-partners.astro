@@ -1,0 +1,213 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CallToAction from '@/components/ui/use-cases/CallToAction.astro';
+import PartnersHero from '@/components/ui/certified-partners/PartnersHero.astro';
+
+import { Badge } from '@/components/ui/shadcn/badge';
+import GradientText from '@/components/ui/GradientText.astro';
+import { Card } from '@/components/ui/shadcn/card';
+
+import { ArrowRight } from 'lucide-react';
+
+import { languageCodes } from '@/config/language';
+
+const { lang } = Astro.params;
+const pageTitle = 'Certified Partners';
+const pageDescription =
+  'Gain deeper insights into your digital experience with an Air360 Expert. Every consultancy, agency, and freelancer in our directory has been professionally trained and certified by Air360 to help you maximize your analytics potential.';
+
+export async function getStaticPaths() {
+  return languageCodes.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+interface Post {
+  id: string;
+  title: string;
+  summary: string;
+  label: string;
+  author: string;
+  published: string;
+  url: string;
+  image: string;
+}
+
+// interface Blog24PropsProps {
+//   tagline: string;
+//   heading: string;
+//   description: string;
+//   buttonText: string;
+//   buttonUrl: string;
+//   posts: Post[];
+// }
+
+const agencies = [
+  {
+    id: 1,
+    name: 'Yurl & Neil',
+    logo: {
+      src: 'https://website-air360-local.vercel.app/images/partners/yuri-and-neil.svg',
+      alt: 'Yurl & Neil logo',
+    },
+    description:
+      "Yurl & Neil se distingue comme une étoile brillante dans l'univers du marketing digital. Fondée en 2018 par des passionnés et anciens de grands cabinets, l'agence propulse ses clients vers des succès fulgurants, grâce à une expertise qui traverse les frontières conventionnelles du secteur et à une exécution profondément data-driven. À chaque projet, l'agence tente de briser les frontières entre excellence technique et créativité, en plaçant l'humain au cœur de chaque collaboration.",
+    bonus:
+      '5 easter eggs de grande qualité se trouvent sur notre site internet. Trouvez-les, envoyez-nous un message en passant par le formulaire de contact et gagnez un joli cadeau.',
+    cta: {
+      text: 'Request expert',
+      url: '/contact/yurl-neil',
+    },
+    tags: ['France', 'French', 'English', 'Agency'],
+  },
+  {
+    id: 2,
+    name: 'Arquen',
+    logo: {
+      src: 'https://website-air360-local.vercel.app/images/partners/arquen.svg',
+      alt: 'Arquen logo',
+    },
+    description:
+      'Research, consulting & user experience design. Arquen is a UX agency specializing in the analysis and design of digital interfaces with a data-driven, human-centered approach.',
+    bonus: null,
+    cta: {
+      text: 'Request expert',
+      url: '/contact/arquen',
+    },
+    tags: ['France', 'French', 'English', 'Agency'],
+  },
+  {
+    id: 3,
+    name: 'Henkan & Partners',
+    logo: {
+      src: 'https://website-air360-local.vercel.app/images/partners/yumens.svg',
+      alt: 'Henkan & Partners logo',
+    },
+    description:
+      'Henkan & Partners is a consulting firm specializing in Product Analytics and Experimentation. From data collection to decision-making, they drive continuous digital improvement, collaborating with product, UX, and design teams to deliver optimal user experiences across all digital touchpoints.',
+    bonus: null,
+    cta: {
+      text: 'Request expert',
+      url: '/contact/henkan-partners',
+    },
+    tags: ['France', 'French', 'English', 'Agency'],
+  },
+  {
+    id: 4,
+    name: 'Welyft',
+    logo: {
+      src: 'https://website-air360-local.vercel.app/images/partners/welyft.svg',
+      alt: 'Welyft logo',
+    },
+    description:
+      'Welyft is a data-marketing agency specializing in CRO through experimentation, personalization, and analytics. The company helps brands create user-centric experiences across all touchpoints using A/B testing, data intelligence, strategic audits, and team training to drive growth.',
+    bonus: null,
+    cta: {
+      text: 'Request expert',
+      url: '/contact/welyft',
+    },
+    tags: ['France', 'French', 'English', 'Agency'],
+  },
+  {
+    id: 5,
+    name: 'NRI Netcom',
+    logo: {
+      src: 'https://website-air360-local.vercel.app/images/partners/nri.svg',
+      alt: 'NRI Netcom logo',
+    },
+    description:
+      "NRI Netcom, part of Nomura Research Institute, has specialized in Japan's web business since 1991. Their experts in cloud, DX, digital marketing, UX/UI, and system development support clients from strategy to execution, working closely to build, validate, and achieve digital goals together.",
+    bonus: null,
+    cta: {
+      text: 'Request expert',
+      url: '/contact/nri-netcom',
+    },
+    tags: ['Japan', 'Japanese', 'Agency'],
+  },
+  {
+    id: 6,
+    name: 'DNG',
+    logo: {
+      src: 'https://website-air360-local.vercel.app/images/partners/dng.svg',
+      alt: 'DNG logo',
+    },
+    description:
+      'DNG is an independent consultancy specializing in helping B2C brands (FMCG, retail, luxury, DNVB...) meet the challenges of growth, digital transformation and performance optimization. At the crossroads of strategic consulting, digital strategy and operational execution, DNG carries out high-impact missions, provides outsourced marketing and digital departments (CMO, CDO...) and mobilizes experts (UX designers, project managers, CRO specialists). The firm stands out for its pragmatic, results-oriented approach, and its ability to integrate effectively with customer teams to accelerate execution.',
+    bonus: null,
+    partnerSpotlight:
+      "Choosing DNG means joining the Digital Native Club, a network of over 700 industry decision-makers. You'll have the opportunity to take part in themed half-days (omni-channel, beauty days, fashion days) as well as exclusive dinners. These meetings are the ideal opportunity to exchange ideas with peers on specific topics and share best practices.",
+    website: 'www.digitalnativegroup.com',
+    cta: {
+      text: 'Request expert',
+      url: '/contact/dng',
+    },
+    tags: ['Japan', 'Japanese', 'Agency'],
+  },
+];
+
+const heading = 'Find your expert';
+const description =
+  'Find an Air360 expert to guide you through your digital experience analysis. All consultants, agencies and freelancers listed here have been trained and certified by Air360.';
+---
+
+<BaseLayout title={pageTitle} description={pageDescription} lang={lang}>
+  <PartnersHero />
+  <section class="py-16" data-theme="dark">
+    <div class="container-custom">
+      <div class="mx-auto mb-24 max-w-3xl text-center">
+        <GradientText>
+          <h2 class="font-clash-display-bold mb-6 text-pretty text-3xl md:mb-4 md:text-5xl lg:mb-6">
+            {heading}
+          </h2>
+        </GradientText>
+        <p class="text-muted-foreground md:text-base lg:text-lg">
+          {description}
+        </p>
+      </div>
+
+      <div class="space-y-12">
+        {
+          agencies.map((agency) => (
+            <Card key={agency.id} className="overflow-hidden border-0 bg-transparent shadow-none">
+              <div class="flex flex-col gap-12 sm:flex-row">
+                <div class="shrink-0">
+                  <img
+                    src={agency.logo.src}
+                    alt={agency.logo.alt}
+                    class="aspect-16/9 w-full object-cover object-center sm:w-[260px]"
+                  />
+                </div>
+                <div class="flex-1 space-y-6">
+                  <h3 class="text-xl font-bold leading-tight lg:text-2xl">{agency.name}</h3>
+                  <p class="text-muted-foreground text-base">{agency.description}</p>
+                  <div class="text-muted-foreground flex items-center gap-3 text-sm">
+                    {agency.tags.map((tag) => (
+                      <Badge
+                        variant="secondary"
+                        className="border-primary-300 border bg-white h-fit px-3 py-1 text-sm"
+                      >
+                        {tag}
+                      </Badge>
+                    ))}
+                    {/* <span>{agency.name}</span>
+                    <span>{agency.published}</span> */}
+                  </div>
+                  <a
+                    href={`/website/${lang}/request-expert`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-primary group inline-flex items-center hover:underline"
+                  >
+                    Request expert
+                    <ArrowRight className="ml-2 size-4 transition duration-200 ease-in-out group-hover:translate-x-0.5" />
+                  </a>
+                </div>
+              </div>
+            </Card>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <CallToAction />
+</BaseLayout>
