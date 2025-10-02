@@ -83,12 +83,12 @@ const Contact = () => {
               name="companySize"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Project Budget</FormLabel>
+                  <FormLabel>Select an expert</FormLabel>
                   <FormControl>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
                         <SelectTrigger className="w-full">
-                          <SelectValue placeholder="Select budget range" />
+                          <SelectValue placeholder="Select expert" />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
