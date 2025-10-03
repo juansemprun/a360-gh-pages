@@ -19,13 +19,7 @@ const highlightsListTitles = highlightsList.map(({ title }) => ({ title }));
     {
       highlightsListTitles.map(({ title }) => (
         <li class="mb-7 cursor-default gap-y-4 transition duration-300">
-          <GradientText
-            animationSpeed={3}
-            className="transition duration-300"
-            hoverOnly={true}
-            showBorder={true}
-            colors={['#2d92e9', '#644ad5', '#c147ac', '#f04d66', '#fd7043']}
-          >
+          <GradientText animationSpeed={3} className="transition duration-300" hoverOnly={true}>
             {title}
           </GradientText>
         </li>

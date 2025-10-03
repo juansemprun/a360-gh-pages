@@ -163,7 +163,6 @@ console.log(badges[0].image);
           <GradientText
             animationSpeed={15}
             class="font-clash-display-bold text-5xl transition duration-300 md:text-7xl"
-            showBorder={true}
           >
             <h1 class="font-clash-display-bold text-4xl leading-tight xl:text-5xl">
               GET THE SCOOP ON AIR360 PRICING
@@ -244,11 +243,7 @@ console.log(badges[0].image);
   <!-- Demo Section -->
   <section class="py-20" data-theme="dark" id="book-a-demo">
     <div class="container-custom flex flex-col items-center gap-10">
-      <GradientText
-        animationSpeed={15}
-        showBorder={true}
-        colors={['#2d92e9', '#644ad5', '#c147ac', '#f04d66', '#fd7043']}
-      >
+      <GradientText>
         <h2 class="font-clash-display-bold text-center text-4xl leading-tight xl:text-5xl">
           Book a demo!
         </h2>
@@ -325,10 +320,7 @@ console.log(badges[0].image);
               CUSTOMER_DATA.stats.map((item, i) => (
                 <div class="flex flex-col gap-1">
                   <div class="text-xl font-semibold">
-                    <GradientText
-                      animationSpeed={20}
-                      colors={['#2d92e9', '#644ad5', '#c147ac', '#f04d66', '#fd7043']}
-                    >
+                    <GradientText>
                       <span class="font-clash-display-bold text-xl tracking-wide md:text-3xl">
                         {item.number}
                       </span>
@@ -342,10 +334,7 @@ console.log(badges[0].image);
         </div>
         <div class="flex max-w-[32rem] flex-col gap-5">
           <h3 class="font-clash-display-bold text-xl leading-none md:text-3xl lg:text-4xl">
-            <GradientText
-              animationSpeed={20}
-              colors={['#2d92e9', '#644ad5', '#c147ac', '#f04d66', '#fd7043']}
-            >
+            <GradientText>
               <span>{CUSTOMER_DATA.title}</span>
             </GradientText>
           </h3>
@@ -366,10 +355,7 @@ console.log(badges[0].image);
             services.map(({ number, title, icon: Icon }) => (
               <div class="flex items-center justify-between border-b border-[#644ad5] pb-6">
                 <div>
-                  <GradientText
-                    animationSpeed={20}
-                    colors={['#2d92e9', '#644ad5', '#c147ac', '#f04d66', '#fd7043']}
-                  >
+                  <GradientText>
                     <span class="font-clash-display-bold text-xl md:text-3xl">{number}</span>
                   </GradientText>
                 </div>
