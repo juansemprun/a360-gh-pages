@@ -1,0 +1,66 @@
+---
+import { Image } from 'astro:assets';
+import { type CollectionEntry, render } from 'astro:content';
+
+import { format, type Locale } from 'date-fns';
+import { fr, ja } from 'date-fns/locale';
+
+import { Card, CardContent } from '@/components/ui/shadcn/card';
+
+interface ChangelogCardProps {
+  entry: CollectionEntry<'changelog'>;
+  lang: string;
+}
+
+const { entry, lang } = Astro.props as ChangelogCardProps;
+
+const [, ...dateParts] = entry.slug.split('/');
+const dateSlug = dateParts.join('/');
+
+const localeMap: Record<string, Locale> = {
+  fr: fr,
+  ja: ja,
+};
+
+const { Content } = await render(entry);
+---
+
+<div class="relative mb-10 pl-8">
+  <div
+    aria-hidden="true"
+    class="bg-primary-500 absolute left-0 top-3.5 flex size-4 items-center justify-center rounded-full"
+  >
+  </div>
+
+  <time
+    datetime={entry.data.publishedAt.toISOString()}
+    class="text-md text-muted-foreground -left-40 top-3 tracking-tight xl:absolute"
+  >
+    {
+      format(entry.data.publishedAt, 'MMMM dd, yyyy', {
+        locale: localeMap[lang],
+      })
+    }
+  </time>
+
+  <Card className="border-none shadow-none">
+    <CardContent className="px-0 xl:px-2">
+      <Image
+        src={entry.data.headerImage}
+        alt={entry.data.title}
+        width={1280}
+        height={720}
+        class="my-4 rounded-2xl object-contain"
+      />
+
+      <h2 class="py-2 text-3xl font-bold text-slate-700 xl:mb-4">
+        <a href={`/website/${lang}/changelog/${dateSlug}`}>{entry.data.title}</a>
+      </h2>
+
+      {/* Render the markdown content */}
+      <div class="prose text-primary/80 dark:prose-invert">
+        <Content />
+      </div>
+    </CardContent>
+  </Card>
+</div>

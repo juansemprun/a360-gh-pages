@@ -94,10 +94,20 @@ const blogCollection = defineCollection({
     }),
 });
 
+const changelogCollection = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    publishedAt: z.coerce.date(),
+    headerImage: z.string(),
+  }),
+});
+
 export const collections = {
   hero: heroCollection,
   'use-cases': useCasesCollection,
   pages: pagesCollection,
   navigation: navigationCollection,
   blog: blogCollection,
+  changelog: changelogCollection,
 };

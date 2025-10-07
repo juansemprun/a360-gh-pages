@@ -1,0 +1,92 @@
+---
+import type { GetStaticPaths, InferGetStaticParamsType, InferGetStaticPropsType } from 'astro';
+import { getCollection } from 'astro:content';
+
+import { format, type Locale } from 'date-fns';
+import { fr, ja } from 'date-fns/locale';
+
+import { Image } from 'astro:assets';
+
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+import GradientText from '@/components/ui/GradientText.astro';
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection('changelog');
+
+  const paths = posts.map((post) => {
+    const [lang, ...slug] = post.slug.split('/');
+    const date = slug.join('/');
+
+    if (!date) {
+      throw new Error(`Invalid changelog entry: ${post.id} - missing date segment`);
+    }
+
+    return {
+      params: { lang, date },
+      props: post,
+    };
+  });
+
+  return paths;
+}) satisfies GetStaticPaths;
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { lang, date } = Astro.params as Params;
+const post = Astro.props as Props;
+
+const localeMap: Record<string, Locale> = {
+  fr: fr,
+  ja: ja,
+};
+
+// Render the markdown content
+const { Content } = await post.render();
+---
+
+<BaseLayout title={post.data.title} description={post.data.description} lang={lang}>
+  <article class="container-custom py-32" data-theme="dark">
+    <nav class="mx-auto mb-8 max-w-3xl">
+      <a
+        href={`${import.meta.env.BASE_URL}/${lang}/changelog`}
+        class="text-muted-foreground inline-flex items-center gap-2 text-sm transition duration-200 hover:text-black"
+      >
+        <span aria-hidden="true">←</span>
+        <span>Back to Changelog</span>
+      </a>
+    </nav>
+
+    <header class="mx-auto flex max-w-3xl flex-col gap-4">
+      <GradientText>
+        <h1 class="font-clash-display-bold text-4xl tracking-wide md:text-5xl">
+          {post.data.title}
+        </h1>
+      </GradientText>
+
+      <div class="my-5 flex items-center gap-3 text-sm md:text-base">
+        <p>
+          <span class="font-semibold">Air360 Team</span>
+          {' '}
+          <span>on </span>
+          <time datetime={post.data.publishedAt.toISOString()}>
+            {format(post.data.publishedAt, 'MMMM d, yyyy', { locale: localeMap[lang] })}
+          </time>
+        </p>
+      </div>
+
+      <Image
+        src={post.data.headerImage}
+        alt={post.data.title}
+        width={1280}
+        height={720}
+        class="mb-8 mt-4 aspect-video w-full rounded-lg object-cover"
+      />
+    </header>
+
+    <div class="prose prose-lg mx-auto max-w-3xl text-pretty">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

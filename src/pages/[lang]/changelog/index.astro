@@ -1,22 +1,47 @@
 ---
-import { getCollection, getEntry, render } from 'astro:content';
+import { getCollection } from 'astro:content';
+import type { GetStaticPaths, InferGetStaticPropsType, InferGetStaticParamsType } from 'astro';
 
-import Changelog from '@/components/Changelog.astro';
+import { languageCodes } from '@/config/language';
+
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import ChangelogHeader from '@/components/ui/changelog/ChangelogHeader.astro';
+import ChangelogTimeline from '@/components/ui/changelog/ChangelogTimeline.astro';
 
-export async function getStaticPaths() {
-  const pages = await getCollection('use-cases');
+export const getStaticPaths = (async () => {
+  const changelogCollection = await getCollection('changelog');
 
-  const paths = pages.map((page) => {
-    const [lang, ...slug] = page.slug.split('/');
+  return languageCodes.map((lang) => {
+    const changelogsForLang = changelogCollection.filter((entry) =>
+      entry.id.startsWith(`${lang}/`),
+    );
 
-    return { params: { lang, slug: slug.join('/') || undefined }, props: page };
+    // Sort by date, newest first
+    const sortedChangelogs = changelogsForLang.sort(
+      (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime(),
+    );
+
+    return {
+      params: { lang },
+      props: {
+        changelogs: sortedChangelogs,
+      },
+    };
   });
+}) satisfies GetStaticPaths;
 
-  return paths;
-}
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+
+const { changelogs } = Astro.props as Props;
+const { lang } = Astro.params as Params;
 ---
 
-<BaseLayout lang={Astro.params.lang} page={Astro.props}>
-  <Changelog />
+<BaseLayout lang={lang} page={Astro.props}>
+  <section class="container-custom py-32" data-theme="dark">
+    <ChangelogHeader />
+  </section>
+  <section class="bg-background container-custom" data-theme="dark">
+    <ChangelogTimeline entries={changelogs} lang={lang} />
+  </section>
 </BaseLayout>
