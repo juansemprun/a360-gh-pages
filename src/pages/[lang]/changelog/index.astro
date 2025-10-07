@@ -35,9 +35,12 @@ type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 
 const { changelogs } = Astro.props as Props;
 const { lang } = Astro.params as Params;
+
+const pageTitle = 'Changelog';
+const pageDescription = 'Stay updated with the latest features, improvements, and fixes in Air360.';
 ---
 
-<BaseLayout lang={lang} page={Astro.props}>
+<BaseLayout lang={lang} title={pageTitle} description={pageDescription}>
   <section class="container-custom py-32" data-theme="dark">
     <ChangelogHeader />
   </section>
