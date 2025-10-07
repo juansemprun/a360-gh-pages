@@ -11,6 +11,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
 import GradientText from '@/components/ui/GradientText.astro';
 
+import { ArrowLeft } from 'lucide-react';
+
 export const getStaticPaths = (async () => {
   const posts = await getCollection('changelog');
 
@@ -37,7 +39,7 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { lang, date } = Astro.params as Params;
 const post = Astro.props as Props;
 
-const localeMap: Record<string, Locale> = {
+const localeMap: Record<string, Locale | undefined> = {
   fr: fr,
   ja: ja,
 };
@@ -53,7 +55,7 @@ const { Content } = await post.render();
         href={`${import.meta.env.BASE_URL}/${lang}/changelog`}
         class="text-muted-foreground inline-flex items-center gap-2 text-sm transition duration-200 hover:text-black"
       >
-        <span aria-hidden="true">←</span>
+        <ArrowLeft size={16} aria-hidden="true" />
         <span>Back to Changelog</span>
       </a>
     </nav>
