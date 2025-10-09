@@ -1,73 +1,118 @@
 ---
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+
 import { format, type Locale } from 'date-fns';
 import { fr, ja } from 'date-fns/locale';
 
 import { Badge } from '@ui/shadcn/badge';
-import { Image } from 'astro:assets';
 
-import { Calendar, Clock } from 'lucide-react';
-
-export interface BlogPostCardProps {
-  title: string;
-  published: string;
-  readingTime: number;
-  image: any;
-  metaDesc: string;
-  tags: string[];
-  url: string;
-  slug: string;
+interface Props {
+  post: CollectionEntry<'blog'>;
+  lang: string;
 }
 
-const { lang = 'en' } = Astro.params;
+const { post, lang } = Astro.props;
 
-const { title, published, readingTime, image, metaDesc, tags, url, slug } =
-  Astro.props as BlogPostCardProps;
+// Extract slug without language prefix
+const [, ...slugParts] = post.slug.split('/');
+const slug = slugParts.join('/');
 
-const localeMap: Record<string, Locale> = {
+// Build the post URL
+const postUrl = `${import.meta.env.BASE_URL}/${lang}/blog/${slug}`;
+
+const localeMap: Record<string, Locale | undefined> = {
   fr: fr,
   ja: ja,
 };
+
+// Format the date once
+const formattedDate = format(post.data.published, 'MMMM dd, yyyy', {
+  locale: localeMap[lang],
+});
 ---
 
-<article class="flex flex-col" aria-label={`Blog post titled ${title}`}>
-  <a href={url} class="" aria-label={`Read more about ${title}`}>
-    <div class="relative">
+<article class="group flex flex-col overflow-hidden rounded-lg transition-shadow hover:shadow-sm">
+  <a href={postUrl} class="block">
+    <div class="relative overflow-hidden">
       <Image
-        src={image}
-        alt={`Featured image for ${title}`}
-        class="aspect-video w-full rounded-lg object-cover"
+        src={post.data.image}
+        alt={post.data.title}
+        width={600}
+        height={400}
+        class="aspect-video w-full object-cover transition-transform duration-300 group-hover:scale-105"
       />
-      <div class="absolute inset-0 flex items-start justify-end p-4">
-        {
-          tags?.map((tag) => (
-            <Badge
-              variant="secondary"
-              className="bg-background/70 right-4 top-4 px-3 mx-1 py-1 text-sm backdrop-blur-sm"
-            >
-              {tag}
-            </Badge>
-          ))
-        }
-      </div>
-    </div>
-    <div class="flex h-full flex-col justify-between p-4">
-      <h2 class="mb-5 text-xl font-semibold">
-        <a href={url} class="hover:underline">{title}</a>
-      </h2>
-      <footer
-        class="text-muted-foreground flex justify-between gap-6 text-sm"
-        aria-label="Post metadata"
-      >
-        <time datetime={new Date(published).toISOString()} class="flex items-center gap-1">
-          <Calendar className="h-4 w-4" aria-hidden="true" />
-          {format(new Date(published), 'MMMM dd, yyyy', { locale: localeMap[lang] })}
-        </time>
 
-        <span class="flex items-center gap-1" aria-label="Reading time">
-          <Clock className="h-4 w-4" aria-hidden="true" />
-          {`${readingTime} min`}
-        </span>
-      </footer>
+      {
+        post.data.tags && post.data.tags.length > 0 && (
+          <div class="absolute right-4 top-4 flex flex-wrap gap-2">
+            {post.data.tags.slice(0, 2).map((tag) => (
+              <Badge
+                variant="secondary"
+                className="bg-background/70 px-3 py-1 text-sm backdrop-blur-sm"
+              >
+                {tag}
+              </Badge>
+            ))}
+          </div>
+        )
+      }
     </div>
   </a>
+
+  <div class="flex flex-1 flex-col gap-4 p-4">
+    <header>
+      <h2 class="text-xl font-semibold leading-tight">
+        <a href={postUrl} class="hover:underline">
+          {post.data.title}
+        </a>
+      </h2>
+    </header>
+
+    <p class="text-muted-foreground line-clamp-3 text-sm">
+      {post.data.metaDesc}
+    </p>
+
+    <footer class="text-muted-foreground mt-auto flex items-center justify-between gap-4 text-sm">
+      <time datetime={post.data.published.toISOString()} class="flex items-center gap-1.5">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+          <line x1="16" x2="16" y1="2" y2="6"></line>
+          <line x1="8" x2="8" y1="2" y2="6"></line>
+          <line x1="3" x2="21" y1="10" y2="10"></line>
+        </svg>
+        <span>{formattedDate}</span>
+      </time>
+
+      <span class="flex items-center gap-1.5">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        <span>{post.data.readingTime} min</span>
+      </span>
+    </footer>
+  </div>
 </article>

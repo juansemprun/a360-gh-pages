@@ -1,47 +1,42 @@
 ---
+import type { LanguageCode } from '@/config/language';
+
 import { Badge } from '@ui/shadcn/badge';
-
 import clsx from 'clsx';
-
 import { useTranslations } from '@/i18n/utils';
 
-const { lang = 'en' } = Astro.props;
-const pathname = Astro.request.url;
+interface Props {
+  lang: LanguageCode;
+  activeTag?: string;
+}
 
+const { lang, activeTag = 'all' } = Astro.props;
 const t = useTranslations(lang);
 
-const tagSlugs = ['all', 'marketing', 'ux', 'ecommerce', 'data', 'other'];
+const tagSlugs = ['all', 'marketing', 'ux', 'ecommerce', 'data', 'other'] as const;
 
-// Determine the current tag by checking which slug exists in the pathname; fallback to 'all'
-const currentSlug = tagSlugs.find((slug) => slug !== 'all' && pathname.includes(slug)) || 'all';
-
-// Build tags array with translated names and current status
+// Build tags array with translated names and active status
 const tags = tagSlugs.map((slug) => ({
-  name: t(
-    `tag.${slug}` as
-      | 'tag.all'
-      | 'tag.marketing'
-      | 'tag.ux'
-      | 'tag.ecommerce'
-      | 'tag.data'
-      | 'tag.other',
-  ),
-  href: slug === 'all' ? `/website/${lang}/blog` : `/website/${lang}/blog/tag/${slug}`,
-  isCurrentSlug: slug === currentSlug,
+  name: t(`tag.${slug}` as const),
+  href:
+    slug === 'all'
+      ? `${import.meta.env.BASE_URL}/${lang}/blog`
+      : `${import.meta.env.BASE_URL}/${lang}/blog/tag/${slug}`,
+  isActive: slug === activeTag,
 }));
 ---
 
-<nav aria-label="Blog categories navigation">
-  <ul class="flex flex-wrap justify-center gap-4 lg:gap-2" role="list">
+<nav aria-label="Blog categories">
+  <ul class="flex flex-wrap justify-center gap-4 lg:gap-2">
     {
       tags.map((tag) => (
-        <li role="listitem">
-          <a href={tag.href} aria-current={tag.isCurrentSlug ? 'page' : undefined}>
+        <li>
+          <a href={tag.href} aria-current={tag.isActive ? 'page' : undefined}>
             <Badge
               variant="outline"
               className={clsx(
-                'h-fit px-3 py-1 text-sm',
-                tag.isCurrentSlug && 'bg-primary-500 text-white',
+                'h-fit px-3 py-1 text-sm transition-colors',
+                tag.isActive && 'bg-primary-500 text-white',
               )}
             >
               {tag.name}

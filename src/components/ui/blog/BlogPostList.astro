@@ -1,13 +1,18 @@
 ---
-import BlogPostCard, { type BlogPostCardProps } from '@ui/blog/BlogPostCard.astro';
+import type { CollectionEntry } from 'astro:content';
+import BlogPostCard from '@ui/blog/BlogPostCard.astro';
 
-export interface BlogPostListProperties {
-  posts: BlogPostCardProps[];
+interface Props {
+  posts: CollectionEntry<'blog'>[];
+  lang: string;
 }
 
-const { posts } = Astro.props as BlogPostListProperties;
+const { posts, lang } = Astro.props;
 ---
 
-<section aria-label="Blog posts list" class="mt-20 grid gap-10 md:grid-cols-2">
-  {posts.map((post) => <BlogPostCard {...post} />)}
+<section aria-labelledby="blog-posts-heading" class="mt-20 grid gap-10 md:grid-cols-2">
+  <!-- Screen reader only heading for better accessibility -->
+  <h2 id="blog-posts-heading" class="sr-only">Blog Posts</h2>
+
+  {posts.map((post) => <BlogPostCard post={post} lang={lang} />)}
 </section>
