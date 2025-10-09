@@ -1,11 +1,11 @@
 export interface Language {
-  code: string; // Language code, e.g., 'en'
-  label: string; // Display label, e.g., 'English'
-  locale: string; // Locale string, e.g., 'en-US'
-  default: boolean; // Marks the default language
+  code: string;
+  label: string;
+  locale: string;
+  default: boolean;
 }
 
-export const languages: Language[] = [
+export const languages = [
   {
     code: 'en',
     label: 'English',
@@ -24,7 +24,12 @@ export const languages: Language[] = [
     locale: 'ja-JP',
     default: false,
   },
-];
+] as const satisfies readonly Language[];
 
 export const defaultLanguage = languages.find((lang) => lang.default);
+
+// Extract language codes with proper typing
 export const languageCodes = languages.map((lang) => lang.code);
+
+// Type helper for language codes
+export type LanguageCode = (typeof languageCodes)[number]; // 'en' | 'fr' | 'ja'
