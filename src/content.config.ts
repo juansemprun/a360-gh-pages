@@ -95,12 +95,15 @@ const blogCollection = defineCollection({
 });
 
 const changelogCollection = defineCollection({
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    publishedAt: z.coerce.date(),
-    headerImage: z.string(),
-  }),
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/changelog' }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      publishedAt: z.coerce.date(),
+      // Use image() helper for type-safe local images
+      headerImage: image(),
+    }),
 });
 
 export const collections = {

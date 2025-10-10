@@ -14,10 +14,10 @@ interface ChangelogCardProps {
 
 const { entry, lang } = Astro.props as ChangelogCardProps;
 
-const [, ...dateParts] = entry.slug.split('/');
+const [, ...dateParts] = entry.id.split('/');
 const dateSlug = dateParts.join('/');
 
-const localeMap: Record<string, Locale> = {
+const localeMap: Record<string, Locale | undefined> = {
   fr: fr,
   ja: ja,
 };
