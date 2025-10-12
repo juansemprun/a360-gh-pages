@@ -83,6 +83,7 @@ const navigationCollection = defineCollection({
 });
 
 const blogCollection = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -91,6 +92,7 @@ const blogCollection = defineCollection({
       image: image(),
       metaDesc: z.string(),
       tags: z.array(z.string()),
+      author: z.string().default('Air360 Team').optional(),
     }),
 });
 
