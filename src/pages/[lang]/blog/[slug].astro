@@ -1,7 +1,7 @@
 ---
-import type { GetStaticPaths, InferGetStaticParamsType, InferGetStaticPropsType } from 'astro';
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import { Image } from 'astro:assets';
+import type { GetStaticPaths, InferGetStaticParamsType, InferGetStaticPropsType } from 'astro';
 
 import { format, type Locale } from 'date-fns';
 import { fr, ja } from 'date-fns/locale';
@@ -14,7 +14,7 @@ export const getStaticPaths = (async () => {
   const posts = await getCollection('blog');
 
   return posts.map((post) => {
-    const [lang, ...slugParts] = post.slug.split('/');
+    const [lang, ...slugParts] = post.id.split('/');
     const slug = slugParts.join('/');
 
     if (!slug) {
@@ -40,7 +40,7 @@ const localeMap: Record<string, Locale | undefined> = {
 };
 
 // Render the markdown content
-const { Content } = await post.render();
+const { Content } = await render(post);
 ---
 
 <BaseLayout title={post.data.title} description={post.data.metaDesc} lang={lang}>

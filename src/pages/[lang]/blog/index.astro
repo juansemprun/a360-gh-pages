@@ -16,7 +16,7 @@ export const getStaticPaths = (async () => {
   return languageCodes.map((lang) => {
     // Filter by language and sort by date (newest first)
     const posts = blogCollection
-      .filter((post) => post.slug.startsWith(`${lang}/`))
+      .filter((post) => post.id.startsWith(`${lang}/`))
       .sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
 
     return {

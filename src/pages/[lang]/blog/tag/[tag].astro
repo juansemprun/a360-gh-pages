@@ -20,7 +20,7 @@ export const getStaticPaths = (async () => {
     uniqueTags.map((tag) => {
       // Filter posts by language AND tag, then sort by date
       const posts = allPosts
-        .filter((post) => post.slug.startsWith(`${lang}/`) && post.data.tags?.includes(tag))
+        .filter((post) => post.id.startsWith(`${lang}/`) && post.data.tags?.includes(tag))
         .sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
 
       return {

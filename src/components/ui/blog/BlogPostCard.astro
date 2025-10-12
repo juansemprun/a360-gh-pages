@@ -15,7 +15,7 @@ interface Props {
 const { post, lang } = Astro.props;
 
 // Extract slug without language prefix
-const [, ...slugParts] = post.slug.split('/');
+const [, ...slugParts] = post.id.split('/');
 const slug = slugParts.join('/');
 
 // Build the post URL
