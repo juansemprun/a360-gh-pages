@@ -1,10 +1,12 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import type { LanguageCode } from '@/config/language';
+
 import BlogPostCard from '@ui/blog/BlogPostCard.astro';
 
 interface Props {
   posts: CollectionEntry<'blog'>[];
-  lang: string;
+  lang: LanguageCode;
 }
 
 const { posts, lang } = Astro.props;

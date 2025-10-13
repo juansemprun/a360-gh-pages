@@ -3,8 +3,8 @@ import { getCollection, render } from 'astro:content';
 import { Image } from 'astro:assets';
 import type { GetStaticPaths, InferGetStaticParamsType, InferGetStaticPropsType } from 'astro';
 
-import { format, type Locale } from 'date-fns';
-import { fr, ja } from 'date-fns/locale';
+import type { LanguageCode } from '@/config/language';
+import { useTranslations, getDateFormatter } from '@/i18n';
 
 import BaseLayout from '@layouts/BaseLayout.astro';
 import GradientText from '@ui/GradientText.astro';
@@ -34,10 +34,14 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { lang, slug } = Astro.params as Params;
 const post = Astro.props as Props;
 
-const localeMap: Record<string, Locale | undefined> = {
-  fr: fr,
-  ja: ja,
-};
+const t = useTranslations(lang as LanguageCode);
+const formatDate = getDateFormatter(lang as LanguageCode);
+
+const formattedDate = formatDate(post.data.published, {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
 
 // Render the markdown content
 const { Content } = await render(post);
@@ -66,7 +70,7 @@ const { Content } = await render(post);
           <path d="m12 19-7-7 7-7"></path>
           <path d="M19 12H5"></path>
         </svg>
-        <span>Back to Blog</span>
+        <span>{t('blog.backToBlog')}</span>
       </a>
     </nav>
 
@@ -83,9 +87,9 @@ const { Content } = await render(post);
         <p>
           <span class="font-semibold">Air360 Team</span>
           {' '}
-          <span>on </span>
+          <span>{t('blog.on')}</span>
           <time datetime={post.data.published.toISOString()}>
-            {format(post.data.published, 'MMMM d, yyyy', { locale: localeMap[lang] })}
+            {formattedDate}
           </time>
         </p>
       </div>
@@ -93,6 +97,8 @@ const { Content } = await render(post);
       <Image
         src={post.data.image}
         alt={post.data.title}
+        width={1280}
+        height={720}
         class="mb-8 mt-4 aspect-video w-full rounded-lg object-cover"
       />
     </header>
