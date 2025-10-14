@@ -2,9 +2,10 @@
 import { getEntry } from 'astro:content';
 
 import BaseLayout from '@layouts/BaseLayout.astro';
+// import DynamicFeatures from '@components/DynamicFeatures.astro';
+import FeatureCardsSection from '@/components/FeatureCardsSection.astro';
 import Hero from '@components/Hero.astro';
 import StaticFeatures from '@components/StaticFeatures.astro';
-import DynamicFeatures from '@components/DynamicFeatures.astro';
 import TwoColumnText from '@components/TwoColumnText.astro';
 
 import Testimonials from '@/components/Testimonials.astro';
@@ -32,20 +33,10 @@ export async function getStaticPaths() {
 >
   <Hero heroEntry={heroEntry} />
   <StaticFeatures />
-  <DynamicFeatures
-    title="Image on the bottom"
-    layout="image-bottom"
-    className="hidden py-48 lg:block"
-    dataTheme="dark"
-  />
+  <FeatureCardsSection />
   <TwoColumnText />
   <StaticFeatures />
-  <DynamicFeatures
-    title="Image on the top"
-    layout="image-top"
-    className="hidden py-48 lg:block"
-    dataTheme="dark"
-    gradient="from-rose-500 to-orange-400"
-  />
+  <FeatureCardsSection />
   <Testimonials lang={lang} />
+  <FeatureCardsSection />
 </BaseLayout>
