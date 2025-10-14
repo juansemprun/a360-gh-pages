@@ -2,8 +2,8 @@ import type { LanguageCode } from '@/config/language';
 import { languages } from '@/config/language';
 
 // Import all namespaces
-import { blog } from '@/i18n/namespaces/blog';
-import { changelog } from '@/i18n/namespaces/changelog';
+import { blog } from '@/i18n/translations/blog';
+import { changelog } from '@/i18n/translations/changelog';
 // import { navigation } from './namespaces/navigation';
 // import { common } from './namespaces/common';
 
