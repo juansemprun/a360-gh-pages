@@ -16,6 +16,7 @@ import HeroNote from '@components/ui/hero/HeroNote.astro';
 import HeroVideoCard from '@components/ui/hero/HeroVideoCard.astro';
 import DynamicFeatures from '@components/DynamicFeatures.astro';
 import HeroFooter from '@components/ui/hero/HeroFooter.astro';
+import FeatureTabsSection from '@components/FeatureTabsSection.astro';
 
 <HeroHeader
   titleFirstLine={frontmatter.title_first_line}
@@ -27,7 +28,9 @@ import HeroFooter from '@components/ui/hero/HeroFooter.astro';
 
 <HeroNote> {frontmatter.promo_text} </HeroNote>
 
-<DynamicFeatures cardType="tabs" layout="image-bottom" className="mb-10" />
+{/* <DynamicFeatures cardType="tabs" layout="image-bottom" className="mb-10" /> */}
+
+<FeatureTabsSection />
 
 <HeroVideoCard videoUrl={frontmatter.video_url} />
 
