@@ -1,0 +1,45 @@
+---
+import type { LanguageCode } from '@/config/language';
+import { useTranslations } from '@/i18n';
+
+import GradientText from '@/components/ui/GradientText.astro';
+import { TestimonialsCarousel } from '@/components/react/TestimonialsCarousel';
+
+interface Props {
+  lang: LanguageCode;
+}
+
+const { lang } = Astro.props as Props;
+const t = useTranslations(lang);
+---
+
+<section class="container-custom pb-32" data-theme="dark" aria-labelledby="testimonials-heading">
+  <div class="flex flex-col items-center gap-6">
+    <h2
+      id="testimonials-heading"
+      class="font-clash-display-bold mb-2 text-center text-2xl text-slate-700 lg:text-5xl"
+    >
+      <span class="block">{t('testimonials.heading.line1')}</span>
+      <span class="block">
+        {t('testimonials.heading.line2')}
+        <GradientText>Air360</GradientText>?
+      </span>
+    </h2>
+    <h4 class="text-muted-foreground lg:text-lg">
+      <span>{t('testimonials.subheading')}</span>
+      <GradientText className="font-bold">Air360</GradientText>
+      <span>{t('testimonials.subheading2')}</span>
+    </h4>
+    <div
+      class="animate-rotate-border glow-border relative mt-5 w-80 max-w-sm cursor-pointer rounded-xl p-[4px] transition-all duration-500 ease-out hover:scale-[1.03]"
+    >
+      <a
+        href={`${import.meta.env.BASE_URL}/${lang}/request-demo`}
+        class="block rounded-lg border bg-white px-4 py-4 text-center text-lg text-slate-700"
+      >
+        <span class="text-lg font-semibold">{t('testimonials.cta')}</span>
+      </a>
+    </div>
+  </div>
+  <TestimonialsCarousel client:visible />
+</section>
