@@ -1,9 +1,10 @@
 import type { LanguageCode } from '@/config/language';
 import { languages } from '@/config/language';
 
-// Import all namespaces
+// Import all translations
 import { blog } from '@/i18n/translations/blog';
 import { changelog } from '@/i18n/translations/changelog';
+import { testimonials } from '@/i18n/translations/testimonials';
 // import { navigation } from './namespaces/navigation';
 // import { common } from './namespaces/common';
 
@@ -15,14 +16,17 @@ export const ui = {
   en: {
     ...blog.en,
     ...changelog.en,
+    ...testimonials.en,
   },
   fr: {
     ...blog.fr,
     ...changelog.fr,
+    ...testimonials.fr,
   },
   ja: {
     ...blog.ja,
     ...changelog.ja,
+    ...testimonials.ja,
   },
 } as const;
 
