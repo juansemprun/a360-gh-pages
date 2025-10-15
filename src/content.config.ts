@@ -13,6 +13,8 @@ const heroCollection = defineCollection({
     title_second_line: z.string(),
     video_subtitle: z.string(),
     video_title: z.string(),
+    video_thumbnail: z.string(),
+    video_url: z.string(),
   }),
 });
 
