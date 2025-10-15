@@ -1,12 +1,13 @@
 ---
 cta_text: Get started
-lang: ja
+lang: en
 promo_text: 7-day Free trial — no credit card required
 subtitle: Air360 is the conversion whisperer that decodes your users for you
 title_first_line: CRO that clicks,
 title_second_line: literally
 video_subtitle: Watch the video!
 video_title: Got a Minute? That's All You Need to know Air360
+video_thumbnail: https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4
 video_url: https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true
 ---
 
@@ -32,7 +33,14 @@ import FeatureTabsSection from '@components/FeatureTabsSection.astro';
 
 <FeatureTabsSection />
 
-<HeroVideoCard videoUrl={frontmatter.video_url} />
+{/* <HeroVideoCard videoUrl={frontmatter.video_url} /> */}
+
+<HeroVideoCard
+  title={frontmatter.video_title}
+  subtitle={frontmatter.video_subtitle}
+  thumbnailVideo={frontmatter.video_thumbnail}
+  url={frontmatter.video_url}
+/>
 
 <HeroNote class="text-red-500"> {frontmatter.promo_text} </HeroNote>
 
