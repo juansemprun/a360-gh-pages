@@ -3,8 +3,8 @@ import type { GetStaticPaths, InferGetStaticParamsType, InferGetStaticPropsType 
 import { getCollection, render } from 'astro:content';
 import { Image } from 'astro:assets';
 
-import { format, type Locale } from 'date-fns';
-import { fr, ja } from 'date-fns/locale';
+import type { LanguageCode } from '@/config/language';
+import { getDateFormatter } from '@/i18n';
 
 import BaseLayout from '@/layouts/BaseLayout.astro';
 
@@ -38,10 +38,13 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { lang, date } = Astro.params as Params;
 const post = Astro.props as Props;
 
-const localeMap: Record<string, Locale | undefined> = {
-  fr: fr,
-  ja: ja,
-};
+const formatDate = getDateFormatter(lang as LanguageCode);
+
+const formattedDate = formatDate(post.data.publishedAt, {
+  month: 'long',
+  day: '2-digit',
+  year: 'numeric',
+});
 
 // Render the markdown content
 const { Content } = await render(post);
@@ -72,7 +75,7 @@ const { Content } = await render(post);
           {' '}
           <span>on </span>
           <time datetime={post.data.publishedAt.toISOString()}>
-            {format(post.data.publishedAt, 'MMMM d, yyyy', { locale: localeMap[lang] })}
+            {formattedDate}
           </time>
         </p>
       </div>
