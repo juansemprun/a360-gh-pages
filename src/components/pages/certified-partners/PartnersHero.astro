@@ -1,22 +1,28 @@
 ---
 import { Globe } from '@/components/react/Globe';
-
 import GradientText from '@/components/ui/GradientText.astro';
+
+interface PartnersHeroProps {
+  title: string;
+  subtitle: string;
+}
+
+const { title, subtitle } = Astro.props as PartnersHeroProps;
 ---
 
 <section class="py-32" data-theme="dark">
-  <div class="mx-auto max-w-7xl lg:px-8">
+  <div class="mx-auto max-w-7xl">
     <div
       class="h-92 rounded-4xl relative flex w-full flex-col justify-between overflow-hidden bg-white p-8 md:flex-row"
     >
       <div class="flex h-full max-w-lg flex-col justify-center gap-6">
         <GradientText>
-          <h1 class="font-clash-display-bold text-4xl md:text-6xl">Air360 Certified Partners</h1>
+          <h1 class="font-clash-display-bold text-4xl md:text-6xl">
+            {title}
+          </h1>
         </GradientText>
         <p class="text-muted-foreground text-xl">
-          Find an Air360 expert to guide you through your digital experience analysis. All
-          consultants, agencies and freelancers listed here have been trained and certified by
-          Air360.
+          {subtitle}
         </p>
       </div>
       <div class="relative size-full">

@@ -1,0 +1,145 @@
+---
+title: Certified Partners
+description: Gain deeper insights into your digital experience with an Air360 Expert. Every consultancy, agency, and freelancer in our directory has been professionally trained and certified by Air360 to help you maximize your analytics potential.
+ctaRequestExpertText: Request Expert
+---
+
+{/* Components */}
+import PartnersHero from '@/components/pages/certified-partners/PartnersHero.astro';
+import PartnersBanner from '@/components/pages/certified-partners/PartnersBanner.astro';
+import PartnersList from '@/components/pages/certified-partners/PartnersList.astro';
+import PartnersCard from '@/components/pages/certified-partners/PartnersCard.astro';
+
+{/* Partners Images */}
+import Arquen from '@/assets/images/partners/arquen.svg';
+import BusinessAndDecisions from '@/assets/images/partners/business-and-decision.svg';
+import DNG from '@/assets/images/partners/dng.svg';
+import Henkan from '@/assets/images/partners/henkan.svg';
+import NRI from '@/assets/images/partners/nri.svg';
+import Welyft from '@/assets/images/partners/welyft.svg';
+import Yumens from '@/assets/images/partners/yumens.svg';
+import YuriNeil from '@/assets/images/partners/yuri-and-neil.svg';
+
+<PartnersHero
+  title="Air360 Certified Partners"
+  subtitle="Find an Air360 expert to guide you through your digital experience analysis. All consultants, agencies and freelancers listed here have been trained and certified by Air360."
+/>
+
+<PartnersBanner
+  title="Find your expert"
+  description="Gain deeper insights into your digital experience with an Air360 Expert. Every consultancy, agency, and freelancer in our directory has been professionally trained and certified by Air360 to help you maximize your analytics potential."
+/>
+
+<PartnersList>
+  <PartnersCard
+    name="Yuri & Neil"
+    description="Yuri & Neil are a design and development duo specializing in building accessible, high-performance websites for clients worldwide."
+    website=""
+    spotlight=""
+    ctaRequestExpertText={frontmatter.ctaRequestExpertText}
+    bonus="5 easter eggs de grande qualité se trouvent sur notre site internet. Trouvez-les, envoyez-nous un message en passant par le formulaire de contact et gagnez un joli cadeau."
+    tags={['France', 'French', 'English', 'Agency']}
+    image={{
+      src: YuriNeil,
+      alt: 'Yuri & Neil Logo',
+    }}
+  />
+
+<PartnersCard
+  name="Arquen"
+  description="Research, consulting & user experience design. Arquen is a UX agency specializing in the analysis and design of digital interfaces with a data-driven, human-centered approach."
+  website=""
+  spotlight=""
+  bonus=""
+  ctaRequestExpertText={frontmatter.ctaRequestExpertText}
+  tags={['France', 'French', 'English', 'Agency']}
+  image={{
+    src: Arquen,
+    alt: 'Arquen Logo',
+  }}
+/>
+
+<PartnersCard
+  name="Henkan & Partners"
+  description="Henkan & Partners is a consulting firm specializing in Product Analytics and Experimentation. From data collection to decision-making, they drive continuous digital improvement, collaborating with product, UX, and design teams to deliver optimal user experiences across all digital touchpoints."
+  website=""
+  spotlight=""
+  bonus=""
+  ctaRequestExpertText={frontmatter.ctaRequestExpertText}
+  tags={['France', 'French', 'English', 'Agency']}
+  image={{
+    src: Henkan,
+    alt: 'Henkan & Partners Logo',
+  }}
+/>
+
+<PartnersCard
+  name="Business & Decision"
+  description="Business & Decision helps clients optimize digital performance with a data-driven, results-focused approach. From CX to marketing analysis and ROI, the company turns insights into action. Using their X360° method, they identify, experiment, optimize, and personalize journeys to maximize impact and conversion."
+  website=""
+  spotlight=""
+  bonus=""
+  ctaRequestExpertText={frontmatter.ctaRequestExpertText}
+  tags={['France', 'French', 'English', 'Agency']}
+  image={{
+    src: BusinessAndDecisions,
+    alt: 'Business & Decision Logo',
+  }}
+/>
+
+<PartnersCard
+  name="Yumens"
+  description="Yumens is a digital strategy agency accelerating their clients' online growth. As a subsidiary of MV Group, Yumens blends performance marketing, data expertise, and UX optimization to deliver measurable business results. With over 200 experts across 11 locations, they offer local support with national impact."
+  website=""
+  spotlight=""
+  bonus=""
+  ctaRequestExpertText={frontmatter.ctaRequestExpertText}
+  tags={['France', 'French', 'English', 'Agency']}
+  image={{
+    src: Yumens,
+    alt: 'Yumens Logo',
+  }}
+/>
+
+<PartnersCard
+  name="Welyft"
+  description="Welyft is a data-marketing agency specializing in CRO through experimentation, personalization, and analytics. The company helps brands create user-centric experiences across all touchpoints using A/B testing, data intelligence, strategic audits, and team training to drive growth."
+  website=""
+  spotlight=""
+  bonus=""
+  ctaRequestExpertText={frontmatter.ctaRequestExpertText}
+  tags={['France', 'French', 'English', 'Agency']}
+  image={{
+    src: Welyft,
+    alt: 'Welyft Logo',
+  }}
+/>
+
+<PartnersCard
+  name="NRI Netcom"
+  description="NRI Netcom, part of Nomura Research Institute, has specialized in Japan's web business since 1991. Their experts in cloud, DX, digital marketing, UX/UI, and system development support clients from strategy to execution, working closely to build, validate, and achieve digital goals together."
+  website=""
+  spotlight=""
+  bonus=""
+  ctaRequestExpertText={frontmatter.ctaRequestExpertText}
+  tags={['Japan', 'Japanese', 'Agency']}
+  image={{
+    src: NRI,
+    alt: 'NRI Netcom Logo',
+  }}
+/>
+
+  <PartnersCard
+    name="DNG"
+    description="DNG is an independent consultancy specializing in helping B2C brands (FMCG, retail, luxury, DNVB...) meet the challenges of growth, digital transformation and performance optimization. At the crossroads of strategic consulting, digital strategy and operational execution, DNG carries out high-impact missions, provides outsourced marketing and digital departments (CMO, CDO...) and mobilizes experts (UX designers, project managers, CRO specialists). The firm stands out for its pragmatic, results-oriented approach, and its ability to integrate effectively with customer teams to accelerate execution."
+    website=""
+    spotlight="Choosing DNG means joining the Digital Native Club, a network of over 700 industry decision-makers. You'll have the opportunity to take part in themed half-days (omni-channel, beauty days, fashion days) as well as exclusive dinners. These meetings are the ideal opportunity to exchange ideas with peers on specific topics and share best practices."
+    bonus=""
+    ctaRequestExpertText={frontmatter.ctaRequestExpertText}
+    tags={['France', 'French', 'English', 'Agency']}
+    image={{
+      src: DNG,
+      alt: 'DNG Logo',
+    }}
+  />
+</PartnersList>
