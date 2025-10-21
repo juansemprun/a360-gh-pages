@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/shadcn/tabs';
 
 interface Feature {
@@ -19,16 +18,12 @@ interface FeatureTabsCarouselProps {
 const FeatureTabsCarousel = ({ features, autoRotateInterval = 5000 }: FeatureTabsCarouselProps) => {
   const defaultTab = features.find((tab) => tab.isDefault)?.id || features[0].id;
   const [activeTab, setActiveTab] = useState(defaultTab);
-  const [isAutoRotating, setIsAutoRotating] = useState(true);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  const videoRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({});
+  const intervalRef = useRef<number | null>(null);
 
-  // Auto-rotation effect
   useEffect(() => {
-    if (!isAutoRotating) return;
+    if (features.length < 2) return;
 
-    // Set up the interval for auto-rotation
-    intervalRef.current = setInterval(() => {
+    intervalRef.current = window.setInterval(() => {
       setActiveTab((currentTab) => {
         const currentIndex = features.findIndex((f) => f.id === currentTab);
         const nextIndex = (currentIndex + 1) % features.length;
@@ -36,24 +31,20 @@ const FeatureTabsCarousel = ({ features, autoRotateInterval = 5000 }: FeatureTab
       });
     }, autoRotateInterval);
 
-    // Cleanup function to clear interval when component unmounts or dependencies change
     return () => {
       if (intervalRef.current) {
-        clearInterval(intervalRef.current);
+        window.clearInterval(intervalRef.current);
       }
     };
-  }, [isAutoRotating, autoRotateInterval, features]);
+  }, [autoRotateInterval, features]);
 
-  // Handle manual tab change
   const handleTabChange = (value: string) => {
     setActiveTab(value);
-    setIsAutoRotating(false); // Stop auto-rotation when user manually changes tab
-
-    // Clear existing interval
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
   };
+
+  if (!features?.length) {
+    return <p className="text-red-500">No features available.</p>;
+  }
 
   return (
     <Tabs value={activeTab} onValueChange={handleTabChange} className="items-center gap-10">
@@ -70,24 +61,37 @@ const FeatureTabsCarousel = ({ features, autoRotateInterval = 5000 }: FeatureTab
           );
         })}
       </TabsList>
-      {features.map((tab) => (
-        <TabsContent key={tab.id} value={tab.id} className="transition-opacity duration-300">
-          <video
-            ref={(el) => {
-              videoRefs.current[tab.id] = el;
-            }}
-            src={tab.video}
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="metadata"
-            className="aspect-video h-auto w-full rounded-2xl object-cover shadow-lg transition-opacity duration-300"
-          >
-            Your browser does not support the video tag.
-          </video>
-        </TabsContent>
-      ))}
+
+      {/* Render all videos, control visibility with CSS */}
+      <div className="relative w-full">
+        {features.map((tab) => {
+          const isActive = activeTab === tab.id;
+
+          return (
+            <div
+              key={tab.id}
+              className={`transition-opacity duration-300 ${
+                isActive ? 'relative opacity-100' : 'pointer-events-none absolute inset-0 opacity-0'
+              }`}
+            >
+              <video
+                src={tab.video}
+                poster={tab.poster}
+                autoPlay={isActive}
+                loop
+                muted
+                playsInline
+                preload={isActive ? 'auto' : 'none'}
+                aria-label={`Preview of ${tab.heading}`}
+                aria-hidden={!isActive}
+                className="aspect-video h-auto w-full rounded-2xl object-cover shadow-lg"
+              >
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          );
+        })}
+      </div>
     </Tabs>
   );
 };
