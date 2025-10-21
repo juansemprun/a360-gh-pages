@@ -75,19 +75,15 @@ const FeatureTabsCarousel = ({ features, autoRotateInterval = 5000 }: FeatureTab
             <TabsTrigger
               key={tab.id}
               value={tab.id}
-              className={`group flex cursor-pointer flex-col items-start justify-start gap-4 whitespace-normal rounded-3xl border-0 p-8 text-left transition-opacity duration-200 data-[state=active]:bg-slate-50`}
+              className={`group flex cursor-pointer flex-col items-start justify-start gap-4 whitespace-normal rounded-3xl border-0 p-8 text-left opacity-50 !shadow-none transition-opacity duration-300 hover:opacity-100 data-[state=active]:bg-[#f7f8f8] data-[state=active]:opacity-100`}
             >
-              <div className="flex items-center gap-2">
-                <span className="text-muted-foreground flex items-center transition-colors duration-200 group-hover:text-slate-800 group-data-[state=active]:text-slate-800">
-                  <IconComponent className="size-4" />
+              <div className="flex items-center gap-3">
+                <span className="flex items-center text-slate-500">
+                  <IconComponent className="text-s size-6" />
                 </span>
-                <p className="text-muted-foreground text-xl font-semibold transition-colors duration-200 group-hover:text-slate-800 group-data-[state=active]:text-slate-800">
-                  {tab.heading}
-                </p>
+                <p className="text-xl font-semibold text-slate-800">{tab.heading}</p>
               </div>
-              <p className="text-muted-foreground text-base font-normal transition-colors duration-200 group-hover:text-slate-800 group-data-[state=active]:text-slate-800">
-                {tab.description}
-              </p>
+              <p className="text-base font-medium text-slate-600">{tab.description}</p>
             </TabsTrigger>
           );
         })}
