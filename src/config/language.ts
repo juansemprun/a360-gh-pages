@@ -33,3 +33,17 @@ export const languageCodes = languages.map((lang) => lang.code);
 
 // Type helper for language codes
 export type LanguageCode = (typeof languageCodes)[number]; // 'en' | 'fr' | 'ja'
+
+/**
+ * Validates and returns a safe LanguageCode from Astro.params
+ * Falls back to default language if invalid
+ * @param lang - Language code from Astro.params
+ * @returns Valid LanguageCode
+ */
+export function getValidLanguage(lang: string | undefined): LanguageCode {
+  // Check if lang exists and is in our supported languages
+  const isValid = lang !== undefined && languageCodes.includes(lang as LanguageCode);
+
+  // Return valid lang or fallback to default
+  return isValid ? (lang as LanguageCode) : (defaultLanguage?.code ?? 'en');
+}
