@@ -54,6 +54,10 @@ const navigationCollection = await getCollection('navigation', ({ data }) => dat
       crossorigin="anonymous"
     />
 
+    <!-- Preconnect to video CDN for faster loading -->
+    <link rel="preconnect" href="https://cdn.loom.com" />
+    <link rel="dns-prefetch" href="https://cdn.loom.com" />
+
     <!-- SEO Meta Tags -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
