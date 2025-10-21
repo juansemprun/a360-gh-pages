@@ -24,6 +24,8 @@ const {
       icon: 'Lightbulb',
       description: 'Discover the powerful features that make our platform stand out from the rest.',
       video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
+      poster:
+        'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-with-play.gif',
       url: 'https://shadcnblocks.com',
       isDefault: true,
     },
@@ -33,6 +35,8 @@ const {
       heading: 'Tutorials',
       description: 'Built with the latest technology and designed for maximum productivity.',
       video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
+      poster:
+        'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-with-play.gif',
       url: 'https://shadcnblocks.com',
       isDefault: false,
     },
@@ -42,6 +46,8 @@ const {
       heading: 'Courses',
       description: 'Create amazing experiences with our comprehensive toolkit and resources.',
       video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
+      poster:
+        'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-with-play.gif',
       url: 'https://shadcnblocks.com',
       isDefault: false,
     },
@@ -57,6 +63,6 @@ const serializedFeatures = features.map((feature) => ({
 
 <section class="container-custom hidden py-32 lg:block" data-theme="dark">
   <div class="container-custom">
-    <FeatureCardsCarousel features={serializedFeatures} client:idle />
+    <FeatureCardsCarousel features={serializedFeatures} client:load />
   </div>
 </section>
