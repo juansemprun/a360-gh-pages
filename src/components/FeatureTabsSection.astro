@@ -52,11 +52,7 @@ const {
 
 <section class="container-custom py-16" data-theme="light">
   <div class="container-custom">
-    {/* Reserve space to prevent layout shift */}
-    <div
-      class="min-h-[500px] rounded-2xl bg-black/5 shadow-lg md:min-h-[600px]"
-      style="will-change: transform; transform: perspective(1200px);"
-    >
+    <div style="will-change: transform; transform: perspective(1200px);">
       <FeatureTabsCarousel features={features} client:load />
     </div>
   </div>
