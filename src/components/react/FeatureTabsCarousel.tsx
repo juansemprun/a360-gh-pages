@@ -83,7 +83,7 @@ const FeatureTabsCarousel = ({ features, autoRotateInterval = 5000 }: FeatureTab
                 key={tab.id}
                 value={tab.id}
                 forceMount
-                className={`transition-opacity duration-500 ${
+                className={`aspect-video transition-opacity duration-500 ${
                   isActive
                     ? 'relative opacity-100'
                     : 'pointer-events-none absolute inset-0 opacity-0'
@@ -92,7 +92,7 @@ const FeatureTabsCarousel = ({ features, autoRotateInterval = 5000 }: FeatureTab
                 <video
                   src={tab.video}
                   poster={tab.poster}
-                  autoPlay={isActive}
+                  autoPlay
                   loop
                   muted
                   playsInline
