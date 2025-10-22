@@ -1,5 +1,5 @@
 ---
-import { getEntry } from 'astro:content';
+import { getEntry, render } from 'astro:content';
 
 import BaseLayout from '@layouts/BaseLayout.astro';
 // import DynamicFeatures from '@components/DynamicFeatures.astro';
@@ -14,8 +14,13 @@ import { languageCodes } from '@config/language';
 
 const { lang } = Astro.params;
 const heroEntry = await getEntry('hero', `${lang}/hero`);
+const homeEntry = await getEntry('pages', `${lang}/home`);
 
 if (!heroEntry) {
+  return Astro.redirect('/404');
+}
+
+if (!homeEntry) {
   return Astro.redirect('/404');
 }
 
@@ -24,6 +29,8 @@ export async function getStaticPaths() {
     params: { lang },
   }));
 }
+
+const { Content } = await render(homeEntry);
 ---
 
 <BaseLayout
@@ -31,11 +38,14 @@ export async function getStaticPaths() {
   lang={lang}
   title="Air360 | Simplify UX analysis, boost conversion"
 >
-  <Hero heroEntry={heroEntry} />
-  <StaticFeatures />
-  <FeatureCardsSection />
+  <!-- <Hero heroEntry={homeEntry} />
+  <StaticFeatures /> -->
+
+  <Content />
+
+  <!-- <FeatureCardsSection />
   <TwoColumnText />
   <StaticFeatures />
   <FeatureCardsSection />
-  <Testimonials lang={lang} />
+  <Testimonials lang={lang} /> -->
 </BaseLayout>
