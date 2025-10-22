@@ -1,13 +1,17 @@
 ---
 import { render, type CollectionEntry } from 'astro:content';
 
-interface HeroLandingProps {
-  heroEntry: CollectionEntry<'hero'>;
-}
+// interface HeroLandingProps {
+//   heroEntry: CollectionEntry<'hero'>;
+// }
 
-const { heroEntry } = Astro.props as HeroLandingProps;
+// interface HeroLandingProps {
+//   heroEntry: CollectionEntry<'pages'>;
+// }
 
-const { Content } = await render(heroEntry);
+// const { heroEntry } = Astro.props as HeroLandingProps;
+
+// const { Content } = await render(heroEntry);
 ---
 
 <section
@@ -16,11 +20,12 @@ const { Content } = await render(heroEntry);
 >
   <!-- Main content container -->
   <div class="container-custom relative z-10 flex flex-col items-center gap-12 py-20 lg:py-32">
-    <Content />
+    <!-- <Content /> -->
+    <slot />
   </div>
 </section>
 <!-- Bottom gradient line -->
-<div
+<!-- <div
   class="bottom-0 h-0.5 w-full bg-gradient-to-r from-[#F771BF] via-[#f04d66] to-[#fd7043] shadow-lg"
 >
-</div>
+</div> -->
