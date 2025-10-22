@@ -1,0 +1,89 @@
+---
+title: Welcome to Air360
+description: Air360 is the all-in-one analytics platform designed to help businesses make data-driven decisions
+---
+
+import FeatureCardsSection from '@/components/FeatureCardsSection.astro';
+import FeatureTabsSection from '@/components/FeatureTabsSection.astro';
+import Hero from '@/components/Hero.astro';
+import HeroCTAButton from '@/components/ui/hero/HeroCTAButton.astro';
+import HeroFooter from '@/components/ui/hero/HeroFooter.astro';
+import HeroHeader from '@/components/ui/hero/HeroHeader.astro';
+import HeroNote from '@/components/ui/hero/HeroNote.astro';
+import HeroVideoCard from '@/components/ui/hero/HeroVideoCard.astro';
+import StaticFeatures from '@/components/StaticFeatures.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import TwoColumnText from '@/components/TwoColumnText.astro';
+
+{/* Hero Section */}
+
+<Hero>
+
+<HeroHeader
+  titleFirstLine="Put your conversions"
+  titleSecondLine="on autopilot"
+  subtitle="Most companies drown in dashboards. We turn data into conversions."
+/>
+
+<HeroCTAButton ctaText="Get Started" lang="en" />
+
+<HeroNote text="7-day Free trial — no credit card required" />
+
+<FeatureTabsSection
+  features={[
+    {
+      id: 'demo-feature-tab',
+      heading: 'Demo',
+      video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
+      isDefault: true,
+    },
+    {
+      id: 'tutorials-feature-tab',
+      heading: 'Tutorials',
+      video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
+      isDefault: false,
+    },
+    {
+      id: 'courses-feature-tab',
+      heading: 'Courses',
+      video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
+      isDefault: false,
+    },
+  ]}
+/>
+
+<HeroVideoCard
+  title="Got a Minute? That's All You Need to know Air360"
+  subtitle="Watch the video!"
+  thumbnailVideo="https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4"
+  url="https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true"
+/>
+
+<HeroNote text="7-day Free trial — no credit card required" />
+
+<HeroFooter />
+</Hero>
+
+{/* StaticFeatures */}
+
+<StaticFeatures />
+
+{/* Features card videos */}
+
+<FeatureCardsSection />
+
+{/* Middle Text */}
+
+<TwoColumnText />
+
+{/* StaticFeatures */}
+
+<StaticFeatures />
+
+{/* Feature card videos */}
+
+<FeatureCardsSection />
+
+{/* Testimonials */}
+
+<Testimonials lang="en" />
