@@ -6,7 +6,6 @@ interface Feature {
   heading: string;
   video: string;
   poster?: string;
-  url: string;
   isDefault: boolean;
 }
 
