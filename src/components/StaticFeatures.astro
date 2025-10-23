@@ -10,10 +10,21 @@ export interface StaticFeatureItem {
   content: string;
 }
 
-export interface Props {
+interface Feature {
+  id: string;
+  heading: string;
+  description: string;
+  video: string;
+  url: string;
+  icon: IconComponent;
+  poster?: string;
+  isDefault: boolean;
+}
+
+export interface StaticFeaturesProps {
   title?: string;
   description?: string;
-  features?: StaticFeatureItem[];
+  features?: Feature[];
   className?: string;
 }
 
@@ -23,31 +34,28 @@ const {
   features = [
     {
       icon: TicketAirline,
-      title: 'Demo',
+      heading: 'Demo',
       description:
         'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus esse laboriosam',
-      content:
-        'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
+      video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
     },
     {
       icon: TicketAirline,
       title: 'Demo',
       description:
         'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus esse laboriosam',
-      content:
-        'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
+      video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
     },
     {
       icon: TicketAirline,
       title: 'Demo',
       description:
         'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus esse laboriosam',
-      content:
-        'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
+      video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
     },
   ],
   className = '',
-} = Astro.props;
+} = Astro.props as StaticFeaturesProps;
 ---
 
 <div class="container-custom lg:hidden" data-theme="dark">
@@ -58,12 +66,12 @@ const {
     </div>
     <div class="flex flex-col">
       {
-        features.map(({ title, description, content, icon: Icon }, index) => (
+        features.map(({ heading, description, video, icon: Icon }, index) => (
           <div class="flex flex-col items-center p-8">
             <div class="flex max-w-80 flex-col items-center gap-2 p-6 text-center">
               <div class="flex items-center gap-2">
-                <Icon width={24} height={24} class="fill-gray-400" />
-                <h3 class="text-xl font-semibold text-slate-900">{title}</h3>
+                {/* <Icon width={24} height={24} class="fill-gray-400" /> */}
+                <h3 class="text-xl font-semibold text-slate-900">{heading}</h3>
               </div>
               <p class="max-w-3xs text-center text-base font-medium leading-6 text-slate-600">
                 {description}
@@ -74,12 +82,12 @@ const {
               loop
               muted
               playsinline
-              src={content}
+              src={video}
               width="600"
               height="400"
               class="h-auto w-full rounded-xl shadow-lg"
             >
-              <source src={content} type="video/mp4" />
+              <source src={video} type="video/mp4" />
               Sorry, your browser does not support embedded videos.
             </video>
           </div>

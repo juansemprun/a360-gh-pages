@@ -3,11 +3,11 @@ import FeatureCardsCarousel from '@components/react/FeatureCardsCarousel';
 
 interface Feature {
   id: string;
-  icon: any;
+  icon?: any;
   heading: string;
   description: string;
   video: string;
-  poster?: string; // Optional poster for video
+  poster?: string;
   url: string;
   isDefault: boolean;
 }

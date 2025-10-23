@@ -1,9 +1,77 @@
 ---
 title: Welcome to Air360
 description: Air360 is the all-in-one analytics platform designed to help businesses make data-driven decisions
+
+# Feature Tabs (Hero Section)
+heroFeatureTabs:
+  - id: 'demo-feature-tab'
+    heading: 'Demo'
+    video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4'
+    url: 'https://shadcnblocks.com'
+    isDefault: true
+  - id: 'tutorials-feature-tab'
+    heading: 'Tutorials'
+    video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4'
+    url: 'https://shadcnblocks.com'
+    isDefault: false
+  - id: 'courses-feature-tab'
+    heading: 'Courses'
+    description: 'Complete courses'
+    video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4'
+    url: 'https://shadcnblocks.com'
+    isDefault: false
+
+# Primary Card Features Section
+primaryCardFeatures:
+  - id: 'feature-1'
+    heading: 'Demo'
+    icon: 'Lightbulb'
+    description: 'Discover the powerful features that make our platform stand out from the rest.'
+    video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4'
+    url: 'https://shadcnblocks.com'
+    isDefault: true
+  - id: 'feature-2'
+    heading: 'Tutorials'
+    icon: 'ListChecks'
+    description: 'Built with the latest technology and designed for maximum productivity.'
+    video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0e960b2c0eccaf89b0-00001.mp4'
+    url: 'https://shadcnblocks.com'
+    isDefault: false
+  - id: 'feature-3'
+    heading: 'Courses'
+    icon: 'Cog'
+    description: 'Create amazing experiences with our comprehensive toolkit and resources.'
+    video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4'
+    url: 'https://shadcnblocks.com'
+    isDefault: false
+
+# Secondary Card Features Section
+secondaryCardFeatures:
+  - id: 'feature-4'
+    heading: 'Advanced Analytics'
+    icon: 'Lightbulb'
+    description: 'Discover the powerful features that make our platform stand out from the rest.'
+    video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4'
+    url: 'https://shadcnblocks.com'
+    isDefault: true
+  - id: 'feature-5'
+    heading: 'Easy Integration'
+    icon: 'ListChecks'
+    description: 'Built with the latest technology and designed for maximum productivity.'
+    video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4'
+    url: 'https://shadcnblocks.com'
+    isDefault: false
+  - id: 'feature-6'
+    heading: 'Expert Support'
+    icon: 'Cog'
+    description: 'Create amazing experiences with our comprehensive toolkit and resources.'
+    video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4'
+    url: 'https://shadcnblocks.com'
+    isDefault: false
 ---
 
 import FeatureCardsSection from '@/components/FeatureCardsSection.astro';
+import FeaturesSection from '@/components/FeaturesSection.astro';
 import FeatureTabsSection from '@/components/FeatureTabsSection.astro';
 import Hero from '@/components/Hero.astro';
 import HeroCTAButton from '@/components/ui/hero/HeroCTAButton.astro';
@@ -15,42 +83,18 @@ import StaticFeatures from '@/components/StaticFeatures.astro';
 import Testimonials from '@/components/Testimonials.astro';
 import TwoColumnText from '@/components/TwoColumnText.astro';
 
-{/* Hero Section */}
-
 <Hero>
-
 <HeroHeader
   titleFirstLine="Put your conversions"
   titleSecondLine="on autopilot"
   subtitle="Most companies drown in dashboards. We turn data into conversions."
 />
 
-<HeroCTAButton ctaText="Get Started" lang="en" />
+<HeroCTAButton ctaText="Get Started" />
 
 <HeroNote text="7-day Free trial — no credit card required" />
 
-<FeatureTabsSection
-  features={[
-    {
-      id: 'demo-feature-tab',
-      heading: 'Demo',
-      video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
-      isDefault: true,
-    },
-    {
-      id: 'tutorials-feature-tab',
-      heading: 'Tutorials',
-      video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
-      isDefault: false,
-    },
-    {
-      id: 'courses-feature-tab',
-      heading: 'Courses',
-      video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
-      isDefault: false,
-    },
-  ]}
-/>
+<FeaturesSection variant="tabs" features={frontmatter.heroFeatureTabs} />
 
 <HeroVideoCard
   title="Got a Minute? That's All You Need to know Air360"
@@ -64,26 +108,31 @@ import TwoColumnText from '@/components/TwoColumnText.astro';
 <HeroFooter />
 </Hero>
 
-{/* StaticFeatures */}
+<FeaturesSection variant="cards" features={frontmatter.primaryCardFeatures} />
 
-<StaticFeatures />
+<TwoColumnText
+  titleFirstLine="Struggling with conversions?"
+  titleSecondLine="It shouldn't be this hard"
+>
+  <Fragment slot="left">
+    Every business collects data. Mountains of it. And conversion rates? Still embarrassingly low.
 
-{/* Features card videos */}
+    When sales dip, everyone reaches for the same playbook: throw money at ads. More traffic will fix it, right? Wrong.
 
-<FeatureCardsSection />
+    **Your visitor behavior already holds the answer. Fix your conversion rate once, and it pays off for years.**
 
-{/* Middle Text */}
+  </Fragment>
 
-<TwoColumnText />
+  <Fragment slot="right">
+    The catch? Conversion optimization is hard. Most tools are complicated, expensive, or both.
 
-{/* StaticFeatures */}
+    Not Air360. We make it dead simple to understand what's actually happening on your site. No PhD required. No dashboard hell. Just answers.
 
-<StaticFeatures />
+    Poke around. Watch the videos. Get in touch. We'd be honored to have you as a customer. Thank you.
 
-{/* Feature card videos */}
+  </Fragment>
+</TwoColumnText>
 
-<FeatureCardsSection />
-
-{/* Testimonials */}
+<FeaturesSection variant="cards" features={frontmatter.secondaryCardFeatures} />
 
 <Testimonials lang="en" />

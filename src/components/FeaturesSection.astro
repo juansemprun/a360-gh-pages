@@ -1,0 +1,34 @@
+---
+import StaticFeatures from '@/components/StaticFeatures.astro';
+import FeatureCardsSection from '@/components/FeatureCardsSection.astro';
+import FeatureTabsSection from '@/components/FeatureTabsSection.astro';
+
+interface Feature {
+  id: string;
+  heading: string;
+  description: string;
+  video: string;
+  url: string;
+  icon?: any;
+  poster?: string;
+  isDefault: boolean;
+}
+
+interface FeatureSectionProps {
+  variant: 'cards' | 'tabs';
+  features?: Feature[];
+}
+
+const { variant = 'tabs', features } = Astro.props as FeatureSectionProps;
+---
+
+{
+  variant === 'cards' ? (
+    <div>
+      <FeatureCardsSection features={features} />
+      <StaticFeatures features={features} />
+    </div>
+  ) : (
+    <FeatureTabsSection features={features} />
+  )
+}

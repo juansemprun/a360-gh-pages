@@ -1,50 +1,32 @@
 ---
 import { Image } from 'astro:assets';
+
 import signature from '@assets/images/signature.webp';
+
+interface TwoColumnTextProps {
+  titleFirstLine: string;
+  titleSecondLine: string;
+}
+
+const { titleFirstLine, titleSecondLine } = Astro.props as TwoColumnTextProps;
 ---
 
 <div class="container-custom">
   <section class="lg:px-8; mx-auto max-w-7xl px-4 sm:px-6" data-theme="dark">
     <header class="mb-20 text-center">
-      <h2 class="font-clash-display-bold text-5xl text-slate-900">
-        <span class="block">Struggling with conversions?</span>
-        <span class="block">It shouldn't be this hard</span>
+      <h2 class="font-clash-display-bold text-3xl text-slate-700 md:text-5xl">
+        <span class="block">{titleFirstLine}</span>
+        <span class="mt-5 block">{titleSecondLine}</span>
       </h2>
     </header>
     <article class="flex flex-col gap-8 lg:flex-row lg:items-start">
-      <div class="grid flex-1 content-start">
-        <p class="text-xl md:text-2xl">
-          Every business collects data. Mountains of it. And conversion rates? Still embarrassingly
-          low.
-        </p>
-
-        <p class="pt-12 text-xl md:text-2xl">
-          When sales dip, everyone reaches for the same playbook: throw money at ads. More traffic
-          will fix it, right? Wrong.
-        </p>
-
-        <p class="pt-12 text-xl font-bold md:text-2xl">
-          Your visitor behavior already holds the answer. Fix your conversion rate once, and it pays
-          off for years.
-        </p>
+      <div class="prose prose-base md:prose-2xl grid flex-1 content-start">
+        <slot name="left" class="prose" />
       </div>
-      <div class="grid flex-1 content-start">
-        <p class="text-xl md:text-2xl">
-          The catch? Conversion optimization is hard. Most tools are complicated, expensive, or
-          both.
-        </p>
+      <div class="prose prose-base md:prose-2xl grid flex-1 content-start">
+        <slot name="right" />
 
-        <p class="pt-12 text-xl md:text-2xl">
-          Not Air360. We make it dead simple to understand what's actually happening on your site.
-          No PhD required. No dashboard hell. Just answers.
-        </p>
-
-        <p class="pt-12 text-xl md:text-2xl">
-          Poke around. Watch the videos. Get in touch. We'd be honored to have you as a customer.
-          Thank you.
-        </p>
-
-        <Image src={signature} alt="Signature of Air360 CEO" class="mt-8 h-16 w-auto p-2" />
+        <Image src={signature} alt="Signature of Air360 CEO" class="!m-0 h-16 w-auto p-2" />
       </div>
     </article>
   </section>
