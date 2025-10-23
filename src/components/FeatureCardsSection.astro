@@ -16,40 +16,10 @@ interface Props {
   features?: Feature[];
 }
 
-const {
-  features = [
-    {
-      id: 'feature-1',
-      heading: 'Demo',
-      icon: 'Lightbulb',
-      description: 'Discover the powerful features that make our platform stand out from the rest.',
-      video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
-      url: 'https://shadcnblocks.com',
-      isDefault: true,
-    },
-    {
-      id: 'feature-2',
-      icon: 'ListChecks',
-      heading: 'Tutorials',
-      description: 'Built with the latest technology and designed for maximum productivity.',
-      video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
-      url: 'https://shadcnblocks.com',
-      isDefault: false,
-    },
-    {
-      id: 'feature-3',
-      icon: 'Cog',
-      heading: 'Courses',
-      description: 'Create amazing experiences with our comprehensive toolkit and resources.',
-      video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
-      url: 'https://shadcnblocks.com',
-      isDefault: false,
-    },
-  ],
-} = Astro.props;
+const { features = [] as Feature[] } = Astro.props as Props;
 
 // Serialize features for the React component (convert icon components to strings)
-const serializedFeatures = features.map((feature) => ({
+const serializedFeatures = features?.map((feature) => ({
   ...feature,
   iconName: feature.icon || 'Lightbulb', // Extract icon name
 }));

@@ -13,28 +13,7 @@ interface Props {
   features?: Feature[];
 }
 
-const {
-  features = [
-    {
-      id: 'feature-1',
-      heading: 'Demo',
-      video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
-      isDefault: true,
-    },
-    {
-      id: 'feature-2',
-      heading: 'Tutorials',
-      video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
-      isDefault: false,
-    },
-    {
-      id: 'feature-3',
-      heading: 'Courses',
-      video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
-      isDefault: false,
-    },
-  ],
-} = Astro.props;
+const { features = [] as Feature[] } = Astro.props as Props;
 ---
 
 <section class="container-custom py-16" data-theme="light">
