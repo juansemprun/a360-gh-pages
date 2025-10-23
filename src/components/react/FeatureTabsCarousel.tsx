@@ -96,7 +96,6 @@ const FeatureTabsCarousel = ({ features, autoRotateInterval = 5000 }: FeatureTab
                   loop
                   muted
                   playsInline
-                  preload={isActive ? 'auto' : 'none'}
                   aria-label={`Preview of ${tab.heading}`}
                   className="aspect-video h-auto w-full rounded-2xl object-cover shadow-lg"
                 >
