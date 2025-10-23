@@ -1,0 +1,127 @@
+---
+title: Air360へようこそ
+description: Air360は、企業がデータに基づいた意思決定を行うのを支援するために設計されたオールインワンの分析プラットフォームです
+
+# Feature Tabs (Hero Section)
+heroFeatureTabs:
+  - id: 'demo-feature-tab'
+    heading: 'デモ'
+    video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4'
+    isDefault: true
+  - id: 'tutorials-feature-tab'
+    heading: 'チュートリアル'
+    video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4'
+    isDefault: false
+  - id: 'courses-feature-tab'
+    heading: 'コース'
+    description: '全コース'
+    video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4'
+    isDefault: false
+
+# Primary Card Features Section
+primaryCardFeatures:
+  - id: 'feature-1'
+    heading: 'デモ'
+    icon: 'Lightbulb'
+    description: '当社のプラットフォームを他と一線を画す強力な機能をご覧ください。'
+    video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4'
+    isDefault: true
+  - id: 'feature-2'
+    heading: 'チュートリアル'
+    icon: 'ListChecks'
+    description: '最新技術で構築され、最大限の生産性を実現するために設計されています。'
+    video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4'
+    isDefault: false
+  - id: 'feature-3'
+    heading: 'コース'
+    icon: 'Cog'
+    description: '包括的なツールキットとリソースで素晴らしい体験を創造しましょう。'
+    video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4'
+    isDefault: false
+
+# Secondary Card Features Section
+secondaryCardFeatures:
+  - id: 'feature-4'
+    heading: '高度な分析'
+    icon: 'Lightbulb'
+    description: '当社のプラットフォームを他と一線を画す強力な機能をご覧ください。'
+    video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4'
+    isDefault: true
+  - id: 'feature-5'
+    heading: '簡単な統合'
+    icon: 'ListChecks'
+    description: '最新技術で構築され、最大限の生産性を実現するために設計されています。'
+    video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4'
+    isDefault: false
+  - id: 'feature-6'
+    heading: 'エキスパートサポート'
+    icon: 'Cog'
+    description: '包括的なツールキットとリソースで素晴らしい体験を創造しましょう。'
+    video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4'
+    isDefault: false
+---
+
+import FeaturesSection from '@/components/FeaturesSection.astro';
+import Hero from '@/components/Hero.astro';
+import HeroCTAButton from '@/components/ui/hero/HeroCTAButton.astro';
+import HeroFooter from '@/components/ui/hero/HeroFooter.astro';
+import HeroHeader from '@/components/ui/hero/HeroHeader.astro';
+import HeroNote from '@/components/ui/hero/HeroNote.astro';
+import HeroVideoCard from '@/components/ui/hero/HeroVideoCard.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import TwoColumnText from '@/components/TwoColumnText.astro';
+
+<Hero>
+<HeroHeader
+  titleFirstLine="コンバージョンを"
+  titleSecondLine="自動運転に乗せる"
+  subtitle="ほとんどの企業はダッシュボードの海に溺れています。私たちはデータをコンバージョンに変えます。"
+/>
+
+<HeroCTAButton ctaText="始める" />
+
+<HeroNote text="7日間無料トライアル — クレジットカード不要" />
+
+<FeaturesSection variant="tabs" features={frontmatter.heroFeatureTabs} />
+
+<HeroVideoCard
+  title="1分ありますか？Air360を知るのに必要なのはそれだけです"
+  subtitle="ビデオをご覧ください！"
+  thumbnailVideo="https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4"
+  url="https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true"
+/>
+
+<HeroNote text="7日間無料トライアル — クレジットカード不要" />
+
+<HeroFooter />
+
+</Hero>
+
+<FeaturesSection variant="cards" features={frontmatter.primaryCardFeatures} />
+
+<TwoColumnText
+  titleFirstLine="コンバージョンで苦労していませんか？"
+  titleSecondLine="こんなに難しくあるべきではありません"
+>
+  <Fragment slot="left">
+    どの企業もデータを収集しています。山のように。そしてコンバージョン率？相変わらず低いです。
+
+    売上が落ち込むと、誰もが同じ戦略を使います。広告にお金をかけること。トラフィックを増やせば解決する、そう思いますよね？違います。
+
+    **あなたの訪問者の行動が、すでに答えを握っています。一度コンバージョン率を改善すれば、何年にもわたってその効果が続きます。**
+
+  </Fragment>
+
+  <Fragment slot="right">
+    問題は？コンバージョン最適化は難しいのです。ほとんどのツールは複雑で、高価、あるいはその両方です。
+
+    Air360は違います。私たちは、あなたのサイトで実際に何が起こっているかを理解するのを非常に簡単にします。博士号は不要です。ダッシュボード地獄もありません。ただ答えがあるだけです。
+
+    見て回ってください。ビデオをご覧ください。ご連絡ください。お客様になっていただけることを光栄に思います。ありがとうございます。
+
+  </Fragment>
+</TwoColumnText>
+
+<FeaturesSection variant="cards" features={frontmatter.secondaryCardFeatures} />
+
+<Testimonials lang="ja" />

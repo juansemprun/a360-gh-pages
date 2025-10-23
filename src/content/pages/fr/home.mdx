@@ -1,62 +1,62 @@
 ---
-title: Welcome to Air360
-description: Air360 is the all-in-one analytics platform designed to help businesses make data-driven decisions
+title: Bienvenue sur Air360
+description: Air360 est la plateforme d'analyse tout-en-un conçue pour aider les entreprises à prendre des décisions basées sur les données
 
 # Feature Tabs (Hero Section)
 heroFeatureTabs:
   - id: 'demo-feature-tab'
-    heading: 'Demo'
+    heading: 'Démo'
     video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4'
     isDefault: true
   - id: 'tutorials-feature-tab'
-    heading: 'Tutorials'
+    heading: 'Tutoriels'
     video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4'
     isDefault: false
   - id: 'courses-feature-tab'
-    heading: 'Courses'
-    description: 'Complete courses'
+    heading: 'Cours'
+    description: 'Cours complets'
     video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4'
     isDefault: false
 
 # Primary Card Features Section
 primaryCardFeatures:
   - id: 'feature-1'
-    heading: 'Demo'
+    heading: 'Démo'
     icon: 'Lightbulb'
-    description: 'Discover the powerful features that make our platform stand out from the rest.'
+    description: 'Découvrez les fonctionnalités puissantes qui distinguent notre plateforme des autres.'
     video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4'
     isDefault: true
   - id: 'feature-2'
-    heading: 'Tutorials'
+    heading: 'Tutoriels'
     icon: 'ListChecks'
-    description: 'Built with the latest technology and designed for maximum productivity.'
+    description: 'Conçue avec la dernière technologie et pensée pour une productivité maximale.'
     video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4'
     isDefault: false
   - id: 'feature-3'
-    heading: 'Courses'
+    heading: 'Cours'
     icon: 'Cog'
-    description: 'Create amazing experiences with our comprehensive toolkit and resources.'
+    description: 'Créez des expériences incroyables grâce à notre boîte à outils et nos ressources complètes.'
     video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4'
     isDefault: false
 
 # Secondary Card Features Section
 secondaryCardFeatures:
   - id: 'feature-4'
-    heading: 'Advanced Analytics'
+    heading: 'Analyse Avancée'
     icon: 'Lightbulb'
-    description: 'Discover the powerful features that make our platform stand out from the rest.'
+    description: 'Découvrez les fonctionnalités puissantes qui distinguent notre plateforme des autres.'
     video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4'
     isDefault: true
   - id: 'feature-5'
-    heading: 'Easy Integration'
+    heading: 'Intégration Facile'
     icon: 'ListChecks'
-    description: 'Built with the latest technology and designed for maximum productivity.'
+    description: 'Conçue avec la dernière technologie et pensée pour une productivité maximale.'
     video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4'
     isDefault: false
   - id: 'feature-6'
-    heading: 'Expert Support'
+    heading: 'Support Expert'
     icon: 'Cog'
-    description: 'Create amazing experiences with our comprehensive toolkit and resources.'
+    description: 'Créez des expériences incroyables grâce à notre boîte à outils et nos ressources complètes.'
     video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4'
     isDefault: false
 ---
@@ -73,25 +73,25 @@ import TwoColumnText from '@/components/TwoColumnText.astro';
 
 <Hero>
 <HeroHeader
-  titleFirstLine="Put your conversions"
-  titleSecondLine="on autopilot"
-  subtitle="Most companies drown in dashboards. We turn data into conversions."
+  titleFirstLine="Mettez vos conversions"
+  titleSecondLine="en pilote automatique"
+  subtitle="La plupart des entreprises se noient sous les tableaux de bord. Nous transformons les données en conversions."
 />
 
-<HeroCTAButton ctaText="Get Started" />
+<HeroCTAButton ctaText="Commencer" />
 
-<HeroNote text="7-day Free trial — no credit card required" />
+<HeroNote text="Essai gratuit de 7 jours — aucune carte de crédit requise" />
 
 <FeaturesSection variant="tabs" features={frontmatter.heroFeatureTabs} />
 
 <HeroVideoCard
-  title="Got a Minute? That's All You Need to know Air360"
-  subtitle="Watch the video!"
+  title="Vous avez une minute ? C'est tout ce dont vous avez besoin pour connaître Air360"
+  subtitle="Regardez la vidéo !"
   thumbnailVideo="https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4"
   url="https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true"
 />
 
-<HeroNote text="7-day Free trial — no credit card required" />
+<HeroNote text="Essai gratuit de 7 jours — aucune carte de crédit requise" />
 
 <HeroFooter />
 
@@ -100,28 +100,28 @@ import TwoColumnText from '@/components/TwoColumnText.astro';
 <FeaturesSection variant="cards" features={frontmatter.primaryCardFeatures} />
 
 <TwoColumnText
-  titleFirstLine="Struggling with conversions?"
-  titleSecondLine="It shouldn't be this hard"
+  titleFirstLine="Difficultés avec les conversions ?"
+  titleSecondLine="Ça ne devrait pas être si compliqué"
 >
   <Fragment slot="left">
-    Every business collects data. Mountains of it. And conversion rates? Still embarrassingly low.
+    Chaque entreprise collecte des données. Des montagnes de données. Et les taux de conversion ? Toujours embarrassants.
 
-    When sales dip, everyone reaches for the same playbook: throw money at ads. More traffic will fix it, right? Wrong.
+    Quand les ventes baissent, tout le monde sort le même livre de stratégies : jeter de l'argent sur les publicités. Plus de trafic réglera le problème, n'est-ce pas ? Faux.
 
-    **Your visitor behavior already holds the answer. Fix your conversion rate once, and it pays off for years.**
+    **Le comportement de vos visiteurs détient déjà la réponse. Réglez votre taux de conversion une fois, et cela sera rentable pendant des années.**
 
   </Fragment>
 
   <Fragment slot="right">
-    The catch? Conversion optimization is hard. Most tools are complicated, expensive, or both.
+    Le piège ? L'optimisation des conversions est difficile. La plupart des outils sont compliqués, chers, ou les deux.
 
-    Not Air360. We make it dead simple to understand what's actually happening on your site. No PhD required. No dashboard hell. Just answers.
+    Pas Air360. Nous rendons extrêmement simple la compréhension de ce qui se passe réellement sur votre site. Aucun doctorat requis. Pas d'enfer des tableaux de bord. Juste des réponses.
 
-    Poke around. Watch the videos. Get in touch. We'd be honored to have you as a customer. Thank you.
+    Jetez un œil. Regardez les vidéos. Contactez-nous. Nous serions honorés de vous compter parmi nos clients. Merci.
 
   </Fragment>
 </TwoColumnText>
 
 <FeaturesSection variant="cards" features={frontmatter.secondaryCardFeatures} />
 
-<Testimonials lang="en" />
+<Testimonials lang="fr" />
