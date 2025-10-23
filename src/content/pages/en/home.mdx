@@ -85,15 +85,22 @@ import TwoColumnText from '@/components/TwoColumnText.astro';
 
 <HeroNote text="7-day Free trial — no credit card required" />
 
-{/* <FeaturesSection variant="tabs" features={frontmatter.heroFeatureTabs} /> */}
+<FeaturesSection variant="tabs" features={frontmatter.heroFeatureTabs} />
+
+<HeroVideoCard
+  title="Got a Minute? That's All You Need to know Air360"
+  subtitle="Watch the video!"
+  thumbnailVideo="https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4"
+  url="https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true"
+/>
 
 <HeroNote text="7-day Free trial — no credit card required" />
 
-{/* <HeroFooter /> */}
+<HeroFooter />
 
 </Hero>
 
-{/* <FeaturesSection variant="cards" features={frontmatter.primaryCardFeatures} /> */}
+<FeaturesSection variant="cards" features={frontmatter.primaryCardFeatures} />
 
 <TwoColumnText
   titleFirstLine="Struggling with conversions?"
@@ -118,6 +125,6 @@ import TwoColumnText from '@/components/TwoColumnText.astro';
   </Fragment>
 </TwoColumnText>
 
-{/* <FeaturesSection variant="cards" features={frontmatter.secondaryCardFeatures} /> */}
+<FeaturesSection variant="cards" features={frontmatter.secondaryCardFeatures} />
 
-{/* <Testimonials lang="en" /> */}
+<Testimonials lang="en" />
