@@ -1,5 +1,5 @@
 ---
-import FeatureTabsCarousel from '@components/react/FeatureTabsCarousel';
+import FeatureTabsCarousel from '@/components/react/FeatureTabsCarousel';
 
 interface Feature {
   id: string;
@@ -13,13 +13,9 @@ interface Props {
   features?: Feature[];
 }
 
-const { features = [] as Feature[] } = Astro.props as Props;
+const { features = [] as Feature[] } = Astro.props;
 ---
 
-<section class="container-custom py-16" data-theme="light">
-  <div class="container-custom">
-    <div style="will-change: transform; transform: perspective(1200px);">
-      <FeatureTabsCarousel features={features} client:load />
-    </div>
-  </div>
+<section class="w-full py-16" data-theme="light">
+  <FeatureTabsCarousel features={features} client:load />
 </section>

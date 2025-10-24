@@ -17,18 +17,15 @@ interface FeatureTabsCarouselProps {
 const FeatureTabsCarousel = ({ features, autoRotateInterval = 5000 }: FeatureTabsCarouselProps) => {
   const defaultTab = features.find((tab) => tab.isDefault)?.id || features[0].id;
   const [activeTab, setActiveTab] = useState(defaultTab);
-  const [isVisible, setIsVisible] = useState(false);
   const intervalRef = useRef<number | null>(null);
   const videoRefs = useRef<Map<string, HTMLVideoElement>>(new Map());
 
-  // Trigger slide-up animation on mount
-  useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), 100);
-    return () => clearTimeout(timer);
-  }, []);
+  // Function to clear and restart the interval
+  const resetInterval = () => {
+    if (intervalRef.current) {
+      window.clearInterval(intervalRef.current);
+    }
 
-  // Auto-rotate tabs
-  useEffect(() => {
     if (features.length < 2) return;
 
     intervalRef.current = window.setInterval(() => {
@@ -38,6 +35,11 @@ const FeatureTabsCarousel = ({ features, autoRotateInterval = 5000 }: FeatureTab
         return features[nextIndex].id;
       });
     }, autoRotateInterval);
+  };
+
+  // Auto-rotate tabs
+  useEffect(() => {
+    resetInterval();
 
     return () => {
       if (intervalRef.current) {
@@ -50,20 +52,24 @@ const FeatureTabsCarousel = ({ features, autoRotateInterval = 5000 }: FeatureTab
   useEffect(() => {
     videoRefs.current.forEach((video, id) => {
       if (id === activeTab) {
-        // Play the active video
-        video.currentTime = 0; // Reset to start
+        // Load and play the active video
+        video.load(); // Force reload to ensure video is loaded
+        video.currentTime = 0;
         video.play().catch((error) => {
           console.warn('Video play failed:', error);
         });
       } else {
-        // Pause inactive videos
+        // Pause and reset inactive videos
         video.pause();
+        video.currentTime = 0;
       }
     });
   }, [activeTab]);
 
+  // Handle manual tab change (reset interval)
   const handleTabChange = (value: string) => {
     setActiveTab(value);
+    resetInterval(); // Reset the interval when user manually changes tab
   };
 
   const handleVideoRef = (element: HTMLVideoElement | null, tabId: string) => {
@@ -79,59 +85,52 @@ const FeatureTabsCarousel = ({ features, autoRotateInterval = 5000 }: FeatureTab
   }
 
   return (
-    <div
-      className={`transform transition-all duration-1000 ease-out ${
-        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
-      }`}
-      style={{ willChange: 'transform, opacity' }}
-    >
-      <Tabs value={activeTab} onValueChange={handleTabChange} className="items-center gap-10">
-        <TabsList className="flex h-auto flex-row gap-2 bg-transparent md:w-[360px] md:gap-20">
-          {features.map((tab) => (
-            <TabsTrigger
+    <Tabs value={activeTab} onValueChange={handleTabChange} className="items-center gap-10">
+      <TabsList className="flex h-auto flex-row gap-2 bg-transparent md:w-[360px] md:gap-20">
+        {features.map((tab) => (
+          <TabsTrigger
+            key={tab.id}
+            value={tab.id}
+            className="group flex cursor-pointer items-start justify-start gap-4 whitespace-normal rounded-full p-8 px-4 py-1 text-left text-sm font-semibold text-white/50 transition duration-200 hover:text-white data-[state=active]:bg-white/20 data-[state=active]:text-white md:text-base"
+          >
+            {tab.heading}
+          </TabsTrigger>
+        ))}
+      </TabsList>
+
+      <div className="relative w-full">
+        {features.map((tab) => {
+          const isActive = activeTab === tab.id;
+
+          return (
+            <TabsContent
               key={tab.id}
               value={tab.id}
-              className="group flex cursor-pointer items-start justify-start gap-4 whitespace-normal rounded-full p-8 px-4 py-1 text-left text-sm font-semibold text-white/50 transition duration-200 hover:text-white data-[state=active]:bg-white/20 data-[state=active]:text-white md:text-base"
+              forceMount
+              className={`aspect-video transition-opacity duration-500 ${
+                isActive
+                  ? 'relative z-10 opacity-100'
+                  : 'pointer-events-none absolute inset-0 z-0 opacity-0'
+              }`}
             >
-              {tab.heading}
-            </TabsTrigger>
-          ))}
-        </TabsList>
-
-        <div className="relative w-full">
-          {features.map((tab) => {
-            const isActive = activeTab === tab.id;
-
-            return (
-              <TabsContent
-                key={tab.id}
-                value={tab.id}
-                forceMount
-                className={`aspect-video transition-opacity duration-500 ${
-                  isActive
-                    ? 'relative z-10 opacity-100'
-                    : 'pointer-events-none absolute inset-0 z-0 opacity-0'
-                }`}
+              <video
+                ref={(el) => handleVideoRef(el, tab.id)}
+                src={tab.video}
+                poster={tab.poster}
+                loop
+                muted
+                playsInline
+                preload={isActive ? 'auto' : 'metadata'}
+                aria-label={`Preview of ${tab.heading}`}
+                className="aspect-video h-auto w-full rounded-2xl object-cover shadow-lg"
               >
-                <video
-                  ref={(el) => handleVideoRef(el, tab.id)}
-                  src={tab.video}
-                  poster={tab.poster}
-                  loop
-                  muted
-                  playsInline
-                  preload={isActive ? 'auto' : 'none'}
-                  aria-label={`Preview of ${tab.heading}`}
-                  className="aspect-video h-auto w-full rounded-2xl object-cover shadow-lg"
-                >
-                  Your browser does not support the video tag.
-                </video>
-              </TabsContent>
-            );
-          })}
-        </div>
-      </Tabs>
-    </div>
+                Your browser does not support the video tag.
+              </video>
+            </TabsContent>
+          );
+        })}
+      </div>
+    </Tabs>
   );
 };
 
