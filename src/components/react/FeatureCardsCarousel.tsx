@@ -33,8 +33,12 @@ const FeatureCardsCarousel = ({
   const intervalRef = useRef<number | null>(null);
   const videoRefs = useRef<Map<string, HTMLVideoElement>>(new Map());
 
-  // Auto-rotate tabs
-  useEffect(() => {
+  // Function to clear and restart the interval
+  const resetInterval = () => {
+    if (intervalRef.current) {
+      window.clearInterval(intervalRef.current);
+    }
+
     if (features.length < 2) return;
 
     intervalRef.current = window.setInterval(() => {
@@ -44,6 +48,11 @@ const FeatureCardsCarousel = ({
         return features[nextIndex].id;
       });
     }, autoRotateInterval);
+  };
+
+  // Auto-rotate tabs
+  useEffect(() => {
+    resetInterval();
 
     return () => {
       if (intervalRef.current) {
@@ -70,8 +79,10 @@ const FeatureCardsCarousel = ({
     });
   }, [activeTab]);
 
+  // Handle manual tab change (reset interval)
   const handleTabChange = (value: string) => {
     setActiveTab(value);
+    resetInterval(); // Reset the interval when user manually changes tab
   };
 
   const handleVideoRef = (element: HTMLVideoElement | null, tabId: string) => {
@@ -88,11 +99,7 @@ const FeatureCardsCarousel = ({
 
   return (
     <Tabs value={activeTab} onValueChange={handleTabChange} className="gap-5">
-      <TabsList
-        className="bg-background flex h-auto w-full flex-row gap-20"
-        role="tablist"
-        aria-label="Feature Navigation"
-      >
+      <TabsList className="bg-background flex h-auto w-full flex-row gap-20">
         {features.map((tab) => {
           const IconComponent = iconMap[tab.iconName] || Lightbulb;
           const isActive = activeTab === tab.id;
@@ -135,7 +142,7 @@ const FeatureCardsCarousel = ({
               key={tab.id}
               value={tab.id}
               forceMount
-              className={`aspect-video transition-opacity duration-300 ${
+              className={`aspect-video transition-opacity duration-500 ${
                 isActive
                   ? 'relative z-10 opacity-100'
                   : 'pointer-events-none absolute inset-0 z-0 opacity-0'
