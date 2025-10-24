@@ -23,12 +23,15 @@ const { variant = 'tabs', features } = Astro.props as FeatureSectionProps;
 ---
 
 {
-  variant === 'cards' ? (
-    <div>
-      <FeatureCardsSection features={features} />
-      <StaticFeatures features={features} />
-    </div>
-  ) : (
+  variant === 'tabs' ? (
     <FeatureTabsSection features={features} />
+  ) : (
+    <>
+      {/* Desktop: FeatureCardsSection (carousel) */}
+      <FeatureCardsSection features={features} />
+
+      {/* Mobile: StaticFeatures (vertical list) */}
+      <StaticFeatures features={features} />
+    </>
   )
 }

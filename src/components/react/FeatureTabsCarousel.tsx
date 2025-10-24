@@ -19,6 +19,7 @@ const FeatureTabsCarousel = ({ features, autoRotateInterval = 5000 }: FeatureTab
   const [activeTab, setActiveTab] = useState(defaultTab);
   const [isVisible, setIsVisible] = useState(false);
   const intervalRef = useRef<number | null>(null);
+  const videoRefs = useRef<Map<string, HTMLVideoElement>>(new Map());
 
   // Trigger slide-up animation on mount
   useEffect(() => {
@@ -26,6 +27,7 @@ const FeatureTabsCarousel = ({ features, autoRotateInterval = 5000 }: FeatureTab
     return () => clearTimeout(timer);
   }, []);
 
+  // Auto-rotate tabs
   useEffect(() => {
     if (features.length < 2) return;
 
@@ -44,8 +46,32 @@ const FeatureTabsCarousel = ({ features, autoRotateInterval = 5000 }: FeatureTab
     };
   }, [autoRotateInterval, features]);
 
+  // Handle video playback when tab changes
+  useEffect(() => {
+    videoRefs.current.forEach((video, id) => {
+      if (id === activeTab) {
+        // Play the active video
+        video.currentTime = 0; // Reset to start
+        video.play().catch((error) => {
+          console.warn('Video play failed:', error);
+        });
+      } else {
+        // Pause inactive videos
+        video.pause();
+      }
+    });
+  }, [activeTab]);
+
   const handleTabChange = (value: string) => {
     setActiveTab(value);
+  };
+
+  const handleVideoRef = (element: HTMLVideoElement | null, tabId: string) => {
+    if (element) {
+      videoRefs.current.set(tabId, element);
+    } else {
+      videoRefs.current.delete(tabId);
+    }
   };
 
   if (!features?.length) {
@@ -61,17 +87,15 @@ const FeatureTabsCarousel = ({ features, autoRotateInterval = 5000 }: FeatureTab
     >
       <Tabs value={activeTab} onValueChange={handleTabChange} className="items-center gap-10">
         <TabsList className="flex h-auto flex-row gap-2 bg-transparent md:w-[360px] md:gap-20">
-          {features.map((tab) => {
-            return (
-              <TabsTrigger
-                key={tab.id}
-                value={tab.id}
-                className={`group flex cursor-pointer items-start justify-start gap-4 whitespace-normal rounded-full p-8 px-4 py-1 text-left text-sm font-semibold text-white/50 transition duration-200 hover:text-white data-[state=active]:bg-white/20 data-[state=active]:text-white md:text-base`}
-              >
-                {tab.heading}
-              </TabsTrigger>
-            );
-          })}
+          {features.map((tab) => (
+            <TabsTrigger
+              key={tab.id}
+              value={tab.id}
+              className="group flex cursor-pointer items-start justify-start gap-4 whitespace-normal rounded-full p-8 px-4 py-1 text-left text-sm font-semibold text-white/50 transition duration-200 hover:text-white data-[state=active]:bg-white/20 data-[state=active]:text-white md:text-base"
+            >
+              {tab.heading}
+            </TabsTrigger>
+          ))}
         </TabsList>
 
         <div className="relative w-full">
@@ -85,17 +109,18 @@ const FeatureTabsCarousel = ({ features, autoRotateInterval = 5000 }: FeatureTab
                 forceMount
                 className={`aspect-video transition-opacity duration-500 ${
                   isActive
-                    ? 'relative opacity-100'
-                    : 'pointer-events-none absolute inset-0 opacity-0'
+                    ? 'relative z-10 opacity-100'
+                    : 'pointer-events-none absolute inset-0 z-0 opacity-0'
                 }`}
               >
                 <video
+                  ref={(el) => handleVideoRef(el, tab.id)}
                   src={tab.video}
                   poster={tab.poster}
-                  autoPlay
                   loop
                   muted
                   playsInline
+                  preload={isActive ? 'auto' : 'none'}
                   aria-label={`Preview of ${tab.heading}`}
                   className="aspect-video h-auto w-full rounded-2xl object-cover shadow-lg"
                 >

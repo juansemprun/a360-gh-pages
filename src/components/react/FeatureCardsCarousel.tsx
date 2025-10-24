@@ -13,7 +13,7 @@ interface Feature {
   isDefault: boolean;
 }
 
-interface FeatureTabsCarouselProps {
+interface FeatureCardsCarouselProps {
   features: Feature[];
   autoRotateInterval?: number;
 }
@@ -24,11 +24,16 @@ const iconMap = {
   Cog,
 } as const;
 
-const FeatureTabsCarousel = ({ features, autoRotateInterval = 5000 }: FeatureTabsCarouselProps) => {
+const FeatureCardsCarousel = ({
+  features,
+  autoRotateInterval = 5000,
+}: FeatureCardsCarouselProps) => {
   const defaultTab = features.find((tab) => tab.isDefault)?.id || features[0].id;
   const [activeTab, setActiveTab] = useState(defaultTab);
   const intervalRef = useRef<number | null>(null);
+  const videoRefs = useRef<Map<string, HTMLVideoElement>>(new Map());
 
+  // Auto-rotate tabs
   useEffect(() => {
     if (features.length < 2) return;
 
@@ -47,8 +52,34 @@ const FeatureTabsCarousel = ({ features, autoRotateInterval = 5000 }: FeatureTab
     };
   }, [autoRotateInterval, features]);
 
+  // Handle video playback when tab changes
+  useEffect(() => {
+    videoRefs.current.forEach((video, id) => {
+      if (id === activeTab) {
+        // Load and play the active video
+        video.load(); // Force reload to ensure video is loaded
+        video.currentTime = 0;
+        video.play().catch((error) => {
+          console.warn('Video play failed:', error);
+        });
+      } else {
+        // Pause and reset inactive videos
+        video.pause();
+        video.currentTime = 0;
+      }
+    });
+  }, [activeTab]);
+
   const handleTabChange = (value: string) => {
     setActiveTab(value);
+  };
+
+  const handleVideoRef = (element: HTMLVideoElement | null, tabId: string) => {
+    if (element) {
+      videoRefs.current.set(tabId, element);
+    } else {
+      videoRefs.current.delete(tabId);
+    }
   };
 
   if (!features?.length) {
@@ -70,7 +101,7 @@ const FeatureTabsCarousel = ({ features, autoRotateInterval = 5000 }: FeatureTab
             <div key={tab.id} className="relative flex-1">
               <TabsTrigger
                 value={tab.id}
-                className={`group flex w-full cursor-pointer flex-col items-start justify-start gap-4 whitespace-normal rounded-3xl border-0 p-8 text-left opacity-50 !shadow-none transition-opacity duration-300 hover:opacity-100 data-[state=active]:bg-[#f7f8f8] data-[state=active]:opacity-100`}
+                className="group flex w-full cursor-pointer flex-col items-start justify-start gap-4 whitespace-normal rounded-3xl border-0 p-8 text-left opacity-50 !shadow-none transition-opacity duration-300 hover:opacity-100 data-[state=active]:bg-[#f7f8f8] data-[state=active]:opacity-100"
               >
                 <div className="flex items-center gap-3">
                   <span className="flex items-center text-slate-500">
@@ -94,7 +125,7 @@ const FeatureTabsCarousel = ({ features, autoRotateInterval = 5000 }: FeatureTab
         })}
       </TabsList>
 
-      {/* Use TabsContent with all videos always rendered */}
+      {/* Video content area */}
       <div className="relative w-full">
         {features.map((tab) => {
           const isActive = activeTab === tab.id;
@@ -104,17 +135,20 @@ const FeatureTabsCarousel = ({ features, autoRotateInterval = 5000 }: FeatureTab
               key={tab.id}
               value={tab.id}
               forceMount
-              className={`transition-opacity duration-300 ${
-                isActive ? 'relative opacity-100' : 'pointer-events-none absolute inset-0 opacity-0'
+              className={`aspect-video transition-opacity duration-300 ${
+                isActive
+                  ? 'relative z-10 opacity-100'
+                  : 'pointer-events-none absolute inset-0 z-0 opacity-0'
               }`}
             >
               <video
+                ref={(el) => handleVideoRef(el, tab.id)}
                 src={tab.video}
                 poster={tab.poster}
-                autoPlay={isActive}
                 loop
                 muted
                 playsInline
+                preload={isActive ? 'auto' : 'metadata'}
                 aria-label={`Preview of ${tab.heading}`}
                 className="aspect-video h-auto w-full rounded-3xl object-cover shadow-lg"
               >
@@ -128,4 +162,4 @@ const FeatureTabsCarousel = ({ features, autoRotateInterval = 5000 }: FeatureTab
   );
 };
 
-export default FeatureTabsCarousel;
+export default FeatureCardsCarousel;
