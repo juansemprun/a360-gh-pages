@@ -28,49 +28,17 @@ export interface StaticFeaturesProps {
   className?: string;
 }
 
-const {
-  title = 'Title Here',
-  description = 'Some text here',
-  features = [
-    {
-      icon: TicketAirline,
-      heading: 'Demo',
-      description:
-        'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus esse laboriosam',
-      video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
-    },
-    {
-      icon: TicketAirline,
-      title: 'Demo',
-      description:
-        'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus esse laboriosam',
-      video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
-    },
-    {
-      icon: TicketAirline,
-      title: 'Demo',
-      description:
-        'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus esse laboriosam',
-      video: 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
-    },
-  ],
-  className = '',
-} = Astro.props as StaticFeaturesProps;
+const { features = [] as Feature[] } = Astro.props as StaticFeaturesProps;
 ---
 
 <div class="container-custom lg:hidden" data-theme="dark">
   <div class="my-32 flex flex-col md:my-20">
-    <div class="flex flex-col text-center">
-      <h2 class="font-clash-display-bold mb-6 text-5xl text-black md:text-6xl">Title here</h2>
-      <p class="text-2xl font-medium text-slate-600">some text here</p>
-    </div>
     <div class="flex flex-col">
       {
-        features.map(({ heading, description, video, icon: Icon }, index) => (
+        features.map(({ heading, description, video }) => (
           <div class="flex flex-col items-center p-8">
             <div class="flex max-w-80 flex-col items-center gap-2 p-6 text-center">
               <div class="flex items-center gap-2">
-                {/* <Icon width={24} height={24} class="fill-gray-400" /> */}
                 <h3 class="text-xl font-semibold text-slate-900">{heading}</h3>
               </div>
               <p class="max-w-3xs text-center text-base font-medium leading-6 text-slate-600">
