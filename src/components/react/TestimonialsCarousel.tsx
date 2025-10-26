@@ -60,14 +60,14 @@ export function TestimonialsCarousel({
   return (
     <div className="relative mt-16 flex w-full flex-col items-center justify-center gap-4 overflow-hidden">
       {/* First Marquee - Scrolls Right */}
-      <Marquee pauseOnHover className={`[--duration:${scrollSpeed}s]`}>
+      <Marquee pauseOnHover className="[--duration:80s]">
         {firstRow.map((review) => (
           <ReviewCard key={`carousel1-${review.id}`} {...review} />
         ))}
       </Marquee>
 
       {/* Second Marquee - Scrolls Left */}
-      <Marquee reverse pauseOnHover className={`[--duration:${scrollSpeed}s]`}>
+      <Marquee reverse pauseOnHover className="[--duration:80s]">
         {secondRow.map((review) => (
           <ReviewCard key={`carousel2-${review.id}`} {...review} />
         ))}
