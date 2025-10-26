@@ -1,17 +1,23 @@
 import { Check } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 
-import { Button } from '@/components/ui/shadcn/button';
-import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/shadcn/form';
-import { Input } from '@/components/ui/shadcn/input';
+import { Button } from '@/components/ui/react/shadcn/button';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+} from '@/components/ui/react/shadcn/form';
+import { Input } from '@/components/ui/react/shadcn/input';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/shadcn/select';
-import { Textarea } from '@/components/ui/shadcn/textarea';
+} from '@/components/ui/react/shadcn/select';
+import { Textarea } from '@/components/ui/react/shadcn/textarea';
 
 const Contact = () => {
   const form = useForm({

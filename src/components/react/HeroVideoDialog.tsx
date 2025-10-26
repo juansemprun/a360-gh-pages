@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Dialog, DialogContent } from '@/components/ui/shadcn/dialog';
+import { Dialog, DialogContent } from '@/components/ui/react/shadcn/dialog';
 import { Play } from 'lucide-react';
 
 // Props interface

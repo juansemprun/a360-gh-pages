@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Cog, Lightbulb, ListChecks } from 'lucide-react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/shadcn/tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/react/shadcn/tabs';
 
 interface Feature {
   id: string;
