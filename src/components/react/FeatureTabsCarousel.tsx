@@ -91,7 +91,7 @@ const FeatureTabsCarousel = ({ features, autoRotateInterval = 5000 }: FeatureTab
           <TabsTrigger
             key={tab.id}
             value={tab.id}
-            className="group flex cursor-pointer items-start justify-start gap-4 whitespace-normal rounded-full p-8 px-4 py-1 text-left text-sm font-semibold text-white/50 transition duration-200 hover:text-white data-[state=active]:bg-white/20 data-[state=active]:text-white md:text-base"
+            className="group flex cursor-pointer items-start justify-start gap-4 rounded-full p-8 px-4 py-1 text-left text-sm font-semibold text-white/50 transition duration-200 hover:text-white data-[state=active]:bg-white/20 data-[state=active]:text-white md:text-base"
           >
             {tab.heading}
           </TabsTrigger>
