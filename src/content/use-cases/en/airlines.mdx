@@ -25,22 +25,17 @@ import PageHero from '@ui/use-cases/PageHero.astro';
 import VideoSection from '@ui/use-cases/VideoSection.astro';
 
 <PageHero>
-  {
-    <span>
-      Create the best possible <br />
-      <MarkHighlight>online shopping</MarkHighlight> experience
-    </span>
-  }
+  <span class="block"></span>
+  Create the best possible
+  <span class="block">
+    <MarkHighlight>online shopping</MarkHighlight> experience
+  </span>
 </PageHero>
 
 <Highlights highlightsList={frontmatter.highlights} />
 
 <VideoSection videoSrc={frontmatter.video.url}>
-  {
-    <span>
-      Want to see how <MarkHighlight>easy</MarkHighlight> it is?
-    </span>
-  }
+  Want to see how <MarkHighlight>easy</MarkHighlight> it is?
 </VideoSection>
 
 <HighlightsSummary highlightsList={frontmatter.highlights} />
