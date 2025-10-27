@@ -36,7 +36,7 @@ const { testimonials } = Astro.props;
   <div class="flex flex-col items-center gap-6">
     <h2
       id="testimonials-heading"
-      class="font-clash-display-bold mb-2 text-center text-2xl text-slate-700 lg:text-5xl"
+      class="font-clash-display-bold mb-2 text-center text-xl text-slate-700 md:text-5xl"
     >
       <span class="block">{testimonials.heading.line1}</span>
       <span class="block">
@@ -44,17 +44,17 @@ const { testimonials } = Astro.props;
       </span>
     </h2>
 
-    <p class="text-muted-foreground text-center lg:text-lg">
+    <p class="text-muted-foreground text-center text-sm">
       <span>{testimonials.subheading}</span>
       <span>{testimonials.subheading2}</span>
     </p>
 
     <div
-      class="animate-rotate-border glow-border relative mt-5 w-80 max-w-sm cursor-pointer rounded-xl p-[4px] transition-all duration-500 ease-out hover:scale-[1.03]"
+      class="animate-rotate-border glow-border relative mt-5 w-56 cursor-pointer rounded-xl p-0.5 transition-all duration-500 ease-out hover:scale-[1.03] md:w-80 md:max-w-sm"
     >
       <a
         href={testimonials.ctaUrl}
-        class="block rounded-lg border bg-white px-4 py-4 text-center text-lg text-slate-700"
+        class="block rounded-lg border bg-white px-1 py-4 text-center text-lg text-slate-700 md:px-4 md:py-4"
       >
         <span class="text-lg font-semibold">{testimonials.ctaText}</span>
       </a>
