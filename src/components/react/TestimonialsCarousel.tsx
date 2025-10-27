@@ -25,7 +25,7 @@ const ReviewCard = ({
   body: string;
 }) => {
   return (
-    <figure className="relative h-full w-fit max-w-xl cursor-pointer overflow-hidden rounded-xl border border-gray-950/[.1] bg-gray-950/[.01] p-6 hover:bg-gray-950/[.05]">
+    <figure className="relative h-full w-fit max-w-lg cursor-pointer overflow-hidden rounded-xl border border-gray-950/[.1] bg-gray-950/[.01] p-6 hover:bg-gray-950/[.05]">
       <div className="flex flex-row items-center gap-2">
         {/* <img
           className="rounded-full"
