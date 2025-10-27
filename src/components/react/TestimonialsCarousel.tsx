@@ -39,7 +39,7 @@ const ReviewCard = ({
           <span className="text-xs text-gray-500">{client}</span>
         </div>
       </div>
-      <blockquote className="mt-4 text-sm">{body}</blockquote>
+      <blockquote className="mt-4 line-clamp-4 text-sm">{body}</blockquote>
     </figure>
   );
 };
