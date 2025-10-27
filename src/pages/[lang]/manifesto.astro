@@ -1,10 +1,10 @@
 ---
 import { getEntry, render } from 'astro:content';
 
-import { languageCodes } from '@config/language';
+import { languageCodes } from '@/config/language';
 
-import BaseLayout from '@layouts/BaseLayout.astro';
-import UnderlineTextDecoration from '@assets/graphics/underline-text-decoration.svg';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import GradientText from '@/components/ui/GradientText.astro';
 
 const { lang } = Astro.params;
 const manifestoEntry = await getEntry('pages', `${lang}/manifesto`);
@@ -29,12 +29,11 @@ const { Content } = await render(manifestoEntry);
   <div class="container-custom">
     <section class="mx-auto my-24 max-w-4xl px-5 md:my-36" data-theme="dark">
       <div class="mb-8 flex flex-col items-center">
-        <h1
-          class="font-clash-display-bold mb-8 text-center text-4xl leading-tight text-slate-800 md:text-6xl"
-        >
-          {title}
-          <UnderlineTextDecoration class="mx-auto mt-2 max-w-96" />
-        </h1>
+        <GradientText>
+          <h1 class="font-clash-display-bold mb-8 text-center text-4xl leading-tight md:text-6xl">
+            {title}
+          </h1>
+        </GradientText>
       </div>
       <div class="prose prose-lg max-w-4xl text-lg leading-8 text-slate-700 md:text-lg">
         <Content />
