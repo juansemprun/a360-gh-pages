@@ -6,6 +6,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
+      "@blog-assets/*": ["src/assets/images/blog/*"],
+      "@changelog-assets/*": ["src/assets/images/changelog/*"],
       "@assets/*": ["src/assets/*"],
       "@components/*": ["src/components/*"],
       "@config/*": ["src/config/*"],
