@@ -17,12 +17,12 @@ highlights:
     text: Ensure guests find the rooms and services they love with ease. Air360 optimize visibility to keep them engaged and ready to book.
 ---
 
-import CallToAction from '@ui/use-cases/CallToAction.astro';
-import Highlights from '@ui/use-cases/Highlights.astro';
-import HighlightsSummary from '@ui/use-cases/HighlightsSummary.astro';
-import MarkHighlight from '@ui/use-cases/MarkHighlight.astro';
-import PageHero from '@ui/use-cases/PageHero.astro';
-import VideoSection from '@ui/use-cases/VideoSection.astro';
+import CallToAction from '@/components/ui/use-cases/CallToAction.astro';
+import Highlights from '@/components/ui/use-cases/Highlights.astro';
+import HighlightsSummary from '@/components/ui/use-cases/HighlightsSummary.astro';
+import MarkHighlight from '@/components/ui/use-cases/MarkHighlight.astro';
+import PageHero from '@/components/ui/use-cases/PageHero.astro';
+import VideoSection from '@/components/ui/use-cases/VideoSection.astro';
 
 <PageHero>
   <span class="block">Create the best possible</span>
@@ -36,5 +36,7 @@ import VideoSection from '@ui/use-cases/VideoSection.astro';
 <VideoSection videoSrc={frontmatter.video.url}>
   Want to see how <MarkHighlight>easy</MarkHighlight> it is?
 </VideoSection>
+
+<HighlightsSummary highlightsList={frontmatter.highlights} />
 
 <CallToAction />
