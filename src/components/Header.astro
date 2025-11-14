@@ -1,7 +1,6 @@
 ---
 import Logo from '@/assets/images/svg/logo.svg';
 
-import LanguagePicker from '@components/ui/LanguagePicker.astro';
 import {
   DesktopAboutUsDropdown,
   DesktopFeaturesDropdown,
@@ -37,8 +36,6 @@ const { lang } = Astro.props;
           <li class="transition-colors duration-300 hover:text-gray-400">
             <a href={`/website/${lang}/testimonials`}> Testimonials </a>
           </li>
-
-          <LanguagePicker lang={lang} />
         </ul>
       </div>
 
