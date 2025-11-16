@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { Dialog, DialogContent } from '@/components/ui/react/shadcn/dialog';
+import { Dialog, DialogTitle, DialogContent } from '@/components/ui/react/shadcn/dialog';
 import { Play } from 'lucide-react';
 
 // Props interface
 interface HeroVideoDialogProps {
-  url: string; // Full Loom embed URL (with parameters)
+  url: string; // Full Loom/Tella embed URL (with parameters)
   thumbnailVideo: string; // Direct MP4/WebM URL for thumbnail preview (always present)
   title?: string;
   subtitle?: string;
@@ -22,7 +22,7 @@ const HeroVideoDialog = ({
     <>
       {/* Card Preview with Play Icon Overlay, always shows video */}
       <div
-        className="flex h-28 cursor-pointer items-center gap-6"
+        className="flex cursor-pointer items-center gap-6"
         onClick={() => setIsOpen(true)}
         tabIndex={0}
         role="button"
@@ -38,20 +38,25 @@ const HeroVideoDialog = ({
             playsInline
             preload="metadata"
             aria-label={`Video preview for: ${title}`}
-            className="aspect-video h-16 w-28 rounded-lg object-cover md:h-28 md:w-48"
+            className="aspect-video h-full w-64 rounded-lg object-cover"
           />
           {/* Play Icon Overlay (always shown) */}
           <span className="pointer-events-none absolute inset-0 flex items-center justify-center">
-            <Play className="size-10 rounded-full bg-white fill-black p-2 text-slate-700 drop-shadow-lg hover:animate-bounce" />
+            <Play className="size-16 rounded-full fill-white stroke-white p-2 hover:animate-bounce" />
           </span>
         </div>
         <div>
-          <h3 className="mb-2 text-sm font-semibold text-white md:text-2xl">{title}</h3>
-          <p className="text-xs font-medium text-white/60 md:text-xl">{subtitle}</p>
+          <h3 className="mb-2 text-base font-semibold text-white sm:text-sm md:text-2xl">
+            {title}
+          </h3>
+          <p className="text-sm font-medium text-white/60 sm:text-xs md:text-xl">{subtitle}</p>
         </div>
       </div>
       {/* Dialog Modal w/ Full Video Embed */}
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
+        <DialogTitle className="text-mauve12 m-0 hidden text-[17px] font-medium">
+          Watch the video
+        </DialogTitle>
         <DialogContent className="border-none bg-transparent sm:max-w-[800px]">
           <div className="aspect-video w-full">
             <iframe
