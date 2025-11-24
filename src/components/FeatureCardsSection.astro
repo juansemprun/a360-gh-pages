@@ -1,5 +1,6 @@
 ---
 import FeatureCardsCarousel from '@components/react/FeatureCardsCarousel';
+import FeatureCardsImageCarousel from '@components/react/FeatureCardsImageCarousel';
 
 interface Feature {
   id: string;
@@ -27,6 +28,7 @@ const serializedFeatures = features?.map((feature) => ({
 
 <section class="container-custom hidden py-32 lg:block" data-theme="dark">
   <!-- <div class="container-custom"> -->
-  <FeatureCardsCarousel features={serializedFeatures} client:load />
+  <!-- <FeatureCardsCarousel features={serializedFeatures} client:load /> -->
+  <FeatureCardsImageCarousel features={serializedFeatures} client:load />
   <!-- </div> -->
 </section>
