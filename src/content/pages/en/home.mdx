@@ -41,26 +41,9 @@ primaryCardFeatures:
     url: /website/images/data-driven-decision.webp
     isDefault: false
 
-# Secondary Card Features Section
-secondaryCardFeatures:
-  - id: feature-4
-    heading: Advanced Analytics
-    icon: Lightbulb
-    description: Discover the powerful features that make our platform stand out from the rest.
-    video: https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4
-    isDefault: true
-  - id: feature-5
-    heading: Easy Integration
-    icon: ListChecks
-    description: Built with the latest technology and designed for maximum productivity.
-    video: https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4
-    isDefault: false
-  - id: feature-6
-    heading: Expert Support
-    icon: Cog
-    description: Create amazing experiences with our comprehensive toolkit and resources.
-    video: https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4
-    isDefault: false
+video:
+  title: Air360 Overview
+  url: https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true
 
 # Testimonials Section
 testimonials:
@@ -145,7 +128,6 @@ testimonials:
       img: https://avatar.vercel.sh/james
 ---
 
-import FeaturesSection from '@/components/FeaturesSection.astro';
 import Hero from '@/components/Hero.astro';
 import HeroCTAButton from '@/components/ui/hero/HeroCTAButton.astro';
 import HeroFooter from '@/components/ui/hero/HeroFooter.astro';
@@ -153,6 +135,8 @@ import HeroHeader from '@/components/ui/hero/HeroHeader.astro';
 import HeroVideoCard from '@/components/ui/hero/HeroVideoCard.astro';
 import Testimonials from '@/components/Testimonials.astro';
 import TwoColumnText from '@/components/TwoColumnText.astro';
+import VideoSection from '@/components/ui/use-cases/VideoSection.astro';
+import FeaturesSection from '@/components/FeaturesSection.astro';
 
 <Hero>
 <HeroHeader
@@ -201,6 +185,8 @@ import TwoColumnText from '@/components/TwoColumnText.astro';
   </Fragment>
 </TwoColumnText>
 
-<FeaturesSection variant="cards" features={frontmatter.secondaryCardFeatures} />
+<div class="container-custom mx-auto my-32 md:my-20">
+  <VideoSection videoSrc={frontmatter.video.url}></VideoSection>
+</div>
 
 <Testimonials testimonials={frontmatter.testimonials} />
