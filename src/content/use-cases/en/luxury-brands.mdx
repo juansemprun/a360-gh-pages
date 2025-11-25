@@ -17,18 +17,28 @@ highlights:
     text: Ensure guests find the rooms and services they love with ease. Air360 optimize visibility to keep them engaged and ready to book.
 ---
 
-import CallToAction from '@ui/use-cases/CallToAction.astro';
-import Highlights from '@ui/use-cases/Highlights.astro';
-import HighlightsSummary from '@ui/use-cases/HighlightsSummary.astro';
-import MarkHighlight from '@ui/use-cases/MarkHighlight.astro';
-import PageHero from '@ui/use-cases/PageHero.astro';
-import VideoSection from '@ui/use-cases/VideoSection.astro';
+import CallToAction from '@/components/ui/use-cases/CallToAction.astro';
+import Highlights from '@/components/ui/use-cases/Highlights.astro';
+import HighlightsSummary from '@/components/ui/use-cases/HighlightsSummary.astro';
+import MarkHighlight from '@/components/ui/use-cases/MarkHighlight.astro';
+import PageHero from '@/components/ui/use-cases/PageHero.astro';
+import Testimonial from '@/components/ui/use-cases/Testimonial.astro';
+import VideoSection from '@/components/ui/use-cases/VideoSection.astro';
+
+import BusinessAndDecisions from '@/assets/images/partners/business-and-decision.svg';
 
 <PageHero>
-  <span class="block">Create the best possible</span>
-  <span class="block">
+  <span class="block" slot="title">Create the best possible</span>
+  <span class="block" slot="title">
     <MarkHighlight>online shopping</MarkHighlight> experience
   </span>
+
+  <Testimonial
+    Logo={BusinessAndDecisions}
+    quote="The tool is quick and easy to use for UX analysis and is highly appreciated by our teams."
+    attribution="Fabrice Ruer, Business & Decision"
+    slot="testimonial"
+  />
 </PageHero>
 
 <Highlights highlightsList={frontmatter.highlights} />

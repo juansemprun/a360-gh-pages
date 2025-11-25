@@ -17,18 +17,28 @@ highlights:
     text: Make fan-favorite items easy to find and impossible to resist. Air360 optimize visibility to keep sales high and fans happy.
 ---
 
-import CallToAction from '@ui/use-cases/CallToAction.astro';
-import Highlights from '@ui/use-cases/Highlights.astro';
-import HighlightsSummary from '@ui/use-cases/HighlightsSummary.astro';
-import MarkHighlight from '@ui/use-cases/MarkHighlight.astro';
-import PageHero from '@ui/use-cases/PageHero.astro';
-import VideoSection from '@ui/use-cases/VideoSection.astro';
+import CallToAction from '@/components/ui/use-cases/CallToAction.astro';
+import Highlights from '@/components/ui/use-cases/Highlights.astro';
+import HighlightsSummary from '@/components/ui/use-cases/HighlightsSummary.astro';
+import MarkHighlight from '@/components/ui/use-cases/MarkHighlight.astro';
+import PageHero from '@/components/ui/use-cases/PageHero.astro';
+import Testimonial from '@/components/ui/use-cases/Testimonial.astro';
+import VideoSection from '@/components/ui/use-cases/VideoSection.astro';
+
+import { Asendia } from '@/assets/brand-logos';
 
 <PageHero>
-  <span class="block">Create the best possible</span>
-  <span class="block">
+  <span class="block" slot="title">Create the best possible</span>
+  <span class="block" slot="title">
     <MarkHighlight>online shopping</MarkHighlight> experience
   </span>
+
+  <Testimonial
+    Logo={Asendia}
+    quote="We needed a tool that can help us in accelerating our digital transformation and understanding our user journeys.  Air360 is the tool we were looking for."
+    attribution="Andre Maurer, Asendia"
+    slot="testimonial"
+  />
 </PageHero>
 
 <Highlights highlightsList={frontmatter.highlights} />

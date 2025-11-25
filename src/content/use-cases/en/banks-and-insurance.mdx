@@ -17,18 +17,28 @@ highlights:
     text: Help customers find the policies, plans, or products they need without confusion. Air360 optimize navigation to keep satisfaction high and bounce rates low.
 ---
 
-import CallToAction from '@ui/use-cases/CallToAction.astro';
-import Highlights from '@ui/use-cases/Highlights.astro';
-import HighlightsSummary from '@ui/use-cases/HighlightsSummary.astro';
-import MarkHighlight from '@ui/use-cases/MarkHighlight.astro';
-import PageHero from '@ui/use-cases/PageHero.astro';
-import VideoSection from '@ui/use-cases/VideoSection.astro';
+import CallToAction from '@/components/ui/use-cases/CallToAction.astro';
+import Highlights from '@/components/ui/use-cases/Highlights.astro';
+import HighlightsSummary from '@/components/ui/use-cases/HighlightsSummary.astro';
+import MarkHighlight from '@/components/ui/use-cases/MarkHighlight.astro';
+import PageHero from '@/components/ui/use-cases/PageHero.astro';
+import Testimonial from '@/components/ui/use-cases/Testimonial.astro';
+import VideoSection from '@/components/ui/use-cases/VideoSection.astro';
+
+import { Empruntis } from '@/assets/brand-logos';
 
 <PageHero>
-  <span class="block">Build trust through</span>
-  <span class="block">
+  <span class="block" slot="title">Build trust through</span>
+  <span class="block" slot="title">
     effortless <MarkHighlight>online finance</MarkHighlight> experiences
   </span>
+
+  <Testimonial
+    Logo={Empruntis}
+    quote="It's a great product that is constantly evolving and very promising!"
+    attribution="Aurélie Condamine, Empruntis"
+    slot="testimonial"
+  />
 </PageHero>
 
 <Highlights highlightsList={frontmatter.highlights} />

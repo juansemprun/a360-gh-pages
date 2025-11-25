@@ -22,13 +22,26 @@ import Highlights from '@/components/ui/use-cases/Highlights.astro';
 import HighlightsSummary from '@/components/ui/use-cases/HighlightsSummary.astro';
 import MarkHighlight from '@/components/ui/use-cases/MarkHighlight.astro';
 import PageHero from '@/components/ui/use-cases/PageHero.astro';
+import Testimonial from '@/components/ui/use-cases/Testimonial.astro';
 import VideoSection from '@/components/ui/use-cases/VideoSection.astro';
 
+import { Okaidi } from '@/assets/brand-logos';
+
 <PageHero>
-  <span class="block">Create the best possible</span>
-  <span class="block">
-    <MarkHighlight>online shopping</MarkHighlight> experience
-  </span>
+
+<span class="block" slot="title">
+  Create the best possible
+</span>
+<span class="block" slot="title">
+  <MarkHighlight>online shopping</MarkHighlight> experience
+</span>
+
+  <Testimonial
+    Logo={Okaidi}
+    quote="I can say that the product is constantly evolving in line with current e-commerce issues and challenges, and the team is committed to developing the CRO approach."
+    attribution="Enguerran Bachelot, Okaidi"
+    slot="testimonial"
+  />
 </PageHero>
 
 <Highlights highlightsList={frontmatter.highlights} />

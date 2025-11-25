@@ -17,18 +17,28 @@ highlights:
     text: Help customers effortlessly discover your iconic pieces and keep them engaged. Air360 ensure your products shine in the spotlight where they belong.
 ---
 
-import CallToAction from '@ui/use-cases/CallToAction.astro';
-import Highlights from '@ui/use-cases/Highlights.astro';
-import HighlightsSummary from '@ui/use-cases/HighlightsSummary.astro';
-import MarkHighlight from '@ui/use-cases/MarkHighlight.astro';
-import PageHero from '@ui/use-cases/PageHero.astro';
-import VideoSection from '@ui/use-cases/VideoSection.astro';
+import CallToAction from '@/components/ui/use-cases/CallToAction.astro';
+import Highlights from '@/components/ui/use-cases/Highlights.astro';
+import HighlightsSummary from '@/components/ui/use-cases/HighlightsSummary.astro';
+import MarkHighlight from '@/components/ui/use-cases/MarkHighlight.astro';
+import PageHero from '@/components/ui/use-cases/PageHero.astro';
+import Testimonial from '@/components/ui/use-cases/Testimonial.astro';
+import VideoSection from '@/components/ui/use-cases/VideoSection.astro';
+
+import { ClubMed } from '@/assets/brand-logos';
 
 <PageHero>
-  <span class="block">Create the best possible</span>
-  <span class="block">
+  <span class="block" slot="title">Create the best possible</span>
+  <span class="block" slot="title">
     <MarkHighlight>online booking</MarkHighlight> experience
   </span>
+
+  <Testimonial
+    Logo={ClubMed}
+    quote="With Air360 we can get more people involved in making data-driven decisions on a global scale."
+    attribution="Nelson Fernandes, ClubMed"
+    slot="testimonial"
+  />
 </PageHero>
 
 <Highlights highlightsList={frontmatter.highlights} />

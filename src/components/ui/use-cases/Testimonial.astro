@@ -1,13 +1,23 @@
 ---
-import { AirCaraibes } from '@assets/brand-logos';
+interface Props {
+  Logo: any;
+  quote: string;
+  attribution: string;
+  logoWidth?: string;
+  logoHeight?: string;
+}
+
+const { Logo, quote, attribution, logoWidth = '50', logoHeight = '20' } = Astro.props;
 ---
 
 <section class="my-20 flex flex-col items-center">
-  <blockquote class="mb-6 max-w-xl text-center text-xl italic text-gray-300 md:text-3xl">
-    "It's impressive how easy and fast it is to get insights using Air360!"
+  <blockquote
+    class="mb-6 max-w-3xl text-balance text-center text-xl italic text-gray-300 md:text-3xl"
+  >
+    "{quote}"
   </blockquote>
   <div class="flex items-center gap-2 text-base">
-    <AirCaraibes class="w-25 pr-3" width="50" height="15" />
-    <span class="border-l-2 pl-3 font-medium text-gray-300"> Maelys, Air Caraibes</span>
+    <Logo class="w-25 h-fit pr-3" width={logoWidth} height={logoHeight} />
+    <span class="border-l-2 pl-3 font-medium text-gray-300">{attribution}</span>
   </div>
 </section>
