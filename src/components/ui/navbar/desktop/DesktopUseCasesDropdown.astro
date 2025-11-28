@@ -29,20 +29,20 @@ const useCasesByUseCase = entry?.data.useCasesNav?.useCase || [];
   <div
     role="menu"
     aria-label="Use Cases menu"
-    class="invisible fixed left-1/2 max-w-3xl -translate-x-1/2 -translate-y-2.5 scale-95 transform rounded-2xl bg-white opacity-0 duration-300 group-hover/dropdown:visible group-hover/dropdown:-translate-x-1/2 group-hover/dropdown:translate-y-0 group-hover/dropdown:scale-100 group-hover/dropdown:transform group-hover/dropdown:opacity-100 group-hover/dropdown:duration-300"
+    class="min-w-4xl invisible fixed left-1/2 -translate-x-1/2 -translate-y-2.5 scale-95 transform rounded-2xl bg-white opacity-0 shadow-md ring ring-black/5 duration-300 group-hover/dropdown:visible group-hover/dropdown:-translate-x-1/2 group-hover/dropdown:translate-y-0 group-hover/dropdown:scale-100 group-hover/dropdown:transform group-hover/dropdown:opacity-100 group-hover/dropdown:duration-300"
   >
     <div class="flex flex-row gap-8">
       <div class="flex-1/2 rounded-2xl p-8 pr-0">
         <h3 class="mb-5 text-xs font-semibold uppercase tracking-wider text-gray-400">
-          {entry?.data?.sectionTitles?.useCase}
+          {entry?.data?.sectionTitles?.industry}
         </h3>
         <div class="grid grid-cols-2 gap-x-8">
           {
-            useCasesByUseCase.map(({ icon, label, link }) => (
+            useCasesByIndustry.map(({ icon, label, link }) => (
               <a
                 href={`/${lang}${link}`}
                 role="menuitem"
-                class="group flex gap-2 rounded-xl py-4 transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:cursor-pointer hover:bg-slate-50"
+                class="hover:shadow-xs group flex gap-1 rounded-lg px-2 py-4 transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:cursor-pointer hover:bg-slate-50 hover:ring hover:ring-black/5"
               >
                 <Icon
                   name={icon}
@@ -50,10 +50,8 @@ const useCasesByUseCase = entry?.data.useCasesNav?.useCase || [];
                   height="20"
                   class="group-hover:fill-primary-500 mx-1.5 flex justify-center fill-gray-400 transition-colors"
                 />
-                <div class="gap-2">
-                  <h4 class="text-sm text-black">{label}</h4>
-                  <p class="text-xs text-gray-500">Lorem ipsum dolor</p>
-                </div>
+                <wa-icon name="building" variant="regular" />
+                <h4 class="text-sm text-black">{label}</h4>
               </a>
             ))
           }
@@ -61,13 +59,13 @@ const useCasesByUseCase = entry?.data.useCasesNav?.useCase || [];
       </div>
       <div class="rounded-br-2xl rounded-tr-2xl bg-slate-50 p-8">
         <h3 class="mb-5 text-xs font-semibold uppercase tracking-wider text-gray-400">
-          {entry?.data?.sectionTitles?.industry}
+          {entry?.data?.sectionTitles?.useCase}
         </h3>
         <div class="gap-2">
           {
-            useCasesByIndustry.map(({ icon, label, link }) => (
+            useCasesByUseCase.map(({ icon, label, link }) => (
               <a href={`/website/${lang}${link}`} role="menuitem">
-                <div class="group flex cursor-pointer gap-2 rounded-xl py-4 transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-slate-50">
+                <div class="group flex cursor-pointer gap-2 rounded-lg px-2 py-4 transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-white/80 hover:ring hover:ring-black/5">
                   <div class="group-hover:fill-primary-500 flex justify-center fill-gray-400 transition-colors">
                     <Icon name={icon} width="20" height="20" />
                   </div>
