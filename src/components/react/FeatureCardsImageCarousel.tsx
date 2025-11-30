@@ -1,10 +1,12 @@
+// Start - src/components/react/FeatureCardsImageCarousel.tsx
+
 import { useState, useEffect, useRef } from 'react';
-import { Cog, Lightbulb, ListChecks } from 'lucide-react';
+import { Lightbulb, Route, Sparkles, ChartLine } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/react/shadcn/tabs';
 
 interface Feature {
   id: string;
-  icon?: any;
+  icon: string;
   heading: string;
   description: string;
   video?: string;
@@ -19,9 +21,9 @@ interface FeatureCardsCarouselProps {
 }
 
 const iconMap = {
-  Lightbulb,
-  ListChecks,
-  Cog,
+  Route,
+  Sparkles,
+  ChartLine,
 } as const;
 
 const FeatureCardsImagesCarousel = ({
@@ -30,10 +32,8 @@ const FeatureCardsImagesCarousel = ({
 }: FeatureCardsCarouselProps) => {
   const defaultTab = features.find((tab) => tab.isDefault)?.id || features[0].id;
   const [activeTab, setActiveTab] = useState(defaultTab);
-  const [imagesLoaded, setImagesLoaded] = useState<Set<string>>(new Set());
   const intervalRef = useRef<number | null>(null);
 
-  // Function to clear and restart the interval
   const resetInterval = () => {
     if (intervalRef.current) {
       window.clearInterval(intervalRef.current);
@@ -50,7 +50,7 @@ const FeatureCardsImagesCarousel = ({
     }, autoRotateInterval);
   };
 
-  // Auto-rotate tabs
+  // Cleanup interval on unmount
   useEffect(() => {
     resetInterval();
 
@@ -59,23 +59,22 @@ const FeatureCardsImagesCarousel = ({
         window.clearInterval(intervalRef.current);
       }
     };
-  }, [autoRotateInterval, features]);
+  }, [features, autoRotateInterval]);
 
-  // Preload images on mount
-  // useEffect(() => {
-  //   features.forEach((feature) => {
-  //     const url = new Image();
-  //     url.src = feature.video;
-  //     url.onload = () => {
-  //       setImagesLoaded((prev) => new Set(prev).add(feature.id));
-  //     };
-  //   });
-  // }, [features]);
-
-  // Handle manual tab change (reset interval)
   const handleTabChange = (value: string) => {
     setActiveTab(value);
     resetInterval();
+  };
+
+  // Optional logging for development
+  const getIconComponent = (iconName: string) => {
+    const icon = iconMap[iconName as keyof typeof iconMap];
+
+    if (!icon && import.meta.env.DEV) {
+      console.warn(`Icon "${iconName}" not found in iconMap. Using fallback (Lightbulb).`);
+    }
+
+    return icon || Lightbulb;
   };
 
   if (!features?.length) {
@@ -86,7 +85,7 @@ const FeatureCardsImagesCarousel = ({
     <Tabs value={activeTab} onValueChange={handleTabChange} className="gap-5">
       <TabsList className="bg-background flex h-auto w-full flex-row gap-20">
         {features.map((tab) => {
-          const IconComponent = Lightbulb;
+          const IconComponent = getIconComponent(tab.icon);
           const isActive = activeTab === tab.id;
 
           return (
@@ -96,7 +95,11 @@ const FeatureCardsImagesCarousel = ({
                 className="group flex w-full cursor-pointer flex-col items-start justify-start gap-4 whitespace-normal rounded-3xl border-0 p-8 text-left opacity-50 !shadow-none transition-opacity duration-300 hover:opacity-100 data-[state=active]:bg-[#f7f8f8] data-[state=active]:opacity-100"
               >
                 <div className="flex items-center gap-3">
-                  <span className="flex items-center text-slate-500" aria-hidden="true">
+                  <span
+                    className="flex items-center text-slate-500"
+                    aria-label={`${tab.heading} icon`}
+                    role="img"
+                  >
                     <IconComponent className="text-s size-6" />
                   </span>
                   <p className="text-xl font-semibold text-slate-800">{tab.heading}</p>

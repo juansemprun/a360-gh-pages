@@ -4,7 +4,7 @@ import FeatureCardsImageCarousel from '@components/react/FeatureCardsImageCarous
 
 interface Feature {
   id: string;
-  icon?: any;
+  icon: string;
   heading: string;
   description: string;
   video: string;
@@ -18,17 +18,11 @@ interface Props {
 }
 
 const { features = [] as Feature[] } = Astro.props as Props;
-
-// Serialize features for the React component (convert icon components to strings)
-const serializedFeatures = features?.map((feature) => ({
-  ...feature,
-  iconName: feature.icon || 'Lightbulb', // Extract icon name
-}));
 ---
 
 <section class="container-custom hidden py-32 lg:block" data-theme="dark">
   <!-- <div class="container-custom"> -->
   <!-- <FeatureCardsCarousel features={serializedFeatures} client:load /> -->
-  <FeatureCardsImageCarousel features={serializedFeatures} client:load />
+  <FeatureCardsImageCarousel features={features} client:load />
   <!-- </div> -->
 </section>
