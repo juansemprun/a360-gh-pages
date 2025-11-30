@@ -1,5 +1,3 @@
-// Start - src/components/react/FeatureTabsCarousel.tsx
-
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/react/shadcn/tabs';
 
@@ -131,5 +129,3 @@ const FeatureTabsCarousel = ({ features, autoRotateInterval = 5000 }: FeatureTab
 };
 
 export default FeatureTabsCarousel;
-
-// End - src/components/react/FeatureTabsCarousel.tsx
