@@ -1,4 +1,6 @@
-import { useState, useEffect, useRef } from 'react';
+// Start - src/components/react/FeatureTabsCarousel.tsx
+
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/react/shadcn/tabs';
 
 interface Feature {
@@ -20,8 +22,7 @@ const FeatureTabsCarousel = ({ features, autoRotateInterval = 5000 }: FeatureTab
   const intervalRef = useRef<number | null>(null);
   const videoRefs = useRef<Map<string, HTMLVideoElement>>(new Map());
 
-  // Function to clear and restart the interval
-  const resetInterval = () => {
+  const resetInterval = useCallback(() => {
     if (intervalRef.current) {
       window.clearInterval(intervalRef.current);
     }
@@ -35,9 +36,8 @@ const FeatureTabsCarousel = ({ features, autoRotateInterval = 5000 }: FeatureTab
         return features[nextIndex].id;
       });
     }, autoRotateInterval);
-  };
+  }, [features, autoRotateInterval]);
 
-  // Auto-rotate tabs
   useEffect(() => {
     resetInterval();
 
@@ -46,30 +46,26 @@ const FeatureTabsCarousel = ({ features, autoRotateInterval = 5000 }: FeatureTab
         window.clearInterval(intervalRef.current);
       }
     };
-  }, [autoRotateInterval, features]);
+  }, [resetInterval]);
 
   // Handle video playback when tab changes
   useEffect(() => {
     videoRefs.current.forEach((video, id) => {
       if (id === activeTab) {
-        // Load and play the active video
-        video.load(); // Force reload to ensure video is loaded
         video.currentTime = 0;
         video.play().catch((error) => {
           console.warn('Video play failed:', error);
         });
       } else {
-        // Pause and reset inactive videos
         video.pause();
         video.currentTime = 0;
       }
     });
   }, [activeTab]);
 
-  // Handle manual tab change (reset interval)
   const handleTabChange = (value: string) => {
     setActiveTab(value);
-    resetInterval(); // Reset the interval when user manually changes tab
+    resetInterval();
   };
 
   const handleVideoRef = (element: HTMLVideoElement | null, tabId: string) => {
@@ -120,7 +116,7 @@ const FeatureTabsCarousel = ({ features, autoRotateInterval = 5000 }: FeatureTab
                 loop
                 muted
                 playsInline
-                preload={isActive ? 'auto' : 'metadata'}
+                preload="auto"
                 aria-label={`Preview of ${tab.heading}`}
                 className="aspect-video h-auto w-full rounded-2xl object-cover shadow-lg"
               >
@@ -135,3 +131,5 @@ const FeatureTabsCarousel = ({ features, autoRotateInterval = 5000 }: FeatureTab
 };
 
 export default FeatureTabsCarousel;
+
+// End - src/components/react/FeatureTabsCarousel.tsx
