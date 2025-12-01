@@ -70,7 +70,7 @@ export const VideoPlayer = ({
       </div>
 
       <Dialog open={isVideoOpen} onOpenChange={setIsVideoOpen}>
-        <DialogContent className="sm:max-w-[800px]">
+        <DialogContent className="sm:max-w-4xl">
           <DialogHeader>
             <DialogTitle>{dialogTitle}</DialogTitle>
           </DialogHeader>

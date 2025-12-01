@@ -119,12 +119,22 @@ const featuresCollection = defineCollection({
     heroCtaText: z.string().optional(),
     heroCtaUrl: z.string().optional(),
     // Video (self-hosted)
-    videoSrc: z.string(), // Full video path
-    thumbnailVideoSrc: z.string(), // Short preview video path
-    thumbnailImageSrc: z.string(), // Fallback image
+    videoSrc: z.string(),
+    thumbnailVideoSrc: z.string(),
+    thumbnailImageSrc: z.string(),
     videoThumbnailAlt: z.string().optional(),
     videoCtaText: z.string().optional(),
     videoDialogTitle: z.string().optional(),
+    // FAQs
+    faqTitle: z.string().optional(),
+    faqs: z
+      .array(
+        z.object({
+          question: z.string(),
+          answer: z.string(),
+        }),
+      )
+      .optional(),
   }),
 });
 

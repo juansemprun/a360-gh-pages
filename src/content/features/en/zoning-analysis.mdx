@@ -9,9 +9,24 @@ thumbnailImageSrc: /website/images/optimize-user-path.webp
 videoThumbnailAlt: Zoning Analysis Demo Preview
 videoCtaText: Watch the full demo in 5 minutes!
 videoDialogTitle: Zoning Analysis Presentation
+faqTitle: FAQ
+faqs:
+  - question: What is Zoning Analysis?
+    answer: Zoning Analysis is a powerful feature that helps you visualize user behavior by dividing your page into interactive zones, allowing you to identify high-performing areas and optimize your layout.
+  - question: How does Zoning Analysis work?
+    answer: Zoning Analysis uses advanced heatmap technology to track user interactions across different zones on your page, providing detailed insights into which areas capture the most attention.
+  - question: Can I customize the zones?
+    answer: Yes! You can create custom zones based on your specific layout and business needs, allowing for flexible and targeted analysis.
+  - question: What metrics does Zoning Analysis track?
+    answer: Zoning Analysis tracks clicks, hovers, scroll depth, time spent in each zone, and conversion rates, giving you a comprehensive view of user engagement.
+  - question: Is Zoning Analysis available on mobile?
+    answer: Absolutely! Zoning Analysis works seamlessly across desktop, tablet, and mobile devices, ensuring you have insights across all platforms.
+  - question: How can I export Zoning Analysis data?
+    answer: You can export your Zoning Analysis data in multiple formats including CSV, PDF, and directly integrate with your analytics tools.
 ---
 
 import FeaturesHero from '@/components/pages/features/FeaturesHero.astro';
+import FeatureFAQSection from '@/components/pages/features/FeaturesFAQSection.astro';
 
 <FeaturesHero
   title={frontmatter.title}
@@ -26,6 +41,4 @@ import FeaturesHero from '@/components/pages/features/FeaturesHero.astro';
   videoDialogTitle={frontmatter.videoDialogTitle}
 />
 
-## What is Zoning Analysis?
-
-Your content here...
+<FeatureFAQSection title={frontmatter.faqTitle} faqs={frontmatter.faqs} />

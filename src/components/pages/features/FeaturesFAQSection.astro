@@ -1,0 +1,17 @@
+---
+import { FeatureFAQ } from '@/components/react/Faqs';
+
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  title?: string;
+  faqs: FAQ[];
+}
+
+const { title = 'Frequently Asked Questions', faqs } = Astro.props;
+---
+
+<FeatureFAQ client:visible title={title} faqs={faqs} />
