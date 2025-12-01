@@ -1,0 +1,44 @@
+---
+title: Session Replays
+description: Watch user moves. Spot where they struggle and optimize your user experience with real session recordings.
+heroCtaText: Get Started
+heroCtaUrl: '#get-started'
+videoSrc: /website/videos/zoning-analysis-clip.mp4
+thumbnailVideoSrc: /website/videos/zoning-analysis-clip.mp4
+thumbnailImageSrc: /website/images/optimize-user-path.webp
+videoThumbnailAlt: Session Replays Demo Preview
+videoCtaText: Watch how Session Replays work in action!
+videoDialogTitle: Session Replays Presentation
+faqTitle: FAQ
+faqs:
+  - question: What are Session Replays?
+    answer: Session Replays are recordings of real user sessions on your website, allowing you to watch exactly how visitors interact with your site, where they click, scroll, and where they encounter problems.
+  - question: How do Session Replays protect user privacy?
+    answer: Session Replays automatically mask sensitive information like passwords, credit card numbers, and personal data. You can also configure additional privacy settings to comply with GDPR and other regulations.
+  - question: Can I filter sessions by specific criteria?
+    answer: Yes! You can filter sessions by user behavior, device type, location, errors encountered, conversion status, and many other criteria to find the most relevant recordings.
+  - question: How long are session recordings stored?
+    answer: Session recordings are stored for up to 90 days by default, with options to extend storage or export important sessions for long-term analysis.
+  - question: Do Session Replays impact website performance?
+    answer: No, Session Replays are designed to have minimal impact on your website's performance. The tracking script is lightweight and loads asynchronously.
+  - question: Can I share session replays with my team?
+    answer: Absolutely! You can share specific session URLs with team members, add comments and timestamps, and collaborate on identifying and fixing user experience issues.
+---
+
+import FeaturesHero from '@/components/pages/features/FeaturesHero.astro';
+import FeatureFAQSection from '@/components/pages/features/FeaturesFAQSection.astro';
+
+<FeaturesHero
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ctaText={frontmatter.heroCtaText}
+  ctaUrl={frontmatter.heroCtaUrl}
+  videoSrc={frontmatter.videoSrc}
+  thumbnailVideoSrc={frontmatter.thumbnailVideoSrc}
+  thumbnailImageSrc={frontmatter.thumbnailImageSrc}
+  thumbnailAlt={frontmatter.videoThumbnailAlt}
+  videoCtaText={frontmatter.videoCtaText}
+  videoDialogTitle={frontmatter.videoDialogTitle}
+/>
+
+<FeatureFAQSection title={frontmatter.faqTitle} faqs={frontmatter.faqs} />

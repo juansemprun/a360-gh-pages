@@ -1,0 +1,44 @@
+---
+title: User Journeys
+description: Engagement ends? Analysis begins. Map complete user paths from entry to exit and discover optimization opportunities.
+heroCtaText: Get Started
+heroCtaUrl: '#get-started'
+videoSrc: /website/videos/zoning-analysis-clip.mp4
+thumbnailVideoSrc: /website/videos/zoning-analysis-clip.mp4
+thumbnailImageSrc: /website/images/optimize-user-path.webp
+videoThumbnailAlt: User Journeys Demo Preview
+videoCtaText: Discover how User Journeys map behavior!
+videoDialogTitle: User Journeys Presentation
+faqTitle: FAQ
+faqs:
+  - question: What are User Journeys?
+    answer: User Journeys visualize the complete path users take through your website, from their first page view to conversion or exit, showing you every touchpoint and interaction along the way.
+  - question: How is User Journeys different from Funnel Analysis?
+    answer: While Funnel Analysis tracks predefined conversion paths, User Journeys reveal organic, unexpected paths users actually take, helping you discover new optimization opportunities and understand real user behavior.
+  - question: Can I segment User Journeys by user type?
+    answer: Yes! Segment journeys by traffic source, device type, user location, new vs. returning visitors, conversion status, and custom user attributes to understand how different audiences navigate your site.
+  - question: How many pages can a User Journey include?
+    answer: User Journeys can track unlimited page views and interactions within a session, giving you a complete picture of even the most complex user paths through your website.
+  - question: Can I identify common journey patterns?
+    answer: Absolutely! Air360 automatically identifies the most common journey patterns, showing you which paths lead to conversions, which lead to exits, and opportunities to guide users toward your goals.
+  - question: How do User Journeys help with content strategy?
+    answer: User Journeys reveal which content users engage with, in what order, and how it influences their decisions, helping you optimize content placement, navigation, and calls-to-action.
+---
+
+import FeaturesHero from '@/components/pages/features/FeaturesHero.astro';
+import FeatureFAQSection from '@/components/pages/features/FeaturesFAQSection.astro';
+
+<FeaturesHero
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ctaText={frontmatter.heroCtaText}
+  ctaUrl={frontmatter.heroCtaUrl}
+  videoSrc={frontmatter.videoSrc}
+  thumbnailVideoSrc={frontmatter.thumbnailVideoSrc}
+  thumbnailImageSrc={frontmatter.thumbnailImageSrc}
+  thumbnailAlt={frontmatter.videoThumbnailAlt}
+  videoCtaText={frontmatter.videoCtaText}
+  videoDialogTitle={frontmatter.videoDialogTitle}
+/>
+
+<FeatureFAQSection title={frontmatter.faqTitle} faqs={frontmatter.faqs} />

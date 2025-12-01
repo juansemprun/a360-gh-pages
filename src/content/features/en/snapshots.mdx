@@ -1,0 +1,44 @@
+---
+title: Snapshots
+description: Save former design to analyze any time. Capture and compare your website's performance across different versions and time periods.
+heroCtaText: Get Started
+heroCtaUrl: '#get-started'
+videoSrc: /website/videos/zoning-analysis-clip.mp4
+thumbnailVideoSrc: /website/videos/zoning-analysis-clip.mp4
+thumbnailImageSrc: /website/images/optimize-user-path.webp
+videoThumbnailAlt: Snapshots Demo Preview
+videoCtaText: Learn how Snapshots preserve your analytics!
+videoDialogTitle: Snapshots Presentation
+faqTitle: FAQ
+faqs:
+  - question: What are Snapshots?
+    answer: Snapshots are point-in-time captures of your website's analytics data and design, allowing you to preserve and compare performance metrics before and after design changes, A/B tests, or major updates.
+  - question: What data is included in a Snapshot?
+    answer: Snapshots capture all analytics data including heatmaps, session replays, funnel performance, user journeys, and behavioral metrics for the selected time period and pages.
+  - question: How many Snapshots can I create?
+    answer: You can create unlimited Snapshots depending on your plan. Each Snapshot is stored independently, allowing you to build a comprehensive history of your website's evolution and performance.
+  - question: Can I compare Snapshots side-by-side?
+    answer: Yes! Air360's comparison view lets you analyze two or more Snapshots side-by-side, with automated detection of significant changes in key metrics and visual differences in user behavior.
+  - question: When should I create a Snapshot?
+    answer: Create Snapshots before major redesigns, A/B tests, feature launches, marketing campaigns, or seasonal changes to establish baselines and measure the impact of your changes.
+  - question: Can I share Snapshots with stakeholders?
+    answer: Absolutely! Export Snapshots as reports or share secure links with team members and stakeholders, complete with annotations and insights to communicate findings effectively.
+---
+
+import FeaturesHero from '@/components/pages/features/FeaturesHero.astro';
+import FeatureFAQSection from '@/components/pages/features/FeaturesFAQSection.astro';
+
+<FeaturesHero
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ctaText={frontmatter.heroCtaText}
+  ctaUrl={frontmatter.heroCtaUrl}
+  videoSrc={frontmatter.videoSrc}
+  thumbnailVideoSrc={frontmatter.thumbnailVideoSrc}
+  thumbnailImageSrc={frontmatter.thumbnailImageSrc}
+  thumbnailAlt={frontmatter.videoThumbnailAlt}
+  videoCtaText={frontmatter.videoCtaText}
+  videoDialogTitle={frontmatter.videoDialogTitle}
+/>
+
+<FeatureFAQSection title={frontmatter.faqTitle} faqs={frontmatter.faqs} />
