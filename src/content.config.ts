@@ -110,6 +110,24 @@ const changelogCollection = defineCollection({
     }),
 });
 
+const featuresCollection = defineCollection({
+  loader: glob({ pattern: '**/*.mdx', base: './src/content/features' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    // Hero section
+    heroCtaText: z.string().optional(),
+    heroCtaUrl: z.string().optional(),
+    // Video (self-hosted)
+    videoSrc: z.string(), // Full video path
+    thumbnailVideoSrc: z.string(), // Short preview video path
+    thumbnailImageSrc: z.string(), // Fallback image
+    videoThumbnailAlt: z.string().optional(),
+    videoCtaText: z.string().optional(),
+    videoDialogTitle: z.string().optional(),
+  }),
+});
+
 export const collections = {
   hero: heroCollection,
   'use-cases': useCasesCollection,
@@ -117,4 +135,5 @@ export const collections = {
   navigation: navigationCollection,
   blog: blogCollection,
   changelog: changelogCollection,
+  features: featuresCollection,
 };

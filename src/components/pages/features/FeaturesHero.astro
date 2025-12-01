@@ -1,0 +1,77 @@
+---
+import { VideoPlayer } from '@/components/pages/features/HeroVideoPlayer';
+import GradientText from '@/components/ui/GradientText.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  ctaText?: string;
+  ctaUrl?: string;
+  videoSrc: string;
+  thumbnailVideoSrc: string;
+  thumbnailImageSrc: string; // Added fallback image
+  thumbnailAlt?: string;
+  videoCtaText?: string;
+  videoDialogTitle?: string;
+}
+
+const {
+  title,
+  description,
+  ctaText = 'Get Started',
+  ctaUrl = '#',
+  videoSrc,
+  thumbnailVideoSrc,
+  thumbnailImageSrc,
+  thumbnailAlt = 'Video preview',
+  videoCtaText,
+  videoDialogTitle,
+} = Astro.props;
+---
+
+<section
+  class="border-muted2 border-b bg-[url(https://deifkwefumgah.cloudfront.net/shadcnblocks/block/patterns/grid-1.svg)] bg-[length:100%_100%] bg-center bg-no-repeat"
+>
+  <div class="container pt-32">
+    <div class="flex flex-col items-center gap-5">
+      <!-- <h1
+        class="bg-linear-to-r font-clash-display-bold max-w-[25rem] from-neutral-900 via-neutral-700 to-neutral-800 bg-clip-text py-2 text-center text-4xl leading-tight text-transparent md:max-w-[43.75rem] md:text-6xl lg:max-w-[56.25rem] lg:text-[5rem]"
+      >
+        {title}
+      </h1> -->
+      <GradientText>
+        <h1
+          class="font-clash-display-bold py-2 text-center text-4xl leading-tight md:max-w-[43.75rem] md:text-6xl lg:max-w-[56.25rem] lg:text-[5rem]"
+        >
+          {title}
+        </h1>
+      </GradientText>
+      <p
+        class="text-muted-foreground max-w-[22.5rem] text-center text-base md:max-w-[35rem] lg:text-lg"
+      >
+        {description}
+      </p>
+      <div class="pt-6">
+        <!-- <a
+          href={ctaUrl}
+          class="animate-shadow-ping block h-fit w-fit rounded-md border border-neutral-950 bg-[linear-gradient(180deg,var(--color-neutral-600),var(--color-neutral-700),var(--color-neutral-900))] px-6 py-3.5 text-center text-lg text-white no-underline transition-opacity hover:opacity-90"
+        >
+          {ctaText}
+        </a> -->
+      </div>
+    </div>
+    <div
+      class="after:bg-linear-to-t relative mx-auto w-full max-w-[72rem] after:pointer-events-none after:absolute after:bottom-0 after:left-0 after:z-20 after:block after:h-[45%] after:w-full after:from-white after:to-transparent after:content-['']"
+    >
+      <VideoPlayer
+        client:visible
+        videoSrc={videoSrc}
+        thumbnailVideoSrc={thumbnailVideoSrc}
+        thumbnailImageSrc={thumbnailImageSrc}
+        thumbnailAlt={thumbnailAlt}
+        ctaText={videoCtaText}
+        dialogTitle={videoDialogTitle}
+      />
+    </div>
+  </div>
+</section>
