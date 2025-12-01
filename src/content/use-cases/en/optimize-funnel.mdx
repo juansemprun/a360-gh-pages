@@ -1,0 +1,45 @@
+---
+type: 'use case'
+title: Optimize Funnel
+description: Identify bottlenecks in your conversion funnel and eliminate friction points to increase conversions at every stage.
+heroCtaText: Get Started
+heroCtaUrl: '#get-started'
+videoSrc: /website/videos/zoning-analysis-clip.mp4
+thumbnailVideoSrc: /website/videos/zoning-analysis-clip.mp4
+thumbnailImageSrc: /website/images/optimize-user-path.webp
+videoThumbnailAlt: Optimize Funnel Demo
+videoCtaText: Learn how to fix funnel drop-offs!
+videoDialogTitle: Funnel Optimization Guide
+faqTitle: FAQ
+faqs:
+  - question: What is funnel optimization?
+    answer: Funnel optimization is the process of analyzing and improving each step of your conversion path to reduce drop-offs and increase the percentage of users who complete desired actions.
+  - question: How do I identify funnel bottlenecks?
+    answer: Use Air360's Funnel Analysis to visualize drop-off rates at each step. Session Replays show you exactly why users abandon the funnel, revealing friction points and usability issues.
+  - question: What's a good funnel conversion rate?
+    answer: It varies by industry and funnel complexity. E-commerce checkouts typically see 20-30% conversion, while multi-step lead generation might be 5-15%. Focus on improving your baseline, not just hitting industry averages.
+  - question: Should I optimize the entire funnel at once?
+    answer: No, focus on the step with the highest drop-off rate first. Make data-driven improvements one step at a time, measure results, then move to the next bottleneck.
+  - question: How do I reduce form abandonment?
+    answer: Simplify forms by removing unnecessary fields, add progress indicators, provide inline validation, enable autofill, and clearly explain why you need each piece of information.
+  - question: Can I track users who return to complete a funnel later?
+    answer: Yes! Air360 tracks cross-session behavior, showing you when users start a funnel in one session and complete it later, helping you understand the full conversion journey.
+---
+
+import FeaturesHero from '@/components/pages/features/FeaturesHero.astro';
+import FeatureFAQSection from '@/components/FAQSection.astro';
+
+<FeaturesHero
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ctaText={frontmatter.heroCtaText}
+  ctaUrl={frontmatter.heroCtaUrl}
+  videoSrc={frontmatter.videoSrc}
+  thumbnailVideoSrc={frontmatter.thumbnailVideoSrc}
+  thumbnailImageSrc={frontmatter.thumbnailImageSrc}
+  thumbnailAlt={frontmatter.videoThumbnailAlt}
+  videoCtaText={frontmatter.videoCtaText}
+  videoDialogTitle={frontmatter.videoDialogTitle}
+/>
+
+<FeatureFAQSection title={frontmatter.faqTitle} faqs={frontmatter.faqs} />

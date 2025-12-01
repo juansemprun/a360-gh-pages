@@ -1,41 +1,62 @@
 ---
 import { getCollection, getEntry, render } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
 
 import BaseLayout from '@layouts/BaseLayout.astro';
+import CallToAction from '@/components/ui/use-cases/CallToAction.astro';
 
-export async function getStaticPaths() {
+export const getStaticPaths = (async () => {
   const pages = await getCollection('use-cases');
 
   const paths = pages.map((page) => {
-    const [lang, ...slug] = page.slug.split('/');
+    const [lang, ...slug] = page.id.split('/');
 
-    return { params: { lang, slug: slug.join('/') || undefined }, props: page };
+    return {
+      params: { lang, slug: slug.join('/') || undefined },
+      props: { page },
+    };
   });
 
   return paths;
-}
+}) satisfies GetStaticPaths;
 
 const { lang, slug } = Astro.params;
 
-const useCasesEntry = await getEntry('use-cases', `${lang}/${slug}`);
+const useCaseEntry = await getEntry('use-cases', `${lang}/${slug}`);
 
-if (!useCasesEntry) {
-  return Astro.redirect(`${lang}/404`);
+if (!useCaseEntry) {
+  return Astro.redirect(`/${lang}/404`);
 }
 
-const title = useCasesEntry?.data?.title;
-const description = useCasesEntry?.data?.description;
+const title = useCaseEntry.data.title;
+const description = useCaseEntry.data.description;
+const type = useCaseEntry.data.type;
 
-const { Content } = await render(useCasesEntry);
+const { Content } = await render(useCaseEntry);
 ---
 
 <BaseLayout title={title} description={description} lang={lang}>
-  <div
-    data-theme="light"
-    class="bg-gradient-primary-darker-variant absolute inset-0 -z-10 h-full w-full items-center px-5 py-24"
-  >
-  </div>
-  <div class="container-custom mx-auto my-32 md:my-20">
-    <Content />
-  </div>
+  {
+    type === 'industry' ? (
+      <>
+        <div
+          data-theme="light"
+          class="bg-gradient-primary-darker-variant absolute inset-0 -z-10 h-full w-full items-center px-5 py-24"
+        />
+        <div class="container-custom mx-auto my-32 md:my-20">
+          <Content />
+        </div>
+      </>
+    ) : (
+      <>
+        <section class="pb-16" data-theme="dark">
+          <div class="container-custom">
+            <Content />
+          </div>
+        </section>
+
+        <CallToAction />
+      </>
+    )
+  }
 </BaseLayout>

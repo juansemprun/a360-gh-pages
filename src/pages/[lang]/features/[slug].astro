@@ -5,8 +5,6 @@ import type { GetStaticPaths, InferGetStaticParamsType } from 'astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import CallToAction from '@/components/ui/use-cases/CallToAction.astro';
 
-import { languageCodes } from '@/config/language';
-
 export const getStaticPaths = (async () => {
   // Get all feature entries
   const allFeatures = await getCollection('features');

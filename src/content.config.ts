@@ -18,22 +18,22 @@ const heroCollection = defineCollection({
   }),
 });
 
-const useCasesCollection = defineCollection({
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    video: z.object({
-      title: z.string(),
-      url: z.string().url(),
-    }),
-    highlights: z.array(
-      z.object({
-        title: z.string(),
-        text: z.string(),
-      }),
-    ),
-  }),
-});
+// const useCasesCollection = defineCollection({
+//   schema: z.object({
+//     title: z.string(),
+//     description: z.string(),
+//     video: z.object({
+//       title: z.string(),
+//       url: z.string().url(),
+//     }),
+//     highlights: z.array(
+//       z.object({
+//         title: z.string(),
+//         text: z.string(),
+//       }),
+//     ),
+//   }),
+// });
 
 const pagesCollection = defineCollection({
   schema: z.object({
@@ -136,6 +136,56 @@ const featuresCollection = defineCollection({
       )
       .optional(),
   }),
+});
+
+// Use Cases by Industry schema (existing)
+const useCaseIndustrySchema = z.object({
+  type: z.literal('industry'),
+  title: z.string(),
+  description: z.string(),
+  video: z.object({
+    title: z.string(),
+    url: z.string().url(),
+  }),
+  highlights: z.array(
+    z.object({
+      title: z.string(),
+      text: z.string(),
+    }),
+  ),
+});
+
+// Use Cases by Scenario schema (new)
+const useCaseScenarioSchema = z.object({
+  type: z.literal('use case'),
+  title: z.string(),
+  description: z.string(),
+  // Hero section
+  heroCtaText: z.string().optional(),
+  heroCtaUrl: z.string().optional(),
+  // Video (self-hosted)
+  videoSrc: z.string(),
+  thumbnailVideoSrc: z.string(),
+  thumbnailImageSrc: z.string(),
+  videoThumbnailAlt: z.string().optional(),
+  videoCtaText: z.string().optional(),
+  videoDialogTitle: z.string().optional(),
+  // FAQs
+  faqTitle: z.string().optional(),
+  faqs: z
+    .array(
+      z.object({
+        question: z.string(),
+        answer: z.string(),
+      }),
+    )
+    .optional(),
+});
+
+// Combined schema with discriminated union
+const useCasesCollection = defineCollection({
+  loader: glob({ pattern: '**/*.mdx', base: './src/content/use-cases' }),
+  schema: z.discriminatedUnion('type', [useCaseIndustrySchema, useCaseScenarioSchema]),
 });
 
 export const collections = {

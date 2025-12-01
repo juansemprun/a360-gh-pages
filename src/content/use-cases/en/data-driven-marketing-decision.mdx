@@ -1,0 +1,45 @@
+---
+type: 'use case'
+title: Data-Driven Marketing Decision
+description: Make confident marketing decisions backed by real user behavior data and proven performance metrics.
+heroCtaText: Get Started
+heroCtaUrl: '#get-started'
+videoSrc: /website/videos/zoning-analysis-clip.mp4
+thumbnailVideoSrc: /website/videos/zoning-analysis-clip.mp4
+thumbnailImageSrc: /website/images/optimize-user-path.webp
+videoThumbnailAlt: Data-Driven Marketing Demo
+videoCtaText: See how data transforms marketing decisions!
+videoDialogTitle: Data-Driven Marketing Guide
+faqTitle: FAQ
+faqs:
+  - question: What makes a marketing decision data-driven?
+    answer: A data-driven decision is based on actual user behavior, performance metrics, and validated insights rather than assumptions or gut feelings. Air360 provides the behavioral data needed to support every marketing choice.
+  - question: How can behavioral data improve my marketing ROI?
+    answer: By understanding exactly how users interact with your site, you can optimize campaigns, landing pages, and messaging to match user preferences, reducing wasted spend and increasing conversion rates.
+  - question: What marketing metrics should I prioritize?
+    answer: Focus on metrics that directly impact revenue like conversion rate, customer acquisition cost, lifetime value, and channel-specific ROI. Air360 connects user behavior to these outcomes for complete visibility.
+  - question: How do I prove marketing campaign effectiveness?
+    answer: Use Air360's Snapshots to capture baseline metrics before campaigns launch, then compare user behavior and conversion rates during and after to measure true impact beyond vanity metrics.
+  - question: Can I segment marketing performance by channel?
+    answer: Yes! Air360 segments user behavior by traffic source, allowing you to see how users from different marketing channels behave differently and optimize each channel's landing experience accordingly.
+  - question: How do I use behavioral data for campaign optimization?
+    answer: Analyze how campaign traffic interacts with your site—which pages they visit, where they drop off, what they engage with. Use these insights to refine targeting, messaging, and landing page design for better performance.
+---
+
+import FeaturesHero from '@/components/pages/features/FeaturesHero.astro';
+import FeatureFAQSection from '@/components/FAQSection.astro';
+
+<FeaturesHero
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ctaText={frontmatter.heroCtaText}
+  ctaUrl={frontmatter.heroCtaUrl}
+  videoSrc={frontmatter.videoSrc}
+  thumbnailVideoSrc={frontmatter.thumbnailVideoSrc}
+  thumbnailImageSrc={frontmatter.thumbnailImageSrc}
+  thumbnailAlt={frontmatter.videoThumbnailAlt}
+  videoCtaText={frontmatter.videoCtaText}
+  videoDialogTitle={frontmatter.videoDialogTitle}
+/>
+
+<FeatureFAQSection title={frontmatter.faqTitle} faqs={frontmatter.faqs} />
