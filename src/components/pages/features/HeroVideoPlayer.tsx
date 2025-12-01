@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/react/shadcn/button';
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/react/shadcn/dialog';
@@ -32,13 +33,12 @@ export const VideoPlayer = ({
   return (
     <>
       <div className="mt-14 flex w-full flex-col items-center gap-5 rounded-2xl border border-neutral-200 bg-neutral-100 p-3">
-        <p className="text-foreground text-center text-xs font-medium sm:text-sm md:text-lg">
+        <p className="text-center text-xs font-medium text-gray-700 sm:text-sm md:text-lg">
           {ctaText}
         </p>
         <div className="relative w-full rounded-2xl border border-neutral-200 bg-neutral-50">
           <AspectRatio ratio={3.002666667 / 1} className="overflow-hidden">
-            <div className="relative">
-              {/* Animated thumbnail video with poster fallback */}
+            <div className="">
               <video
                 className="w-full rounded-2xl object-cover"
                 autoPlay
@@ -70,13 +70,16 @@ export const VideoPlayer = ({
       </div>
 
       <Dialog open={isVideoOpen} onOpenChange={setIsVideoOpen}>
-        <DialogContent className="sm:max-w-4xl">
+        <DialogContent className="sm:max-w-2xl lg:max-w-4xl xl:max-w-5xl">
           <DialogHeader>
-            <DialogTitle>{dialogTitle}</DialogTitle>
+            <DialogTitle className="text-center text-gray-700">{dialogTitle}</DialogTitle>
+            <DialogDescription className="sr-only">
+              Video player for {dialogTitle}
+            </DialogDescription>
           </DialogHeader>
           <div className="aspect-video">
             <video
-              className="h-full w-full"
+              className="h-full w-full rounded-md"
               controls
               autoPlay
               poster={thumbnailImageSrc}
