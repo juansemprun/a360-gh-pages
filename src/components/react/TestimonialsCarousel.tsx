@@ -1,5 +1,7 @@
 import { Marquee } from '@/components/ui/react/marquee';
 
+import { User } from 'lucide-react';
+
 interface Testimonial {
   id: number;
   name: string;
@@ -34,6 +36,7 @@ const ReviewCard = ({
           alt={`${name}'s review of Air360`}
           src={img}
         /> */}
+        <User className="text-muted-foreground h-8 w-8" />
         <div className="flex flex-col">
           <figcaption className="text-sm font-medium dark:text-white">{name}</figcaption>
           <span className="text-xs text-gray-500">{client}</span>
