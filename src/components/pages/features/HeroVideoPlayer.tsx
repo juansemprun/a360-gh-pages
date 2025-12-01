@@ -14,7 +14,7 @@ import {
 interface VideoPlayerProps {
   videoSrc: string;
   thumbnailVideoSrc: string;
-  thumbnailImageSrc: string; // Poster image
+  thumbnailImageSrc: string;
   thumbnailAlt: string;
   ctaText?: string;
   dialogTitle?: string;
@@ -77,7 +77,7 @@ export const VideoPlayer = ({
               Video player for {dialogTitle}
             </DialogDescription>
           </DialogHeader>
-          <div className="aspect-video">
+          <div>
             <video
               className="h-full w-full rounded-md"
               controls
