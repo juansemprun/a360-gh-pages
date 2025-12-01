@@ -17,9 +17,9 @@ interface FeatureFAQProps {
 
 export const FeatureFAQ = ({ title = 'FAQs', faqs }: FeatureFAQProps) => {
   return (
-    <section className="bg-background pt-32">
+    <section className="pt-32">
       <div className="container-custom">
-        <h2 className="text-foreground font-clash-display-bold mb-10 text-center text-6xl">
+        <h2 className="font-clash-display-bold mb-10 text-center text-4xl text-gray-700 md:text-6xl">
           {title}
         </h2>
         <div className="border-border bg-background z-20 mx-auto max-w-2xl rounded-2xl border p-3">
