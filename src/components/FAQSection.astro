@@ -43,7 +43,7 @@ const { title = 'Frequently Asked Questions', faqs } = Astro.props;
       {title}
     </h2> -->
     <div class="border-border bg-background z-20 mx-auto max-w-2xl rounded-2xl border p-3">
-      <Faqs client:visible faqs={faqs} />
+      <Faqs faqs={faqs} client:visible />
     </div>
   </div>
 </section>
