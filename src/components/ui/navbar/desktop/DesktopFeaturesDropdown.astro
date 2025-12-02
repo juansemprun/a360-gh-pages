@@ -73,10 +73,7 @@ const navigation = entry.data.navigation || [];
             class="hover:shadow-xs cursor-pointer rounded-xl p-4 transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-white/80 hover:ring hover:ring-black/5"
           >
             <video class="mb-5 h-auto w-full rounded-lg" autoplay loop playsinline muted>
-              <source
-                src="https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4"
-                type="video/mp4"
-              />
+              <source src={entry.data.video?.url} type="video/mp4" />
               Sorry, your browser does not support embedded videos.
             </video>
             <h4 class="text-md mb-3 font-bold text-black">{entry?.data?.video?.title}</h4>
