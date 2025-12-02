@@ -1,5 +1,8 @@
 ---
-import { FeatureFAQ } from '@/components/react/Faqs';
+import { Image } from 'astro:assets';
+import { Faqs } from '@/components/react/Faqs';
+
+import MochiQuestion from '@/assets/images/mochi/svg/mochi-question.svg';
 
 interface FAQ {
   question: string;
@@ -14,4 +17,33 @@ interface Props {
 const { title = 'Frequently Asked Questions', faqs } = Astro.props;
 ---
 
-<FeatureFAQ client:visible title={title} faqs={faqs} />
+<section class="pt-32">
+  <div class="container-custom">
+    <div
+      class="relative mx-auto mb-10 flex max-w-2xl flex-col justify-evenly gap-6 overflow-hidden p-10 md:flex-row"
+    >
+      <div class="flex max-w-xl flex-col gap-8 self-center">
+        <h2
+          class="font-clash-display-bold text-center text-4xl text-gray-700 md:text-left md:text-5xl"
+        >
+          {title}
+        </h2>
+      </div>
+      <div class="hidden md:block">
+        <Image
+          src={MochiQuestion}
+          alt="Mochi with question marks for FAQs"
+          width={384}
+          height={384}
+          class="w-24 object-cover object-center"
+        />
+      </div>
+    </div>
+    <!-- <h2 class="font-clash-display-bold mb-10 text-center text-4xl text-gray-700 md:text-6xl">
+      {title}
+    </h2> -->
+    <div class="border-border bg-background z-20 mx-auto max-w-2xl rounded-2xl border p-3">
+      <Faqs client:visible faqs={faqs} />
+    </div>
+  </div>
+</section>
