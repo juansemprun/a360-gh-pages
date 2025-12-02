@@ -42,7 +42,7 @@ const HeroVideoDialog = ({
           />
           {/* Play Icon Overlay (always shown) */}
           <span className="pointer-events-none absolute inset-0 flex items-center justify-center">
-            <Play className="size-16 rounded-full fill-white stroke-white p-2 hover:animate-bounce" />
+            <Play className="size-16 rounded-full fill-neutral-400 stroke-neutral-400 stroke-1 p-2" />
           </span>
         </div>
         <div>
