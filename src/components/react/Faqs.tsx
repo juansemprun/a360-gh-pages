@@ -27,7 +27,7 @@ export const Faqs = ({ faqs }: FeatureFAQProps) => {
           key={index}
           className="bg-muted m-0 w-full rounded-xl px-4 py-2"
         >
-          <AccordionTrigger className="flex flex-1 justify-between text-left font-semibold transition-all hover:no-underline">
+          <AccordionTrigger className="flex flex-1 justify-between text-left font-semibold transition-all hover:cursor-pointer hover:no-underline">
             {item.question}
           </AccordionTrigger>
           <AccordionContent className="text-muted-foreground mt-2">{item.answer}</AccordionContent>
