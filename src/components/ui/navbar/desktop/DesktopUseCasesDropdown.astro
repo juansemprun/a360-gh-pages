@@ -1,6 +1,5 @@
 ---
 import { getEntry } from 'astro:content';
-
 import Icon from '@ui/Icon.astro';
 
 const { lang } = Astro.params;
@@ -11,11 +10,12 @@ const useCasesByIndustry = entry?.data.useCasesNav?.industry || [];
 const useCasesByUseCase = entry?.data.useCasesNav?.useCase || [];
 ---
 
-<li class="group/dropdown relative" role="none">
+<li class="group/dropdown relative" role="none" data-dropdown>
   <button
     role="menuitem"
     aria-haspopup="true"
     aria-expanded="false"
+    data-dropdown-trigger
     class="ease cursor-pointer py-2 text-base font-medium text-inherit no-underline transition-colors duration-300 group-hover/dropdown:text-gray-400"
   >
     {entry?.data?.title}
@@ -29,6 +29,7 @@ const useCasesByUseCase = entry?.data.useCasesNav?.useCase || [];
   <div
     role="menu"
     aria-label="Use Cases menu"
+    data-dropdown-menu
     class="min-w-4xl invisible fixed left-1/2 -translate-x-1/2 -translate-y-2.5 scale-95 transform rounded-2xl bg-white opacity-0 shadow-md ring ring-black/5 duration-300 group-hover/dropdown:visible group-hover/dropdown:-translate-x-1/2 group-hover/dropdown:translate-y-0 group-hover/dropdown:scale-100 group-hover/dropdown:transform group-hover/dropdown:opacity-100 group-hover/dropdown:duration-300"
   >
     <div class="flex flex-row gap-8">
