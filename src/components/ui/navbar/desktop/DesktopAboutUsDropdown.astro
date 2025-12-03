@@ -1,6 +1,5 @@
 ---
 import { getEntry } from 'astro:content';
-
 import Icon from '@components/ui/Icon.astro';
 
 const { lang } = Astro.params;
@@ -14,12 +13,13 @@ const primarySections = entry.data.aboutUsNav?.primary || [];
 const secondarySections = entry.data.aboutUsNav?.secondary || [];
 ---
 
-<li class="group/dropdown relative" role="none">
+<li class="group/dropdown relative" role="none" data-dropdown>
   <button
     class="ease cursor-pointer py-2 text-base font-medium text-inherit no-underline transition-colors duration-300 group-hover/dropdown:text-gray-400"
     role="menuitem"
     aria-haspopup="true"
     aria-expanded="false"
+    data-dropdown-trigger
   >
     {entry?.data.title}
     <Icon
@@ -32,6 +32,7 @@ const secondarySections = entry.data.aboutUsNav?.secondary || [];
   <div
     role="menu"
     aria-label="About Us menu"
+    data-dropdown-menu
     class="invisible fixed left-1/2 max-w-3xl -translate-x-1/2 -translate-y-2.5 scale-95 transform rounded-2xl bg-white opacity-0 shadow-md ring ring-black/5 duration-300 group-hover/dropdown:visible group-hover/dropdown:-translate-x-1/2 group-hover/dropdown:translate-y-0 group-hover/dropdown:scale-100 group-hover/dropdown:transform group-hover/dropdown:opacity-100 group-hover/dropdown:duration-300"
   >
     <div class="flex flex-row gap-8">
@@ -52,7 +53,6 @@ const secondarySections = entry.data.aboutUsNav?.secondary || [];
                     height={20}
                     class="group-hover:fill-primary-500 mx-1.5 flex justify-center fill-gray-400 transition-colors"
                   />
-
                   <h4 class="text-sm text-black">{label}</h4>
                 </a>
               );
@@ -87,3 +87,104 @@ const secondarySections = entry.data.aboutUsNav?.secondary || [];
     </div>
   </div>
 </li>
+
+<script>
+  /**
+   * Dropdown Menu Enhancement
+   * Progressive enhancement for touch devices and accessibility
+   * Keeps hover behavior on desktop, adds click/tap for touch devices
+   */
+  class DropdownMenu {
+    private dropdownContainer: HTMLElement;
+    private trigger: HTMLButtonElement;
+    private menu: HTMLElement;
+    private isOpen: boolean = false;
+
+    constructor(container: HTMLElement) {
+      this.dropdownContainer = container;
+      this.trigger = container.querySelector('[data-dropdown-trigger]') as HTMLButtonElement;
+      this.menu = container.querySelector('[data-dropdown-menu]') as HTMLElement;
+
+      if (!this.trigger || !this.menu) {
+        console.warn('Dropdown trigger or menu not found');
+        return;
+      }
+
+      this.init();
+    }
+
+    private init(): void {
+      // Handle click/tap events for touch devices
+      this.trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        this.toggle();
+      });
+
+      // Close on click outside
+      document.addEventListener('click', (e) => {
+        if (!this.dropdownContainer.contains(e.target as Node)) {
+          this.close();
+        }
+      });
+
+      // Close on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && this.isOpen) {
+          this.close();
+          this.trigger.focus(); // Return focus to trigger
+        }
+      });
+
+      // Close dropdown when clicking on menu items (for navigation)
+      const menuLinks = this.menu.querySelectorAll('a[role="menuitem"]');
+      menuLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+          this.close();
+        });
+      });
+    }
+
+    private toggle(): void {
+      if (this.isOpen) {
+        this.close();
+      } else {
+        this.open();
+      }
+    }
+
+    private open(): void {
+      this.isOpen = true;
+      this.trigger.setAttribute('aria-expanded', 'true');
+
+      // Add classes for open state (works alongside hover)
+      this.dropdownContainer.classList.add('is-open');
+      this.menu.classList.remove('invisible', 'opacity-0', 'scale-95', '-translate-y-2.5');
+      this.menu.classList.add('visible', 'opacity-100', 'scale-100', 'translate-y-0');
+    }
+
+    private close(): void {
+      this.isOpen = false;
+      this.trigger.setAttribute('aria-expanded', 'false');
+
+      // Remove open state classes
+      this.dropdownContainer.classList.remove('is-open');
+      this.menu.classList.add('invisible', 'opacity-0', 'scale-95', '-translate-y-2.5');
+      this.menu.classList.remove('visible', 'opacity-100', 'scale-100', 'translate-y-0');
+    }
+  }
+
+  // Initialize all dropdowns
+  function initDropdowns(): void {
+    const dropdowns = document.querySelectorAll('[data-dropdown]');
+    dropdowns.forEach((dropdown) => {
+      new DropdownMenu(dropdown as HTMLElement);
+    });
+  }
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', initDropdowns);
+
+  // Re-initialize after Astro view transitions
+  document.addEventListener('astro:page-load', initDropdowns);
+</script>

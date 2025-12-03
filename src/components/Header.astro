@@ -67,6 +67,26 @@ const { lang } = Astro.props;
 </header>
 
 <style>
+  /* Dropdown open state for click/tap interaction */
+  [data-dropdown].is-open [data-dropdown-menu] {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+
+  [data-dropdown].is-open [data-dropdown-trigger] svg {
+    transform: rotate(180deg);
+  }
+
+  /* Ensure hover still works on desktop */
+  @media (hover: hover) and (pointer: fine) {
+    .group\/dropdown:hover [data-dropdown-menu] {
+      visibility: visible;
+      opacity: 1;
+      transform: translateX(-50%) translateY(0) scale(1);
+    }
+  }
+
   header {
     position: fixed;
     top: 0;
