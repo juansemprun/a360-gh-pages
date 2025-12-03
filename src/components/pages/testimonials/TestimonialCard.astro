@@ -1,0 +1,28 @@
+---
+interface Props {
+  name: string;
+  client: string;
+  body: string;
+  img: string;
+}
+
+const { name, client, body, img } = Astro.props;
+
+// Process {highlights} with Tailwind classes
+function processHighlights(text: string): string {
+  return text.replace(
+    /\{([^}]+)\}/g,
+    '<mark class="inline rounded-xs bg-gradient-to-br from-primary-500 to-primary-400 px-2 py-0.5 text-white ring ring-black/10 shadow-sm">$1</mark>',
+  );
+}
+
+const processedBody = processHighlights(body);
+---
+
+<blockquote class="mb-12 flex flex-col gap-2.5">
+  <q class="text-xl leading-relaxed text-slate-600 md:text-[1.25rem]" set:html={processedBody} />
+  <footer class="text-primary-400 text-md font-semibold italic">
+    <!-- <img src={img} alt={name} class="h-12 w-12 rounded-full object-cover" loading="lazy" /> -->
+    {name}, <span class="text-muted-foreground">{client}</span>
+  </footer>
+</blockquote>

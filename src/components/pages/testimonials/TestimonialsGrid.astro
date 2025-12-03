@@ -1,0 +1,30 @@
+---
+interface Testimonial {
+  id: number;
+  name: string;
+  client: string;
+  body: string;
+  img: string;
+}
+
+interface Props {
+  testimonials: Testimonial[];
+}
+
+const { testimonials } = Astro.props;
+
+import TestimonialCard from './TestimonialCard.astro';
+---
+
+<div class="grid grid-cols-1 gap-x-12 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
+  {
+    testimonials.map((testimonial) => (
+      <TestimonialCard
+        name={testimonial.name}
+        client={testimonial.client}
+        body={testimonial.body}
+        img={testimonial.img}
+      />
+    ))
+  }
+</div>
