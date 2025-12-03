@@ -69,7 +69,7 @@ const { lang } = Astro.props;
 <style>
   /* Dropdown open state for click/tap interaction */
   [data-dropdown].is-open [data-dropdown-menu] {
-    visibility: visible;
+    pointer-events: auto;
     opacity: 1;
     transform: translateX(-50%) translateY(0) scale(1);
   }
@@ -81,7 +81,7 @@ const { lang } = Astro.props;
   /* Ensure hover still works on desktop */
   @media (hover: hover) and (pointer: fine) {
     .group\/dropdown:hover [data-dropdown-menu] {
-      visibility: visible;
+      pointer-events: auto;
       opacity: 1;
       transform: translateX(-50%) translateY(0) scale(1);
     }
