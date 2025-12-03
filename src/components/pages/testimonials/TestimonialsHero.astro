@@ -10,9 +10,9 @@ const { line1, line2, subheading } = Astro.props;
 
 <header class="mb-20 mt-40 text-center">
   <h2 class="mb-5 text-xl font-normal text-neutral-600 md:text-2xl">We asked our customers:</h2>
-  <h1 class="font-clash-display-bold mb-6 text-4xl leading-tight lg:text-6xl">
-    <span class="text-gray-700 md:block">{line1}</span>
-    <span class="text-gray-700">{line2}</span>
+  <h1 class="font-clash-display-bold mb-6 text-4xl leading-tight text-gray-700 lg:text-6xl">
+    <span class="md:block">{line1}</span>
+    <span>{line2}</span>
     <mark class="bg-primary-500 rounded px-2 py-1 text-white">Air360</mark>?
   </h1>
   <p class="mx-auto max-w-3xl text-lg font-normal leading-relaxed text-neutral-600 md:text-xl">
