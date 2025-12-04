@@ -1,22 +1,89 @@
 ---
-interface VideoSectionProps {
+import { Play } from '@lucide/astro';
+
+interface Props {
   videoSrc: string;
+  videoPosterSrc: string;
 }
 
-const { videoSrc } = Astro.props as VideoSectionProps;
+const { videoSrc, videoPosterSrc } = Astro.props;
 ---
 
-<section class="my-28 flex flex-col justify-center">
+<section class="my-28" aria-labelledby="video-section-title">
   <h2
+    id="video-section-title"
     class="font-clash-display-bold mb-10 text-center text-2xl leading-tight tracking-wide text-slate-600 md:text-4xl"
   >
     <slot />
   </h2>
 
-  <div class="relative h-0 pb-[56.25%]">
-    <iframe
-      src={videoSrc}
-      allowfullscreen
-      class="absolute left-0 top-0 h-full w-full rounded-xl shadow-lg"></iframe>
+  <div class="video-wrapper relative h-0 pb-[56.25%]">
+    <video
+      preload="metadata"
+      class="absolute left-0 top-0 h-full w-full rounded-lg shadow-md ring ring-black/10"
+      poster={videoPosterSrc}
+    >
+      <source src={videoSrc} type="video/mp4" />
+      <p>
+        Your browser doesn't support HTML video. Here is a
+        <a href={videoSrc} class="underline hover:text-slate-800">link to the video</a> instead.
+      </p>
+    </video>
+
+    <button
+      type="button"
+      class="play-button focus:ring-primary-300 absolute left-1/2 top-1/2 z-10 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 shadow-lg ring-4 ring-white/50 transition-all duration-300 hover:scale-110 hover:cursor-pointer hover:bg-white focus:outline-none focus:ring-4 md:h-24 md:w-24"
+      aria-label="Play video"
+    >
+      <Play class="text-primary-500 h-10 w-10 md:h-12 md:w-12" />
+    </button>
   </div>
 </section>
+
+<script>
+  function initVideoPlayers() {
+    const videoWrappers = document.querySelectorAll('.video-wrapper');
+
+    videoWrappers.forEach((wrapper) => {
+      const video = wrapper.querySelector('video') as HTMLVideoElement;
+      const playButton = wrapper.querySelector('.play-button') as HTMLButtonElement;
+
+      if (!video || !playButton) return;
+
+      // Play video and show controls when button is clicked
+      playButton.addEventListener('click', () => {
+        video.controls = true;
+        video.play();
+      });
+
+      // Hide button when video starts playing
+      video.addEventListener('play', () => {
+        playButton.classList.add('opacity-0', 'pointer-events-none');
+      });
+
+      // Show button when video is paused (but keep controls visible)
+      video.addEventListener('pause', () => {
+        playButton.classList.remove('opacity-0', 'pointer-events-none');
+      });
+
+      // Show button when video ends
+      video.addEventListener('ended', () => {
+        playButton.classList.remove('opacity-0', 'pointer-events-none');
+      });
+    });
+  }
+
+  // Initialize on page load
+  initVideoPlayers();
+
+  // Re-initialize after view transitions
+  document.addEventListener('astro:page-load', () => {
+    initVideoPlayers();
+  });
+</script>
+
+<style>
+  .play-button {
+    transition: opacity 1s ease-in-out;
+  }
+</style>
