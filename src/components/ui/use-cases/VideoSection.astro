@@ -29,6 +29,7 @@ const { videoSrc, videoPosterSrc, videoPreviewSrc } = Astro.props;
           loop
           playsinline
           poster={videoPosterSrc}
+          preload="auto"
         >
           <source src={videoPreviewSrc} type="video/mp4" />
         </video>
