@@ -3,8 +3,11 @@ type: industry
 title: Sport Companies
 description: Create the best possible online booking experience with Air360, with personalized journeys, smooth booking, and optimized customer engagement.
 video:
-  title: Gaming Companies
+  title: Sport Companies - Quick Air360 Tracking Pixel Setup Video
   url: https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true
+  videoSrc: /website/videos/quick-air360-tracking-pixel-setup.mp4
+  videoPreviewSrc: /website/videos/quick-air360-tracking-pixel-setup-clip.mp4
+  videoPosterSrc: /website/images/thumbnails/quick-air360-tracking-pixel-setup.webp
 highlights:
   - title: Create experiences that convert
     text: Turn dreamers into bookers by personalizing their journey. Segment visitors and tailor their stay even before they arrive, with Air360!
@@ -44,7 +47,11 @@ import { BusinessAndDecisions } from '@/assets/brand-logos';
 
 <Highlights highlightsList={frontmatter.highlights} />
 
-<VideoSection videoSrc={frontmatter.video.url}>
+<VideoSection
+  videoSrc={frontmatter.video.videoSrc}
+  videoPosterSrc={frontmatter.video.videoPosterSrc}
+  videoPreviewSrc={frontmatter.video.videoPreviewSrc}
+>
   Want to see how <MarkHighlight>easy</MarkHighlight> it is to start?
 </VideoSection>
 
