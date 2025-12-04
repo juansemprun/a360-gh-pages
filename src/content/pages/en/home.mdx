@@ -44,6 +44,9 @@ primaryCardFeatures:
 video:
   title: Air360 Overview
   url: https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true
+  videoSrc: /website/videos/air360-promo-video.mp4
+  videoPreviewSrc: /website/videos/air360-promo-video-clip.mp4
+  videoPosterSrc: /website/images/thumbnails/air360-promo-video.webp
 
 # Testimonials Section
 testimonials:
@@ -187,7 +190,11 @@ import FeaturesSection from '@/components/FeaturesSection.astro';
 </TwoColumnText>
 
 <div class="container-custom mx-auto my-32 md:my-20">
-  <VideoSection videoSrc={frontmatter.video.url}></VideoSection>
+  <VideoSection
+    videoSrc={frontmatter.video.videoSrc}
+    videoPreviewSrc={frontmatter.video.videoPreviewSrc}
+    videoPosterSrc={frontmatter.video.videoPosterSrc}
+  />
 </div>
 
 <Testimonials testimonials={frontmatter.testimonials} />
