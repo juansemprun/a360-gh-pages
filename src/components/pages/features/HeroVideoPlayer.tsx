@@ -57,11 +57,12 @@ export const VideoPlayer = ({
               <Button
                 onClick={() => setIsVideoOpen(true)}
                 size="icon"
-                className="absolute left-1/2 top-1/2 z-30 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 rounded-full bg-neutral-500 shadow-[0_0_0_14px_var(--color-neutral-300)] transition-all hover:cursor-pointer hover:bg-neutral-600 hover:shadow-[0_0_0_0px_var(--color-neutral-300)] md:h-14 md:w-14 lg:h-20 lg:w-20"
+                className="focus:ring-primary-300 absolute left-1/2 top-1/2 z-10 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-lg ring ring-black/10 transition-transform duration-300 ease-in-out hover:scale-110 hover:cursor-pointer hover:bg-white focus:outline-none focus:ring-4 md:h-24 md:w-24"
                 aria-label="Play full video"
               >
-                <div className="m-auto aspect-square w-[45%]">
-                  <Play className="h-full! w-full! fill-white stroke-white" />
+                <div className="m-auto aspect-square w-1/2">
+                  {/* <Play className="h-full! w-full! fill-white stroke-white" /> */}
+                  <Play className="fill-primary-500 h-full! w-full! stroke-0 md:h-12 md:w-12" />
                 </div>
               </Button>
             </div>
