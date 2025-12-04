@@ -4,9 +4,10 @@ import { Play } from '@lucide/astro';
 interface Props {
   videoSrc: string;
   videoPosterSrc: string;
+  videoPreviewSrc?: string; // Optional preview/teaser video
 }
 
-const { videoSrc, videoPosterSrc } = Astro.props;
+const { videoSrc, videoPosterSrc, videoPreviewSrc } = Astro.props;
 ---
 
 <section class="my-28" aria-labelledby="video-section-title" data-theme="dark">
@@ -18,24 +19,45 @@ const { videoSrc, videoPosterSrc } = Astro.props;
   </h2>
 
   <div class="video-wrapper relative h-0 pb-[56.25%]">
+    <!-- Preview Video (looping, muted, autoplay) -->
+    {
+      videoPreviewSrc && (
+        <video
+          class="preview-video absolute left-0 top-0 h-full w-full rounded-xl object-cover"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster={videoPosterSrc}
+        >
+          <source src={videoPreviewSrc} type="video/mp4" />
+        </video>
+      )
+    }
+
+    <!-- Main Video (hidden initially) -->
     <video
+      class="main-video absolute left-0 top-0 h-full w-full rounded-xl opacity-0"
       preload="metadata"
-      class="absolute left-0 top-0 h-full w-full rounded-xl"
-      poster="/website/images/thumbnails/quick-air360-tracking-pixel-setup.webp"
+      poster={videoPosterSrc}
     >
-      <source src="/website/videos/quick-air360-tracking-pixel-setup.mp4" type="video/mp4" />
+      <source src={videoSrc} type="video/mp4" />
       <p>
         Your browser doesn't support HTML video. Here is a
         <a href={videoSrc} class="underline hover:text-slate-800">link to the video</a> instead.
       </p>
     </video>
 
+    <!-- Play Button Overlay -->
     <button
       type="button"
-      class="play-button focus:ring-primary-300 absolute left-1/2 top-1/2 z-10 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 shadow-lg ring-4 ring-white/50 transition-all duration-300 hover:scale-110 hover:cursor-pointer hover:bg-white focus:outline-none focus:ring-4 md:h-24 md:w-24"
+      class="focus:ring-primary-300 absolute left-1/2 top-1/2 z-10 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-lg ring ring-black/10 transition-transform duration-300 ease-in-out hover:scale-110 hover:cursor-pointer hover:bg-white focus:outline-none focus:ring-4 md:h-24 md:w-24"
       aria-label="Play video"
     >
-      <Play class="text-primary-500 h-10 w-10 md:h-12 md:w-12" />
+      <div class="m-auto aspect-square w-1/2">
+        {/* <Play className="h-full! w-full! fill-white stroke-white" /> */}
+        <Play class="fill-primary-500 h-full! w-full! stroke-0 md:h-12 md:w-12" />
+      </div>
     </button>
   </div>
 </section>
@@ -45,30 +67,51 @@ const { videoSrc, videoPosterSrc } = Astro.props;
     const videoWrappers = document.querySelectorAll('.video-wrapper');
 
     videoWrappers.forEach((wrapper) => {
-      const video = wrapper.querySelector('video') as HTMLVideoElement;
+      const mainVideo = wrapper.querySelector('.main-video') as HTMLVideoElement;
+      const previewVideo = wrapper.querySelector('.preview-video') as HTMLVideoElement | null;
       const playButton = wrapper.querySelector('.play-button') as HTMLButtonElement;
 
-      if (!video || !playButton) return;
+      if (!mainVideo || !playButton) return;
 
-      // Play video and show controls when button is clicked
+      // Play main video when button is clicked
       playButton.addEventListener('click', () => {
-        video.controls = true;
-        video.play();
+        // Pause and hide preview video if it exists
+        if (previewVideo) {
+          previewVideo.pause();
+          previewVideo.style.opacity = '0';
+          previewVideo.style.pointerEvents = 'none';
+        }
+
+        // Show and play main video with controls
+        mainVideo.style.opacity = '1';
+        mainVideo.controls = true;
+        mainVideo.play();
       });
 
-      // Hide button when video starts playing
-      video.addEventListener('play', () => {
+      // Hide button when main video starts playing
+      mainVideo.addEventListener('play', () => {
         playButton.classList.add('opacity-0', 'pointer-events-none');
       });
 
-      // Show button when video is paused (but keep controls visible)
-      video.addEventListener('pause', () => {
+      // Show button when main video is paused
+      mainVideo.addEventListener('pause', () => {
         playButton.classList.remove('opacity-0', 'pointer-events-none');
       });
 
-      // Show button when video ends
-      video.addEventListener('ended', () => {
+      // Show button and reset to preview when main video ends
+      mainVideo.addEventListener('ended', () => {
         playButton.classList.remove('opacity-0', 'pointer-events-none');
+
+        // Optional: Reset to preview video after main video ends
+        if (previewVideo) {
+          mainVideo.style.opacity = '0';
+          mainVideo.controls = false;
+          mainVideo.currentTime = 0;
+
+          previewVideo.style.opacity = '1';
+          previewVideo.style.pointerEvents = 'auto';
+          previewVideo.play();
+        }
       });
     });
   }
@@ -81,9 +124,3 @@ const { videoSrc, videoPosterSrc } = Astro.props;
     initVideoPlayers();
   });
 </script>
-
-<style>
-  .play-button {
-    transition: opacity 0.3s ease-in-out;
-  }
-</style>
