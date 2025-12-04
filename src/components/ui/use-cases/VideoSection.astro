@@ -9,7 +9,7 @@ interface Props {
 const { videoSrc, videoPosterSrc } = Astro.props;
 ---
 
-<section class="my-28" aria-labelledby="video-section-title">
+<section class="my-28" aria-labelledby="video-section-title" data-theme="dark">
   <h2
     id="video-section-title"
     class="font-clash-display-bold mb-10 text-center text-2xl leading-tight tracking-wide text-slate-600 md:text-4xl"
@@ -21,9 +21,9 @@ const { videoSrc, videoPosterSrc } = Astro.props;
     <video
       preload="metadata"
       class="absolute left-0 top-0 h-full w-full rounded-lg shadow-md ring ring-black/10"
-      poster={videoPosterSrc}
+      poster="/website/images/thumbnails/quick-air360-tracking-pixel-setup.webp"
     >
-      <source src={videoSrc} type="video/mp4" />
+      <source src="/website/videos/quick-air360-tracking-pixel-setup.mp4" type="video/mp4" />
       <p>
         Your browser doesn't support HTML video. Here is a
         <a href={videoSrc} class="underline hover:text-slate-800">link to the video</a> instead.
@@ -84,6 +84,6 @@ const { videoSrc, videoPosterSrc } = Astro.props;
 
 <style>
   .play-button {
-    transition: opacity 1s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
   }
 </style>
