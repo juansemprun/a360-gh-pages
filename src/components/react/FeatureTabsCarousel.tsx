@@ -110,7 +110,7 @@ const FeatureTabsCarousel = ({ features, autoRotateInterval = 5000 }: FeatureTab
               <video
                 ref={(el) => handleVideoRef(el, tab.id)}
                 src={tab.video}
-                poster={tab.poster}
+                poster={`/website/${tab.poster}`}
                 loop
                 muted
                 playsInline
