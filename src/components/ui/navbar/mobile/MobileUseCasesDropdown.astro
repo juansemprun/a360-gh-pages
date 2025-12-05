@@ -8,6 +8,7 @@ const { lang } = Astro.params;
 const entry = await getEntry('navigation', `${lang}/use-cases`);
 
 const useCasesByIndustry = entry?.data.useCasesNav?.industry || [];
+const useCasesByUseCase = entry?.data.useCasesNav?.useCase || [];
 ---
 
 <div class="mobile-nav-section">
@@ -41,55 +42,25 @@ const useCasesByIndustry = entry?.data.useCasesNav?.industry || [];
       ))
     }
 
-    <!-- <div class="mobile-feature-item">
-      <div class="mobile-feature-icon auto-cut"></div>
-      <div>
-        <h4>Auto Cut</h4>
-        <p>1-click video clean-up</p>
-      </div>
-    </div>
-    <div class="mobile-feature-item">
-      <div class="mobile-feature-icon auto-layouts"></div>
-      <div>
-        <h4>Auto Layouts</h4>
-        <p>AI-powered shot selection</p>
-      </div>
-    </div>
-    <div class="mobile-feature-item">
-      <div class="mobile-feature-icon session-replays"></div>
-      <div>
-        <h4>session-replays</h4>
-        <p>session-replays-in and track mouse movement</p>
-      </div>
-    </div>
-    <div class="mobile-feature-item">
-      <div class="mobile-feature-icon funnel"></div>
-      <div>
-        <h4>Instant link sharing</h4>
-        <p>Share with anyone, instantly</p>
-      </div>
-    </div>
-    <div class="mobile-feature-item">
-      <div class="mobile-feature-icon mac"></div>
-      <div>
-        <h4>Air360 for Mac</h4>
-        <p>Native performance</p>
-      </div>
-    </div>
-    <div class="mobile-feature-item">
-      <div class="mobile-feature-icon chrome"></div>
-      <div>
-        <h4>Air360 for Chrome</h4>
-        <p>The camera for your browser</p>
-      </div>
-    </div>
-    <div class="mobile-feature-item">
-      <div class="mobile-feature-icon windows"></div>
-      <div>
-        <h4>Air360 for Windows</h4>
-        <p>Coming soon...</p>
-      </div>
-    </div> -->
+    <h3 class="text-xs font-semibold uppercase tracking-wider text-gray-400">
+      {entry?.data?.sectionTitles?.useCase}
+    </h3>
+    {
+      useCasesByUseCase.map(({ icon, label, link }) => (
+        <a
+          href={`/website/${lang}/use-cases/${link}`}
+          role="menuitem"
+          class="flex items-center gap-x-2 rounded-xl py-1"
+        >
+          <div class="flex items-center gap-4 py-4">
+            <Icon name={icon} width={20} height={20} class="fill-primary-500" />
+            <div>
+              <h4 class="text-black">{label}</h4>
+            </div>
+          </div>
+        </a>
+      ))
+    }
   </div>
 </div>
 
