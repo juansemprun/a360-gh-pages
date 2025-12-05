@@ -38,11 +38,11 @@ const HeroVideoDialog = ({
             playsInline
             preload="metadata"
             aria-label={`Video preview for: ${title}`}
-            className="aspect-video h-full w-64 rounded-lg object-cover"
+            className="aspect-video h-full w-64 rounded-lg object-cover opacity-60"
           />
           {/* Play Icon Overlay (always shown) */}
           <span className="pointer-events-none absolute inset-0 flex items-center justify-center">
-            <Play className="size-16 rounded-full fill-neutral-400 stroke-neutral-400 stroke-1 p-2" />
+            <Play className="size-16 rounded-full fill-white stroke-0 p-2" />
           </span>
         </div>
         <div>

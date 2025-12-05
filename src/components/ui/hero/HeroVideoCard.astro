@@ -16,14 +16,16 @@ const {
 } = Astro.props as HeroVideoCardProps;
 ---
 
-<div
-  class="max-w-2xl transform cursor-pointer rounded-xl border border-white/20 bg-transparent p-4 backdrop-blur-sm transition duration-200 hover:rotate-0 hover:bg-white/10 md:rotate-1 md:rounded-3xl md:p-6"
->
-  <HeroVideoDialog
-    url={url}
-    thumbnailVideo={thumbnailVideo}
-    title={title}
-    subtitle={subtitle}
-    client:idle
-  />
+<div class="p-6">
+  <div
+    class="max-w-2xl transform cursor-pointer rounded-xl border border-white/20 bg-transparent p-4 backdrop-blur-sm transition duration-200 hover:rotate-0 hover:bg-white/10 md:rotate-1 md:rounded-3xl md:p-6"
+  >
+    <HeroVideoDialog
+      url={url}
+      thumbnailVideo={thumbnailVideo}
+      title={title}
+      subtitle={subtitle}
+      client:idle
+    />
+  </div>
 </div>
