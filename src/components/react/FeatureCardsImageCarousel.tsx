@@ -82,7 +82,7 @@ const FeatureCardsImagesCarousel = ({
   }
 
   return (
-    <Tabs value={activeTab} onValueChange={handleTabChange} className="gap-5">
+    <Tabs value={activeTab} onValueChange={handleTabChange} className="gap-5 p-6">
       <TabsList className="bg-background flex h-auto w-full flex-row gap-20">
         {features.map((tab) => {
           const IconComponent = getIconComponent(tab.icon);

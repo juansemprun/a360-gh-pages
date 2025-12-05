@@ -79,7 +79,7 @@ const FeatureTabsCarousel = ({ features, autoRotateInterval = 5000 }: FeatureTab
   }
 
   return (
-    <Tabs value={activeTab} onValueChange={handleTabChange} className="items-center gap-10">
+    <Tabs value={activeTab} onValueChange={handleTabChange} className="items-center gap-10 p-6">
       <TabsList className="flex h-auto flex-row gap-2 bg-transparent md:w-[360px] md:gap-20">
         {features.map((tab) => (
           <TabsTrigger
