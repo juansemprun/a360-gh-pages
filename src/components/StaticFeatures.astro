@@ -36,8 +36,8 @@ const { features = [] as Feature[] } = Astro.props as StaticFeaturesProps;
     <div class="flex flex-col">
       {
         features.map(({ heading, description, video, poster }) => (
-          <div class="flex flex-col items-center p-8">
-            <div class="flex max-w-80 flex-col items-center gap-2 p-6 text-center">
+          <div class="flex flex-col items-center p-1">
+            <div class="flex flex-col items-center gap-2 px-0 py-6 text-center">
               <div class="flex items-center gap-2">
                 <h3 class="text-xl font-semibold text-slate-900">{heading}</h3>
               </div>
@@ -48,7 +48,7 @@ const { features = [] as Feature[] } = Astro.props as StaticFeaturesProps;
             <img
               src={poster}
               alt={`${heading} - ${description}`}
-              class="aspect-video h-auto w-full rounded-sm object-cover shadow-lg ring ring-black/5"
+              class="aspect-video h-auto w-full rounded-2xl object-cover shadow-lg ring ring-black/5"
             />
           </div>
         ))
