@@ -1,0 +1,101 @@
+---
+title: Témoignages
+description: Découvrez ce que nos clients satisfaits disent de leur expérience avec Air360.
+
+heading:
+  line1: Ce qui a changé en mieux
+  line2: depuis que vous êtes passé à
+subheading: Lorsque vous construisez des outils d'analyse qui aident réellement les gens à comprendre leurs utilisateurs au lieu de les noyer dans des graphiques, des choses magiques se produisent.
+
+testimonials:
+  - id: 1
+    name: Aurélie Condamine
+    client: Empruntis
+    body: Chacun obtient ce dont il a besoin sans {se perdre dans les données}. Visualiser et accéder aux données est simple. C'est un excellent produit qui évolue constamment et très prometteur !
+
+  - id: 2
+    name: Christophe Chaudet
+    client: Unnest
+    body: Une excellente alternative à Contentsquare, avec un ensemble de {fonctionnalités avancées et une licence beaucoup moins chère}. Il s'adapte à chaque entreprise et secteur. La licence inclut toutes les futures mises à jour du produit sans coût supplémentaire.
+
+  - id: 3
+    name: Enguerran Bachelot
+    client: Okaidi
+    body: Je peux dire que le produit {évolue constamment} en phase avec les enjeux et défis actuels du e-commerce, et l'équipe est engagée dans le développement de l'approche CRO.
+
+  - id: 4
+    name: Fabrice Ruer
+    client: Business & Decision
+    body: Nous sommes heureux d'avoir choisi Air360 en 2023. C'est devenu un partenaire de confiance. L'outil est {simple et rapide pour l'analyse UX}, très apprécié de nos équipes.
+
+  - id: 5
+    name: Andre Maurer
+    client: Asendia
+    body: Nous avions besoin d'un outil qui puisse nous aider à {accélérer notre transformation digitale et comprendre nos parcours utilisateurs}. Air360 est l'outil que nous recherchions.
+
+  - id: 6
+    name: Jessica Lemeitour
+    client: Dorcel
+    body: Cet outil est essentiel pour gérer un site e-commerce. Il a permis une {amélioration continue}, à la fois avec des mises à niveau majeures et des quick wins.
+
+  - id: 7
+    name: Manon Hochard
+    client: Henkan & Partners
+    body: Travailler avec Air360, c'est pouvoir {analyser les parcours utilisateurs sur les sites clients}, comprendre les interactions sur les pages clés et fournir des recommandations pertinentes.
+
+  - id: 8
+    name: Quentin Bernard
+    client: Arquen
+    body: Air360 nous permet d'obtenir {des données quantitatives fiables de manière flexible} pour analyser avec précision le comportement des utilisateurs.
+
+  - id: 9
+    name: Nelson Fernandes
+    client: Clubmed
+    body: Avec Air360, nous pouvons impliquer davantage de personnes dans {la prise de décisions basées sur les données} à l'échelle mondiale.
+
+  - id: 10
+    name: Salomé Klein
+    client: Croix Rouge Française
+    body: Avec Air360, je peux {explorer les données différemment}, en allant au-delà des métriques classiques pour mieux comprendre les interactions.
+
+  - id: 11
+    name: Andre Maurer
+    client: Asendia
+    body: Nous avions besoin d'un outil qui puisse {accélérer notre transformation digitale} et nous aider à comprendre nos parcours utilisateurs.
+
+  - id: 12
+    name: Jonny Longden
+    client: Journey Further
+    body: Avec Air360, nous obtenons {des informations plus rapides}, aidant les clients à avoir un impact positif sur le CRO et les revenus.
+
+  - id: 13
+    name: Alexandre Suon
+    client: Henkan & Partners
+    body: Très impressionné par cette nouvelle solution, qui est innovante et très rapide à mettre en œuvre. C'est une {excellente alternative pour les équipes e-commerce} qui recherchent une option différente des acteurs majeurs du marché.
+
+  - id: 14
+    name: Emma Lombard
+    client: Business & Decision
+    body: Notre partenariat avec Air360 nous permet d'offrir aux clients {des informations approfondies sur leurs parcours utilisateurs} et d'activer des stratégies d'optimisation à fort impact.
+
+  - id: 15
+    name: Guillaume Le Roux
+    client: D.CLICKS
+    body: Des données fiables et une facilité d'utilisation avec un produit qui répond à mes besoins. Air360 est {essentiel pour construire et déployer une stratégie CRO solide}.
+
+  - id: 16
+    name: Roman Tournier
+    client: Yuri & Neil
+    body: Grâce à notre collaboration avec Air360, nous avons élevé nos {capacités d'analyse et d'optimisation à un nouveau niveau}.
+---
+
+import TestimonialsHero from '@/components/pages/testimonials/TestimonialsHero.astro';
+import TestimonialsGrid from '@/components/pages/testimonials/TestimonialsGrid.astro';
+
+<TestimonialsHero
+  line1={frontmatter.heading.line1}
+  line2={frontmatter.heading.line2}
+  subheading={frontmatter.subheading}
+/>
+
+<TestimonialsGrid testimonials={frontmatter.testimonials} />
