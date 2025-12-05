@@ -29,13 +29,6 @@ const ReviewCard = ({
   return (
     <figure className="relative h-full w-fit max-w-lg cursor-pointer overflow-hidden rounded-xl border border-gray-950/[.1] bg-gray-950/[.01] p-6 hover:bg-gray-950/[.05]">
       <div className="flex flex-row items-center gap-2">
-        {/* <img
-          className="rounded-full"
-          width="32"
-          height="32"
-          alt={`${name}'s review of Air360`}
-          src={img}
-        /> */}
         <User className="text-muted-foreground h-8 w-8" />
         <div className="flex flex-col">
           <figcaption className="text-sm font-medium dark:text-white">{name}</figcaption>
