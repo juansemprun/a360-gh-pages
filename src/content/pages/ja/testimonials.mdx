@@ -1,0 +1,101 @@
+---
+title: お客様の声
+description: Air360の体験についてご満足いただいているお客様の声をお聞きください。
+
+heading:
+  line1: Air360に切り替えてから
+  line2: 何が良くなりましたか？
+subheading: ユーザーをグラフで溺れさせるのではなく、実際に理解するのに役立つ分析を構築すると、魔法のようなことが起こります。
+
+testimonials:
+  - id: 1
+    name: Aurélie Condamine
+    client: Empruntis
+    body: 誰もが{データに迷うことなく}必要なものを手に入れられます。データの視覚化とアクセスはシンプルです。常に進化し続けている非常に有望な素晴らしい製品です！
+
+  - id: 2
+    name: Christophe Chaudet
+    client: Unnest
+    body: Contentsquareの優れた代替品で、{高度な機能セットとはるかに安いライセンス}を備えています。あらゆる企業とセクターに適応します。ライセンスには、追加費用なしで将来のすべての製品アップデートが含まれます。
+
+  - id: 3
+    name: Enguerran Bachelot
+    client: Okaidi
+    body: この製品は、現在のeコマースの課題に沿って{常に進化している}と言えます。チームはCROアプローチの開発に取り組んでいます。
+
+  - id: 4
+    name: Fabrice Ruer
+    client: Business & Decision
+    body: 2023年にAir360を選んでよかったです。信頼できるパートナーになりました。このツールは{UX分析にシンプルで高速}で、当社のチームから高く評価されています。
+
+  - id: 5
+    name: Andre Maurer
+    client: Asendia
+    body: '{デジタル変革を加速し、ユーザージャーニーを理解する}のに役立つツールが必要でした。Air360はまさに私たちが探していたツールです。'
+
+  - id: 6
+    name: Jessica Lemeitour
+    client: Dorcel
+    body: このツールはeコマースサイトの管理に不可欠です。主要なアップグレードとクイックウィンの両方で{継続的な改善}を可能にしました。
+
+  - id: 7
+    name: Manon Hochard
+    client: Henkan & Partners
+    body: Air360と協力することは、{クライアントサイトのユーザージャーニーを分析}し、主要ページでのインタラクションを理解し、関連する推奨事項を提供できることを意味します。
+
+  - id: 8
+    name: Quentin Bernard
+    client: Arquen
+    body: Air360により、{信頼性の高い定量的データを柔軟に}取得して、ユーザーの行動を正確に分析できます。
+
+  - id: 9
+    name: Nelson Fernandes
+    client: Clubmed
+    body: Air360を使用すると、グローバル規模で{データに基づいた意思決定を行う}ことにより多くの人を巻き込むことができます。
+
+  - id: 10
+    name: Salomé Klein
+    client: Croix Rouge Française
+    body: Air360を使用すると、従来のメトリックを超えて{データを異なる方法で探索}し、インタラクションをよりよく理解できます。
+
+  - id: 11
+    name: Andre Maurer
+    client: Asendia
+    body: '{デジタル変革を加速}し、ユーザージャーニーを理解するのに役立つツールが必要でした。'
+
+  - id: 12
+    name: Jonny Longden
+    client: Journey Further
+    body: Air360により、{より迅速なインサイト}を得て、顧客がCROと収益にプラスの影響を与えるのを支援しています。
+
+  - id: 13
+    name: Alexandre Suon
+    client: Henkan & Partners
+    body: この革新的で迅速に実装できる新しいソリューションに非常に感銘を受けました。市場の主要プレーヤーとは異なるオプションを探している{eコマースチームにとって素晴らしい代替品}です。
+
+  - id: 14
+    name: Emma Lombard
+    client: Business & Decision
+    body: Air360とのパートナーシップにより、クライアントに{ユーザージャーニーに関する詳細なインサイト}を提供し、高い影響力を持つ最適化戦略を活性化できます。
+
+  - id: 15
+    name: Guillaume Le Roux
+    client: D.CLICKS
+    body: 信頼できるデータと使いやすさで、ニーズに合った製品です。Air360は{強力なCRO戦略を構築し展開するために不可欠}です。
+
+  - id: 16
+    name: Roman Tournier
+    client: Yuri & Neil
+    body: Air360との協力により、{分析と最適化の能力を新しいレベルに}引き上げました。
+---
+
+import TestimonialsHero from '@/components/pages/testimonials/TestimonialsHero.astro';
+import TestimonialsGrid from '@/components/pages/testimonials/TestimonialsGrid.astro';
+
+<TestimonialsHero
+  line1={frontmatter.heading.line1}
+  line2={frontmatter.heading.line2}
+  subheading={frontmatter.subheading}
+/>
+
+<TestimonialsGrid testimonials={frontmatter.testimonials} />
