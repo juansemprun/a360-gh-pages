@@ -1,0 +1,40 @@
+---
+title: セッションリプレイ
+description: ユーザーの動きを観察します。苦労している場所を見つけ、実際のセッション記録でユーザー体験を最適化します。
+heroCtaText: 始める
+heroCtaUrl: '#get-started'
+videoSrc: /website/videos/session-replays.mp4
+thumbnailVideoSrc: /website/videos/session-replays-clip.mp4
+thumbnailImageSrc: /website/images/thumbnails/features/session-replays.webp
+videoThumbnailAlt: セッションリプレイ
+videoCtaText: セッションリプレイが実際にどのように機能するかをご覧ください！
+videoDialogTitle: セッションリプレイ
+faqTitle: よくある質問
+faqs:
+  - question: What are Session Replays?
+    answer: Session Replays are recordings of real user sessions on your website, allowing you to watch exactly how visitors interact with your site, where they click, scroll, and where they encounter problems.
+  - question: Why use Session Replays?
+    answer: Session Replays help you understand the "why" behind their actions. Spot usability issues, confusion points, and hidden errors that analytics alone can't catch. Instead of guessing why users drop off, watch their actual behavior and fix problems fast to create a better user experience and get higher conversions.
+  - question: Can I filter sessions by specific criteria?
+    answer: Yes! You can filter sessions by user behavior, device type, conversion status, and many other criteria to find the most relevant recordings.
+  - question: How does session replay support business decisions?
+    answer: See “why” users fail to convert. Identify root causes faster, fix what's broken, and measure the real impact on your business outcomes.
+---
+
+import FeaturesHero from '@/components/pages/features/FeaturesHero.astro';
+import FeatureFAQSection from '@/components/FAQSection.astro';
+
+<FeaturesHero
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ctaText={frontmatter.heroCtaText}
+  ctaUrl={frontmatter.heroCtaUrl}
+  videoSrc={frontmatter.videoSrc}
+  thumbnailVideoSrc={frontmatter.thumbnailVideoSrc}
+  thumbnailImageSrc={frontmatter.thumbnailImageSrc}
+  thumbnailAlt={frontmatter.videoThumbnailAlt}
+  videoCtaText={frontmatter.videoCtaText}
+  videoDialogTitle={frontmatter.videoDialogTitle}
+/>
+
+<FeatureFAQSection title={frontmatter.faqTitle} faqs={frontmatter.faqs} />

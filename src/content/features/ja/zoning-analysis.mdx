@@ -1,0 +1,44 @@
+---
+title: ゾーニング分析
+description: ウェブサイトの各要素がどのように機能しているか、即座に詳細なインサイトを取得できます。数回のクリックでサイト上で直接確認できます。
+heroCtaText: 始める
+heroCtaUrl: '#get-started'
+videoSrc: /website/videos/zoning-analysis.mp4
+thumbnailVideoSrc: /website/videos/zoning-analysis-clip.mp4
+thumbnailImageSrc: /website/images/thumbnails/features/zoning-analysis.webp
+videoThumbnailAlt: ゾーニング分析デモプレビュー
+videoCtaText: ゾーニング分析はこのように見えます！
+videoDialogTitle: ゾーニング分析
+faqTitle: よくある質問
+faqs:
+  - question: ゾーニング分析とは何ですか？
+    answer: ゾーニング分析により、ウェブサイト上のすべての要素がどのように機能しているかを即座に把握できます。ボタン、画像、バナー、テキストブロックをクリックすると、パフォーマンスデータがページ上に直接表示されます。サイトに直接マッピングされた分析です。
+  - question: ゾーニング分析を使用する理由は？
+    answer: ゾーニング分析は、ユーザーの注目を集めるものと見落とされるものを正確に明らかにし、自信を持ってデータに基づいたデザイン決定を行えるようにします。コンバージョンのボトルネックをより速く特定し、重要な部分を最適化し、ビジネス目標に真に影響を与える要素に焦点を当てます。
+  - question: ゾーンをカスタマイズできますか？
+    answer: はい！特定のレイアウトとビジネスニーズに基づいてカスタムゾーンを作成でき、柔軟でターゲットを絞った分析が可能です。
+  - question: ゾーニング分析を開始するには？
+    answer: まず、Air360の使用開始にはわずか5分しかかかりません。ウェブサイトまたはタグマネージャーに追跡ピクセルを追加するだけで、サイト全体でユーザーの行動データを自動的にキャプチャします。次に、プラットフォームで数回のクリックでブラウザ拡張機能を有効化してゾーニング分析を開始します。インサイトが必要なときはいつでも、拡張機能を開き、任意の要素をクリックすると、そのパフォーマンスを即座に表示し、最適化の機会を特定できます。タグ付けや手動設定は不要で、チームの誰でも使用できます。技術的な専門知識は必要ありません。
+  - question: どのような種類のメトリックを理解できますか？
+    answer: 「クリック率」などのメトリックを使用してエンゲージメントレベルを理解し、「コンバージョン率」を使用してクリックがコンバージョンにどのように変換されるかを測定し、「レイジクリック」などの摩擦指標でユーザビリティの問題を強調できます。これらのメトリックなど多数により、ユーザーの行動を理解し、最適化すべき場所を正確に特定できます。
+  - question: ゾーニング分析はビジネス上の意思決定にどのように役立ちますか？
+    answer: ゾーニング分析は、要素レベルの行動を具体的なビジネス成果に結び付け、ユーザー体験を改善しコンバージョンを促進する変更の優先順位を自信を持って決定できるようにします。仮説を迅速にテストし、実際のデータでデザインの決定を検証し、最も影響力の高い領域にリソースを割り当てることができます。推測に頼る代わりに、証拠に裏付けられた情報に基づいた意思決定を行います。
+---
+
+import FeaturesHero from '@/components/pages/features/FeaturesHero.astro';
+import FeatureFAQSection from '@/components/FAQSection.astro';
+
+<FeaturesHero
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ctaText={frontmatter.heroCtaText}
+  ctaUrl={frontmatter.heroCtaUrl}
+  videoSrc={frontmatter.videoSrc}
+  thumbnailVideoSrc={frontmatter.thumbnailVideoSrc}
+  thumbnailImageSrc={frontmatter.thumbnailImageSrc}
+  thumbnailAlt={frontmatter.videoThumbnailAlt}
+  videoCtaText={frontmatter.videoCtaText}
+  videoDialogTitle={frontmatter.videoDialogTitle}
+/>
+
+<FeatureFAQSection title={frontmatter.faqTitle} faqs={frontmatter.faqs} />
