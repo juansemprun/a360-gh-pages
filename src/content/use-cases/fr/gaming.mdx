@@ -1,41 +1,58 @@
 ---
 type: industry
-title: Gaming Companies
-description: Create the best possible online booking experience with Air360, with personalized journeys, smooth booking, and optimized customer engagement.
+title: Gaming
+description: Créez la meilleure expérience d'achat en ligne possible avec Air360, avec des parcours personnalisés, un processus d'achat fluide et un engagement client optimisé.
 video:
-  title: Gaming Companies
+  title: Gaming - Vidéo de Configuration Rapide du Pixel de Suivi Air360
   url: https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true
+  videoSrc: /website/videos/quick-air360-tracking-pixel-setup.mp4
+  videoPreviewSrc: /website/videos/quick-air360-tracking-pixel-setup-clip.mp4
+  videoPosterSrc: /website/images/thumbnails/quick-air360-tracking-pixel-setup.webp
 highlights:
-  - title: Create experiences that convert
-    text: Turn dreamers into bookers by personalizing their journey. Segment visitors and tailor their stay even before they arrive, with Air360!
-  - title: The best possible version of every page
-    text: Every click is a step toward a perfect stay—make every page shine. Refine interactions to match the luxury and comfort you promise with Air360.
-  - title: Simplify the booking experience
-    text: Don't let potential guests abandon their reservations. Air360 pinpoint friction points, helping you create a smooth booking process.
-  - title: Keep your site running smoothly
-    text: No glitches, no stress! Air360 identify UX issues so your site stays reliable and keeps bookings rolling in.
-  - title: Keep your customers happy
-    text: Ensure guests find the rooms and services they love with ease. Air360 optimize visibility to keep them engaged and ready to book.
+  - title: Créez des expériences qui convertissent
+    text: Augmentez l'engagement des utilisateurs et transformez les visiteurs occasionnels en fans engagés. Segmentez les utilisateurs et offrez des expériences d'achat personnalisées avec Air360 !
+  - title: La meilleure version possible de chaque page
+    text: Chaque clic compte ! Assurez-vous que chaque page est optimisée pour des performances maximales. Affinez les interactions pour garder les joueurs immergés avec Air360.
+  - title: Simplifiez l'expérience d'achat
+    text: Ne laissez pas les joueurs abandonner avant le paiement. Air360 met en évidence où ils décrochent, vous aidant à rationaliser le processus et à maximiser les achats.
+  - title: Maintenez votre site en bon fonctionnement
+    text: Aucun ralentissement, aucune frustration ! Air360 révèle vos problèmes UX pour que vous puissiez les corriger rapidement et maintenir tout en ordre.
+  - title: Gardez vos clients satisfaits
+    text: Aidez les joueurs à trouver les jeux et améliorations qu'ils aiment, et faites-les revenir pour plus. Air360 optimise la visibilité et l'engagement pour stimuler la fidélité.
 ---
 
-import CallToAction from '@ui/use-cases/CallToAction.astro';
-import Highlights from '@ui/use-cases/Highlights.astro';
-import HighlightsSummary from '@ui/use-cases/HighlightsSummary.astro';
-import MarkHighlight from '@ui/use-cases/MarkHighlight.astro';
-import PageHero from '@ui/use-cases/PageHero.astro';
-import VideoSection from '@ui/use-cases/VideoSection.astro';
+import CallToAction from '@/components/ui/use-cases/CallToAction.astro';
+import Highlights from '@/components/ui/use-cases/Highlights.astro';
+import HighlightsSummary from '@/components/ui/use-cases/HighlightsSummary.astro';
+import MarkHighlight from '@/components/ui/use-cases/MarkHighlight.astro';
+import PageHero from '@/components/ui/use-cases/PageHero.astro';
+import Testimonial from '@/components/ui/use-cases/Testimonial.astro';
+import VideoSection from '@/components/ui/use-cases/VideoSection.astro';
+
+import { BusinessAndDecisions } from '@/assets/brand-logos';
 
 <PageHero>
-  <span class="block">Create the best possible</span>
-  <span class="block">
-    <MarkHighlight>online shopping</MarkHighlight> experience
+  <span class="block" slot="title">Créez la meilleure expérience</span>
+  <span class="block" slot="title">
+    d'<MarkHighlight>achat en ligne</MarkHighlight> possible
   </span>
+
+  <Testimonial
+    Logo={BusinessAndDecisions}
+    quote="L'outil est rapide et facile à utiliser pour l'analyse UX et est très apprécié par nos équipes."
+    attribution="Fabrice Ruer, Business & Decision"
+    slot="testimonial"
+  />
 </PageHero>
 
 <Highlights highlightsList={frontmatter.highlights} />
 
-<VideoSection videoSrc={frontmatter.video.url}>
-  Want to see how <MarkHighlight>easy</MarkHighlight> it is?
+<VideoSection
+  videoSrc={frontmatter.video.videoSrc}
+  videoPosterSrc={frontmatter.video.videoPosterSrc}
+  videoPreviewSrc={frontmatter.video.videoPreviewSrc}
+>
+  Vous voulez voir comme c'est <MarkHighlight>facile</MarkHighlight> de commencer ?
 </VideoSection>
 
 <HighlightsSummary highlightsList={frontmatter.highlights} />

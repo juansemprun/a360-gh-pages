@@ -1,0 +1,43 @@
+---
+type: 'use case'
+title: Optimiser le Parcours Utilisateur
+description: Comprenez comment les utilisateurs naviguent réellement sur le site web et réduisez les frictions tout au long de leur parcours.
+heroCtaText: Commencer
+heroCtaUrl: '#get-started'
+videoSrc: /website/videos/use-case/optimize-user-journey.mp4
+thumbnailVideoSrc: /website/videos/use-case/optimize-user-journey-clip.mp4
+thumbnailImageSrc: /website/images/thumbnails/use-cases/optimize-user-journey.webp
+videoThumbnailAlt: Optimiser le Parcours Utilisateur
+videoCtaText: Découvrez comme il est facile de corriger les abandons !
+videoDialogTitle: Optimiser le Parcours Utilisateur avec Air360
+faqTitle: Questions fréquentes
+faqs:
+  - question: Qu'est-ce que l'optimisation du parcours utilisateur ?
+    answer: L'optimisation du parcours utilisateur vous aide à comprendre comment les utilisateurs se déplacent sur votre site web et à identifier où ils sont confus, distraits ou perdus. En analysant ces parcours, vous pouvez éliminer les frictions et guider les utilisateurs plus facilement vers les actions clés.
+  - question: Comment l'optimisation du parcours utilisateur peut-elle aider à réduire les abandons ?
+    answer: L'optimisation du parcours utilisateur vous aide à comprendre ce que les utilisateurs font immédiatement après avoir quitté une étape importante de votre flux. En voyant où ils vont, vous pouvez identifier les pages qui les distraient, les zones où l'information n'est pas claire ou les moments où l'appel à l'action peut ne pas être assez fort. Cela révèle également des modèles de navigation qui pourraient dérouter les utilisateurs. Une fois que vous comprenez les points spécifiques où les gens hésitent ou abandonnent le processus, vous pouvez résoudre ces problèmes directement et réduire les abandons plus efficacement.
+  - question: Quelle est la différence entre un entonnoir et la fonctionnalité de parcours utilisateur dans l'optimisation du parcours utilisateur ?
+    answer: Les entonnoirs suivent un processus prédéfini et linéaire (par exemple, page produit → panier → paiement). Les parcours utilisateurs, en revanche, révèlent le comportement réel et non linéaire, y compris les boucles, les retours en arrière, les détours et les itinéraires alternatifs que les utilisateurs empruntent avant de convertir ou d'abandonner. En combinant les deux fonctionnalités, vous pouvez voir l'image complète de la façon dont les utilisateurs se sont déplacés sur votre site web. Ensemble, ils vous donnent une image complète de la façon dont les utilisateurs vivent réellement votre site.
+  - question: Puis-je segmenter l'analyse par type d'audience ?
+    answer: Oui, vous le pouvez. Les entonnoirs et les parcours utilisateurs peuvent être filtrés selon différentes caractéristiques d'audience telles que l'appareil, le pays, la région, la source de trafic, la campagne et si quelqu'un est un nouveau visiteur ou un visiteur récurrent. Cela vous permet de comparer comment différents groupes se comportent et de comprendre les différences dans leurs parcours. Avec cette information, vous pouvez optimiser l'expérience pour chaque segment d'audience en fonction de leur comportement unique.
+  - question: Comment puis-je valider mes conclusions d'une analyse de parcours utilisateur ?
+    answer: Vous pouvez instantanément ouvrir des replays de session pour n'importe quelle étape ou parcours que vous analysez. Cela vous permet de regarder les interactions réelles des utilisateurs, de confirmer vos hypothèses et de comprendre le contexte derrière les comportements, rendant vos décisions d'optimisation plus précises.
+---
+
+import FeaturesHero from '@/components/pages/features/FeaturesHero.astro';
+import FeatureFAQSection from '@/components/FAQSection.astro';
+
+<FeaturesHero
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ctaText={frontmatter.heroCtaText}
+  ctaUrl={frontmatter.heroCtaUrl}
+  videoSrc={frontmatter.videoSrc}
+  thumbnailVideoSrc={frontmatter.thumbnailVideoSrc}
+  thumbnailImageSrc={frontmatter.thumbnailImageSrc}
+  thumbnailAlt={frontmatter.videoThumbnailAlt}
+  videoCtaText={frontmatter.videoCtaText}
+  videoDialogTitle={frontmatter.videoDialogTitle}
+/>
+
+<FeatureFAQSection title={frontmatter.faqTitle} faqs={frontmatter.faqs} />
