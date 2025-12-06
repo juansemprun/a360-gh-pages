@@ -10,6 +10,7 @@ import { languageCodes } from './src/config/language';
 export default defineConfig({
   site: 'https://airthreesixty.github.io',
   base: '/website',
+  trailingSlash: 'never',
   build: {
     inlineStylesheets: 'always',
   },
