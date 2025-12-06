@@ -1,0 +1,39 @@
+---
+type: 'use case'
+title: データドリブンなマーケティング決定
+description: 実際のユーザー行動データと実証されたパフォーマンス指標に基づいて、自信を持ってマーケティングの意思決定を行いましょう。
+heroCtaText: 始める
+heroCtaUrl: '#get-started'
+videoSrc: /website/videos/use-case/data-driven-marketing-decision.mp4
+thumbnailVideoSrc: /website/videos/use-case/data-driven-marketing-decision-clip.mp4
+thumbnailImageSrc: /website/images/thumbnails/use-cases/data-driven-marketing-decision.webp
+videoThumbnailAlt: データドリブンな意思決定
+videoCtaText: データがマーケティングの意思決定をどのように変革するかをご覧ください!
+videoDialogTitle: Air360でデータドリブンなマーケティング
+faqTitle: よくある質問
+faqs:
+  - question: Air360はコンテンツの効果をどのように比較するのに役立ちますか?
+    answer: Air360のゾーニング分析により、ページ上の各要素や画像のエンゲージメントとコンバージョン貢献度を直接比較できます。どのコンテンツが注目を集めているか、どの要素がコンバージョンをサポートしているか、ページのどの部分がパフォーマンスが低いかを即座に確認できます。これにより、何が最も効果的で、どこを最適化すべきかを簡単に理解できます。
+  - question: Air360はROIに基づいた意思決定に役立ちますか?
+    answer: はい!Air360は、ユーザーを失っている領域、摩擦が発生している領域、または機会を逃している領域を強調表示します。どの要素がコンバージョンを助けたり妨げたりしているかを示すことで、プラットフォームは最小限の努力で最大のリターンをもたらす変更へと導きます。最も大きな影響を与える場所にリソースを投資するのに役立ちます。
+  - question: キャンペーンごとにパフォーマンスを測定できますか?
+    answer: はい!Air360を使用すると、すべての分析をキャンペーン別にセグメント化して、各トラフィックソースからの訪問者がサイト上でどのように行動するかを正確に確認できます。キャンペーンごとのファネルコンバージョン率を比較し、エンゲージメント、クリック行動、摩擦イベント、コンバージョンへの全体的な貢献度などの指標を使用してページレベルのパフォーマンスを分析できます。これにより、どのキャンペーンが質の高いトラフィックを促進し、どのキャンペーンが早期の離脱や低いエンゲージメントにつながっているかを簡単に理解できます。
+---
+
+import FeaturesHero from '@/components/pages/features/FeaturesHero.astro';
+import FeatureFAQSection from '@/components/FAQSection.astro';
+
+<FeaturesHero
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ctaText={frontmatter.heroCtaText}
+  ctaUrl={frontmatter.heroCtaUrl}
+  videoSrc={frontmatter.videoSrc}
+  thumbnailVideoSrc={frontmatter.thumbnailVideoSrc}
+  thumbnailImageSrc={frontmatter.thumbnailImageSrc}
+  thumbnailAlt={frontmatter.videoThumbnailAlt}
+  videoCtaText={frontmatter.videoCtaText}
+  videoDialogTitle={frontmatter.videoDialogTitle}
+/>
+
+<FeatureFAQSection title={frontmatter.faqTitle} faqs={frontmatter.faqs} />

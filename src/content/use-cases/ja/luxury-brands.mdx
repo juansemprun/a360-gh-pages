@@ -1,41 +1,58 @@
 ---
 type: industry
-title: Luxury Brands
-description: Create the best possible online booking experience with Air360, with personalized journeys, smooth booking, and optimized customer engagement.
+title: ラグジュアリーブランド
+description: Air360で最高のオンラインショッピング体験を実現。パーソナライズされたジャーニー、スムーズな購入、最適化された顧客エンゲージメントを提供します。
 video:
-  title: Gaming Companies
+  title: ラグジュアリーブランド - Air360トラッキングピクセル簡単セットアップ動画
   url: https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true
+  videoSrc: /website/videos/quick-air360-tracking-pixel-setup.mp4
+  videoPreviewSrc: /website/videos/quick-air360-tracking-pixel-setup-clip.mp4
+  videoPosterSrc: /website/images/thumbnails/quick-air360-tracking-pixel-setup.webp
 highlights:
-  - title: Create experiences that convert
-    text: Turn dreamers into bookers by personalizing their journey. Segment visitors and tailor their stay even before they arrive, with Air360!
-  - title: The best possible version of every page
-    text: Every click is a step toward a perfect stay—make every page shine. Refine interactions to match the luxury and comfort you promise with Air360.
-  - title: Simplify the booking experience
-    text: Don't let potential guests abandon their reservations. Air360 pinpoint friction points, helping you create a smooth booking process.
-  - title: Keep your site running smoothly
-    text: No glitches, no stress! Air360 identify UX issues so your site stays reliable and keeps bookings rolling in.
-  - title: Keep your customers happy
-    text: Ensure guests find the rooms and services they love with ease. Air360 optimize visibility to keep them engaged and ready to book.
+  - title: コンバージョンにつながる体験を創造
+    text: お客様に特別な対応をオンラインで提供し、限定性がエンゲージメントを促進する様子をご覧ください。Air360で訪問者をセグメント化し、プレミアムな体験をカスタマイズしましょう！
+  - title: すべてのページを最高のバージョンに
+    text: すべてのインタラクションはブランドの反映です。完璧にしましょう！Air360でお客様が期待するラグジュアリーに合わせてすべてのページを向上させます。
+  - title: ショッピング体験をシンプルに
+    text: お客様をチェックアウトへの道で迷わせないでください。Air360は購入者が躊躇する場所を特定し、シームレスで洗練された購入への旅を作り出すお手伝いをします。
+  - title: サイトを円滑に運営
+    text: 品質に妥協はありません！Air360は隠れたUXの問題を発見し、オンラインプレゼンスをブランドと同じく洗練された状態に保ちます。
+  - title: お客様の満足度を維持
+    text: お客様が象徴的な商品を簡単に発見し、エンゲージメントを保つお手伝いをします。Air360は商品が本来あるべきスポットライトで輝くことを保証します。
 ---
 
-import CallToAction from '@ui/use-cases/CallToAction.astro';
-import Highlights from '@ui/use-cases/Highlights.astro';
-import HighlightsSummary from '@ui/use-cases/HighlightsSummary.astro';
-import MarkHighlight from '@ui/use-cases/MarkHighlight.astro';
-import PageHero from '@ui/use-cases/PageHero.astro';
-import VideoSection from '@ui/use-cases/VideoSection.astro';
+import CallToAction from '@/components/ui/use-cases/CallToAction.astro';
+import Highlights from '@/components/ui/use-cases/Highlights.astro';
+import HighlightsSummary from '@/components/ui/use-cases/HighlightsSummary.astro';
+import MarkHighlight from '@/components/ui/use-cases/MarkHighlight.astro';
+import PageHero from '@/components/ui/use-cases/PageHero.astro';
+import Testimonial from '@/components/ui/use-cases/Testimonial.astro';
+import VideoSection from '@/components/ui/use-cases/VideoSection.astro';
+
+import { BusinessAndDecisions } from '@/assets/brand-logos';
 
 <PageHero>
-  <span class="block">Create the best possible</span>
-  <span class="block">
-    <MarkHighlight>online shopping</MarkHighlight> experience
+  <span class="block" slot="title">最高の</span>
+  <span class="block" slot="title">
+    <MarkHighlight>オンラインショッピング</MarkHighlight>体験を創造
   </span>
+
+  <Testimonial
+    Logo={BusinessAndDecisions}
+    quote="このツールはUX分析に迅速かつ簡単に使用でき、チームから高く評価されています。"
+    attribution="Fabrice Ruer, Business & Decision"
+    slot="testimonial"
+  />
 </PageHero>
 
 <Highlights highlightsList={frontmatter.highlights} />
 
-<VideoSection videoSrc={frontmatter.video.url}>
-  Want to see how <MarkHighlight>easy</MarkHighlight> it is?
+<VideoSection
+  videoSrc={frontmatter.video.videoSrc}
+  videoPosterSrc={frontmatter.video.videoPosterSrc}
+  videoPreviewSrc={frontmatter.video.videoPreviewSrc}
+>
+  始めるのが<MarkHighlight>いかに簡単か</MarkHighlight>ご覧になりますか？
 </VideoSection>
 
 <HighlightsSummary highlightsList={frontmatter.highlights} />

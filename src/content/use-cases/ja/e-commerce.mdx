@@ -3,19 +3,22 @@ type: industry
 title: E-commerce Companies
 description: Create the best possible online booking experience with Air360, with personalized journeys, smooth booking, and optimized customer engagement.
 video:
-  title: Gaming Companies
+  title: E-commerce Companies - Quick Air360 Tracking Pixel Setup Video
   url: https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true
+  videoSrc: /website/videos/quick-air360-tracking-pixel-setup.mp4
+  videoPreviewSrc: /website/videos/quick-air360-tracking-pixel-setup-clip.mp4
+  videoPosterSrc: /website/images/thumbnails/quick-air360-tracking-pixel-setup.webp
 highlights:
   - title: Create experiences that convert
-    text: Turn dreamers into bookers by personalizing their journey. Segment visitors and tailor their stay even before they arrive, with Air360!
+    text: Make online shopping a breeze and watch visitors turn into loyal customers. Segment shoppers and personalize their journey with Air360!
   - title: The best possible version of every page
-    text: Every click is a step toward a perfect stay—make every page shine. Refine interactions to match the luxury and comfort you promise with Air360.
+    text: Every click leads to sales! ensure your pages stand out. Refine customer interactions with Air360, delivering a seamless shopping experience that reflects your brand’s excellence with Air360.
   - title: Simplify the booking experience
-    text: Don't let potential guests abandon their reservations. Air360 pinpoint friction points, helping you create a smooth booking process.
+    text: Don’t let your visitors get stuck at checkout. Air360 show where they pause or drop off, so you can smooth the path to purchase and boost sales.
   - title: Keep your site running smoothly
-    text: No glitches, no stress! Air360 identify UX issues so your site stays reliable and keeps bookings rolling in.
+    text: No errors, no frustration!  Air360 reveal your UX pain points, helping you fix them fast and maintain a flawless shopping experience.
   - title: Keep your customers happy
-    text: Ensure guests find the rooms and services they love with ease. Air360 optimize visibility to keep them engaged and ready to book.
+    text: Help customers find what they’re searching for and keep them coming back for more. Air360 identify hard-to-find items and help you adjust visibility to maintain high sales.
 ---
 
 import CallToAction from '@/components/ui/use-cases/CallToAction.astro';
@@ -23,19 +26,36 @@ import Highlights from '@/components/ui/use-cases/Highlights.astro';
 import HighlightsSummary from '@/components/ui/use-cases/HighlightsSummary.astro';
 import MarkHighlight from '@/components/ui/use-cases/MarkHighlight.astro';
 import PageHero from '@/components/ui/use-cases/PageHero.astro';
+import Testimonial from '@/components/ui/use-cases/Testimonial.astro';
 import VideoSection from '@/components/ui/use-cases/VideoSection.astro';
 
+import { Okaidi } from '@/assets/brand-logos';
+
 <PageHero>
-  <span class="block">Create the best possible</span>
-  <span class="block">
-    <MarkHighlight>online shopping</MarkHighlight> experience
-  </span>
+
+<span class="block" slot="title">
+  最高の
+</span>
+<span class="block" slot="title">
+  <MarkHighlight>オンラインショッピング</MarkHighlight>体験を作成
+</span>
+
+  <Testimonial
+    Logo={Okaidi}
+    quote="製品は現在のeコマースの課題に沿って常に進化しており、チームはCROアプローチの開発に取り組んでいると言えます。"
+    attribution="Enguerran Bachelot, Okaidi"
+    slot="testimonial"
+  />
 </PageHero>
 
 <Highlights highlightsList={frontmatter.highlights} />
 
-<VideoSection videoSrc={frontmatter.video.url}>
-  Want to see how <MarkHighlight>easy</MarkHighlight> it is?
+<VideoSection
+  videoSrc={frontmatter.video.videoSrc}
+  videoPosterSrc={frontmatter.video.videoPosterSrc}
+  videoPreviewSrc={frontmatter.video.videoPreviewSrc}
+>
+  始めるのが<MarkHighlight>いかに簡単</MarkHighlight>かをご覧になりますか?
 </VideoSection>
 
 <HighlightsSummary highlightsList={frontmatter.highlights} />
