@@ -64,7 +64,7 @@ const { Content } = await render(post);
 
     <header class="mx-auto flex max-w-3xl flex-col gap-4">
       <GradientText>
-        <h1 class="font-clash-display-bold text-4xl tracking-wide md:text-5xl">
+        <h1 class="font-clash-display-bold text-4xl tracking-wide">
           {post.data.title}
         </h1>
       </GradientText>
@@ -72,7 +72,6 @@ const { Content } = await render(post);
       <div class="my-5 flex items-center gap-3 text-sm md:text-base">
         <p>
           <span class="font-semibold">Air360 Team</span>
-          {' '}
           <span>on </span>
           <time datetime={post.data.publishedAt.toISOString()}>
             {formattedDate}
