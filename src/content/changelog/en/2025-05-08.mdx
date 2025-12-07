@@ -1,0 +1,25 @@
+---
+title: Improvements on OPA
+description: 08th of May 2025 updates
+publishedAt: 2025-05-08
+headerImage: '@/assets/images/changelog/changelog-update.webp'
+---
+
+import { Image } from 'astro:assets';
+import { Badge } from '@/components/ui/react/shadcn/badge';
+
+import image1 from '@/assets/images/changelog/2025-05-08/1.webp';
+import image2 from '@/assets/images/changelog/2025-05-08/2.webp';
+
+<Badge variant="noLink" className="m-0">
+  <span>Improvement</span>
+</Badge>
+
+Hello👋
+This week we shipped several improvements to our core feature **"On-page analysis (OPA)"**. These updates make it easier to perform detailed analysis and improve your website performance.
+
+- **Improved event creation** : When creating an event in the OPA, you can now add the device type 📱💻
+  <Image src={image1} alt="Improved event creation" />
+- **Improved scoping in the OPA**: You can now use the `datalayer`, URL's `querystring` or `queryhash` for more precise filtering. This update works retroactively on the data as long as the datalayer is already added to Air360😉
+  <Image src={image2} alt="Improved scoping in the OPA" />
+- **Improved exposure rate** : We have upgraded the exposure rate formula using some advanced math 🚀 This delivers more accurate readings especially for longer pages and is fully retroactive! 🎉
