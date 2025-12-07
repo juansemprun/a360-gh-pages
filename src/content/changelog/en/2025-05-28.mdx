@@ -1,22 +1,36 @@
 ---
-title: 28th of May 2025
-description: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+title: New! Snapshot feature!
+description: 28th of May 2025 updates
 publishedAt: 2025-05-28
-headerImage: https://www.air360.io/images/changelog/2025-04-15/nextImageExportOptimizer/1-opt-1920.WEBP
+headerImage: '@/assets/images/changelog/2025-05-28/header.webp'
 ---
 
+import { Image } from 'astro:assets';
 import { Badge } from '@/components/ui/react/shadcn/badge';
+
+import snapshotImage from '@/assets/images/changelog/2025-05-28/snapshot.webp';
 
 <Badge variant="noLink" className="m-0">
   <span>New</span>
 </Badge>
-- You can now force a session recording going in your [app
-settings](https://app.air360.io/settings/app/general/) and configure as below (example):
 
-- Obfuscated query params on URL (new JS SDK needed)
-- New changelog page
+We are excited to share with you that a new powerful feature is now available on Air360! Meet the **Snapshot** Feature🙌\
+With the snapshot, you can now preserve and revisit previous versions of your website design.
 
-<Badge variant="noLink" className="m-0">
-  <span>Fix</span>
-</Badge>
-- Don't reload User Journey when we change a color
+#### What does Snapshots do?
+
+With the Snapshot feature, you can:
+
+- Effortlessly analyze any past website design.
+- Instantly identify which updates positively or negatively impacted your performance.
+- Quickly analyze short-lived campaigns (e.g., Mother's Day, Christmas)
+
+#### Quick peak of how Snapshot works!
+
+<Image src={snapshotImage} alt="Snapshot feature" />
+The Snapshot will not be created automatically, so you need to manually set which URL you want to
+save, select how often you want to save(every day? per week? per month?). And that's basically it!
+
+Air360 will automatically save the page design for you! And when you want to analyze past design, you simply have to select the date the design was created, and open the past design. You can open the On-page Analytics to analyze the past page! Easy right😉
+
+**Important Note:** This feature is only available on cookieless Air360 tracking pixel. Make sure to update your Air360 pixel(instruction [here](https://app.air360.io/docs/getting-started/#on-your-website))!
