@@ -1,0 +1,57 @@
+---
+title: Scopes. A unified way to filter anything
+description: Discover Scope, the new unified filtering tool for users, sessions, and pages. Enhance data analysis with flexible, precise filters in our extension and user journey explorer—launching today!
+publishedAt: 2025-11-21
+headerImage: '@/assets/images/changelog/2025-11-21/headerImage.webp'
+---
+
+Today we're launching `Scope`, a feature we should've built from day one.
+This update makes filtering and analyzing your data much more flexible, more precise, and a lot easier to use. Especially inside the extension and when exploring the user journey!
+
+### The problem
+
+You've always been able to filter by user attributes like mobile vs desktop or traffic source.
+But what about filtering sessions that hit a specific A/B test variant? Or isolating just the sessions where users rage-clicked?
+User segments couldn't do that: they worked at the user level, not the session level.
+
+#### And in our extension?
+
+You'd repeatedly set up the same page filters : URL patterns, data layer rules, then lose them the moment you closed the tab.
+While filtering on users was easy, filtering on sessions and/or pages wasn't.
+
+### The solution
+
+`Scope` let you filter and save anything: users, sessions, or pages.
+
+- `User Scopes` (formerly User Segments): Filter by user attributes like device type, traffic channel, or any custom user property.
+- `Session Scopes`: New! Filter by session properties—like A/B test variants, sessions with rage clicks, or any session-level behavior.
+- `Page Scopes`: New! Define page sets once using URL patterns or data layer rules, then reuse them forever across your analysis.
+  All these can be saved, shared, reused, with one single mental model across your entire workflow.
+
+#### Why we renamed user segments?
+
+Having "User Segments" next to "Session Scopes" felt clunky, same concept, different words.
+In Air360, we strive to keep mental models simple and intuitive.
+We found that `Scopes` is more universally understood and creates a consistent framework across users, sessions, and pages.
+We prefere consistency over legacy naming.
+
+#### Bonus: Cleaner extension UI
+
+We've reorganized the UI of our extension to make it easier to understand what you're currently analyzing.
+All filters now save properly and can be shared with your team.
+We built `Scopes` because we kept hearing "I wish I could save that filter", we heard and built it!
+
+You can learn more about `Scope` in the video below👇
+
+<div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
+  <iframe
+    src="https://www.loom.com/embed/3ef28c9f9210419a98f7bf9a0a18d2bb"
+    frameBorder="0"
+    webkitAllowFullScreen
+    mozAllowFullScreen
+    allowFullScreen
+    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+  ></iframe>
+</div>
+
+Let us know if you have any feedback or questions!
