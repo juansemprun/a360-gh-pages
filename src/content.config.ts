@@ -66,7 +66,8 @@ const navigationCollection = defineCollection({
       .object({
         title: z.string(),
         description: z.string(),
-        url: z.string().url(),
+        src: z.string().url(),
+        postName: z.string(),
       })
       .optional(),
     useCasesNav: z

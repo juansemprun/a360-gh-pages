@@ -68,16 +68,21 @@ const navigation = entry.data.navigation || [];
           {entry.data.sectionTitles?.release}
         </h3>
         <div class="gap-2">
-          <div
-            class="hover:shadow-xs cursor-pointer rounded-xl p-4 transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-white/80 hover:ring hover:ring-black/5"
+          <a
+            href={`${import.meta.env.BASE_URL}/${lang}/changelog/${entry?.data?.video?.postName}`}
+            role="menuitem"
           >
-            <video class="mb-5 h-auto w-full rounded-lg" autoplay loop playsinline muted>
-              <source src={entry.data.video?.url} type="video/mp4" />
-              Sorry, your browser does not support embedded videos.
-            </video>
-            <h4 class="text-md mb-3 font-bold text-black">{entry?.data?.video?.title}</h4>
-            <p class="text-sm text-black/70">{entry?.data?.video?.description}</p>
-          </div>
+            <div
+              class="hover:shadow-xs cursor-pointer rounded-xl p-4 transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-white/80 hover:ring hover:ring-black/5"
+            >
+              <video class="mb-5 h-auto w-full rounded-lg" autoplay loop playsinline muted>
+                <source src={entry.data.video?.src} type="video/mp4" />
+                Sorry, your browser does not support embedded videos.
+              </video>
+              <h4 class="text-md mb-3 font-bold text-black">{entry?.data?.video?.title}</h4>
+              <p class="text-sm text-black/70">{entry?.data?.video?.description}</p>
+            </div>
+          </a>
         </div>
       </div>
     </div>
