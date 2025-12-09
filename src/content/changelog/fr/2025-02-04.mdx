@@ -1,0 +1,24 @@
+---
+title: Mises à jour du 4 février 2025
+description: Mises à jour du 4 février 2025
+publishedAt: 2025-02-04
+headerImage: '@changelog-assets/changelog-update.webp'
+---
+
+import { Image } from 'astro:assets';
+import { Badge } from '@/components/ui/react/shadcn/badge';
+
+import image1 from '@changelog-assets/2025-02-04/1.webp';
+import image2 from '@changelog-assets/2025-02-04/2.webp';
+import image3 from '@changelog-assets/2025-02-04/3.webp';
+
+<Badge variant="noLink" className="m-0">
+  <span>Améliorations</span>
+</Badge>
+
+- Des vidéos tutorielles sont désormais disponibles depuis l'OPA. Vous pouvez comprendre comment utiliser l'OPA pour votre analyse avec ces vidéos.
+  <Image src={image1} alt="Vidéos tutorielles dans l'OPA" />
+- Fonction de renvoi d'invitation : Dans la page de gestion d'équipe, il est désormais possible de ré-inviter un utilisateur après l'expiration de l'invitation
+  <Image src={image2} alt="Fonction de renvoi d'invitation" />
+- Lors de la création d'un nouvel événement d'erreur, le bouton Besoin d'aide affiche désormais une section sur la configuration des erreurs dans la popup
+  <Image src={image3} alt="Bouton Besoin d'aide" />
