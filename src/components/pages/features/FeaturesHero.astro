@@ -2,6 +2,8 @@
 import { VideoPlayer } from '@/components/pages/features/HeroVideoPlayer';
 import GradientText from '@/components/ui/GradientText.astro';
 
+import gridSvg from '@/assets/graphics/grid.svg';
+
 interface Props {
   title: string;
   description: string;
@@ -30,7 +32,8 @@ const {
 ---
 
 <section
-  class="bg-[url(https://deifkwefumgah.cloudfront.net/shadcnblocks/block/patterns/grid-1.svg)] bg-[length:100%_100%] bg-center bg-no-repeat"
+  class="bg-[length:100%_100%] bg-center bg-no-repeat"
+  style={`background-image: url(${gridSvg.src});`}
 >
   <div class="container-custom pt-32">
     <div class="flex flex-col items-center gap-5">
