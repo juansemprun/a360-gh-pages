@@ -1,0 +1,65 @@
+---
+import { getEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+
+interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+const { lang } = Astro.params;
+
+if (!lang) {
+  console.error(
+    '[BlogInnerCardWrapper] Language parameter is missing. This component must be used in a route with a [lang] parameter.',
+  );
+  return null;
+}
+
+const entry = await getEntry('blog', `${lang}/${slug}`);
+
+if (!entry) {
+  console.error(`[BlogInnerCardWrapper] Blog post "${slug}" not found for language "${lang}"`);
+  return null;
+}
+
+const slugWithoutLang = entry.id.replace(`${lang}/`, '');
+const postUrl = `${import.meta.env.BASE_URL}/${lang}/blog/${slugWithoutLang}`;
+---
+
+{
+  entry && (
+    <aside
+      class="not-prose my-8 overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md dark:border-gray-700 dark:bg-gray-800"
+      aria-labelledby={`related-post-${entry.id.replace('/', '-')}`}
+      role="complementary"
+    >
+      <a href={postUrl} data-astro-prefetch class="group flex flex-row gap-0 no-underline">
+        {entry.data.image && (
+          <div class="aspect-video w-32 flex-shrink-0 overflow-hidden bg-gray-100 sm:w-48 md:w-64 dark:bg-gray-700">
+            <Image
+              src={entry.data.image}
+              alt=""
+              class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+          </div>
+        )}
+        <div class="flex flex-col justify-center gap-2 p-4 sm:p-6">
+          <h3
+            id={`related-post-${entry.id.replace('/', '-')}`}
+            class="group-hover:text-primary-600 dark:group-hover:text-primary-400 text-base font-semibold text-gray-900 transition-colors sm:text-xl dark:text-gray-100"
+          >
+            {entry.data.title}
+          </h3>
+
+          <span
+            class="text-primary-600 dark:text-primary-400 mt-2 inline-flex items-center gap-1 text-xs font-medium transition-transform group-hover:translate-x-1 sm:text-sm"
+            aria-hidden="true"
+          >
+            Read more
+          </span>
+        </div>
+      </a>
+    </aside>
+  )
+}
