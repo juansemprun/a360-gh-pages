@@ -1,0 +1,165 @@
+---
+title: What is UTM and how you can use it
+published: 2025-4-30
+readingTime: 6
+image: '@blog-assets/what-is-utm/image.webp'
+metaDesc: Discover what UTMs are and how you can use it for website performance optimization and marketing needs.
+tags:
+  - data
+---
+
+UTM parameters are small codes added to URLs that help you track where your website traffic is coming from and how well your marketing campaigns are performing. They let you see what’s working, understand your audience better, and make smarter decisions about your marketing.
+
+Here’s everything you need to know — explained simply.
+
+## What Are UTM Parameters?
+
+They’re just extra bits of text added to the end of a URL. These tags tell you things like which ad led someone to your site or which email campaign drove clicks.
+
+There are **five main types** of UTM parameters:
+
+| Parameter      | Purpose                                                     |
+| -------------- | ----------------------------------------------------------- |
+| `utm_source`   | Where the traffic came from (e.g., Facebook, Google)        |
+| `utm_medium`   | The type of traffic (e.g., social media, email, paid ad)    |
+| `utm_campaign` | The name of your specific campaign (e.g., summer-sale-2025) |
+| `utm_content`  | Used to compare different versions of the same ad or link   |
+| `utm_term`     | Tracks keywords used in paid search ads                     |
+
+> ⚠️ UTM parameters are **case-sensitive**, so always use lowercase and replace spaces with hyphens (`-`) for consistency.
+
+## Why You Should Use Them
+
+- **See what works**: Know which campaigns bring in the most visitors or sales.
+- **Improve ROI**: Understand which marketing efforts give you the best return on investment.
+- **Make better decisions**: Use real data instead of guessing what’s effective.
+
+## The 5 Key UTM Parameters Explained
+
+#### 1. `utm_source`: Where It Comes From
+
+This tells you the source of your traffic. Examples:
+
+- Facebook
+- Google
+- Your newsletter
+
+Use consistent names—like all lowercase and no special characters—to keep your data clean.
+
+#### 2. `utm_medium`: How It Gets There
+
+This shows the type of traffic. Common values include:
+
+| Traffic Type | UTM Medium Value |
+| ------------ | ---------------- |
+| Paid Search  | ppc              |
+| Display Ads  | display          |
+| Email        | email            |
+| Social Media | social           |
+| Affiliate    | cpa              |
+
+#### 3. `utm_campaign`: Name of the Campaign
+
+This helps label your specific marketing effort. For example:
+
+- `utm_campaign=spring-sale-2025`
+- `utm_campaign=product-launch`
+
+#### 4. `utm_content`: Compare Similar Links
+
+Use this to tell the difference between similar content or links in the same campaign. For example:
+
+- `utm_content=video-ad`
+- `utm_content=sidebar-banner`
+
+#### 5. `utm_term`: Track Keywords (Usually for Ads)
+
+This is mainly used for paid search campaigns to track which keywords are driving clicks. Example:
+
+- `utm_term=running-shoes-sale`
+- `utm_term=womens-training-shoes`
+
+## How to Build UTM Links
+
+Creating UTM links manually can lead to mistakes, so it’s best to use a tool like Google Analytics Campaign URL Builder, which is free and easy to use. Just fill in the needed information.
+
+#### Example:
+
+You're promoting an eco-friendly backpack on Facebook.
+
+- Base URL: `yourwebsite.com/eco-friendly-backpack`
+- Source: `facebook`
+- Medium: `social`
+- Campaign: `ecolaunch2024`
+- Content: `backpack-discount`
+
+**Generated URL:**
+
+```
+yourwebsite.com/eco-friendly-backpack?utm_source=facebook&utm_medium=social&utm_campaign=ecolaunch2024&utm_content=backpack-discount
+```
+
+## Best Practices for Naming UTMs
+
+Consistency is key. Here's how to do it right:
+
+| Rule    | Do This ✅      | Don't Do ❌                     |
+| ------- | --------------- | ------------------------------- |
+| Case    | lowercase       | MixCase or ALLCAPS              |
+| Spacing | use-dashes      | use spaces                      |
+| Length  | short-and-clear | super-long-names-that-never-end |
+
+## How to Analyze UTM Data
+
+Once your UTM links are live, you can check your analytics to see how each campaign is doing.
+You can analyze by using Google Analytics:
+
+- Look at metrics like:
+  - Conversions
+  - Purchases
+  - Sign-ups
+  - Add-to-cart actions
+
+To make UTM analysis even easier, try [Air360](https://www.air360.io/en/request-demo), an all-in-one digital experience analytics platform that automatically captures UTM data, showing you performance and drop-offs by campaign, no manual setup needed.
+
+#### Spotting Issues in the Conversion Funnel
+
+Compare how different sources perform at each stage of your funnel. If one channel has a high drop-off rate, there might be an issue with the landing page or messaging.
+
+## Real-World Uses of UTM Parameters
+
+#### Tracking Email Campaigns
+
+Add UTM codes to links inside your emails to see what’s working.
+
+- `utm_source`: Your email service (e.g., Mailchimp)
+- `utm_medium`: Always `email`
+- `utm_campaign`: Campaign name (e.g., welcome-email)
+- `utm_content`: Different buttons or links
+- `utm_term`: Optional – for testing subject lines
+
+#### Paid vs. Organic Traffic
+
+Use UTMs to clearly separate paid from organic efforts. Example:
+
+| Traffic Type   | utm_medium | Source   | Campaign         |
+| -------------- | ---------- | -------- | ---------------- |
+| Paid Search    | ppc        | google   | spring-sale-2025 |
+| Display Ads    | display    | facebook | product-launch   |
+| Organic Search | organic    | google   | seo-content-2025 |
+
+#### Measuring A/B Tests
+
+Track variations of your marketing materials using UTM parameters:
+
+- Subject line test:
+  - Version A: `utm_term=exclusive-offer`
+  - Version B: `utm_term=limited-time-deal`
+- Ad creative test:
+  - Headline: `utm_content=benefit-focused` vs `feature-focused`
+  - CTA: `utm_content=buy-now` vs `learn-more`
+
+## Final Thoughts
+
+UTM parameters are simple but powerful tools for tracking your marketing performance. When set up correctly, they give you clear insights into what’s driving traffic, helping you improve ROI and make smart, data-driven decisions.
+Start using UTMs today and unlock the full potential of your marketing efforts!
