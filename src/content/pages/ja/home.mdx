@@ -1,6 +1,6 @@
 ---
-title: ウェブサイトのどこでコンバージョンを失っているか、そしてその理由を確認！
-description: Air360は、訪問者がなぜコンバージョンしないのかを示し、パフォーマンスを向上させるために最適化すべき正確な領域を特定する最もシンプルなUX分析ツールです。
+title: 数クリックで実現するデジタル体験改善
+description: Air360は訪問者がなぜ離脱するのかを示し、コンバージョン率を向上させる最もシンプルなUX分析ツールです。
 
 # Feature Tabs (Hero Section)
 heroFeatureTabs:
@@ -23,9 +23,9 @@ heroFeatureTabs:
 # Primary Card Features Section
 primaryCardFeatures:
   - id: feature-1
-    heading: ユーザージャーニーの最適化
+    heading: ジャーニーの最適化
     icon: Route
-    description: 訪問者がどこで離脱するか、そしてコンバージョンを改善するためにどのユーザーセグメントが最も注目を必要とするかを特定します。
+    description: 訪問者がどこで離脱するか、そしてコンバージョンを改善するためにどのユーザーセグメントに最も注目すべきかを特定します。
     video: /website/images/optimize-user-path.webp
     poster: /website/images/optimize-user-path.webp
     url: /website/images/optimize-user-path.webp
@@ -33,7 +33,7 @@ primaryCardFeatures:
   - id: feature-2
     heading: ページの最適化
     icon: Sparkles
-    description: 各ページでユーザーが苦労している場所を正確に確認し、体験を向上させるための特定の領域を発見します。
+    description: 各ページでユーザーが苦労している場所を正確に確認し、体験を向上させるための改善箇所を発見します。
     video: /website/images/optimize-page.webp
     poster: /website/images/optimize-page.webp
     url: /website/images/optimize-page.webp
@@ -59,8 +59,8 @@ testimonials:
   heading:
     line1: Air360に切り替えてから
     line2: 何が良くなりましたか？
-  subheading: Air360が業界全体でワークフローをどのように変革し、コンバージョンを向上させているかを発見してください
-  ctaText: 始める
+  subheading: Air360はさまざまな業界でワークフローを変革し、コンバージョンを向上しています。
+  ctaText: デモの予約
   ctaUrl: /website/en/request-demo
 
   items:
@@ -149,10 +149,10 @@ import FeaturesSection from '@/components/FeaturesSection.astro';
 
 <Hero>
 <HeroHeader
-  titleFirstLine="ウェブサイトのどこで"
-  titleSecondLine="コンバージョンを失っているか確認。その理由も！"
-  subtitleFirstLine="Air360は、訪問者がなぜコンバージョンしないのかを示す最もシンプルなUX分析ツールで、"
-  subtitleSecondLine="ウェブサイトのパフォーマンスを向上させるために最適化すべき正確な領域を特定します。"
+  titleFirstLine="数クリックで実現する"
+  titleSecondLine="デジタル体験改善"
+  subtitleFirstLine="Air360は訪問者がなぜ離脱するのかを示し、"
+  subtitleSecondLine="コンバージョン率を向上させる最もシンプルなUX分析ツールです。"
 />
 
 <HeroCTAButton ctaText="始める" />
@@ -160,8 +160,8 @@ import FeaturesSection from '@/components/FeaturesSection.astro';
 <FeaturesSection variant="tabs" features={frontmatter.heroFeatureTabs} />
 
 <HeroVideoCard
-  title="2分ありますか？Air360を知るのに必要なのはそれだけです"
-  subtitle="動画を見る！"
+  title="Air360の可能性を覗いてみてください。"
+  subtitle="2分のデモ動画を視聴する"
   thumbnailVideo="/website/videos/air360-in-2-minutes-clip.mp4"
   url="/website/videos/air360-in-2-minutes.mp4"
 />
@@ -173,8 +173,8 @@ import FeaturesSection from '@/components/FeaturesSection.astro';
 <FeaturesSection variant="cards" features={frontmatter.primaryCardFeatures} />
 
 <TwoColumnText
-  titleFirstLine="コンバージョンに苦労していますか？"
-  titleSecondLine="こんなに難しくあるべきではありません"
+  titleFirstLine="コンバージョン率改善に苦労していますか？"
+  titleSecondLine="そんなに難しくあるべきではありません"
 >
   <Fragment slot="left">
     すべてのビジネスがデータを収集しています。山のようなデータです。そしてコンバージョン率は？相変わらず恥ずかしいほど低いです。
@@ -186,11 +186,11 @@ import FeaturesSection from '@/components/FeaturesSection.astro';
   </Fragment>
 
   <Fragment slot="right">
-    問題は？コンバージョンの最適化は難しいです。ほとんどのツールは複雑で、高価で、またはその両方です。
+    問題は？コンバージョン率の最適化は難しいです。ほとんどのツールは複雑で、高価で、またはその両方です。
 
     Air360は違います。サイトで実際に何が起こっているのかを理解することを非常にシンプルにします。博士号は不要です。ダッシュボード地獄もありません。ただ答えがあるだけです。
 
-    探索してください。動画を見てください。お問い合わせください。お客様として迎えることができれば光栄です。ありがとうございます。
+   デモ動画を見てください。お問い合わせください。お客様として迎えることができればとっても光栄です。
 
   </Fragment>
 </TwoColumnText>
@@ -212,12 +212,12 @@ import FeaturesSection from '@/components/FeaturesSection.astro';
   </Fragment>
 
   <Fragment slot="right">
-    問題は?コンバージョン最適化は難しいということです。ほとんどのツールは複雑で、高価か、あるいはその両方です。
+    問題は?コンバージョン率の最適化は難しいということです。ほとんどのツールは複雑で、高価か、あるいはその両方です。
 
     Air360は違います。サイトで実際に何が起きているのかを驚くほどシンプルに理解できます。専門知識は不要。ダッシュボード地獄もありません。ただ答えがあるだけです。
 
 
-    ぜひご覧ください。動画をご覧ください。お問い合わせください。お客様としてお迎えできれば光栄です。ありがとうございます。
+    デモ動画をご覧ください。お問い合わせください。お客様としてお迎えできればとっても光栄です。
 
   </Fragment>
 </TwoColumnText>
