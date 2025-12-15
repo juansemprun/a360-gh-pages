@@ -6,6 +6,7 @@ import gridSvg from '@/assets/graphics/grid.svg';
 
 interface Props {
   title: string;
+  titleAdditionalLine?: string;
   description: string;
   ctaText?: string;
   ctaUrl?: string;
@@ -19,6 +20,7 @@ interface Props {
 
 const {
   title,
+  titleAdditionalLine,
   description,
   ctaText = 'Get Started',
   ctaUrl = '#',
@@ -42,6 +44,14 @@ const {
           class="font-clash-display-bold py-2 text-center text-5xl leading-tight md:max-w-6xl md:text-6xl lg:max-w-4xl lg:text-[5rem]"
         >
           {title}
+          {
+            titleAdditionalLine && (
+              <>
+                <br />
+                {titleAdditionalLine}
+              </>
+            )
+          }
         </h1>
       </GradientText>
       <p
