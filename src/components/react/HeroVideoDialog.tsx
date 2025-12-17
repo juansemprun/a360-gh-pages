@@ -66,10 +66,10 @@ const HeroVideoDialog = ({
                 className="h-full w-full rounded-lg"
                 src="https://www.youtube.com/embed/kijtGhQ9M00?cc_lang_pref=fr&cc_load_policy=1&autoplay=1"
                 title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allow=" autoplay; encrypted-media"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
+                loading="lazy"
               />
             ) : (
               <video className="h-full w-full rounded-md" controls autoPlay preload="metadata">
