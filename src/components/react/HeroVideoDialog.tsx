@@ -8,6 +8,7 @@ interface HeroVideoDialogProps {
   thumbnailVideo: string; // Direct MP4/WebM URL for thumbnail preview (always present)
   title?: string;
   subtitle?: string;
+  lang?: string;
 }
 
 const HeroVideoDialog = ({
@@ -15,6 +16,7 @@ const HeroVideoDialog = ({
   thumbnailVideo,
   title = "Got a Minute? That's All You Need to know Air360",
   subtitle = 'Watch the video!',
+  lang,
 }: HeroVideoDialogProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -59,14 +61,23 @@ const HeroVideoDialog = ({
         </DialogTitle>
         <DialogContent className="border-none bg-transparent sm:max-w-[800px]">
           <div className="aspect-video w-full">
-            <iframe
-              src={url}
-              title={title}
-              className="h-full w-full rounded-lg"
-              allow="autoplay; clipboard-write"
-              allowFullScreen
-              frameBorder={0}
-            ></iframe>
+            {lang === 'fr' ? (
+              <iframe
+                className="h-full w-full rounded-lg"
+                src="https://www.youtube.com/embed/kijtGhQ9M00?cc_lang_pref=fr&cc_load_policy=1&autoplay=1"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            ) : (
+              <video className="h-full w-full rounded-md" controls autoPlay preload="metadata">
+                <source src={url} type="video/mp4" />
+                <source src={url.replace('.mp4', '.webm')} type="video/webm" />
+                <p>Your browser doesn't support HTML5 video.</p>
+              </video>
+            )}
           </div>
         </DialogContent>
       </Dialog>

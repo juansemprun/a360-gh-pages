@@ -8,6 +8,8 @@ interface HeroVideoCardProps {
   subtitle?: string;
 }
 
+const { lang } = Astro.params;
+
 const {
   url = 'https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true',
   thumbnailVideo = 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
@@ -25,6 +27,7 @@ const {
       thumbnailVideo={thumbnailVideo}
       title={title}
       subtitle={subtitle}
+      lang={lang}
       client:idle
     />
   </div>
