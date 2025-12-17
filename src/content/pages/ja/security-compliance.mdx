@@ -1,0 +1,64 @@
+---
+title: セキュリティとコンプライアンス
+description: プライバシーバイデザインのアプローチを採用することで、プライバシー規制に準拠するための機能を提供することに全力で取り組んでいます。また、最高クラスのセキュリティプロバイダーと提携して、すべてのデータを安全に保護しています。
+---
+
+{/* Components */}
+import SecurityHero from '@/components/pages/security-compliance/SecurityHero.astro';
+import FeatureCallouts from '@/components/pages/security-compliance/FeatureCallouts.astro';
+import ComplianceSection from '@/components/pages/security-compliance/ComplianceSection.astro';
+import PrivacyFeatures from '@/components/pages/security-compliance/PrivacyFeatures.astro';
+import SecureDataSection from '@/components/pages/security-compliance/SecureDataSection.astro';
+import SecurityMeasures from '@/components/pages/security-compliance/SecurityMeasures.astro';
+
+<SecurityHero
+  title="プライバシーと<br />セキュリティへのコミットメント"
+  subtitle="プライバシーバイデザインのアプローチを採用することで、プライバシー規制に準拠するための機能を提供することに全力で取り組んでいます。また、最高クラスのセキュリティプロバイダーと提携して、すべてのデータを安全に保護しています。"
+/>
+
+<FeatureCallouts
+  complianceTitle="コンプライアンス"
+  complianceDescription="GDPR及びCCPA法を含むデータ保護規制に準拠"
+  securityTitle="セキュリティ"
+  securityDescription="お客様のデータは安全かつ確実に保護され、常に利用可能です"
+/>
+
+<ComplianceSection
+  sectionTitle="コンプライアンスの実現"
+  lawfulBasisTitle="適法性と透明性"
+  lawfulBasisDescription="データ保護規制への準拠の一環として、すべてのお客様とデータ処理契約（DPA）を締結しています。このDPAは、管理者からのデータを処理者が処理する際に締結される拘束力のある契約であり、GDPRで要求される標準契約条項の詳細を定めています。また、社内組織とプロセス、および協力している再処理者に関しても透明性を保っています。"
+  accountabilityTitle="説明責任とガバナンス"
+  accountabilityDescription="Air360は、GDPRコンプライアンスの監視、データ保護リスクの評価、データ保護影響評価に関する助言、お客様との交流、規制当局との協力を行うデータ保護担当者を任命しています。"
+/>
+
+<PrivacyFeatures
+  sectionTitle="Air360のプライバシー機能"
+  privacyByDefaultTitle="デフォルトでのプライバシー - 最小化"
+  privacyByDefaultDescription="Air360は、ユーザーがウェブストアの入力フィールドに入力した直接的な識別データのキャプチャを自動的に禁止します。さらに、処理する個人データは即座に仮名化され、Air360が「クッキーレス」で使用される場合は匿名化されます。"
+  exercisesOfRightTitle="権利の行使"
+  exercisesOfRightDescription="アクセス権、削除権などのGDPR規定に基づく特定のユーザーからの権利行使要求に効率的に対応するため、お客様を支援することをお約束します。削除権に関しては、Air360はワンクリックで特定のユーザーと関連セッションを削除できる機能を提供しています。アクセス権とデータポータビリティに関しては、アプリケーションまたはAPIを使用して特定のユーザーの詳細を簡単に取得できます。"
+  restrictDataTitle="特定のデータ取得の制限"
+  restrictDataDescription="Air360では、セッションリプレイ中に記録されないようにページの特定部分を明示的に非表示にすることもできます。"
+/>
+
+<SecureDataSection
+  title="安全なデータ処理と保護"
+  subtitle="データへのアクセスを制限"
+  description="Air360は、お客様のデータを保護し、アクセスを制限するために厳格なデータセキュリティ規制に従っています。"
+/>
+
+<SecurityMeasures
+  sectionTitle="Air360のセキュリティ対策"
+  monitoringTitle="トラッキングピクセルの監視"
+  monitoringDescription="悪意のある改変を検出し、配信、整合性、安全性を確保するために常時監視を実施しています。"
+  bestPracticesTitle="セキュリティのベストプラクティス"
+  bestPracticesDescription="システムに重要な更新が実施される際、第三者企業によって定期的にレビューされています。"
+  mfaTitle="多要素認証（MFA）"
+  mfaDescription="Air360アプリケーションにアクセスする全ユーザーに必須となっており、セキュリティの追加レイヤーを提供し、アカウントを安全に保ちます。"
+  auditsTitle="第三者セキュリティ監査"
+  auditsDescription="ペネトレーションテストや脆弱性スキャンを含む、定期的および主要リリース前に実施されています。"
+  dataStorageTitle="EU内での顧客データの処理と保存"
+  dataStorageDescription="Air360の本社は日本にありますが、Air360のコアシステムはフランスとアイルランドにあるOVHcloudとAmazon Web Services（AWS）のサーバーでホストされており、OVHcloud/AWSが提供するすべてのセキュリティとコンプライアンスを活用しています：ISO（9001、27001、27017、27018）、SOC 1、2、3、PCI DSS。"
+  encryptionTitle="最先端の暗号化"
+  encryptionDescription="転送中および保存中のデータに対して、すべてのAir360製品で使用されています。"
+/>

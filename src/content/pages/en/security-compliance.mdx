@@ -1,0 +1,64 @@
+---
+title: Security & Compliance
+description: We are fully committed to providing features that help you be compliant with privacy regulations by taking a privacy by design approach. As well as partnering with the best in class security providers to keep all your data safe.
+---
+
+{/* Components */}
+import SecurityHero from '@/components/pages/security-compliance/SecurityHero.astro';
+import FeatureCallouts from '@/components/pages/security-compliance/FeatureCallouts.astro';
+import ComplianceSection from '@/components/pages/security-compliance/ComplianceSection.astro';
+import PrivacyFeatures from '@/components/pages/security-compliance/PrivacyFeatures.astro';
+import SecureDataSection from '@/components/pages/security-compliance/SecureDataSection.astro';
+import SecurityMeasures from '@/components/pages/security-compliance/SecurityMeasures.astro';
+
+<SecurityHero
+  title="Committed to<br />Privacy & Security"
+  subtitle="We are fully committed to providing features that help you be compliant with privacy regulations by taking a privacy by design approach. As well as partnering with the best in class security providers to keep all your data safe."
+/>
+
+<FeatureCallouts
+  complianceTitle="Compliance"
+  complianceDescription="Compliant with data protection regulations including, GDPR and CCPA acts"
+  securityTitle="Security"
+  securityDescription="Your data is safe, secure, and always available"
+/>
+
+<ComplianceSection
+  sectionTitle="Enabled compliance"
+  lawfulBasisTitle="Lawful basis and transparency"
+  lawfulBasisDescription="As part of our compliance to data protection regulation, we enter into Data Processing Agreements (DPAs) with all our customers. This DPA, a binding agreement signed between the controller and the processor when the latter processes data from the controller, details the standard contractual terms required under the GDPR. We are also transparent as regard internal organizations and processes and as regard the sub-processors, we are working with."
+  accountabilityTitle="Accountability and Governance"
+  accountabilityDescription="Air360 has appointed a Data Protection contact to monitor GDPR compliance, assess data protection risks, advise on data protection impact assessments, exchange with clients and cooperate with regulators."
+/>
+
+<PrivacyFeatures
+  sectionTitle="Air360 privacy features"
+  privacyByDefaultTitle="Privacy by default - minimization"
+  privacyByDefaultDescription="Air360 automatically disallows the capture of any directly identifying data that a user enters in an input field of your web store. In addition personal data we are processing are immediately pseudonymized, if not anonymized when Air360 is used 'cookie-less.'"
+  exercisesOfRightTitle="Exercises of right"
+  exercisesOfRightDescription="We are committed to assist you in order to respondent efficiently to exercises of rights requests from given users, based on GDPR provisions as right of access, right of erasure, right etc. As regard right of erasure, Air360 offers a function that will allow you to delete a specific user and related sessions with just a single click. As regard right of access and data portability as example, You can retrieve specific user details simply by going through our application or using our API."
+  restrictDataTitle="Restrict specific data acquisition"
+  restrictDataDescription="Air360 enables you to go further by also hiding explicitly parts of your pages from being recorded during session replays."
+/>
+
+<SecureDataSection
+  title="Secure data handling & protection"
+  subtitle="Limit Access to your data"
+  description="Air360 follows strict data security regulations to ensure that we secure and limit access to your data."
+/>
+
+<SecurityMeasures
+  sectionTitle="Air360 Security Measures"
+  monitoringTitle="Monitoring of our Tracking pixel"
+  monitoringDescription="Constantly conducted to detect any malicious modification and ensure its delivery, integrity and safety."
+  bestPracticesTitle="Security best practices"
+  bestPracticesDescription="Reviewed by third party companies regularly when important updates are performed on our systems."
+  mfaTitle="Multi-Factor Authentication (MFA)"
+  mfaDescription="Required for all our users to access to Air360 application adding an extra layer of security and keeping your accounts safe."
+  auditsTitle="Third-party security audits"
+  auditsDescription="Conducted regularly and before major releases, including penetration tests and vulnerability scans."
+  dataStorageTitle="Customer data processed & stored in the EU"
+  dataStorageDescription="Although Air360's headquarters are located in Japan, Air360 core systems are hosted on OVHcloud and Amazon Web Services (AWS) servers located in France and Ireland and leverage all the security and compliance provided by OVHcloud/AWS: ISO (9001, 27001, 27017, and 27018), SOC 1, 2, and 3, PCI DSS."
+  encryptionTitle="State-of-the-art encryption"
+  encryptionDescription="Used in all Air360 products for data in transit and at rest."
+/>

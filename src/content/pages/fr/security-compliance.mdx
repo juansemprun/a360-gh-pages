@@ -1,0 +1,64 @@
+---
+title: Sécurité et Conformité
+description: Nous nous engageons pleinement à fournir des fonctionnalités qui vous aident à être conforme aux réglementations en matière de confidentialité en adoptant une approche de confidentialité dès la conception. Ainsi qu'en partenariat avec les meilleurs fournisseurs de sécurité pour protéger toutes vos données.
+---
+
+{/* Components */}
+import SecurityHero from '@/components/pages/security-compliance/SecurityHero.astro';
+import FeatureCallouts from '@/components/pages/security-compliance/FeatureCallouts.astro';
+import ComplianceSection from '@/components/pages/security-compliance/ComplianceSection.astro';
+import PrivacyFeatures from '@/components/pages/security-compliance/PrivacyFeatures.astro';
+import SecureDataSection from '@/components/pages/security-compliance/SecureDataSection.astro';
+import SecurityMeasures from '@/components/pages/security-compliance/SecurityMeasures.astro';
+
+<SecurityHero
+  title="Engagés pour la<br />confidentialité et la sécurité"
+  subtitle="Nous nous engageons pleinement à fournir des fonctionnalités qui vous aident à être conforme aux réglementations en matière de confidentialité en adoptant une approche de confidentialité dès la conception. Ainsi qu'en partenariat avec les meilleurs fournisseurs de sécurité pour protéger toutes vos données."
+/>
+
+<FeatureCallouts
+  complianceTitle="Conformité"
+  complianceDescription="Conforme aux réglementations sur la protection des données, notamment les lois RGPD et CCPA"
+  securityTitle="Sécurité"
+  securityDescription="Vos données sont sécurisées, protégées et toujours disponibles"
+/>
+
+<ComplianceSection
+  sectionTitle="Conformité activée"
+  lawfulBasisTitle="Base juridique et transparence"
+  lawfulBasisDescription="Dans le cadre de notre conformité à la réglementation sur la protection des données, nous concluons des accords de traitement de données (DPA) avec tous nos clients. Ce DPA, un accord contraignant signé entre le responsable du traitement et le sous-traitant lorsque ce dernier traite les données du responsable, détaille les clauses contractuelles standard requises par le RGPD. Nous sommes également transparents en ce qui concerne nos organisations internes, nos processus et les sous-traitants avec lesquels nous travaillons."
+  accountabilityTitle="Responsabilité et gouvernance"
+  accountabilityDescription="Air360 a désigné un contact pour la protection des données chargé de surveiller la conformité au RGPD, d'évaluer les risques liés à la protection des données, de conseiller sur les analyses d'impact relatives à la protection des données, d'échanger avec les clients et de coopérer avec les régulateurs."
+/>
+
+<PrivacyFeatures
+  sectionTitle="Fonctionnalités de confidentialité Air360"
+  privacyByDefaultTitle="Confidentialité par défaut - minimisation"
+  privacyByDefaultDescription="Air360 interdit automatiquement la capture de toute donnée d'identification directe qu'un utilisateur saisit dans un champ de saisie de votre boutique en ligne. De plus, les données personnelles que nous traitons sont immédiatement pseudonymisées, voire anonymisées lorsque Air360 est utilisé « sans cookie »."
+  exercisesOfRightTitle="Exercice des droits"
+  exercisesOfRightDescription="Nous nous engageons à vous aider à répondre efficacement aux demandes d'exercice de droits des utilisateurs, conformément aux dispositions du RGPD telles que le droit d'accès, le droit à l'effacement, etc. En ce qui concerne le droit à l'effacement, Air360 offre une fonction qui vous permet de supprimer un utilisateur spécifique et les sessions associées en un seul clic. En ce qui concerne le droit d'accès et la portabilité des données par exemple, vous pouvez récupérer les détails d'un utilisateur spécifique simplement en passant par notre application ou en utilisant notre API."
+  restrictDataTitle="Restreindre l'acquisition de données spécifiques"
+  restrictDataDescription="Air360 vous permet d'aller plus loin en masquant explicitement certaines parties de vos pages pour qu'elles ne soient pas enregistrées lors des lectures de sessions."
+/>
+
+<SecureDataSection
+  title="Gestion et protection sécurisées des données"
+  subtitle="Limiter l'accès à vos données"
+  description="Air360 respecte des réglementations strictes en matière de sécurité des données pour garantir la sécurité de vos données et en limiter l'accès."
+/>
+
+<SecurityMeasures
+  sectionTitle="Mesures de sécurité Air360"
+  monitoringTitle="Surveillance de notre pixel de suivi"
+  monitoringDescription="Surveillance constante pour détecter toute modification malveillante et garantir sa livraison, son intégrité et sa sécurité."
+  bestPracticesTitle="Meilleures pratiques de sécurité"
+  bestPracticesDescription="Examinées régulièrement par des entreprises tierces lorsque des mises à jour importantes sont effectuées sur nos systèmes."
+  mfaTitle="Authentification multifacteur (MFA)"
+  mfaDescription="Obligatoire pour tous nos utilisateurs pour accéder à l'application Air360, ajoutant une couche de sécurité supplémentaire et protégeant vos comptes."
+  auditsTitle="Audits de sécurité par des tiers"
+  auditsDescription="Effectués régulièrement et avant les versions majeures, y compris des tests d'intrusion et des analyses de vulnérabilités."
+  dataStorageTitle="Données clients traitées et stockées dans l'UE"
+  dataStorageDescription="Bien que le siège d'Air360 soit situé au Japon, les systèmes principaux d'Air360 sont hébergés sur des serveurs OVHcloud et Amazon Web Services (AWS) situés en France et en Irlande et bénéficient de toute la sécurité et de la conformité fournies par OVHcloud/AWS : ISO (9001, 27001, 27017 et 27018), SOC 1, 2 et 3, PCI DSS."
+  encryptionTitle="Chiffrement de pointe"
+  encryptionDescription="Utilisé dans tous les produits Air360 pour les données en transit et au repos."
+/>

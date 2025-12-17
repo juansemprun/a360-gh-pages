@@ -1,0 +1,74 @@
+---
+import { UserShield, PersonCircleMinus, PersonSign } from '@/assets/icons';
+
+interface Props {
+  sectionTitle: string;
+  privacyByDefaultTitle: string;
+  privacyByDefaultDescription: string;
+  exercisesOfRightTitle: string;
+  exercisesOfRightDescription: string;
+  restrictDataTitle: string;
+  restrictDataDescription: string;
+}
+
+const {
+  sectionTitle,
+  privacyByDefaultTitle,
+  privacyByDefaultDescription,
+  exercisesOfRightTitle,
+  exercisesOfRightDescription,
+  restrictDataTitle,
+  restrictDataDescription,
+} = Astro.props;
+---
+
+<section aria-labelledby="privacy-features-title" class="my-16 md:my-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <h2
+      id="privacy-features-title"
+      class="font-clash-display-bold mb-12 text-center text-3xl text-slate-800 md:text-4xl"
+    >
+      {sectionTitle}
+    </h2>
+    <div class="grid grid-cols-1 gap-12 md:grid-cols-2">
+      <article class="flex flex-col gap-4 md:flex-row">
+        <span
+          class="inline-flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-pink-100"
+        >
+          <UserShield class="text-primary-600 h-10 w-10 fill-current p-1" aria-hidden="true" />
+        </span>
+        <div>
+          <h3 class="mb-2 text-lg font-semibold text-slate-800">{privacyByDefaultTitle}</h3>
+          <p class="text-slate-500">{privacyByDefaultDescription}</p>
+        </div>
+      </article>
+
+      <article class="flex flex-col gap-4 md:flex-row">
+        <span
+          class="inline-flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-pink-100"
+        >
+          <PersonCircleMinus
+            class="text-primary-600 h-10 w-10 fill-current p-1"
+            aria-hidden="true"
+          />
+        </span>
+        <div>
+          <h3 class="mb-2 text-lg font-semibold text-slate-800">{exercisesOfRightTitle}</h3>
+          <p class="text-slate-500">{exercisesOfRightDescription}</p>
+        </div>
+      </article>
+
+      <article class="flex flex-col gap-4 md:flex-row">
+        <span
+          class="inline-flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-pink-100"
+        >
+          <PersonSign class="text-primary-600 h-10 w-10 fill-current p-1" aria-hidden="true" />
+        </span>
+        <div>
+          <h3 class="mb-2 text-lg font-semibold text-slate-800">{restrictDataTitle}</h3>
+          <p class="text-slate-500">{restrictDataDescription}</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
