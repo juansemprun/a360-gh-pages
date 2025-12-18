@@ -4,8 +4,9 @@ import { languages } from '@/config/language';
 // Import all translations
 import { blog } from '@/i18n/translations/blog';
 import { changelog } from '@/i18n/translations/changelog';
+import { layout } from '@/i18n/translations/layout';
+import { navigation } from '@/i18n/translations/navigation';
 import { testimonials } from '@/i18n/translations/testimonials';
-// import { navigation } from './namespaces/navigation';
 // import { common } from './namespaces/common';
 
 // Get default language
@@ -16,16 +17,22 @@ export const ui = {
   en: {
     ...blog.en,
     ...changelog.en,
+    ...layout.en,
+    ...navigation.en,
     ...testimonials.en,
   },
   fr: {
     ...blog.fr,
     ...changelog.fr,
+    ...layout.fr,
+    ...navigation.fr,
     ...testimonials.fr,
   },
   ja: {
     ...blog.ja,
     ...changelog.ja,
+    ...layout.ja,
+    ...navigation.ja,
     ...testimonials.ja,
   },
 } as const;
