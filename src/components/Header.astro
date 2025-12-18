@@ -1,4 +1,7 @@
 ---
+import { useTranslations } from '@/i18n';
+import type { LanguageCode } from '@/config/language';
+
 import Logo from '@/assets/images/svg/logo.svg';
 
 import {
@@ -8,7 +11,12 @@ import {
   NavbarMobile,
 } from '@ui/navbar';
 
+interface Props {
+  lang: LanguageCode;
+}
+
 const { lang } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <header id="dynamic-navbar">
@@ -34,15 +42,15 @@ const { lang } = Astro.props;
           <DesktopAboutUsDropdown />
 
           <li class="transition-colors duration-300 hover:text-gray-400">
-            <a href={`/website/${lang}/testimonials`}> Testimonials </a>
+            <a href={`/website/${lang}/testimonials`}> {t('nav.testimonials')} </a>
           </li>
         </ul>
       </div>
 
       <!-- Desktop Auth Links -->
       <div class="navbar-auth desktop-auth">
-        <a href="/login" class="auth-link login">Log in</a>
-        <a href={`/website/${lang}/request-demo`} class="auth-link demo">Book a Demo</a>
+        <a href="/login" class="auth-link login">{t('nav.login')}</a>
+        <a href={`/website/${lang}/request-demo`} class="auth-link demo">{t('nav.bookDemo')}</a>
       </div>
 
       <!-- Mobile Hamburger Button -->
