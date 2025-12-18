@@ -1,10 +1,13 @@
 ---
+import { useTranslations } from '@/i18n';
+
+import type { LanguageCode } from '@/config/language';
 import type { CollectionEntry } from 'astro:content';
 
 import Logo from '@/assets/images/svg/logo.svg';
 
 interface FooterProps {
-  lang: string;
+  lang: LanguageCode;
   navigationCollection: CollectionEntry<'navigation'>[];
 }
 
@@ -15,6 +18,8 @@ const findBySlug = (slug: string) => navigationCollection.find((item) => item.sl
 const aboutUs = findBySlug(`${lang}/about-us`);
 const useCases = findBySlug(`${lang}/use-cases`);
 const resources = findBySlug(`${lang}/resources`);
+
+const t = useTranslations(lang);
 ---
 
 <footer data-theme="dark" class="bg-linear-180 from-[#27154c] to-[#181127]">
@@ -88,7 +93,7 @@ const resources = findBySlug(`${lang}/resources`);
 
       <!-- Company column -->
       <div class="flex flex-col gap-9">
-        <h3 class="text-lg font-bold text-white">Company</h3>
+        <h3 class="text-lg font-bold text-white">{t('layout.company')}</h3>
 
         <a
           aria-label="Follow Air360 on LinkedIn"
