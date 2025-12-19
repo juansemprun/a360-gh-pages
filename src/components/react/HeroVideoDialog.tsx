@@ -64,7 +64,7 @@ const HeroVideoDialog = ({
             {lang === 'fr' ? (
               <iframe
                 className="h-full w-full rounded-lg"
-                src="https://www.youtube.com/embed/kijtGhQ9M00?cc_lang_pref=fr&cc_load_policy=1&autoplay=1"
+                src="https://www.youtube.com/embed/kijtGhQ9M00?cc_lang_pref=fr&cc_load_policy=1&autoplay=1&controls=0&rel=0"
                 title="YouTube video player"
                 allow=" autoplay; encrypted-media"
                 referrerPolicy="strict-origin-when-cross-origin"
