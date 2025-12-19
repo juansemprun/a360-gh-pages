@@ -8,6 +8,7 @@ interface Props {
 }
 
 const { videoSrc, videoPosterSrc, videoPreviewSrc } = Astro.props;
+const lang = Astro.params.lang || Astro.currentLocale || 'en';
 ---
 
 <section class="my-28" aria-labelledby="video-section-title" data-theme="dark">
@@ -19,47 +20,61 @@ const { videoSrc, videoPosterSrc, videoPreviewSrc } = Astro.props;
   </h2>
 
   <div class="video-wrapper relative h-0 pb-[56.25%]">
-    <!-- Preview Video (looping, muted, autoplay) -->
     {
-      videoPreviewSrc && (
-        <video
-          class="preview-video absolute left-0 top-0 h-full w-full rounded-xl object-cover"
-          autoplay
-          muted
-          loop
-          playsinline
-          poster={videoPosterSrc}
-          preload="auto"
-        >
-          <source src={videoPreviewSrc} type="video/mp4" />
-        </video>
+      lang === 'fr' ? (
+        <iframe
+          class="absolute left-0 top-0 h-full w-full rounded-lg"
+          src="https://www.youtube.com/embed/i3DGTEnViw4?cc_lang_pref=fr&cc_load_policy=1&autoplay=0&controls=0&rel=0"
+          title="YouTube video player"
+          allow="autoplay; encrypted-media"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+          loading="lazy"
+        />
+      ) : (
+        <>
+          {videoPreviewSrc && (
+            <video
+              class="preview-video absolute left-0 top-0 h-full w-full rounded-xl object-cover"
+              autoplay
+              muted
+              loop
+              playsinline
+              poster={videoPosterSrc}
+              preload="auto"
+            >
+              <source src={videoPreviewSrc} type="video/mp4" />
+            </video>
+          )}
+
+          <video
+            class="main-video absolute left-0 top-0 h-full w-full rounded-xl opacity-0"
+            preload="metadata"
+            poster={videoPosterSrc}
+          >
+            <source src={videoSrc} type="video/mp4" />
+            <p>
+              Your browser doesn't support HTML video. Here is a
+              <a href={videoSrc} class="underline hover:text-slate-800">
+                link to the video
+              </a>{' '}
+              instead.
+            </p>
+          </video>
+
+          <button
+            type="button"
+            class="play-button focus:ring-primary-300 absolute left-1/2 top-1/2 z-10 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-lg ring ring-black/10 transition-transform duration-300 ease-in-out hover:scale-110 hover:cursor-pointer hover:bg-white focus:outline-none focus:ring-4 md:h-24 md:w-24"
+            aria-label="Play video"
+          >
+            <div class="m-auto aspect-square w-1/2">
+              {/* <Play className="h-full! w-full! fill-white stroke-white" /> */}
+              <Play class="fill-primary-500 h-full! w-full! stroke-0 md:h-12 md:w-12" />
+            </div>
+          </button>
+        </>
       )
     }
-
-    <!-- Main Video (hidden initially) -->
-    <video
-      class="main-video absolute left-0 top-0 h-full w-full rounded-xl opacity-0"
-      preload="metadata"
-      poster={videoPosterSrc}
-    >
-      <source src={videoSrc} type="video/mp4" />
-      <p>
-        Your browser doesn't support HTML video. Here is a
-        <a href={videoSrc} class="underline hover:text-slate-800">link to the video</a> instead.
-      </p>
-    </video>
-
-    <!-- Play Button Overlay -->
-    <button
-      type="button"
-      class="play-button focus:ring-primary-300 absolute left-1/2 top-1/2 z-10 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-lg ring ring-black/10 transition-transform duration-300 ease-in-out hover:scale-110 hover:cursor-pointer hover:bg-white focus:outline-none focus:ring-4 md:h-24 md:w-24"
-      aria-label="Play video"
-    >
-      <div class="m-auto aspect-square w-1/2">
-        {/* <Play className="h-full! w-full! fill-white stroke-white" /> */}
-        <Play class="fill-primary-500 h-full! w-full! stroke-0 md:h-12 md:w-12" />
-      </div>
-    </button>
   </div>
 </section>
 
