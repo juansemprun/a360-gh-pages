@@ -18,6 +18,8 @@ interface VideoPlayerProps {
   thumbnailAlt: string;
   ctaText?: string;
   dialogTitle?: string;
+  lang?: string;
+  youtubeId?: string;
 }
 
 export const VideoPlayer = ({
@@ -27,6 +29,8 @@ export const VideoPlayer = ({
   thumbnailAlt,
   ctaText = 'Watch how we build an autonomous AI agent in only 5 minutes.',
   dialogTitle = 'Presentation Video',
+  lang,
+  youtubeId,
 }: VideoPlayerProps) => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
 
@@ -78,18 +82,30 @@ export const VideoPlayer = ({
               Video player for {dialogTitle}
             </DialogDescription>
           </DialogHeader>
-          <div>
-            <video
-              className="h-full w-full rounded-md"
-              controls
-              autoPlay
-              poster={thumbnailImageSrc}
-              preload="metadata"
-            >
-              <source src={videoSrc} type="video/mp4" />
-              <source src={videoSrc.replace('.mp4', '.webm')} type="video/webm" />
-              <p>Your browser doesn't support HTML5 video.</p>
-            </video>
+          <div className={lang === 'fr' ? 'aspect-video' : ''}>
+            {lang === 'fr' ? (
+              <iframe
+                className="h-full w-full rounded-lg"
+                src={`https://www.youtube.com/embed/${youtubeId}?cc_lang_pref=fr&cc_load_policy=1&autoplay=1&controls=0&rel=0`}
+                title="YouTube video player"
+                allow="autoplay; encrypted-media"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+                loading="lazy"
+              />
+            ) : (
+              <video
+                className="h-full w-full rounded-md"
+                controls
+                autoPlay
+                poster={thumbnailImageSrc}
+                preload="metadata"
+              >
+                <source src={videoSrc} type="video/mp4" />
+                <source src={videoSrc.replace('.mp4', '.webm')} type="video/webm" />
+                <p>Your browser doesn't support HTML5 video.</p>
+              </video>
+            )}
           </div>
         </DialogContent>
       </Dialog>

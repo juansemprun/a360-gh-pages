@@ -4,6 +4,8 @@ import GradientText from '@/components/ui/GradientText.astro';
 
 import gridSvg from '@/assets/graphics/grid.svg';
 
+const { lang } = Astro.params;
+
 interface Props {
   title: string;
   titleAdditionalLine?: string;
@@ -16,6 +18,7 @@ interface Props {
   thumbnailAlt?: string;
   videoCtaText?: string;
   videoDialogTitle?: string;
+  youtubeId?: string;
 }
 
 const {
@@ -30,6 +33,7 @@ const {
   thumbnailAlt = 'Video preview',
   videoCtaText,
   videoDialogTitle,
+  youtubeId,
 } = Astro.props;
 ---
 
@@ -79,6 +83,8 @@ const {
         thumbnailAlt={thumbnailAlt}
         ctaText={videoCtaText}
         dialogTitle={videoDialogTitle}
+        lang={lang}
+        youtubeId={youtubeId}
       />
     </div>
   </div>
