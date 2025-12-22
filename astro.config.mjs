@@ -8,9 +8,8 @@ import { languageCodes } from './src/config/language';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://airthreesixty.github.io',
-  base: '/website',
-  trailingSlash: 'never',
+  site: 'https://juansemprun.github.io',
+  base: '/a360-gh-pages',
   build: {
     inlineStylesheets: 'always',
   },
