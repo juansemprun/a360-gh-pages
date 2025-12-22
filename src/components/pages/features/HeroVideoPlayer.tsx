@@ -82,11 +82,21 @@ export const VideoPlayer = ({
               Video player for {dialogTitle}
             </DialogDescription>
           </DialogHeader>
-          <div className={lang === 'fr' ? 'aspect-video' : ''}>
+          <div className={lang === 'fr' || lang === 'ja' ? 'aspect-video' : ''}>
             {lang === 'fr' ? (
               <iframe
                 className="h-full w-full rounded-lg"
                 src={`https://www.youtube.com/embed/${youtubeId}?cc_lang_pref=fr&cc_load_policy=1&autoplay=1&controls=0&rel=0`}
+                title="YouTube video player"
+                allow="autoplay; encrypted-media"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+                loading="lazy"
+              />
+            ) : lang === 'ja' ? (
+              <iframe
+                className="h-full w-full rounded-lg"
+                src={`https://www.youtube.com/embed/${youtubeId}?cc_lang_pref=ja&cc_load_policy=1&autoplay=1&controls=1&rel=0`}
                 title="YouTube video player"
                 allow="autoplay; encrypted-media"
                 referrerPolicy="strict-origin-when-cross-origin"
