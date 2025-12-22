@@ -8,8 +8,8 @@ import { languageCodes } from './src/config/language';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://juansemprun.github.io',
-  base: '/a360-gh-pages',
+  site: 'https://juansemprun.dev',
+  // base: '/a360-gh-pages',
   build: {
     inlineStylesheets: 'always',
   },
