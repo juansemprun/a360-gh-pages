@@ -28,11 +28,15 @@ const supportUrl = `/${lang}/request-expert`;
     class="bg-gradient-primary-darker min-h-[80vh] w-full overflow-hidden"
     data-theme="light"
   >
-    <div class="container-custom relative z-10 flex flex-col items-center justify-center gap-8 py-20 lg:py-32">
+    <div
+      class="container-custom relative z-10 flex flex-col items-center justify-center gap-8 py-20 lg:py-32"
+    >
       <!-- 404 Number -->
       <div class="relative">
         <GradientText>
-          <div class="font-clash-display-bold text-9xl md:text-[12rem] lg:text-[16rem] leading-none">
+          <div
+            class="font-clash-display-bold text-9xl leading-none md:text-[12rem] lg:text-[16rem]"
+          >
             404
           </div>
         </GradientText>
@@ -41,34 +45,33 @@ const supportUrl = `/${lang}/request-expert`;
       <!-- Heading -->
       <div class="text-center">
         <GradientText>
-          <h1 class="font-clash-display-bold text-3xl md:text-4xl lg:text-5xl mb-4">
+          <h1 class="font-clash-display-bold mb-4 text-3xl md:text-4xl lg:text-5xl">
             {heading}
           </h1>
         </GradientText>
       </div>
 
       <!-- Description -->
-      <p class="max-w-2xl text-center text-lg text-slate-600 px-4 md:text-xl">
+      <p class="max-w-2xl px-4 text-center text-lg text-slate-600 md:text-xl">
         {description}
       </p>
 
       <!-- Action Buttons -->
-      <div class="flex flex-col sm:flex-row gap-4 mt-8">
-        <GradientButton
-          href={homeUrl}
-          title={backHomeText}
-          className="px-8 py-3 text-lg"
-        />
+      <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+        <GradientButton href={homeUrl} title={backHomeText} className="px-8 py-3 text-lg" />
         <a
           href={supportUrl}
-          class="inline-block rounded-lg px-8 py-3 text-lg font-semibold text-slate-700 bg-white border-2 border-slate-200 hover:border-slate-300 transition-colors duration-200 text-center"
+          class="inline-block rounded-lg border-2 border-slate-200 bg-white px-8 py-3 text-center text-lg font-semibold text-slate-700 transition-colors duration-200 hover:border-slate-300"
         >
           {contactSupportText}
         </a>
       </div>
 
       <!-- Decorative gradient line -->
-      <div class="mt-12 h-1 w-32 rounded-full bg-gradient-to-r from-[#F771BF] via-[#f04d66] to-[#fd7043]"></div>
+      <div
+        class="mt-12 h-1 w-32 rounded-full bg-gradient-to-r from-[#F771BF] via-[#f04d66] to-[#fd7043]"
+      >
+      </div>
     </div>
   </section>
 </BaseLayout>
@@ -76,7 +79,8 @@ const supportUrl = `/${lang}/request-expert`;
 <style>
   /* Add subtle animation to the 404 number */
   @keyframes float {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0px);
     }
     50% {
