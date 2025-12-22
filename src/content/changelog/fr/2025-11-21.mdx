@@ -1,0 +1,57 @@
+---
+title: Scopes. Une façon unifiée de filtrer tout
+description: Découvrez Scope, le nouveau système de filtrage unifié pour les utilisateurs, les sessions et les pages. Améliorez l'analyse des données avec des filtres flexibles et précis dans notre extension et l'explorateur de parcours utilisateur—disponible dès aujourd'hui !
+publishedAt: 2025-11-21
+headerImage: '@changelog-assets/changelog-update.webp'
+---
+
+Aujourd'hui, nous lançons `Scope`, une fonctionnalité que nous aurions dû créer dès le premier jour.
+Cette mise à jour rend le filtrage et l'analyse de vos données beaucoup plus flexibles, plus précis et beaucoup plus faciles à utiliser. Surtout dans l'extension et lors de l'exploration du parcours utilisateur !
+
+### Le problème
+
+Vous avez toujours pu filtrer par attributs utilisateur comme mobile vs ordinateur ou source de trafic.
+Mais qu'en est-il du filtrage des sessions qui atteignent une variante spécifique de test A/B ? Ou de l'isolation des sessions où les utilisateurs ont fait des clics de rage ?
+Les segments d'utilisateurs ne pouvaient pas le faire : ils fonctionnaient au niveau de l'utilisateur, pas au niveau de la session.
+
+#### Et dans notre extension ?
+
+Vous configuriez à plusieurs reprises les mêmes filtres de page : modèles d'URL, règles de couche de données, puis les perdiez dès que vous fermiez l'onglet.
+Alors que le filtrage sur les utilisateurs était facile, le filtrage sur les sessions et/ou les pages ne l'était pas.
+
+### La solution
+
+`Scope` vous permet de filtrer et d'enregistrer n'importe quoi : utilisateurs, sessions ou pages.
+
+- `User Scopes` (anciennement Segments d'utilisateurs) : Filtrez par attributs utilisateur comme le type d'appareil, le canal de trafic ou toute propriété utilisateur personnalisée.
+- `Session Scopes` : Nouveau ! Filtrez par propriétés de session—comme les variantes de test A/B, les sessions avec des clics de rage ou tout comportement au niveau de la session.
+- `Page Scopes` : Nouveau ! Définissez des ensembles de pages une fois en utilisant des modèles d'URL ou des règles de couche de données, puis réutilisez-les pour toujours dans votre analyse.
+  Tout cela peut être enregistré, partagé, réutilisé, avec un seul modèle mental dans l'ensemble de votre flux de travail.
+
+#### Pourquoi avons-nous renommé les segments d'utilisateurs ?
+
+Avoir "Segments d'utilisateurs" à côté de "Session Scopes" semblait maladroit, même concept, mots différents.
+Chez Air360, nous nous efforçons de garder les modèles mentaux simples et intuitifs.
+Nous avons constaté que `Scopes` est plus universellement compris et crée un cadre cohérent pour les utilisateurs, les sessions et les pages.
+Nous préférons la cohérence plutôt que la dénomination héritée.
+
+#### Bonus : Interface d'extension plus claire
+
+Nous avons réorganisé l'interface de notre extension pour faciliter la compréhension de ce que vous analysez actuellement.
+Tous les filtres s'enregistrent désormais correctement et peuvent être partagés avec votre équipe.
+Nous avons créé `Scopes` parce que nous entendions sans cesse "J'aimerais pouvoir enregistrer ce filtre", nous l'avons entendu et l'avons construit !
+
+Vous pouvez en savoir plus sur `Scope` dans la vidéo ci-dessous👇
+
+<div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
+  <iframe
+    src="https://www.loom.com/embed/3ef28c9f9210419a98f7bf9a0a18d2bb"
+    frameBorder="0"
+    webkitAllowFullScreen
+    mozAllowFullScreen
+    allowFullScreen
+    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+  ></iframe>
+</div>
+
+Faites-nous savoir si vous avez des commentaires ou des questions !

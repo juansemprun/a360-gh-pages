@@ -1,158 +1,126 @@
 ---
-import Logo from '@assets/images/logo.svg';
+import { useTranslations } from '@/i18n';
 
-// Footer Section Component - Site navigation and company information
-const useCasesLinks = [
-  { label: 'E-commerce', href: '/use-cases/e-commerce' },
-  { label: 'Luxury brands', href: '/use-cases/luxury-brands' },
-  { label: 'Airlines', href: '/use-cases/airlines' },
-  { label: 'Sport team', href: '/use-cases/sport-team' },
-  { label: 'Hotels', href: '/use-cases/hotels' },
-  { label: 'Banks & Insurance', href: '/use-cases/banks-and-insurance' },
-  { label: 'Gaming', href: '/use-cases/gaming' },
-  { label: 'Multi-brand companies', href: '/use-cases/multi-brand-companies' },
-];
+import type { LanguageCode } from '@/config/language';
+import type { CollectionEntry } from 'astro:content';
 
-const aboutUsLinks = [
-  { label: 'Company Info', href: '/about' },
-  { label: 'Manifesto', href: 'manifesto' },
-  { label: 'Our Values', href: 'values' },
-  { label: 'Stance on AI', href: '/ai' },
-  { label: 'Where is your data', href: '/where-is-your-data' },
-  { label: 'Privacy Policy', href: '/privacy-policy' },
-  { label: 'Security & Compliance', href: 'security-compliance' },
-];
+import Logo from '@/assets/images/svg/logo.svg';
 
-const inspirationLinks = [
-  { label: 'Blog', href: '#' },
-  { label: 'Changelog', href: '#' },
-];
+interface FooterProps {
+  lang: LanguageCode;
+  navigationCollection: CollectionEntry<'navigation'>[];
+}
 
-const helpLinks = [{ label: 'Contact', href: '#' }];
+const { lang, navigationCollection } = Astro.props as FooterProps;
 
-const legalLinks = [
-  { label: 'Terms of service', href: '#' },
-  { label: 'Privacy policy', href: '#' },
-];
+const findBySlug = (slug: string) => navigationCollection.find((item) => item.slug === slug);
+
+const aboutUs = findBySlug(`${lang}/about-us`);
+const useCases = findBySlug(`${lang}/use-cases`);
+const resources = findBySlug(`${lang}/resources`);
+
+const t = useTranslations(lang);
 ---
 
-<footer
-  data-theme="light"
-  class="relative w-full bg-[linear-gradient(180deg,rgba(39,21,76,1)_0%,rgba(24,17,39,1)_100%)]"
->
-  <div class="relative mx-auto max-w-[1200px] px-4 py-[100px]">
-    <!-- Background noise texture -->
-    <div class="absolute inset-0 overflow-hidden">
-      <div class="relative left-[391px] top-[-31px] h-[1063px] w-[1079px] rotate-[138deg]"></div>
-    </div>
-
+<footer data-theme="dark" class="bg-linear-180 from-[#27154c] to-[#181127]">
+  <div class="container-custom px-4 py-28">
     <!-- Top section with logo and social links -->
-    <div class="relative mb-20 flex items-center justify-between">
-      <a href="/" class="relative" aria-label="Air360 homepage">
-        <!-- <img class="h-[22px] w-[75px]" alt="Air360 Logo" src="/link---frame---svg.svg" /> -->
+    <div class="mb-20 flex items-center justify-between">
+      <a href={`/website/${lang}`} aria-label="Air360 homepage">
         <Logo class="text-white" />
-      </a>
-      <a
-        href="https://www.linkedin.com/company/air360/"
-        class="relative"
-        aria-label="Follow Air360 on LinkedIn"
-      >
-        <!-- LinkedIn icon -->
-        <svg class="h-5 w-5 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path
-            d="M20.447 20.452h-3.556v-5.569c0-1.327-.026-3.033-1.85-3.033-1.85 0-2.134 1.445-2.134 2.938v5.664H9.35V9h3.415v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.6 0 4.267 2.37 4.267 5.45v6.291zM5.337 7a2.07 2.07 0 110-4.14A2.07 2.07 0 015.337 7zm1.778 13.452H3.56V9h3.555v11.452z"
-          ></path>
-        </svg>
       </a>
     </div>
 
     <!-- Main footer links section -->
-    <nav
-      class="relative mb-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4"
-      aria-label="Footer navigation"
-    >
-      <!-- Product column -->
+    <nav class="mb-16 grid grid-cols-2 gap-8 md:grid-cols-4" aria-label="Footer navigation">
+      <!-- Use Cases -->
       <div class="flex flex-col gap-9">
-        <h3 class="text-sm font-normal leading-[22.4px] text-white">Product</h3>
+        <h3 class="text-lg font-bold text-white">{useCases?.data.title}</h3>
 
         {
-          useCasesLinks.map((link) => (
+          useCases?.data?.useCasesNav?.industry?.map(({ link, label }) => (
             <a
-              href={link.href}
-              class="text-sm font-medium leading-[22.4px] text-white transition-all duration-200 hover:underline"
+              href={`/website/${lang}${link}`}
+              class="text-sm font-medium text-white/80 transition-all duration-300 ease-in-out hover:translate-x-0.5 hover:underline"
             >
-              {link.label}
+              {label}
             </a>
           ))
         }
       </div>
 
-      <!-- Air360 for column -->
-      <div class="flex flex-col gap-[46px]">
-        <h3 class="text-sm font-normal leading-[22.4px] text-white">About Us</h3>
+      <!-- About Us -->
+      <div class="flex flex-col gap-9">
+        <h3 class="text-lg font-bold text-white">{aboutUs?.data.title}</h3>
 
         {
-          aboutUsLinks.map((link) => (
+          aboutUs?.data?.aboutUsNav?.primary?.map(({ link, label }) => (
             <a
-              href={link.href}
-              class="text-sm font-medium leading-[22.4px] text-white transition-all duration-200 hover:underline"
+              href={`/website/${lang}${link}`}
+              class="text-sm font-medium text-white/80 transition-all duration-300 ease-in-out hover:translate-x-0.5 hover:underline"
             >
-              {link.label}
+              {label}
+            </a>
+          ))
+        }
+        {
+          aboutUs?.data?.aboutUsNav?.secondary?.map(({ link, label }) => (
+            <a
+              href={`/website/${lang}${link}`}
+              class="text-sm font-medium text-white/80 transition-all duration-300 ease-in-out hover:translate-x-0.5 hover:underline"
+            >
+              {label}
             </a>
           ))
         }
       </div>
 
       <!-- Resources column -->
-      <div class="flex flex-col gap-[46px]">
-        <h3 class="text-sm font-normal leading-[22.4px] text-white">Resources</h3>
+      <div class="flex flex-col gap-9">
+        <h3 class="text-lg font-bold text-white">{resources?.data.title}</h3>
 
         {
-          inspirationLinks.map((link) => (
+          resources?.data?.navigation?.map(({ link, label }) => (
             <a
-              href={link.href}
-              class="text-sm font-medium leading-[22.4px] text-white transition-all duration-200 hover:underline"
+              href={`/website/${lang}${link}`}
+              class="text-sm font-medium text-white/80 transition-all duration-300 ease-in-out hover:translate-x-0.5 hover:underline"
             >
-              {link.label}
+              {label}
             </a>
           ))
         }
       </div>
 
       <!-- Company column -->
-      <div class="flex flex-col gap-[46px]">
-        <h3 class="text-sm font-normal leading-[22.4px] text-white">Company</h3>
+      <div class="flex flex-col gap-9">
+        <h3 class="text-lg font-bold text-white">{t('layout.company')}</h3>
 
-        {
-          helpLinks.map((link) => (
-            <a
-              href={link.href}
-              class="text-sm font-medium leading-[22.4px] text-white transition-all duration-200 hover:underline"
-            >
-              {link.label}
-            </a>
-          ))
-        }
+        <a
+          aria-label="Follow Air360 on LinkedIn"
+          href="https://www.linkedin.com/company/air360/"
+          rel="noopener noreferrer"
+          target="_blank"
+          class="transition-all duration-300 ease-in-out hover:translate-x-0.5"
+        >
+          <!-- LinkedIn icon -->
+          <svg
+            class="h-5 w-5 text-white/80"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              d="M20.447 20.452h-3.556v-5.569c0-1.327-.026-3.033-1.85-3.033-1.85 0-2.134 1.445-2.134 2.938v5.664H9.35V9h3.415v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.6 0 4.267 2.37 4.267 5.45v6.291zM5.337 7a2.07 2.07 0 110-4.14A2.07 2.07 0 015.337 7zm1.778 13.452H3.56V9h3.555v11.452z"
+            ></path>
+          </svg>
+        </a>
       </div>
     </nav>
 
     <!-- Footer bottom section -->
-    <div class="relative border-t border-[#0000000d] pt-10">
-      <div class="flex flex-col items-center justify-between md:flex-row">
-        <div class="text-sm font-medium leading-[21px] text-[#ffffffbf]">© 2025 Air360</div>
-
-        <nav class="mt-4 flex gap-6 md:mt-0" aria-label="Legal links">
-          {
-            legalLinks.map((link) => (
-              <a
-                href={link.href}
-                class="text-sm font-medium leading-[16.8px] text-white transition-all duration-200 hover:underline"
-              >
-                {link.label}
-              </a>
-            ))
-          }
-        </nav>
+    <div class="pt-10">
+      <div class="flex flex-col items-center md:flex-row">
+        <div class="text-sm font-medium text-white/80">© 2025 Air360</div>
       </div>
     </div>
   </div>

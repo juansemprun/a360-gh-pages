@@ -1,0 +1,40 @@
+---
+title: セッションリプレイ
+description: ユーザーの動きを観察します。ユーザーが苦労している場所を見つけ、実際のセッション記録でユーザー体験を確認して最適化します。
+heroCtaText: 始める
+heroCtaUrl: '#get-started'
+videoSrc: /website/videos/ja/features/session-replays.mp4
+thumbnailVideoSrc: /website/videos/ja/features/session-replays-clip.mp4
+thumbnailImageSrc: /website/images/thumbnails/features/session-replays.webp
+videoThumbnailAlt: セッションリプレイ
+videoCtaText: セッションリプレイが実際にどのように機能するかご覧ください！
+videoDialogTitle: セッションリプレイ
+faqTitle: よくある質問
+faqs:
+  - question: セッションリプレイとは何ですか？
+    answer: セッションリプレイとは、ウェブサイト上での実際のユーザーセッションを記録したものです。これにより、訪問者がサイトとどのようにやり取りしているか、どこをクリックし、スクロールし、どこで問題に遭遇しているかを正確に確認できます。
+  - question: セッションリプレイを利用する利点は？
+    answer: セッションリプレイはユーザーの行動の「理由」を理解するのに役立ちます。分析だけでは捉えきれないユーザビリティの問題点、混乱箇所、隠れたエラーを発見できます。ユーザーが離脱する理由を推測する代わりに、実際の行動を観察し、問題を迅速に修正することで、より良いユーザー体験を創出し、コンバージョン率向上を実現します。
+  - question: 特定の条件でセッションをフィルタリングできますか？
+    answer: はい！ユーザー行動、デバイスタイプ、コンバージョン状況など、様々な条件でセッションをフィルタリングし、最も関連性の高い記録を見つけられます。
+  - question: セッションリプレイはビジネス判断をどのようにサポートしますか？
+    answer: ユーザーがコンバージョンに至らない「理由」を可視化します。根本原因を迅速に特定し、不具合を修正することで、ビジネス成果への実際の影響を測定できます。
+---
+
+import FeaturesHero from '@/components/pages/features/FeaturesHero.astro';
+import FeatureFAQSection from '@/components/FAQSection.astro';
+
+<FeaturesHero
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ctaText={frontmatter.heroCtaText}
+  ctaUrl={frontmatter.heroCtaUrl}
+  videoSrc={frontmatter.videoSrc}
+  thumbnailVideoSrc={frontmatter.thumbnailVideoSrc}
+  thumbnailImageSrc={frontmatter.thumbnailImageSrc}
+  thumbnailAlt={frontmatter.videoThumbnailAlt}
+  videoCtaText={frontmatter.videoCtaText}
+  videoDialogTitle={frontmatter.videoDialogTitle}
+/>
+
+<FeatureFAQSection title={frontmatter.faqTitle} faqs={frontmatter.faqs} />

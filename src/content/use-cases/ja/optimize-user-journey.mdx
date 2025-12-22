@@ -1,0 +1,45 @@
+---
+type: 'use case'
+title: ユーザージャーニーの　最適化
+description: ユーザーが実際にウェブサイト内をどのようにナビゲートしているかを理解し、ジャーニー全体の摩擦を減らします。
+heroCtaText: 始める
+heroCtaUrl: '#get-started'
+videoSrc: /website/videos/use-case/optimize-user-journey.mp4
+thumbnailVideoSrc: /website/videos/use-case/optimize-user-journey-clip.mp4
+thumbnailImageSrc: /website/images/thumbnails/use-cases/optimize-user-journey.webp
+videoThumbnailAlt: ユーザージャーニーの最適化
+videoCtaText: 離脱を修正するのがいかに簡単かご覧ください!
+videoDialogTitle: Air360でユーザージャーニーを最適化
+faqTitle: よくある質問
+youtubeId: 'clHISF1atKw'
+faqs:
+  - question: ユーザージャーニー最適化とは何ですか?
+    answer: ユーザージャーニーの最適化は、ユーザーがWebサイト内をどのように移動しているかを理解し、混乱したり、気が散ったり、迷子になったりする場所を特定するのに役立ちます。これらのパスを分析することで、摩擦を取り除き、ユーザーを重要なアクションへとよりスムーズに誘導できます。
+  - question: ユーザージャーニーの最適化は離脱率を減らすのにどのように役立ちますか?
+    answer: ユーザーパスの最適化は、フローの重要なステップを離れた直後にユーザーが何をするかを理解するのに役立ちます。彼らがどこに行くかを見ることで、気を散らすページ、情報が不明確な領域、または行動喚起が十分に強くない瞬間を特定できます。また、ユーザーを混乱させる可能性のあるナビゲーションパターンも明らかにします。人々がためらったりプロセスを放棄したりする特定のポイントを理解したら、それらの問題に直接対処し、離脱をより効果的に減らすことができます。
+  - question: ユーザージャーニー最適化におけるファネルとユーザージャーニー機能の違いは何ですか?
+    answer: ファネルは事前定義された線形プロセス(例:商品ページ→カート→チェックアウト)を追跡します。一方、ユーザージャーニーは、ループ、バックトラック、迂回、コンバージョンまたは離脱前にユーザーが取る代替ルートを含む、実際の非線形行動を明らかにします。両方の機能を組み合わせることで、ユーザーがWebサイト全体をどのように移動したかの全体像を見ることができます。これらを組み合わせることで、ユーザーが実際にサイトをどのように体験しているかの完全な全体像が得られます。
+  - question: オーディエンスタイプ別に分析をセグメント化できますか?
+    answer: はい、できます。ファネルとユーザージャーニーは、デバイス、国、地域、トラフィックソース、キャンペーン、新規訪問者かリピーターかなど、さまざまなオーディエンス特性によってフィルタリングできます。これにより、さまざまなグループがどのように行動するかを比較し、パスの違いを理解できます。この洞察により、それぞれのオーディエンスセグメントの固有の行動に基づいてエクスペリエンスを最適化できます。
+  - question: ユーザージャーニー分析の結果をどのように検証しますか?
+    answer: 分析している任意のステップまたはパスのセッションリプレイを即座に開くことができます。これにより、実際のユーザーのインタラクションを見て、仮説を確認し、行動の背景にあるコンテキストを理解できるため、最適化の意思決定がより正確になります。
+---
+
+import FeaturesHero from '@/components/pages/features/FeaturesHero.astro';
+import FeatureFAQSection from '@/components/FAQSection.astro';
+
+<FeaturesHero
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ctaText={frontmatter.heroCtaText}
+  ctaUrl={frontmatter.heroCtaUrl}
+  videoSrc={frontmatter.videoSrc}
+  thumbnailVideoSrc={frontmatter.thumbnailVideoSrc}
+  thumbnailImageSrc={frontmatter.thumbnailImageSrc}
+  thumbnailAlt={frontmatter.videoThumbnailAlt}
+  videoCtaText={frontmatter.videoCtaText}
+  videoDialogTitle={frontmatter.videoDialogTitle}
+  youtubeId={frontmatter.youtubeId}
+/>
+
+<FeatureFAQSection title={frontmatter.faqTitle} faqs={frontmatter.faqs} />

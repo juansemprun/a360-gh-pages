@@ -1,0 +1,67 @@
+---
+import { Image } from 'astro:assets';
+import { ScaleBalanced, BuildingShield } from '@/assets/icons';
+import gdprComplianceImg from '@/assets/images/gdpr-compliance.webp';
+
+interface Props {
+  sectionTitle: string;
+  lawfulBasisTitle: string;
+  lawfulBasisDescription: string;
+  accountabilityTitle: string;
+  accountabilityDescription: string;
+}
+
+const {
+  sectionTitle,
+  lawfulBasisTitle,
+  lawfulBasisDescription,
+  accountabilityTitle,
+  accountabilityDescription,
+} = Astro.props;
+---
+
+<section aria-labelledby="compliance-title" class="my-16 lg:my-20">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <h2
+      id="compliance-title"
+      class="font-clash-display-bold mb-10 text-center text-3xl text-slate-800 md:text-4xl"
+    >
+      {sectionTitle}
+    </h2>
+
+    <div class="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
+      <div class="max-w-3xl flex-1 space-y-10">
+        <article class="flex flex-col gap-4 md:flex-row">
+          <span
+            class="inline-flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-pink-100"
+          >
+            <ScaleBalanced class="text-primary-600 h-10 w-10 fill-current p-1" aria-hidden="true" />
+          </span>
+          <div>
+            <h3 class="mb-2 text-xl font-semibold text-slate-800">{lawfulBasisTitle}</h3>
+            <p class="text-base text-slate-500">{lawfulBasisDescription}</p>
+          </div>
+        </article>
+
+        <article class="flex flex-col gap-4 md:flex-row">
+          <span
+            class="inline-flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-pink-100"
+          >
+            <BuildingShield
+              class="text-primary-600 h-10 w-10 fill-current p-1"
+              aria-hidden="true"
+            />
+          </span>
+          <div>
+            <h3 class="mb-2 text-xl font-semibold text-slate-800">{accountabilityTitle}</h3>
+            <p class="text-base text-slate-500">{accountabilityDescription}</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="flex flex-1 justify-center lg:justify-end">
+        <Image alt="GDPR Compliance" inferSize src={gdprComplianceImg} />
+      </div>
+    </div>
+  </div>
+</section>

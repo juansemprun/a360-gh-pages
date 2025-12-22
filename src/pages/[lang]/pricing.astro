@@ -1,0 +1,395 @@
+---
+import { languageCodes } from '@config/language';
+
+import { Banknote, Repeat, ShoppingBag } from 'lucide-react';
+
+import { Button } from '@/components/ui/react/shadcn/button';
+
+import { AspectRatio } from '@/components/ui/react/shadcn/aspect-ratio';
+
+import MochiComputer from '@/assets/images/mochi/svg/mochi-computer.svg';
+import MochiMatrix from '@/assets/images/mochi/svg/matrix.svg';
+
+import { PerplexityLogo, ClaudeLogo, OpenAiLogo } from '@/assets/brand-logos';
+
+import PriceForm from '@/components/ui/PriceForm.astro';
+
+import {
+  ProductColor,
+  DubreuilColor,
+  OlympiqueLyonnaisColor,
+  AirCaraibesColor,
+} from '@/assets/brand-logos';
+
+import Circles from '@assets/graphics/circles.svg';
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import GradientText from '@ui/GradientText.astro';
+import Marquee from '@components/Marquee.astro';
+import CallToAction from '@ui/use-cases/CallToAction.astro';
+import RequestDemoComponent from '@components/RequestDemo';
+import { Image } from 'astro:assets';
+
+import g2 from '@assets/badges/g2.webp';
+import sourceForge from '@assets/badges/source-forge.svg';
+import topBusinessSoftware from '@assets/badges/top-business-software.svg';
+import crozdeskHappiestUsers from '@assets/badges/crozdesk-happiest-users.webp';
+import crozdeskQualityChoice from '@assets/badges/crozdesk-quality-choice.webp';
+import softwareSuggest from '@assets/badges/software-suggest.webp';
+import capterra from '@assets/badges/capterra.svg';
+
+const { lang } = Astro.params;
+
+export async function getStaticPaths() {
+  return languageCodes.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const title = 'Pricing';
+const description = 'Simple, transparent pricing that scales with your business.';
+
+const CUSTOMER_DATA = {
+  company: {
+    logo: 'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-8.svg',
+    name: '',
+  },
+  stats: [
+    {
+      number: '45%',
+      text: 'improvement in onboarding completion',
+    },
+    {
+      number: '61%',
+      text: 'reduction in time-to-value',
+    },
+    {
+      number: '3x',
+      text: 'increase in user activation',
+    },
+  ],
+  author: {
+    name: 'Sarah Williams',
+    image: 'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-1.webp',
+    role: 'CTO, monzo',
+  },
+  title: 'WHY INDUSTRY EXPERTS CHOOSE AIR360',
+  summary:
+    'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+  link: '#',
+};
+
+const services = [
+  {
+    title: 'Pipeline Conversion',
+    items: ['Market Research', 'User Personas'],
+    number: '4X',
+    icon: ProductColor,
+  },
+  {
+    title: 'Forecast Accuracy',
+    items: ['UI/UX Design', 'Prototyping', 'Interaction Design'],
+    number: '95%',
+    icon: DubreuilColor,
+  },
+  {
+    title: 'Email Response Rates',
+    items: ['Frontend Dev', 'Backend Dev'],
+    number: '80%+',
+    icon: OlympiqueLyonnaisColor,
+  },
+];
+
+const badges = [
+  {
+    alt: 'Air360 G2 Badge',
+    className: 'h-24 w-auto',
+    image: g2,
+    link: 'https://www.g2.com/products/air360/reviews',
+    rate: '4.7 ★',
+    title: 'G2',
+  },
+  {
+    alt: 'Air360 Top Business Software Badge',
+    className: 'h-24 w-auto',
+    image: topBusinessSoftware,
+    link: 'https://topbusinesssoftware.com/products/Air360/reviews/',
+    rate: '',
+    title: 'Top Business Software',
+  },
+  {
+    alt: 'Air360 Crozdesk Happiest Users Badge',
+    className: 'h-24 w-auto',
+    image: crozdeskHappiestUsers,
+    link: 'https://crozdesk.com/software/air360-inc',
+    rate: '86/100',
+    title: 'Crozdesk Happiest Users',
+  },
+  {
+    alt: 'Air360 Source Forge Badge',
+    className: 'h-24 w-auto',
+    image: sourceForge,
+    link: 'https://sourceforge.net/software/product/Air360/',
+    rate: '',
+    title: 'Source Forge',
+  },
+  {
+    alt: 'Air360 Software Suggest Badge',
+    className: 'h-28 w-auto',
+    image: softwareSuggest,
+    link: 'https://www.softwaresuggest.com/air360',
+    rate: '',
+    title: 'Software Suggest',
+  },
+  {
+    alt: 'Air360 Capterra Badge',
+    className: 'h-20 w-auto',
+    image: capterra,
+    link: 'https://www.capterra.es/software/169581/air360',
+    rate: '5 ★',
+    title: 'Capterra',
+  },
+];
+
+console.log(badges[0].image);
+---
+
+<BaseLayout title={title} description={description} lang={lang}>
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden py-20 md:py-40" data-theme="dark">
+    <div class="container-custom relative">
+      <div class="grid grid-cols-1 justify-center gap-16 lg:grid-cols-2">
+        <div class="flex flex-col gap-6">
+          <GradientText
+            animationSpeed={15}
+            class="font-clash-display-bold text-5xl transition duration-300 md:text-7xl"
+          >
+            <h1 class="font-clash-display-bold text-4xl leading-tight xl:text-5xl">
+              GET THE SCOOP ON AIR360 PRICING
+            </h1>
+          </GradientText>
+          <p class="text-2xl leading-snug text-slate-700">
+            Air360's pricing model depends on a few factors specific to your team.
+          </p>
+          <ul class="mb-4 list-inside list-disc space-y-2 text-lg leading-8 text-slate-700">
+            <li>Licenses are priced per user</li>
+            <li>There is a platform fee based on the number of users supported</li>
+            <li>You can integrate your existing tech stack for free.</li>
+          </ul>
+          <p class="text-xl leading-snug text-slate-700">
+            We'd love to prepare a customized proposal for you! Simply fill out the form to get
+            started.
+          </p>
+        </div>
+
+        <div class="justify-self-end">
+          <!-- <div
+            class="bg-background flex aspect-square flex-col rounded-xl border p-3 shadow-md sm:w-[22.625rem]"
+          > -->
+          <PriceForm />
+          <!-- </div> -->
+        </div>
+      </div>
+    </div>
+    <div class="container-custom mt-20">
+      <!-- Badges -->
+      <!-- <h5 class="text-muted-foreground my-5 text-xl font-bold">
+        The Undisputed Leader in Revenue Intelligence
+      </h5> -->
+      <div class="flex flex-wrap items-center justify-around gap-5 md:flex-nowrap">
+        {
+          badges.map(({ alt, className, image, link, title }) => (
+            <figure class="flex flex-col items-center justify-center">
+              <a href={link} target="_blank" rel="noopener noreferrer">
+                <Image src={image} alt={alt} class={className} title={title} />
+              </a>
+            </figure>
+          ))
+        }
+
+        <!-- <Image src={g2} alt="Air360 G2 Badge" class="h-18 w-auto" />
+          <Image
+            src={topBusinessSoftware}
+            alt="Air360 Top Business Software Badge"
+            class="h-18 w-auto"
+          />
+          <Image
+            src={crozdeskHappiestUsers}
+            alt="Air360 Crozdesk Happiest Users Badge"
+            class="h-16 w-auto"
+          />
+          <Image
+            src={crozdeskQualityChoice}
+            alt="Air360 Crozdesk Quality Choice Badge"
+            class="h-16 w-auto"
+          />
+          <Image src={sourceForge} alt="Air360 Source Forge Badge" class="h-16 w-auto" />
+          <Image src={softwareSuggest} alt="Air360 Software Suggest Badge" class="h-20 w-auto" />
+          <Image src={capterra} alt="Air360 Capterra Badge" class="h-16 w-auto" /> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Marquee Section -->
+  <section class="" data-theme="dark">
+    <h5
+      class="text-muted-foreground py-5 text-center text-xl font-medium tracking-wide lg:text-2xl"
+    >
+      SOME OF OUR CUSTOMERS
+    </h5>
+    <Marquee theme="dark" />
+  </section>
+
+  <!-- Demo Section -->
+  <section class="py-20" data-theme="dark" id="book-a-demo">
+    <div class="container-custom flex flex-col items-center gap-10">
+      <GradientText>
+        <h2 class="font-clash-display-bold text-center text-4xl leading-tight xl:text-5xl">
+          Book a demo!
+        </h2>
+      </GradientText>
+      <RequestDemoComponent client:load />
+    </div>
+  </section>
+
+  <!-- AI Buttons -->
+  <section class="pb-20" data-theme="dark">
+    <div class="container-custom overflow-hidden">
+      <div
+        class="relative mx-auto flex flex-col justify-evenly gap-6 overflow-hidden rounded-xl border bg-gradient-to-r from-[#2d92e9] to-[#644ad5] md:flex-row"
+      >
+        <div class="max-w-xl self-center p-6 md:p-12">
+          <h2 class="font-clash-display-bold text-4xl text-white md:text-5xl">
+            Having a hard time to decide?
+          </h2>
+          <p class="mt-4 text-white md:text-lg">
+            Chat with your favorite AI chat assistant or book a demo with our experts to learn more
+            about Air360 and how it can help your business!
+          </p>
+          <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+            <a
+              href="https://chatgpt.com/?q=Leveraging%20this%20page%2C%20tell%20me%20why%20Air360%20is%20a%20great%20choice%20for%20my%20business%20%3A%20https%3A%2F%2Fairthreesixty.github.io%2Fwebsite%2Fen%2Fpricing%2F"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-md bg-white px-5 py-2 text-sm font-medium transition duration-200 ease-in-out hover:-translate-y-0.5 hover:cursor-pointer"
+            >
+              <OpenAiLogo width={16} height={16} />
+              <span>Ask ChatGPT</span>
+            </a>
+            <a
+              href="https://claude.ai/new?q=Leveraging%20this%20page%2C%20tell%20me%20why%20Air360%20is%20a%20great%20choice%20for%20my%20business%20%3A%20https%3A%2F%2Fairthreesixty.github.io%2Fwebsite%2Fen%2Fpricing%2F"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-md bg-white px-5 py-2 text-sm font-medium transition duration-200 ease-in-out hover:-translate-y-0.5 hover:cursor-pointer"
+            >
+              <ClaudeLogo width={16} height={16} />
+              <span>Ask Claude</span>
+            </a>
+            <a
+              href="https://www.perplexity.ai/search?q=Leveraging%20this%20page%2C%20tell%20me%20why%20Air360%20is%20a%20great%20choice%20for%20my%20business%20%3A%20https%3A%2F%2Fairthreesixty.github.io%2Fwebsite%2Fen%2Fpricing%2F"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-md bg-white px-5 py-2 text-sm font-medium transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:cursor-pointer"
+            >
+              <PerplexityLogo width={16} height={16} />
+              <span>Ask Perplexity</span>
+            </a>
+          </div>
+        </div>
+        <div class="hidden md:p-12 lg:block">
+          <Image
+            src={MochiMatrix}
+            alt="Mochi using Air360"
+            class="h-72 w-full object-cover object-center"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Section -->
+  <section class="py-20" data-theme="dark">
+    <div class="container-custom">
+      <div class="flex w-full flex-col items-stretch justify-between gap-5 lg:flex-row">
+        <div class="flex w-full max-w-[30rem] flex-col gap-10 p-3">
+          <div>
+            <AirCaraibesColor class="w-48" />
+          </div>
+          <div class="flex w-full flex-col gap-8 sm:flex-row">
+            {
+              CUSTOMER_DATA.stats.map((item, i) => (
+                <div class="flex flex-col gap-1">
+                  <div class="text-xl font-semibold">
+                    <GradientText>
+                      <span class="font-clash-display-bold text-xl tracking-wide md:text-3xl">
+                        {item.number}
+                      </span>
+                    </GradientText>
+                  </div>
+                  <div class="text-muted-foreground text-sm font-medium">{item.text}</div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+        <div class="flex max-w-[32rem] flex-col gap-5">
+          <h3 class="font-clash-display-bold text-xl leading-none md:text-3xl lg:text-4xl">
+            <GradientText>
+              <span>{CUSTOMER_DATA.title}</span>
+            </GradientText>
+          </h3>
+          <p class="text-muted-foreground text-lg font-medium">
+            {CUSTOMER_DATA.summary}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Section 2 -->
+  <section class="py-20" data-theme="dark">
+    <div class="container-custom">
+      <div class="flex w-full flex-col items-center justify-between gap-20 rounded-lg lg:flex-row">
+        <div class="w-full space-y-24">
+          {
+            services.map(({ number, title, icon: Icon }) => (
+              <div class="flex items-center justify-between border-b border-[#644ad5] pb-6">
+                <div>
+                  <GradientText>
+                    <span class="font-clash-display-bold text-xl md:text-3xl">{number}</span>
+                  </GradientText>
+                </div>
+
+                <div class="flex items-center gap-4">
+                  <span class="text-muted-foreground text-sm font-medium md:text-xl">{title}</span>
+                </div>
+
+                <div class="w-16">
+                  <Icon />
+                </div>
+              </div>
+            ))
+          }
+        </div>
+        <div
+          class="flex max-w-[32rem] flex-col gap-5 rounded-lg bg-gradient-to-r from-[#2d92e9] to-[#644ad5] p-14 shadow-lg"
+        >
+          <h3
+            class="font-clash-display-bold text-xl leading-none text-white md:text-3xl lg:text-4xl"
+          >
+            {CUSTOMER_DATA.title}
+          </h3>
+          <p class="text-lg font-medium text-white">
+            {CUSTOMER_DATA.summary}
+          </p>
+
+          <p class="mt-12 text-white">Lorem ipsum</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CallToAction />
+  <!-- </section> -->
+</BaseLayout>

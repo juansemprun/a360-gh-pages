@@ -1,0 +1,42 @@
+---
+title: Analyse d'Entonnoir
+description: Identifiez où les utilisateurs abandonnent dans vos flux clés et découvrez des opportunités pour augmenter les conversions.
+heroCtaText: Commencer
+heroCtaUrl: '#get-started'
+videoSrc: /website/videos/fr/features/funnel-analysis.mp4
+thumbnailVideoSrc: /website/videos/fr/features/funnel-analysis-clip.mp4
+thumbnailImageSrc: /website/images/thumbnails/features/funnel-analysis.webp
+videoThumbnailAlt: Analyse d'Entonnoir
+videoCtaText: Découvrez comment l'Analyse d'Entonnoir identifie les abandons !
+videoDialogTitle: Analyse d'Entonnoir
+faqTitle: Questions fréquentes
+faqs:
+  - question: Qu'est-ce que l'Analyse d'Entonnoir ?
+    answer: L'Analyse d'Entonnoir suit les utilisateurs à travers une série d'étapes vers un objectif de conversion, vous montrant exactement où et pourquoi les utilisateurs abandonnent, vous aidant à optimiser chaque étape du parcours.
+  - question: Pourquoi utiliser l'Analyse d'Entonnoir ?
+    answer: Identifiez précisément la friction qui tue les conversions. Lorsque vous savez exactement où les utilisateurs abandonnent le parcours, vous pouvez corriger ce qui compte le plus et optimiser le chemin vers la conversion. Moins de suppositions, plus de résultats.
+  - question: Puis-je comparer les performances de l'Entonnoir entre différentes audiences ?
+    answer: Oui ! La segmentation est une partie clé de l'analyse d'entonnoir. Vous pouvez comparer comment différents groupes se comportent, tels que les utilisateurs mobiles vs bureau, ou le trafic provenant d'e-mails vs publicités payantes. Cela vous aide à comprendre quel segment a été le plus affecté par l'abandon, afin de cibler les corrections où elles auront le plus grand impact.
+  - question: Quels types d'Entonnoirs puis-je suivre ?
+    answer: C'est entièrement à vous de décider ! Configurez facilement et avec flexibilité pour suivre tout type d'entonnoir de conversion spécifique à votre entreprise.
+  - question: Comment l'Analyse d'Entonnoir soutient-elle de meilleures décisions commerciales ?
+    answer: Les entonnoirs montrent exactement où les utilisateurs perdent leur élan, vous permettant de prioriser les corrections ayant le plus grand impact sur les revenus. Si la plupart des utilisateurs abandonnent au moment du paiement, vous savez qu'améliorer le paiement donnera des résultats plus rapidement que de peaufiner votre page d'accueil. Les entonnoirs donnent à votre équipe clarté, concentration et confiance sur ce qu'il faut optimiser ensuite.
+---
+
+import FeaturesHero from '@/components/pages/features/FeaturesHero.astro';
+import FeatureFAQSection from '@/components/FAQSection.astro';
+
+<FeaturesHero
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ctaText={frontmatter.heroCtaText}
+  ctaUrl={frontmatter.heroCtaUrl}
+  videoSrc={frontmatter.videoSrc}
+  thumbnailVideoSrc={frontmatter.thumbnailVideoSrc}
+  thumbnailImageSrc={frontmatter.thumbnailImageSrc}
+  thumbnailAlt={frontmatter.videoThumbnailAlt}
+  videoCtaText={frontmatter.videoCtaText}
+  videoDialogTitle={frontmatter.videoDialogTitle}
+/>
+
+<FeatureFAQSection title={frontmatter.faqTitle} faqs={frontmatter.faqs} />

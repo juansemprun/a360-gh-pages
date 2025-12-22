@@ -1,0 +1,63 @@
+---
+type: industry
+title: E-commerce Companies
+description: Create the best possible online booking experience with Air360, with personalized journeys, smooth booking, and optimized customer engagement.
+video:
+  title: E-commerce Companies - Quick Air360 Tracking Pixel Setup Video
+  url: https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true
+  videoSrc: /website/videos/ja/quick-air360-tracking-pixel-setup.mp4
+  videoPreviewSrc: /website/videos/ja/quick-air360-tracking-pixel-setup-clip.mp4
+  videoPosterSrc: /website/images/thumbnails/ja/quick-air360-tracking-pixel-setup.webp
+highlights:
+  - title: 成果につながる体験をつくる
+    text: オンラインショッピングをもっと快適に。Air360でユーザーをセグメントし、一人ひとりに最適化された体験を提供することで、訪問者をリピーターへと育てましょう。
+  - title: すべてのページを、最高の状態に
+    text: すべてのクリックが売上につながります。Air360で顧客との接点を磨き上げ、ブランドの価値が伝わるスムーズなショッピング体験を実現しましょう。
+  - title: 購入体験をもっとシンプルに
+    text: チェックアウトでのつまずきを防ぎましょう。Air360はユーザーが迷ったり離脱したりするポイントを可視化し、購入までの導線を整えることで売上向上を支援します。
+  - title: サイトを常に快適に保つ
+    text: エラーやストレスのない体験を。Air360でUXの課題を素早く発見し、スムーズで快適なショッピング体験を保ちましょう。
+  - title: 顧客満足度を高める
+    text: 欲しい商品をすぐに見つけられる体験が、リピートにつながります。Air360は見つけにくい商品を特定し、表示を最適化することで安定した売上を支えます。
+---
+
+import CallToAction from '@/components/ui/use-cases/CallToAction.astro';
+import Highlights from '@/components/ui/use-cases/Highlights.astro';
+import HighlightsSummary from '@/components/ui/use-cases/HighlightsSummary.astro';
+import MarkHighlight from '@/components/ui/use-cases/MarkHighlight.astro';
+import PageHero from '@/components/ui/use-cases/PageHero.astro';
+import Testimonial from '@/components/ui/use-cases/Testimonial.astro';
+import VideoSection from '@/components/ui/use-cases/VideoSection.astro';
+
+import { Okaidi } from '@/assets/brand-logos';
+
+<PageHero>
+
+<span class="block" slot="title">
+  最高の
+</span>
+<span class="block" slot="title">
+  <MarkHighlight>オンラインショッピング</MarkHighlight>体験を作成
+</span>
+
+  <Testimonial
+    Logo={Okaidi}
+    quote="製品は現在のeコマースの課題に沿って常に進化しており、チームは常にコンバージョン率改善アプローチの開発に取り組んでいます。"
+    attribution="Enguerran Bachelot, Okaidi"
+    slot="testimonial"
+  />
+</PageHero>
+
+<Highlights highlightsList={frontmatter.highlights} />
+
+<VideoSection
+  videoSrc={frontmatter.video.videoSrc}
+  videoPosterSrc={frontmatter.video.videoPosterSrc}
+  videoPreviewSrc={frontmatter.video.videoPreviewSrc}
+>
+  始めるのが<MarkHighlight>いかに簡単</MarkHighlight>かをご覧になりますか?
+</VideoSection>
+
+<HighlightsSummary highlightsList={frontmatter.highlights} />
+
+<CallToAction />

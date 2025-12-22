@@ -1,0 +1,39 @@
+---
+type: 'use case'
+title: Data-Driven Marketing Decision
+description: Make confident marketing decisions backed by real user behavior data and proven performance metrics.
+heroCtaText: Get Started
+heroCtaUrl: '#get-started'
+videoSrc: /website/videos/use-case/data-driven-marketing-decision.mp4
+thumbnailVideoSrc: /website/videos/use-case/data-driven-marketing-decision-clip.mp4
+thumbnailImageSrc: /website/images/thumbnails/use-cases/data-driven-marketing-decision.webp
+videoThumbnailAlt: Data-Driven Decision
+videoCtaText: See how data transforms marketing decisions!
+videoDialogTitle: Data-Driven Marketing with Air360
+faqTitle: Common questions
+faqs:
+  - question: How does Air360 help me compare content effectiveness?
+    answer: Air360’s Zoning Analysis allows you to directly compare engagement and conversion contribution for each element or image on a page. You can instantly see which content grabs attention, which elements support conversions, and which parts of the page are underperforming. This makes it easy to understand what works best and where to optimize.
+  - question: Does Air360 help me make decisions based on ROI?
+    answer: Yes! Air360 highlights the areas where you are losing users, encountering friction, or missing opportunities. By showing which elements help or hinder conversions, the platform guides you toward changes that bring the highest return with the smallest effort. It helps you invest your resources where they will have the greatest impact.
+  - question: Can I measure performance per campaign?
+    answer: Yes! With Air360, you can segment all your analyses by campaign to see exactly how visitors from each traffic source behave on your site. You can compare funnel conversion rates per campaign and analyze page-level performance using metrics such as engagement, click behavior, friction events, and overall contribution to conversions. This makes it easy to understand which campaigns are driving high-quality traffic and which ones lead to quick drop-offs or low engagement.
+---
+
+import FeaturesHero from '@/components/pages/features/FeaturesHero.astro';
+import FeatureFAQSection from '@/components/FAQSection.astro';
+
+<FeaturesHero
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ctaText={frontmatter.heroCtaText}
+  ctaUrl={frontmatter.heroCtaUrl}
+  videoSrc={frontmatter.videoSrc}
+  thumbnailVideoSrc={frontmatter.thumbnailVideoSrc}
+  thumbnailImageSrc={frontmatter.thumbnailImageSrc}
+  thumbnailAlt={frontmatter.videoThumbnailAlt}
+  videoCtaText={frontmatter.videoCtaText}
+  videoDialogTitle={frontmatter.videoDialogTitle}
+/>
+
+<FeatureFAQSection title={frontmatter.faqTitle} faqs={frontmatter.faqs} />

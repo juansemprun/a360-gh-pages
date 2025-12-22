@@ -1,0 +1,49 @@
+---
+import type { LanguageCode } from '@/config/language';
+
+import { Badge } from '@/components/ui/react/shadcn/badge';
+import clsx from 'clsx';
+import { useTranslations } from '@/i18n';
+
+interface Props {
+  lang: LanguageCode;
+  activeTag?: string;
+}
+
+const { lang, activeTag = 'all' } = Astro.props;
+const t = useTranslations(lang);
+
+const tagSlugs = ['all', 'marketing', 'ux', 'ecommerce', 'data', 'other'] as const;
+
+// Build tags array with translated names and active status
+const tags = tagSlugs.map((slug) => ({
+  name: t(`blog.tag.${slug}` as const),
+  href:
+    slug === 'all'
+      ? `${import.meta.env.BASE_URL}/${lang}/blog`
+      : `${import.meta.env.BASE_URL}/${lang}/blog/tag/${slug}`,
+  isActive: slug === activeTag,
+}));
+---
+
+<nav aria-label="Blog categories">
+  <ul class="flex flex-wrap justify-center gap-4 lg:gap-2">
+    {
+      tags.map((tag) => (
+        <li>
+          <a href={tag.href} aria-current={tag.isActive ? 'page' : undefined}>
+            <Badge
+              variant="outline"
+              className={clsx(
+                'h-fit px-3 py-1 text-sm transition-colors',
+                tag.isActive && 'bg-primary-500 text-white',
+              )}
+            >
+              {tag.name}
+            </Badge>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

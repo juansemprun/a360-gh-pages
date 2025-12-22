@@ -1,0 +1,50 @@
+---
+import { getCollection } from 'astro:content';
+import type { GetStaticPaths, InferGetStaticPropsType, InferGetStaticParamsType } from 'astro';
+
+import { languageCodes } from '@/config/language';
+
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ChangelogHeader from '@/components/ui/changelog/ChangelogHeader.astro';
+import ChangelogTimeline from '@/components/ui/changelog/ChangelogTimeline.astro';
+
+export const getStaticPaths = (async () => {
+  const changelogCollection = await getCollection('changelog');
+
+  return languageCodes.map((lang) => {
+    const changelogsForLang = changelogCollection.filter((entry) =>
+      entry.id.startsWith(`${lang}/`),
+    );
+
+    // Sort by date, newest first
+    const sortedChangelogs = changelogsForLang.sort(
+      (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime(),
+    );
+
+    return {
+      params: { lang },
+      props: {
+        changelogs: sortedChangelogs,
+      },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+
+const { changelogs } = Astro.props as Props;
+const { lang } = Astro.params as Params;
+
+const pageTitle = 'Changelog';
+const pageDescription = 'Stay updated with the latest features, improvements, and fixes in Air360.';
+---
+
+<BaseLayout lang={lang} title={pageTitle} description={pageDescription}>
+  <section class="container-custom py-32" data-theme="dark">
+    <ChangelogHeader />
+  </section>
+  <section class="bg-background container-custom" data-theme="dark">
+    <ChangelogTimeline entries={changelogs} lang={lang} />
+  </section>
+</BaseLayout>

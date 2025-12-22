@@ -1,0 +1,25 @@
+---
+title: Mises à jour du 19 février 2025
+description: Mises à jour du 19 février 2025
+publishedAt: 2025-02-19
+headerImage: '@changelog-assets/changelog-update.webp'
+---
+
+import { Badge } from '@/components/ui/react/shadcn/badge';
+
+<Badge variant="noLink" className="m-0">
+  <span>Améliorations</span>
+</Badge>
+
+## Suivi automatique des événements push du datalayer
+
+Il s'agit d'une demande populaire qui nous permettra de capturer automatiquement les événements envoyés via `dataLayer.Push`
+Chaque fois qu'un `dataLayer.push` sera déclenché sur un site web, cela déclenchera automatiquement un `Air360.track()` avec le même événement.
+Par exemple, lorsqu'un `dataLayer.push({ event: "register" })` est effectué, le SDK JS Air360 déclenchera automatiquement un `Air360.track("register")`
+Cela peut ensuite être utilisé comme tout autre événement API/personnalisé dans Air360.
+**Remarque :** Bien que vous puissiez déjà utiliser les événements ici via les "Événements personnalisés" habituels, nous allons également améliorer la facilité d'utilisation ici, restez à l'écoute !
+
+## Gestion des labels dans les input de type submit/button
+
+C'est quelque chose que nous avons récemment constaté sur le site web d'un client : les labels de submit/button n'étaient pas automatiquement capturés jusqu'à présent.
+Ceci est désormais capturé par le nouveau SDK JS.

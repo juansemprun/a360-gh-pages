@@ -1,66 +1,26 @@
 ---
-import {
-  TicketAirline,
-  Sitemap,
-  Hotel,
-  Gem,
-  GamepadModern,
-  CourtSport,
-  BuildingColumns,
-  BagsShopping,
-  ChevronDown,
-} from '@assets/icons';
+import { getEntry } from 'astro:content';
+import Icon from '@ui/Icon.astro';
 
-const useCasesByIndustry = [
-  { icon: BagsShopping, label: 'E-commerce', link: '/use-cases/e-commerce' },
-  { icon: Hotel, label: 'Hotels', link: '/use-cases/hotels' },
-  { icon: Gem, label: 'Luxury brands', link: '/use-cases/luxury-brands' },
-  { icon: TicketAirline, label: 'Airlines', link: '/use-cases/airlines' },
-  { icon: GamepadModern, label: 'Gaming', link: '/use-cases/gaming' },
-  { icon: BuildingColumns, label: 'Bank & Insurance', link: '/use-cases/banks-and-insurance' },
-  { icon: Sitemap, label: 'Multi-brand companies', link: '/use-cases/multi-brand-companies' },
-  { icon: CourtSport, label: 'Sport team', link: '/use-cases/sport-team' },
-];
+const { lang } = Astro.params;
 
-const useCasesByUseCase = [
-  { icon: Gem, label: 'Refine funnels', description: 'Lorem ipsum dolor', link: '/' },
-  { icon: Gem, label: 'Resolve errors', description: 'Lorem ipsum dolor', link: '/' },
-  { icon: Gem, label: 'Increase conversions', description: 'Lorem ipsum dolor', link: '/' },
-  { icon: Gem, label: 'Centralize data', description: 'Lorem ipsum dolor', link: '/' },
-  {
-    icon: Gem,
-    label: 'Automate analysis',
-    description: 'Lorem ipsum dolor',
-    link: '/',
-  },
-  { icon: Gem, label: 'Uncover insights', description: 'Lorem ipsum dolor', link: '/' },
-  { icon: Gem, label: 'Upgrade mobile apps', description: 'Lorem ipsum dolor', link: '/' },
-  { icon: Gem, label: 'Boost productivity', description: 'Lorem ipsum dolor', link: '/' },
-  {
-    icon: Gem,
-    label: 'Accelerate innovation',
-    description: 'Lorem ipsum dolor',
-    link: '/',
-  },
-  { icon: Gem, label: 'Reduce spend', description: 'Lorem ipsum dolor', link: '/' },
-  {
-    icon: Gem,
-    label: 'Improve troubleshooting',
-    description: 'Lorem ipsum dolor',
-    link: '/',
-  },
-];
+const entry = await getEntry('navigation', `${lang}/use-cases`);
+
+const useCasesByIndustry = entry?.data.useCasesNav?.industry || [];
+const useCasesByUseCase = entry?.data.useCasesNav?.useCase || [];
 ---
 
-<li class="group/dropdown relative" role="none">
+<li class="group/dropdown relative" role="none" data-dropdown>
   <button
     role="menuitem"
     aria-haspopup="true"
     aria-expanded="false"
+    data-dropdown-trigger
     class="ease cursor-pointer py-2 text-base font-medium text-inherit no-underline transition-colors duration-300 group-hover/dropdown:text-gray-400"
   >
-    Use Cases
-    <ChevronDown
+    {entry?.data?.title}
+    <Icon
+      name="ChevronDown"
       width="16"
       height="16"
       class="inline fill-current transition-transform duration-300 ease-in-out group-hover/dropdown:rotate-180 group-hover/dropdown:fill-gray-400"
@@ -68,31 +28,31 @@ const useCasesByUseCase = [
   </button>
   <div
     role="menu"
-    aria-label="Use Cases menu"
-    class="invisible fixed left-1/2 max-w-3xl -translate-x-1/2 -translate-y-2.5 scale-95 transform rounded-2xl bg-white opacity-0 duration-300 group-hover/dropdown:visible group-hover/dropdown:-translate-x-1/2 group-hover/dropdown:translate-y-0 group-hover/dropdown:scale-100 group-hover/dropdown:transform group-hover/dropdown:opacity-100 group-hover/dropdown:duration-300"
+    aria-label="Features menu"
+    data-dropdown-menu
+    class="pointer-events-none fixed left-1/2 w-max -translate-x-1/2 -translate-y-2.5 scale-95 transform rounded-2xl bg-white opacity-0 shadow-md ring ring-black/5 transition-all duration-300 group-hover/dropdown:pointer-events-auto group-hover/dropdown:-translate-x-1/2 group-hover/dropdown:translate-y-0 group-hover/dropdown:scale-100 group-hover/dropdown:opacity-100"
   >
-    <div class="flex flex-row gap-8">
-      <div class="flex-1/2 rounded-2xl p-8 pr-0">
+    <div class="flex justify-between gap-8">
+      <div class="rounded-2xl p-8 pr-0">
         <h3 class="mb-5 text-xs font-semibold uppercase tracking-wider text-gray-400">
-          By Use Case
+          {entry?.data?.sectionTitles?.industry}
         </h3>
         <div class="grid grid-cols-2 gap-x-8">
           {
-            useCasesByUseCase.map(({ icon: Icon, label, link }) => (
+            useCasesByIndustry.map(({ icon, label, link }) => (
               <a
-                href={link}
+                href={`/website/${lang}/use-cases/${link}`}
                 role="menuitem"
-                class="group flex gap-2 rounded-xl py-4 transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:cursor-pointer hover:bg-slate-50"
+                class="hover:shadow-xs group flex gap-1 rounded-lg px-2 py-4 transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:cursor-pointer hover:bg-slate-50 hover:ring hover:ring-black/5"
               >
                 <Icon
+                  name={icon}
                   width="20"
                   height="20"
                   class="group-hover:fill-primary-500 mx-1.5 flex justify-center fill-gray-400 transition-colors"
                 />
-                <div class="gap-2">
-                  <h4 class="text-sm text-black">{label}</h4>
-                  <p class="text-xs text-gray-500">Lorem ipsum dolor</p>
-                </div>
+                <wa-icon name="building" variant="regular" />
+                <h4 class="text-sm text-black">{label}</h4>
               </a>
             ))
           }
@@ -100,15 +60,15 @@ const useCasesByUseCase = [
       </div>
       <div class="rounded-br-2xl rounded-tr-2xl bg-slate-50 p-8">
         <h3 class="mb-5 text-xs font-semibold uppercase tracking-wider text-gray-400">
-          By industry
+          {entry?.data?.sectionTitles?.useCase}
         </h3>
         <div class="gap-2">
           {
-            useCasesByIndustry.map(({ icon: Icon, label, link }) => (
-              <a href={link} role="menuitem">
-                <div class="group flex cursor-pointer gap-2 rounded-xl py-4 transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-slate-50">
+            useCasesByUseCase.map(({ icon, label, link }) => (
+              <a href={`/website/${lang}/use-cases/${link}`} role="menuitem">
+                <div class="group flex cursor-pointer gap-2 rounded-lg px-2 py-6 transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-white/80 hover:ring hover:ring-black/5">
                   <div class="group-hover:fill-primary-500 flex justify-center fill-gray-400 transition-colors">
-                    <Icon width="20" height="20" />
+                    <Icon name={icon} width="20" height="20" />
                   </div>
                   <h4 class="text-sm text-black">{label}</h4>
                 </div>

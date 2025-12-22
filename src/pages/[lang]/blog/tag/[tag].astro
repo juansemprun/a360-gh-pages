@@ -1,0 +1,56 @@
+---
+import type { GetStaticPaths, InferGetStaticParamsType, InferGetStaticPropsType } from 'astro';
+import { getCollection } from 'astro:content';
+
+import { languageCodes } from '@/config/language';
+
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import BlogNav from '@/components/ui/blog/BlogNav.astro';
+import BlogHeader from '@/components/ui/blog/BlogHeader.astro';
+import BlogPostList from '@/components/ui/blog/BlogPostList.astro';
+
+export const getStaticPaths = (async () => {
+  const allPosts = await getCollection('blog');
+
+  // Get all unique tags across all posts
+  const uniqueTags = Array.from(new Set(allPosts.flatMap((post) => post.data.tags || [])));
+
+  // Generate paths for each language/tag combination
+  return languageCodes.flatMap((lang) =>
+    uniqueTags.map((tag) => {
+      // Filter posts by language AND tag, then sort by date
+      const posts = allPosts
+        .filter((post) => post.id.startsWith(`${lang}/`) && post.data.tags?.includes(tag))
+        .sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
+
+      return {
+        params: { lang, tag },
+        props: { posts }, // Pass entire CollectionEntry objects
+      };
+    }),
+  );
+}) satisfies GetStaticPaths;
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { posts } = Astro.props as Props;
+const { lang, tag } = Astro.params as Params;
+
+// Capitalize tag for display
+const tagDisplay = tag.charAt(0).toUpperCase() + tag.slice(1);
+
+const pageTitle = `${tagDisplay} - Blog`;
+const pageDescription = `Posts about ${tagDisplay} - tips for improving conversion rates and the latest trends in eCommerce UX.`;
+---
+
+<BaseLayout title={pageTitle} lang={lang} description={pageDescription}>
+  <section class="container-custom py-32" data-theme="dark">
+    <div class="flex flex-col gap-10">
+      <BlogHeader lang={lang} />
+      <BlogNav lang={lang} activeTag={tag} />
+    </div>
+
+    <BlogPostList posts={posts} lang={lang} />
+  </section>
+</BaseLayout>

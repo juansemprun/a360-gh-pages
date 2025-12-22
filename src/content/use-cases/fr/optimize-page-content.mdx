@@ -1,0 +1,43 @@
+---
+type: 'use case'
+title: Optimiser le Contenu des Pages
+description: Découvrez quel contenu résonne avec votre audience et optimisez les éléments de page pour un engagement et des conversions maximaux.
+heroCtaText: Commencer
+heroCtaUrl: '#get-started'
+videoSrc: /website/videos/use-case/optimize-page-content.mp4
+thumbnailVideoSrc: /website/videos/use-case/optimize-page-content-clip.mp4
+thumbnailImageSrc: /website/images/thumbnails/use-cases/optimize-page-content.webp
+videoThumbnailAlt: Optimiser le Contenu des Pages
+videoCtaText: Découvrez comment optimiser votre contenu !
+videoDialogTitle: Optimisation du Contenu avec Air360
+faqTitle: Questions fréquentes
+youtubeId: 'oUnzDDLr5LU'
+faqs:
+  - question: Comment l'analyse de zonage aide-t-elle à l'optimisation du contenu ?
+    answer: L'analyse de zonage d'Air360 met en évidence visuellement la manière dont les utilisateurs interagissent avec chaque élément d'une page. Elle affiche des métriques d'engagement telles que le taux de clic, les clics de rage, le comportement de survol et même la contribution à la conversion. Avec cela, vous pouvez immédiatement voir quelles zones de la page fonctionnent bien et lesquelles sont ignorées, mal comprises ou causent des frictions. Cela facilite grandement l'identification du contenu qui nécessite des améliorations.
+  - question: Puis-je détecter des problèmes d'utilisabilité comme les clics de rage ?
+    answer: Oui ! Les clics de rage apparaissent directement sur les cartes de zonage, révélant les éléments que les utilisateurs cliquent à plusieurs reprises car ils s'attendent à ce que quelque chose se passe mais rien ne se produit. C'est l'un des moyens les plus rapides de repérer des problèmes d'utilisabilité petits mais impactants, tels que des boutons cassés, des interactions peu claires ou des indices visuels trompeurs.
+  - question: Dois-je optimiser différemment pour mobile que pour ordinateur ?
+    answer: Oui ! Les utilisateurs mobiles ont des comportements très différents et des écrans plus petits. Utilisez les analyses spécifiques aux appareils d'Air360 pour optimiser la mise en page du contenu, la longueur et les CTA pour chaque plateforme.
+  - question: Puis-je voir quelles images fonctionnent le mieux ?
+    answer: Oui ! L'analyse de zonage d'Air360 vous montre exactement comment les utilisateurs interagissent avec chaque image afin que vous puissiez comparer les résultats pour trouver quelle image fonctionne et laquelle ne fonctionne pas.
+---
+
+import FeaturesHero from '@/components/pages/features/FeaturesHero.astro';
+import FeatureFAQSection from '@/components/FAQSection.astro';
+
+<FeaturesHero
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ctaText={frontmatter.heroCtaText}
+  ctaUrl={frontmatter.heroCtaUrl}
+  videoSrc={frontmatter.videoSrc}
+  thumbnailVideoSrc={frontmatter.thumbnailVideoSrc}
+  thumbnailImageSrc={frontmatter.thumbnailImageSrc}
+  thumbnailAlt={frontmatter.videoThumbnailAlt}
+  videoCtaText={frontmatter.videoCtaText}
+  videoDialogTitle={frontmatter.videoDialogTitle}
+  youtubeId={frontmatter.youtubeId}
+/>
+
+<FeatureFAQSection title={frontmatter.faqTitle} faqs={frontmatter.faqs} />

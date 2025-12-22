@@ -1,7 +1,60 @@
 ---
-title: 'Hotel  Companies'
-description: Create the best possible online booking experience with Air360, with personalized journeys, smooth booking, and optimized customer engagement.
-videoSrc: https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4
+type: industry
+title: Marques Hôtelières
+description: Créez la meilleure expérience de réservation en ligne possible avec Air360, avec des parcours personnalisés, une réservation fluide et un engagement client optimisé.
+video:
+  title: Marques Hôtelières - Vidéo de Configuration Rapide du Pixel de Suivi Air360
+  url: https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true
+  videoSrc: /website/videos/quick-air360-tracking-pixel-setup.mp4
+  videoPreviewSrc: /website/videos/quick-air360-tracking-pixel-setup-clip.mp4
+  videoPosterSrc: /website/images/thumbnails/quick-air360-tracking-pixel-setup.webp
+highlights:
+  - title: Créez des expériences qui convertissent
+    text: Transformez les rêveurs en clients en personnalisant leur parcours. Segmentez vos visiteurs et adaptez leur séjour avant même leur arrivée avec Air360 !
+  - title: La meilleure version possible de chaque page
+    text: Chaque clic est une étape vers un séjour parfait. Faites briller chaque page. Affinez les interactions pour refléter le confort et le luxe que vous promettez avec Air360.
+  - title: Simplifiez l’expérience de réservation
+    text: Ne laissez pas les clients potentiels abandonner leur réservation. Air360 identifie les points de friction pour vous aider à créer un parcours de réservation fluide.
+  - title: Assurez le bon fonctionnement de votre site
+    text: Aucun bug, aucun stress ! Air360 détecte les problèmes d’UX afin que votre site reste fiable et que les réservations continuent d’affluer.
+  - title: Gardez vos clients satisfaits
+    text: Aidez les clients à trouver facilement les chambres et services qu’ils aiment. Air360 optimise la visibilité pour maintenir l’engagement et encourager la réservation.
 ---
 
-# Hotels Companies
+import CallToAction from '@/components/ui/use-cases/CallToAction.astro';
+import Highlights from '@/components/ui/use-cases/Highlights.astro';
+import HighlightsSummary from '@/components/ui/use-cases/HighlightsSummary.astro';
+import MarkHighlight from '@/components/ui/use-cases/MarkHighlight.astro';
+import PageHero from '@/components/ui/use-cases/PageHero.astro';
+import Testimonial from '@/components/ui/use-cases/Testimonial.astro';
+import VideoSection from '@/components/ui/use-cases/VideoSection.astro';
+
+import { ClubMed } from '@/assets/brand-logos';
+
+<PageHero>
+  <span class="block" slot="title">Créez la meilleure</span>
+  <span class="block" slot="title">
+    expérience de <MarkHighlight>réservation en ligne</MarkHighlight> possible
+  </span>
+
+  <Testimonial
+    Logo={ClubMed}
+    quote="Avec Air360, nous pouvons impliquer plus de personnes dans la prise de décisions basées sur les données à l'échelle mondiale."
+    attribution="Nelson Fernandes, ClubMed"
+    slot="testimonial"
+  />
+</PageHero>
+
+<Highlights highlightsList={frontmatter.highlights} />
+
+<VideoSection
+  videoSrc={frontmatter.video.videoSrc}
+  videoPosterSrc={frontmatter.video.videoPosterSrc}
+  videoPreviewSrc={frontmatter.video.videoPreviewSrc}
+>
+  Vous voulez voir comme c'est <MarkHighlight>facile</MarkHighlight> de commencer ?
+</VideoSection>
+
+<HighlightsSummary highlightsList={frontmatter.highlights} />
+
+<CallToAction />

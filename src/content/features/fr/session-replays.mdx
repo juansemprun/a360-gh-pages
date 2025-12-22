@@ -1,0 +1,40 @@
+---
+title: Replays de Session
+description: Observez les mouvements des utilisateurs. Repérez où ils rencontrent des difficultés et optimisez votre expérience utilisateur avec de vrais enregistrements de session.
+heroCtaText: Commencer
+heroCtaUrl: '#get-started'
+videoSrc: /website/videos/fr/features/session-replays.mp4
+thumbnailVideoSrc: /website/videos/fr/features/session-replays-clip.mp4
+thumbnailImageSrc: /website/images/thumbnails/features/session-replays.webp
+videoThumbnailAlt: Replays de Session
+videoCtaText: Découvrez comment les Replays de Session fonctionnent en action !
+videoDialogTitle: Replays de Session
+faqTitle: Questions fréquentes
+faqs:
+  - question: What are Session Replays?
+    answer: Session Replays are recordings of real user sessions on your website, allowing you to watch exactly how visitors interact with your site, where they click, scroll, and where they encounter problems.
+  - question: Why use Session Replays?
+    answer: Session Replays help you understand the "why" behind their actions. Spot usability issues, confusion points, and hidden errors that analytics alone can't catch. Instead of guessing why users drop off, watch their actual behavior and fix problems fast to create a better user experience and get higher conversions.
+  - question: Can I filter sessions by specific criteria?
+    answer: Yes! You can filter sessions by user behavior, device type, conversion status, and many other criteria to find the most relevant recordings.
+  - question: How does session replay support business decisions?
+    answer: See “why” users fail to convert. Identify root causes faster, fix what's broken, and measure the real impact on your business outcomes.
+---
+
+import FeaturesHero from '@/components/pages/features/FeaturesHero.astro';
+import FeatureFAQSection from '@/components/FAQSection.astro';
+
+<FeaturesHero
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ctaText={frontmatter.heroCtaText}
+  ctaUrl={frontmatter.heroCtaUrl}
+  videoSrc={frontmatter.videoSrc}
+  thumbnailVideoSrc={frontmatter.thumbnailVideoSrc}
+  thumbnailImageSrc={frontmatter.thumbnailImageSrc}
+  thumbnailAlt={frontmatter.videoThumbnailAlt}
+  videoCtaText={frontmatter.videoCtaText}
+  videoDialogTitle={frontmatter.videoDialogTitle}
+/>
+
+<FeatureFAQSection title={frontmatter.faqTitle} faqs={frontmatter.faqs} />

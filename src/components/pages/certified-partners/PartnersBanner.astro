@@ -1,0 +1,36 @@
+---
+import { Image } from 'astro:assets';
+
+import MochiMechanic from '@/assets/images/mochi/svg/mechanic.svg';
+
+interface PartnersBannerProps {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props as PartnersBannerProps;
+---
+
+<section class="">
+  <div
+    class="relative mx-auto flex flex-col justify-evenly gap-6 overflow-hidden rounded-xl border bg-gradient-to-r from-[#2d92e9] to-[#644ad5] md:flex-row"
+  >
+    <div class="flex max-w-xl flex-col gap-8 self-center p-6 md:p-12">
+      <h2 class="font-clash-display-bold text-4xl text-white md:text-5xl">
+        {title}
+      </h2>
+      <p class="text-pretty font-semibold text-white md:text-lg">
+        {description}
+      </p>
+    </div>
+    <div class="hidden lg:block lg:p-12">
+      <Image
+        src={MochiMechanic}
+        alt="Mochi using Air360"
+        width={384}
+        height={384}
+        class="h-full w-96 object-cover object-center"
+      />
+    </div>
+  </div>
+</section>

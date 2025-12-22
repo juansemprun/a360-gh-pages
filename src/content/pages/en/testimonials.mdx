@@ -1,0 +1,101 @@
+---
+title: Testimonials
+description: Hear from our satisfied customers about their experience with Air360.
+
+heading:
+  line1: What changed for the better
+  line2: since you switched to
+subheading: When you build analytics that actually help people understand their users instead of drowning them in charts, magical things happen.
+
+testimonials:
+  - id: 1
+    name: Aurélie Condamine
+    client: Empruntis
+    body: Everyone gets what they need without {getting lost in the data}. Visualizing and accessing data is simple. It's a great product that is constantly evolving and very promising!
+
+  - id: 2
+    name: Christophe Chaudet
+    client: Unnest
+    body: A great alternative to Contentsquare, with a set of {advanced features and a much cheaper license}. It adapts to every company and sector. The license includes all future product updates at no extra cost.
+
+  - id: 3
+    name: Enguerran Bachelot
+    client: Okaidi
+    body: I can say that the product is {constantly evolving} in line with current e-commerce issues and challenges, and the team is committed to developing the CRO approach. 
+
+  - id: 4
+    name: Fabrice Ruer
+    client: Business & Decision
+    body: We are glad to have chosen Air360 in 2023. It has become a trusted partner. The tool is {simple and fast for UX analysis}, highly appreciated by our teams.
+
+  - id: 5
+    name: Andre Maurer
+    client: Asendia
+    body: We needed a tool that can help us in {accelerating our digital transformation and understanding our user journeys}.  Air360 is the tool we were looking for.
+
+  - id: 6
+    name: Jessica Lemeitour
+    client: Dorcel
+    body: This tool is essential for managing an e-commerce site. It allowed for {continuous improvement}, both with major upgrades and quick wins.
+
+  - id: 7
+    name: Manon Hochard
+    client: Henkan & Partners
+    body: Working with Air360 means being able to {analyze user journeys on client sites}, understand interactions on key pages, and provide relevant recommendations.
+
+  - id: 8
+    name: Quentin Bernard
+    client: Arquen
+    body: Air360 lets us obtain {reliable quantitative data flexibly} to accurately analyze user behavior.
+
+  - id: 9
+    name: Nelson Fernandes
+    client: Clubmed
+    body: With Air360 we can get more people involved in {making data-driven decisions} on a global scale.
+
+  - id: 10
+    name: Salomé Klein
+    client: Croix Rouge Française
+    body: With Air360, I can {explore data differently}, going beyond classic metrics to better understand interactions.
+
+  - id: 11
+    name: Andre Maurer
+    client: Asendia
+    body: We needed a tool that could {accelerate our digital transformation} and help us understand our user journeys.
+
+  - id: 12
+    name: Jonny Longden
+    client: Journey Further
+    body: With Air360 we get {faster insights}, helping customers make a positive impact on CRO and revenue.
+
+  - id: 13
+    name: Alexandre Suon
+    client: Henkan & Partners
+    body: Very impressed by this new solution, which is innovative and very quick to implement. It's a {great alternative for e-commerce teams} looking for an option different from the major players in the market.
+
+  - id: 14
+    name: Emma Lombard
+    client: Business & Decision
+    body: Our partnership with Air360 allows us to offer clients {in-depth insights into their user journeys} and activate high-impact optimization strategies.
+
+  - id: 15
+    name: Guillaume Le Roux
+    client: D.CLICKS
+    body: Reliable data and ease of use with a product that fits my needs. Air360 is {essential for building and deploying a strong CRO strategy}.
+
+  - id: 16
+    name: Roman Tournier
+    client: Yuri & Neil
+    body: Thanks to our collaboration with Air360, we've raised our {analysis and optimization abilities to a new level}.
+---
+
+import TestimonialsHero from '@/components/pages/testimonials/TestimonialsHero.astro';
+import TestimonialsGrid from '@/components/pages/testimonials/TestimonialsGrid.astro';
+
+<TestimonialsHero
+  line1={frontmatter.heading.line1}
+  line2={frontmatter.heading.line2}
+  subheading={frontmatter.subheading}
+/>
+
+<TestimonialsGrid testimonials={frontmatter.testimonials} />

@@ -1,44 +1,24 @@
 ---
-import { Building, ChevronDown } from '@assets/icons';
+import { getEntry } from 'astro:content';
 
-const features = [
-  {
-    description: 'Click once, understand your page instantly',
-    icon: Building,
-    label: 'On Page Analytics',
-    link: '/',
-  },
-  {
-    description: 'Watch user moves. Spot where they struggle',
-    icon: Building,
-    label: 'Session Replays',
-    link: '/',
-  },
-  {
-    description: 'Drop-offs, detected. Fast, precise, no drama',
-    icon: Building,
-    label: 'Funnel Analysis',
-    link: '/',
-  },
-  {
-    description: 'Engagement ends? Analysis begins',
-    icon: Building,
-    label: 'User Journeys',
-    link: '/',
-  },
-  {
-    description: 'Lorem ipsum dolor sit amet',
-    icon: Building,
-    label: 'Snapshots',
-    link: '/',
-  },
-];
+import Icon from '@ui/Icon.astro';
+
+const { lang } = Astro.params;
+
+const entry = await getEntry('navigation', `${lang}/features`);
+
+if (!entry) {
+  return Astro.redirect('/404');
+}
+
+const navigation = entry.data.navigation || [];
 ---
 
 <div class="mobile-nav-section">
   <button class="mobile-nav-header group" aria-expanded="false" data-section="features">
-    <span>Features</span>
-    <ChevronDown
+    <span>{entry.data.title}</span>
+    <Icon
+      name="ChevronDown"
       width={16}
       height={16}
       class="fill-current transition-transform duration-300 ease-in-out group-aria-[expanded=true]:rotate-180"
@@ -46,10 +26,14 @@ const features = [
   </button>
   <div class="mobile-nav-content" data-content="features">
     {
-      features.map(({ description, icon: Icon, label, link }) => (
-        <a href={link} role="menuitem" class="flex items-center gap-x-2 rounded-xl py-1">
+      navigation.map(({ description, icon, label, link }) => (
+        <a
+          href={`/website/${lang}${link}`}
+          role="menuitem"
+          class="flex items-center gap-x-2 rounded-xl py-1"
+        >
           <div class="flex items-center gap-4 py-4">
-            <Icon width={20} height={20} class="fill-primary-500" />
+            <Icon name={icon} width={20} height={20} class="fill-primary-500" />
             <div>
               <h4 class="text-black">{label}</h4>
               <p class="text-sm text-gray-500">{description}</p>

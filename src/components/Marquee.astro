@@ -1,80 +1,127 @@
 ---
 import {
   AirCaraibes,
+  AirCaraibesColor,
   ClubMed,
+  ClubMedColor,
   Dubreuil,
+  DubreuilColor,
   Empruntis,
+  EmpruntisColor,
   MaVilleMonShopping,
+  MaVilleMonShoppingColor,
   OlympiqueLyonnais,
+  OlympiqueLyonnaisColor,
   Playbac,
+  PlaybacColor,
   Product,
+  ProductColor,
   PsaBank,
+  PsaBankColor,
   Stellantis,
+  StellantisColor,
   VeryChic,
+  VeryChicColor,
 } from '@assets/brand-logos';
+
+const logos = [
+  {
+    component: {
+      light: AirCaraibes,
+      dark: AirCaraibesColor,
+    },
+    class: 'scale-150 grayscale',
+  },
+  { component: { light: ClubMed, dark: ClubMedColor }, class: 'scale-100 grayscale' },
+  { component: { light: Dubreuil, dark: DubreuilColor }, class: 'grayscale' },
+  { component: { light: Empruntis, dark: EmpruntisColor }, class: 'grayscale' },
+  {
+    component: { light: MaVilleMonShopping, dark: MaVilleMonShoppingColor },
+    class: 'scale-200 grayscale',
+  },
+  {
+    component: { light: OlympiqueLyonnais, dark: OlympiqueLyonnaisColor },
+    class: 'scale-50 grayscale',
+  },
+  { component: { light: Playbac, dark: PlaybacColor }, class: 'grayscale' },
+  { component: { light: Product, dark: ProductColor }, class: 'grayscale' },
+  { component: { light: PsaBank, dark: PsaBankColor }, class: 'scale-100 grayscale' },
+  { component: { light: Stellantis, dark: StellantisColor }, class: 'scale-150 grayscale' },
+  { component: { light: VeryChic, dark: VeryChicColor }, class: 'scale-150 grayscale' },
+];
+
+interface MarqueeProps {
+  theme?: 'light' | 'dark';
+}
+
+const { theme = 'light' } = Astro.props as MarqueeProps;
 ---
 
-<div class="container">
-  <div class="scrolling-logos">
-    <AirCaraibes class="logo" />
-    <ClubMed class="logo" />
-    <Dubreuil class="logo" />
-    <Empruntis class="logo" />
-    <MaVilleMonShopping class="logo" />
-    <OlympiqueLyonnais class="logo" />
-    <Playbac class="logo" />
-    <Product class="logo" />
-    <PsaBank class="logo scale-200" />
-    <Stellantis class="logo" />
-    <VeryChic class="logo" />
-    <AirCaraibes class="logo" />
-    <ClubMed class="logo" />
-    <Dubreuil class="logo" />
-    <Empruntis class="logo" />
-    <MaVilleMonShopping class="logo" />
-    <OlympiqueLyonnais class="logo" />
-    <Playbac class="logo" />
-    <Product class="logo" />
-    <PsaBank class="logo" />
-    <Stellantis class="logo" />
-    <VeryChic class="logo" />
+<div class="wrapper container-custom">
+  <div class="marquee fadeout-horizontal" style={{ '--numItems': `${logos.length}` }}>
+    <div class="marquee-track">
+      {
+        logos.map((logo, index) => {
+          const LogoComponent = logo.component[theme];
+          return (
+            <div class="marquee-item" style={{ '--item-position': `${index + 1}` }}>
+              <LogoComponent class={logo.class} />
+            </div>
+          );
+        })
+      }
+    </div>
   </div>
 </div>
 
 <style>
-  .container {
+  .marquee {
     overflow: hidden;
-    max-width: 100%;
-    padding: 10px 0;
-    margin: 15px auto;
+    --speed: 25s;
+    --single-slide-speed: calc(var(--speed) / var(--numItems));
+    --item-width: 120px;
+    --item-gap: 25px;
+    --item-width-plus-gap: calc(var(--item-width) + var(--item-gap));
+    --track-width: calc(var(--item-width-plus-gap) * calc(var(--numItems) - 1));
+  }
+
+  .marquee-track {
+    container-type: inline-size;
+    display: grid;
+    grid-template-columns: var(--track-width) [track] 0px [resting];
+    width: max-content;
+    align-items: center;
+  }
+
+  .marquee-item {
+    grid-area: resting;
+    animation: marquee-move var(--speed) linear infinite var(--direction, forwards);
+    animation-delay: calc(var(--single-slide-speed) * var(--item-position) * -1);
+
+    width: var(--item-width);
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .marquee-item svg {
+    width: 55%;
+  }
+
+  @keyframes marquee-move {
+    to {
+      transform: translateX(calc(-100cqw - 100%));
+    }
+  }
+
+  .fadeout-horizontal {
     mask-image: linear-gradient(
       to right,
-      rgba(0, 0, 0, 0) 0%,
-      rgb(0, 0, 0) 10%,
-      rgb(0, 0, 0) 90%,
-      rgba(0, 0, 0, 0) 100%
+      transparent,
+      black 5rem,
+      black calc(100% - 5rem),
+      transparent
     );
-  }
-
-  .scrolling-logos {
-    display: flex;
-    width: max-content; /* width based on content */
-    animation: scroll-left 45s linear infinite;
-  }
-
-  .logo {
-    height: 35px;
-    margin-right: 70px;
-    filter: grayscale(100%);
-    object-fit: contain;
-  }
-
-  @keyframes scroll-left {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
   }
 </style>

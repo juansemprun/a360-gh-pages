@@ -1,0 +1,60 @@
+---
+type: industry
+title: Banques & Assurances
+description: Créez la meilleure expérience en ligne possible avec Air360, avec des parcours personnalisés, une navigation fluide et un engagement client optimisé.
+video:
+  title: Banques & Assurances - Vidéo de Configuration Rapide du Pixel de Suivi Air360
+  url: https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true
+  videoSrc: /website/videos/quick-air360-tracking-pixel-setup.mp4
+  videoPreviewSrc: /website/videos/quick-air360-tracking-pixel-setup-clip.mp4
+  videoPosterSrc: /website/images/thumbnails/quick-air360-tracking-pixel-setup.webp
+highlights:
+  - title: Créez des expériences qui convertissent
+    text: Transformez les demandes en clients de confiance en personnalisant leur parcours. Segmentez les visiteurs et adaptez les expériences financières avec Air360 !
+  - title: La meilleure version possible de chaque page
+    text: Chaque interaction compte dans la construction de la confiance. Assurez-vous que chaque page reflète votre fiabilité. Affinez les interactions clients pour mettre en valeur votre expertise avec Air360.
+  - title: Simplifiez l'expérience client
+    text: Ne laissez pas les clients se perdre dans les détails. Air360 identifie où ils marquent une pause, vous aidant à créer un parcours fluide et intuitif.
+  - title: Maintenez votre site en bon fonctionnement
+    text: Aucune erreur, aucun doute ! Air360 révèle les problèmes UX pour que vos services restent accessibles et sans accroc.
+  - title: Gardez vos clients satisfaits
+    text: Aidez les clients à trouver les polices, plans ou produits dont ils ont besoin sans confusion. Air360 optimise la navigation pour maintenir une satisfaction élevée et réduire les taux de rebond.
+---
+
+import CallToAction from '@/components/ui/use-cases/CallToAction.astro';
+import Highlights from '@/components/ui/use-cases/Highlights.astro';
+import HighlightsSummary from '@/components/ui/use-cases/HighlightsSummary.astro';
+import MarkHighlight from '@/components/ui/use-cases/MarkHighlight.astro';
+import PageHero from '@/components/ui/use-cases/PageHero.astro';
+import Testimonial from '@/components/ui/use-cases/Testimonial.astro';
+import VideoSection from '@/components/ui/use-cases/VideoSection.astro';
+
+import { Empruntis } from '@/assets/brand-logos';
+
+<PageHero>
+  <span class="block" slot="title">Construisez la confiance grâce à des</span>
+  <span class="block" slot="title">
+    expériences de <MarkHighlight>finance en ligne</MarkHighlight> sans effort
+  </span>
+
+  <Testimonial
+    Logo={Empruntis}
+    quote="Chacun obtient ce dont il a besoin sans se perdre dans les données. Visualiser et accéder aux données est simple. C'est un excellent produit en constante évolution et très prometteur !"
+    attribution="Aurélie Condamine, Empruntis"
+    slot="testimonial"
+  />
+</PageHero>
+
+<Highlights highlightsList={frontmatter.highlights} />
+
+<VideoSection
+  videoSrc={frontmatter.video.videoSrc}
+  videoPosterSrc={frontmatter.video.videoPosterSrc}
+  videoPreviewSrc={frontmatter.video.videoPreviewSrc}
+>
+  Vous voulez voir comme c'est <MarkHighlight>facile</MarkHighlight> de commencer ?
+</VideoSection>
+
+<HighlightsSummary highlightsList={frontmatter.highlights} />
+
+<CallToAction />

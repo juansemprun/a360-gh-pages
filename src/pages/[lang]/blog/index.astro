@@ -1,0 +1,48 @@
+---
+import { getCollection } from 'astro:content';
+import type { InferGetStaticParamsType, InferGetStaticPropsType, GetStaticPaths } from 'astro';
+
+import { languageCodes } from '@/config/language';
+
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+import BlogNav from '@/components/ui/blog/BlogNav.astro';
+import BlogHeader from '@/components/ui/blog/BlogHeader.astro';
+import BlogPostList from '@/components/ui/blog/BlogPostList.astro';
+
+export const getStaticPaths = (async () => {
+  const blogCollection = await getCollection('blog');
+
+  return languageCodes.map((lang) => {
+    // Filter by language and sort by date (newest first)
+    const posts = blogCollection
+      .filter((post) => post.id.startsWith(`${lang}/`))
+      .sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
+
+    return {
+      params: { lang },
+      props: { posts },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { posts } = Astro.props as Props;
+const { lang } = Astro.params as Params;
+
+const pageTitle = 'Blog';
+const pageDescription =
+  'Learn about the latest trends in eCommerce UX, tips and tricks for improving conversion rates, and how Air360 can help you deliver.';
+---
+
+<BaseLayout title={pageTitle} lang={lang} description={pageDescription}>
+  <section class="container-custom py-32" data-theme="dark">
+    <div class="flex flex-col gap-10">
+      <BlogHeader lang={lang} />
+      <BlogNav lang={lang} />
+    </div>
+    <BlogPostList posts={posts} lang={lang} />
+  </section>
+</BaseLayout>

@@ -1,0 +1,44 @@
+---
+title: Analyse de Zones
+description: Obtenez instantanément des informations détaillées sur les performances de chaque élément de votre site web. Directement sur votre site en quelques clics.
+heroCtaText: Commencer
+heroCtaUrl: '#get-started'
+videoSrc: /website/videos/fr/features/zoning-analysis.mp4
+thumbnailVideoSrc: /website/videos/fr/features/zoning-analysis-clip.mp4
+thumbnailImageSrc: /website/images/thumbnails/features/zoning-analysis.webp
+videoThumbnailAlt: Aperçu de la Démo d'Analyse de Zones
+videoCtaText: Voici à quoi ressemble l'Analyse de Zones !
+videoDialogTitle: Analyse de Zones
+faqTitle: Questions fréquentes
+faqs:
+  - question: Qu'est-ce que l'Analyse de Zones ?
+    answer: L'analyse de zones vous donne une visibilité instantanée sur les performances de chaque élément de votre site web. Cliquez sur n'importe quel bouton, image, bannière ou bloc de texte, et les données de performance apparaissent directement sur votre page. C'est de l'analyse cartographiée directement sur votre site.
+  - question: Pourquoi utiliser l'Analyse de Zones ?
+    answer: L'analyse de zones révèle exactement ce qui attire l'attention des utilisateurs et ce qui est négligé, vous permettant de prendre des décisions de conception basées sur les données en toute confiance. Identifiez les goulots d'étranglement de conversion plus rapidement, optimisez ce qui compte et concentrez vos efforts sur les éléments qui impactent réellement vos objectifs commerciaux.
+  - question: Puis-je personnaliser les zones ?
+    answer: Oui ! Vous pouvez créer des zones personnalisées en fonction de votre mise en page spécifique et de vos besoins commerciaux, permettant une analyse flexible et ciblée.
+  - question: Comment démarrer l'Analyse de Zones ?
+    answer: Tout d'abord, démarrer avec Air360 ne prend que 5 minutes. Ajoutez simplement notre pixel de suivi à votre site web ou gestionnaire de balises et nous capturerons automatiquement les données de comportement des utilisateurs sur votre site. Ensuite, activez notre extension de navigateur en quelques clics dans la plateforme pour commencer votre Analyse de Zones. Chaque fois que vous avez besoin d'informations, ouvrez l'extension et cliquez sur n'importe quel élément pour visualiser instantanément ses performances et identifier les opportunités d'optimisation. Aucun balisage ou configuration manuelle requis, et n'importe qui dans votre équipe peut l'utiliser. Aucune expertise technique nécessaire.
+  - question: Quels types de métriques pouvez-vous comprendre ?
+    answer: Vous pouvez utiliser des métriques comme le "Taux de Clic" pour comprendre les niveaux d'engagement, le "Taux de Conversion" pour mesurer comment les clics se traduisent en conversions, et des indicateurs de friction comme les "Clics de Rage" qui mettent en évidence les problèmes d'utilisabilité. Ces métriques et bien d'autres vous aident à comprendre le comportement des utilisateurs et à identifier précisément où optimiser.
+  - question: Comment l'analyse de zones aide-t-elle à prendre des décisions commerciales ?
+    answer: L'analyse de zones relie le comportement au niveau des éléments aux résultats commerciaux tangibles, vous donnant la confiance nécessaire pour prioriser les changements qui améliorent l'expérience utilisateur et stimulent les conversions. Vous pouvez tester des hypothèses rapidement, valider les décisions de conception avec des données réelles et allouer des ressources aux domaines ayant le plus grand impact. Au lieu de vous fier aux suppositions, vous prendrez des décisions éclairées soutenues par des preuves.
+---
+
+import FeaturesHero from '@/components/pages/features/FeaturesHero.astro';
+import FeatureFAQSection from '@/components/FAQSection.astro';
+
+<FeaturesHero
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ctaText={frontmatter.heroCtaText}
+  ctaUrl={frontmatter.heroCtaUrl}
+  videoSrc={frontmatter.videoSrc}
+  thumbnailVideoSrc={frontmatter.thumbnailVideoSrc}
+  thumbnailImageSrc={frontmatter.thumbnailImageSrc}
+  thumbnailAlt={frontmatter.videoThumbnailAlt}
+  videoCtaText={frontmatter.videoCtaText}
+  videoDialogTitle={frontmatter.videoDialogTitle}
+/>
+
+<FeatureFAQSection title={frontmatter.faqTitle} faqs={frontmatter.faqs} />

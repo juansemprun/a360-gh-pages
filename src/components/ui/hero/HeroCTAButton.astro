@@ -1,0 +1,19 @@
+---
+interface HeroCTAButtonProps {
+  ctaText: string;
+}
+
+const { lang } = Astro.params;
+const { ctaText } = Astro.props as HeroCTAButtonProps;
+---
+
+<div
+  class="animate-rotate-border glow-border relative w-80 max-w-sm cursor-pointer rounded-xl p-[4px] transition-all duration-500 ease-out hover:scale-[1.03]"
+>
+  <a
+    href={`${import.meta.env.BASE_URL}/${lang}/request-demo`}
+    class="block rounded-xl border border-black bg-black px-8 py-4 text-center text-lg text-white"
+  >
+    <span class="text-lg font-semibold">{ctaText}</span>
+  </a>
+</div>

@@ -1,0 +1,76 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { Contact } from '@/components/react/contact';
+
+import GradientText from '@/components/ui/GradientText.astro';
+import Marquee from '@/components/Marquee.astro';
+import { Button } from '@/components/ui/react/shadcn/button';
+
+import { Check } from 'lucide-react';
+
+import { languageCodes } from '@/config/language';
+
+const { lang } = Astro.params;
+const pageTitle = 'Request an Air360 Expert';
+const pageDescription =
+  'Connect with a certified Air360 expert to elevate your analytics and digital experience.';
+
+export async function getStaticPaths() {
+  return languageCodes.map((lang) => ({
+    params: { lang },
+  }));
+}
+---
+
+<BaseLayout lang={lang} title={pageTitle} description={pageDescription}>
+  <section class="py-32" data-theme="dark">
+    <div class="container-custom">
+      <div
+        class="mt-8 grid grid-cols-1 gap-8 md:gap-10 lg:grid-cols-2 lg:grid-rows-[min-content_1fr]"
+      >
+        <GradientText>
+          <h2
+            class="font-clash-display-bold order-1 text-4xl tracking-tight md:order-none md:text-5xl"
+          >
+            Get in touch
+          </h2>
+        </GradientText>
+
+        <Contact client:load />
+
+        <div class="order-3 my-6 md:order-none">
+          <ul class="space-y-2 font-medium">
+            <li class="flex items-center gap-2">
+              <span
+                class="bg-background flex size-6 shrink-0 items-center justify-center rounded-full"
+              >
+                <Check className="size-4" />
+              </span>
+              Share your project goals and requirements
+            </li>
+            <li class="flex items-center gap-2">
+              <span
+                class="bg-background flex size-6 shrink-0 items-center justify-center rounded-full"
+              >
+                <Check className="size-4" />
+              </span>
+              Receive a tailored proposal
+            </li>
+            <li class="flex items-center gap-2">
+              <span
+                class="bg-background flex size-6 shrink-0 items-center justify-center rounded-full"
+              >
+                <Check className="size-4" />
+              </span>
+              Schedule a strategy consultation
+            </li>
+          </ul>
+          <p class="my-6 font-bold">Trusted by businesses worldwide</p>
+          <div class="max-w-full">
+            <Marquee theme="dark" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

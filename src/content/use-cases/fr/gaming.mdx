@@ -1,0 +1,60 @@
+---
+type: industry
+title: Gaming
+description: Créez la meilleure expérience d'achat en ligne possible avec Air360, avec des parcours personnalisés, un processus d'achat fluide et un engagement client optimisé.
+video:
+  title: Gaming - Vidéo de Configuration Rapide du Pixel de Suivi Air360
+  url: https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true
+  videoSrc: /website/videos/quick-air360-tracking-pixel-setup.mp4
+  videoPreviewSrc: /website/videos/quick-air360-tracking-pixel-setup-clip.mp4
+  videoPosterSrc: /website/images/thumbnails/quick-air360-tracking-pixel-setup.webp
+highlights:
+  - title: Créez des expériences qui convertissent
+    text: Boostez l’engagement de vos utilisateurs et transformez les visiteurs occasionnels en fans fidèles. Segmentez vos utilisateurs et proposez des expériences d’achat personnalisées avec Air360 !
+  - title: La meilleure version possible de chaque page
+    text: Chaque clic compte ! Assurez-vous que chaque page est optimisée pour des performances maximales. Affinez les interactions pour maintenir l’immersion des joueurs avec Air360.
+  - title: Simplifiez l’expérience d’achat
+    text: Ne laissez pas les joueurs abandonner avant le paiement. Air360 met en évidence les points de décrochage pour vous aider à fluidifier le parcours et maximiser les achats.
+  - title: Assurez le bon fonctionnement de votre site
+    text: Pas de latence, pas de frustration ! Air360 révèle les problèmes d’UX afin que vous puissiez les corriger rapidement et garantir une expérience fluide.
+  - title: Gardez vos clients satisfaits
+    text: Aidez les joueurs à trouver facilement les jeux et améliorations qu’ils aiment, et incitez-les à revenir. Air360 optimise la visibilité et l’engagement pour renforcer la fidélité.
+---
+
+import CallToAction from '@/components/ui/use-cases/CallToAction.astro';
+import Highlights from '@/components/ui/use-cases/Highlights.astro';
+import HighlightsSummary from '@/components/ui/use-cases/HighlightsSummary.astro';
+import MarkHighlight from '@/components/ui/use-cases/MarkHighlight.astro';
+import PageHero from '@/components/ui/use-cases/PageHero.astro';
+import Testimonial from '@/components/ui/use-cases/Testimonial.astro';
+import VideoSection from '@/components/ui/use-cases/VideoSection.astro';
+
+import { BusinessAndDecisions } from '@/assets/brand-logos';
+
+<PageHero>
+  <span class="block" slot="title">Créez la meilleure expérience</span>
+  <span class="block" slot="title">
+    d'<MarkHighlight>achat en ligne</MarkHighlight> possible
+  </span>
+
+  <Testimonial
+    Logo={BusinessAndDecisions}
+    quote="L'outil est rapide et facile à utiliser pour l'analyse UX et est très apprécié par nos équipes."
+    attribution="Fabrice Ruer, Business & Decision"
+    slot="testimonial"
+  />
+</PageHero>
+
+<Highlights highlightsList={frontmatter.highlights} />
+
+<VideoSection
+  videoSrc={frontmatter.video.videoSrc}
+  videoPosterSrc={frontmatter.video.videoPosterSrc}
+  videoPreviewSrc={frontmatter.video.videoPreviewSrc}
+>
+  Vous voulez voir comme c'est <MarkHighlight>facile</MarkHighlight> de commencer ?
+</VideoSection>
+
+<HighlightsSummary highlightsList={frontmatter.highlights} />
+
+<CallToAction />

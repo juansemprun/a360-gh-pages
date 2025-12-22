@@ -1,0 +1,60 @@
+---
+type: industry
+title: Multi Brand Companies
+description: Create the best possible online booking experience with Air360, with personalized journeys, smooth booking, and optimized customer engagement.
+video:
+  title: Multi Brand Companies - Quick Air360 Tracking Pixel Setup Video
+  url: https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true
+  videoSrc: /website/videos/quick-air360-tracking-pixel-setup.mp4
+  videoPreviewSrc: /website/videos/quick-air360-tracking-pixel-setup-clip.mp4
+  videoPosterSrc: /website/images/thumbnails/quick-air360-tracking-pixel-setup.webp
+highlights:
+  - title: Créez des expériences qui convertissent
+    text: Donnez vie à vos marques en ligne et transformez les visiteurs en fans fidèles. Segmentez vos audiences et personnalisez leur expérience avec Air360 !
+  - title: La meilleure version possible de chaque page
+    text: Chaque clic reflète votre portefeuille de marques. Faites ressortir chaque page. Affinez les interactions pour mettre en valeur le meilleur de votre offre avec Air360.
+  - title: Simplifiez l’expérience d’achat
+    text: Ne laissez pas les clients se perdre face à trop d’options. Air360 met en évidence les points de friction pour vous aider à fluidifier les parcours d’achat sur l’ensemble de vos marques.
+  - title: Assurez le bon fonctionnement de votre site
+    text: Aucun problème, aucune confusion. Air360 identifie les problèmes d’UX sur l’ensemble de vos marques afin de garantir une expérience fluide à chaque client.
+  - title: Gardez vos clients satisfaits
+    text: Aidez les visiteurs à trouver facilement leurs produits et services préférés. Air360 améliore la visibilité pour maintenir un fort niveau d’engagement sur tout votre portefeuille.
+---
+
+import CallToAction from '@/components/ui/use-cases/CallToAction.astro';
+import Highlights from '@/components/ui/use-cases/Highlights.astro';
+import HighlightsSummary from '@/components/ui/use-cases/HighlightsSummary.astro';
+import MarkHighlight from '@/components/ui/use-cases/MarkHighlight.astro';
+import PageHero from '@/components/ui/use-cases/PageHero.astro';
+import Testimonial from '@/components/ui/use-cases/Testimonial.astro';
+import VideoSection from '@/components/ui/use-cases/VideoSection.astro';
+
+import { Asendia } from '@/assets/brand-logos';
+
+<PageHero>
+  <span class="block" slot="title">Créez la meilleure</span>
+  <span class="block" slot="title">
+    expérience d'<MarkHighlight>achat en ligne</MarkHighlight> possible
+  </span>
+
+  <Testimonial
+    Logo={Asendia}
+    quote="Nous avions besoin d'un outil qui peut nous aider à accélérer notre transformation digitale et à comprendre nos parcours utilisateurs. Air360 est l'outil que nous recherchions."
+    attribution="Andre Maurer, Asendia"
+    slot="testimonial"
+  />
+</PageHero>
+
+<Highlights highlightsList={frontmatter.highlights} />
+
+<VideoSection
+  videoSrc={frontmatter.video.videoSrc}
+  videoPosterSrc={frontmatter.video.videoPosterSrc}
+  videoPreviewSrc={frontmatter.video.videoPreviewSrc}
+>
+  Vous voulez voir comme c'est <MarkHighlight>facile</MarkHighlight> de commencer ?
+</VideoSection>
+
+<HighlightsSummary highlightsList={frontmatter.highlights} />
+
+<CallToAction />

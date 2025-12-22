@@ -1,0 +1,42 @@
+---
+title: Snapshots
+description: Save former design to analyze any time. Capture and compare your website's performance across different versions and time periods.
+heroCtaText: Get Started
+heroCtaUrl: '#get-started'
+videoSrc: /website/videos/snapshot.mp4
+thumbnailVideoSrc: /website/videos/snapshot-clip.mp4
+thumbnailImageSrc: /website/images/thumbnails/features/snapshots.webp
+videoThumbnailAlt: Snapshots Demo
+videoCtaText: Learn how Snapshots preserve your analytics!
+videoDialogTitle: Snapshots
+faqTitle: Common questions
+faqs:
+  - question: What are Snapshots?
+    answer: Snapshot preserves past versions of your website, so you can compare how design changes affect user behavior and performance with ease in Air360. Think of it as a timeline for your site.
+  - question: Why use Snapshot?
+    answer: You can open the saved design to analyze page and element performance easily using Air360's extension. Measure the performance of before/after, and show stakeholders clear evidence of improvement.
+  - question: How does Snapshot work?
+    answer: Save a snapshot with a few click whenever you make a change or want to evaluate a specific page version. We store the visual design, making it easy to compare different versions over time.
+  - question: When should I create a Snapshot?
+    answer: Create Snapshots before major redesigns, A/B tests, feature launches, marketing campaigns, or seasonal changes to establish baselines and measure the impact of your changes.
+  - question: How does Snapshot support optimization strategy?
+    answer: Compare performance before and after changes to see what actually drives results. When you can prove which design improved conversions or reduced drop-offs, you make confident decisions backed by evidence. Snapshot gives you the data to justify investments, scale what works, and avoid repeating past mistakes.
+---
+
+import FeaturesHero from '@/components/pages/features/FeaturesHero.astro';
+import FeatureFAQSection from '@/components/FAQSection.astro';
+
+<FeaturesHero
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ctaText={frontmatter.heroCtaText}
+  ctaUrl={frontmatter.heroCtaUrl}
+  videoSrc={frontmatter.videoSrc}
+  thumbnailVideoSrc={frontmatter.thumbnailVideoSrc}
+  thumbnailImageSrc={frontmatter.thumbnailImageSrc}
+  thumbnailAlt={frontmatter.videoThumbnailAlt}
+  videoCtaText={frontmatter.videoCtaText}
+  videoDialogTitle={frontmatter.videoDialogTitle}
+/>
+
+<FeatureFAQSection title={frontmatter.faqTitle} faqs={frontmatter.faqs} />

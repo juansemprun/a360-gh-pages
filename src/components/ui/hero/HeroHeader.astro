@@ -1,0 +1,30 @@
+---
+// src/components/ui/hero/HeroHeader.astro
+interface HeroHeaderProps {
+  subtitleFirstLine: string;
+  subtitleSecondLine: string;
+  titleFirstLine: string;
+  titleSecondLine: string;
+}
+
+const { subtitleFirstLine, subtitleSecondLine, titleFirstLine, titleSecondLine } =
+  Astro.props as HeroHeaderProps;
+---
+
+<div class="flex w-full flex-col items-center justify-center gap-6 px-4 text-center">
+  <div>
+    <h1
+      class="font-clash-display-bold text-balance text-center text-5xl leading-tight md:text-6xl lg:text-[5rem]"
+    >
+      <span class="gradient-text-darker block">{titleFirstLine}</span>
+      <span class="gradient-text-darker block">{titleSecondLine}</span>
+    </h1>
+  </div>
+
+  <h2
+    class="text-balance text-lg font-medium leading-relaxed text-stone-300 sm:text-base md:text-2xl lg:text-3xl"
+  >
+    <span class="block">{subtitleFirstLine}</span>
+    <span class="block">{subtitleSecondLine}</span>
+  </h2>
+</div>

@@ -1,82 +1,62 @@
 ---
-import { Building, ChevronDown } from '@assets/icons';
+import { getEntry } from 'astro:content';
+import Icon from '@ui/Icon.astro';
 
-const features = [
-  {
-    description: 'Click once, understand your page instantly',
-    icon: Building,
-    label: 'On Page Analytics',
-    link: '/',
-  },
-  {
-    description: 'Watch user moves. Spot where they struggle',
-    icon: Building,
-    label: 'Session Replays',
-    link: '/',
-  },
-  {
-    description: 'Drop-offs, detected. Fast, precise, no drama',
-    icon: Building,
-    label: 'Funnel Analysis',
-    link: '/',
-  },
-  {
-    description: 'Engagement ends? Analysis begins',
-    icon: Building,
-    label: 'User Journeys',
-    link: '/',
-  },
-  {
-    description: 'Lorem ipsum dolor sit amet',
-    icon: Building,
-    label: 'Snapshots',
-    link: '/',
-  },
-];
+const { lang } = Astro.params;
+
+const entry = await getEntry('navigation', `${lang}/features`);
+
+if (!entry) {
+  return Astro.redirect('/404');
+}
+
+const navigation = entry.data.navigation || [];
 ---
 
-<li class="group/dropdown relative" role="none">
+<li class="group/dropdown relative" role="none" data-dropdown>
   <button
     role="menuitem"
     aria-haspopup="true"
     aria-expanded="false"
+    data-dropdown-trigger
     class="ease cursor-pointer py-2 text-base font-medium text-inherit no-underline transition-colors duration-300 group-hover/dropdown:text-gray-400"
   >
-    Features
-    <ChevronDown
-      width="16"
-      height="16"
+    {entry.data.title}
+    <Icon
+      name="ChevronDown"
+      width={16}
+      height={16}
       class="inline fill-current transition-transform duration-300 ease-in-out group-hover/dropdown:rotate-180 group-hover/dropdown:fill-gray-400"
     />
   </button>
   <div
     role="menu"
     aria-label="Features menu"
-    class="invisible fixed left-1/2 max-w-3xl -translate-x-1/2 -translate-y-2.5 scale-95 transform rounded-2xl bg-white opacity-0 duration-300 group-hover/dropdown:visible group-hover/dropdown:-translate-x-1/2 group-hover/dropdown:translate-y-0 group-hover/dropdown:scale-100 group-hover/dropdown:transform group-hover/dropdown:opacity-100 group-hover/dropdown:duration-300"
-    role="menu"
-    aria-label="Features menu"
+    data-dropdown-menu
+    class="pointer-events-none fixed left-1/2 max-w-3xl -translate-x-1/2 -translate-y-2.5 scale-95 transform rounded-2xl bg-white opacity-0 shadow-md ring ring-black/5 transition-all duration-300 group-hover/dropdown:pointer-events-auto group-hover/dropdown:-translate-x-1/2 group-hover/dropdown:translate-y-0 group-hover/dropdown:scale-100 group-hover/dropdown:opacity-100"
   >
     <div class="grid grid-cols-2 gap-8">
       <div class="flex-1/2 rounded-2xl p-8 pr-0">
         <h3 class="mb-5 text-xs font-semibold uppercase tracking-wider text-gray-400">
-          THE CLASSICS
+          {entry.data.sectionTitles?.classics}
         </h3>
         <div class="flex flex-col gap-x-3">
           {
-            features.map(({ icon: Icon, label, link }) => (
+            navigation.map(({ icon, label, link, description }) => (
               <a
-                href={link}
+                href={`/website/${lang}${link}`}
                 role="menuitem"
-                class="group flex gap-2 rounded-xl py-4 transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:cursor-pointer hover:bg-slate-50"
+                class="hover:shadow-xs group flex items-center gap-2 rounded-lg py-4 transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:cursor-pointer hover:bg-slate-50 hover:ring hover:ring-black/5"
               >
                 <Icon
-                  width="20"
-                  height="20"
-                  class="group-hover:fill-primary-500 mx-1.5 flex justify-center fill-gray-400 transition-colors"
+                  name={icon}
+                  width={20}
+                  height={20}
+                  class="group-hover:fill-primary-500 mx-1.5 fill-gray-400 transition-colors"
                 />
                 <div class="gap-2">
                   <h4 class="text-sm text-black">{label}</h4>
-                  <p class="text-xs text-gray-500">Lorem ipsum dolor</p>
+                  <p class="text-xs text-gray-500">{description}</p>
                 </div>
               </a>
             ))
@@ -85,24 +65,24 @@ const features = [
       </div>
       <div class="rounded-br-2xl rounded-tr-2xl bg-slate-50 p-8">
         <h3 class="mb-5 text-xs font-semibold uppercase tracking-wider text-gray-400">
-          NEW RELEASE
+          {entry.data.sectionTitles?.release}
         </h3>
         <div class="gap-2">
-          <div class="">
+          <a
+            href={`${import.meta.env.BASE_URL}/${lang}/changelog/${entry?.data?.video?.postName}`}
+            role="menuitem"
+          >
             <div
-              class="cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-0.5"
+              class="hover:shadow-xs cursor-pointer rounded-xl p-4 transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-white/80 hover:ring hover:ring-black/5"
             >
               <video class="mb-5 h-auto w-full rounded-lg" autoplay loop playsinline muted>
-                <source
-                  src="https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4"
-                  type="video/mp4"
-                />
+                <source src={entry.data.video?.src} type="video/mp4" />
                 Sorry, your browser does not support embedded videos.
               </video>
-              <h4 class="text-md mb-3 font-bold text-black">Release Title</h4>
-              <p class="text-sm text-black/70">Lorem ipsum dolor sit amet</p>
+              <h4 class="text-md mb-3 font-bold text-black">{entry?.data?.video?.title}</h4>
+              <p class="text-sm text-black/70">{entry?.data?.video?.description}</p>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </div>

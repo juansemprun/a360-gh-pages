@@ -1,0 +1,42 @@
+---
+title: Funnel Analysis
+description: Identify where users drop off in your key flows and discover opportunities to boost conversions.
+heroCtaText: Get Started
+heroCtaUrl: '#get-started'
+videoSrc: /website/videos/funnel-analysis.mp4
+thumbnailVideoSrc: /website/videos/funnel-analysis-clip.mp4
+thumbnailImageSrc: /website/images/thumbnails/features/funnel-analysis.webp
+videoThumbnailAlt: Funnel Analysis
+videoCtaText: See how Funnel Analysis identifies drop-offs!
+videoDialogTitle: Funnel Analysis
+faqTitle: Common questions
+faqs:
+  - question: What is Funnel Analysis?
+    answer: Funnel Analysis tracks users through a series of steps toward a conversion goal, showing you exactly where and why users drop off, helping you optimize each stage of the journey.
+  - question: Why use Funnel Analysis?
+    answer: Pinpoint the friction that's killing conversions. When you know exactly where users abandon the journey, you can fix what matters most and optimize the path to conversion. Less guesswork, more results.
+  - question: Can I compare Funnel performance across different audiences?
+    answer: Yes! Segmentation is a key part of funnel analysis. You can compare how different groups behave, such as mobile vs desktop users, or traffic from email vs paid ads. This helps you understand which segment was most affected by the drop off, so you can target fixes where they'll have the biggest impact.
+  - question: What types of Funnels can I track?
+    answer: It is completely up to you! Configure with easy and flexiblity to track any kind of conversion funnel specific to your business.
+  - question: How does Funnel Analysis support better business decisions?
+    answer: Funnels show exactly where users lose momentum, so you can prioritize fixes with the biggest revenue impact. If most users drop off at checkout, you know improving payment will drive results faster than tweaking your homepage. Funnels give your team clarity, focus, and confidence in what to optimize next.
+---
+
+import FeaturesHero from '@/components/pages/features/FeaturesHero.astro';
+import FeatureFAQSection from '@/components/FAQSection.astro';
+
+<FeaturesHero
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ctaText={frontmatter.heroCtaText}
+  ctaUrl={frontmatter.heroCtaUrl}
+  videoSrc={frontmatter.videoSrc}
+  thumbnailVideoSrc={frontmatter.thumbnailVideoSrc}
+  thumbnailImageSrc={frontmatter.thumbnailImageSrc}
+  thumbnailAlt={frontmatter.videoThumbnailAlt}
+  videoCtaText={frontmatter.videoCtaText}
+  videoDialogTitle={frontmatter.videoDialogTitle}
+/>
+
+<FeatureFAQSection title={frontmatter.faqTitle} faqs={frontmatter.faqs} />

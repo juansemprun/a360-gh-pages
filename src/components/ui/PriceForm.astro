@@ -1,0 +1,250 @@
+---
+import { Image } from 'astro:assets';
+import MochiFlying from '@/assets/images/mochi/svg/mochi-flying.svg';
+---
+
+<div class="max-w-96 rounded-xl border-2 p-8 shadow-lg">
+  <form id="multiStepForm" action="https://usebasin.com/f/e08b97fa176e" method="POST">
+    <!-- Step 1 -->
+    <div class="form-step form-step-active">
+      <div class="flex flex-col gap-5">
+        <h2 class="mb-5 text-3xl font-bold text-slate-700">What's the best way to reach you?</h2>
+        <input type="email" id="email" name="email" placeholder="Work email" required />
+        <!-- <button type="submit" class="text-lg font-semibold">Next</button> -->
+        <button
+          id="send-form"
+          type="button"
+          class="btn-next bg-primary-500 text-xl font-semibold text-white"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="form-step">
+      <div class="mb-5 flex flex-col gap-5">
+        <h2 class="text-3xl font-bold text-slate-700">Great, thanks!</h2>
+        <p class="text-muted-foreground text-xl">How should we get in touch?</p>
+        <a href="#book-a-demo" class="bg-primary-500 text-center font-semibold text-white">
+          Book a demo now
+        </a>
+        <button type="button" class="btn-next">Email works great</button>
+        <button type="button" class="btn-next">Chat with us</button>
+        <a
+          href="https://www.linkedin.com/company/air360/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-prev">Get in touch on LinkedIn</a
+        >
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="form-step">
+      <div class="flex flex-col items-center">
+        <h2 class="mb-5 text-3xl font-bold text-slate-700">We'll be in touch soon!</h2>
+        <Image src={MochiFlying} alt="Mochi Flying" class="my-5 w-32" />
+      </div>
+    </div>
+  </form>
+</div>
+
+<style>
+  /* Base Styles */
+
+  /* Input Fields */
+  input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    /* font-size: 1em; */
+    background-color: #fafafa;
+    transition: all 0.3s ease;
+  }
+
+  input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+    outline: none;
+  }
+
+  /* Buttons */
+  button,
+  a {
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    transition:
+      background-color 0.3s ease,
+      transform 0.2s;
+  }
+
+  button:hover,
+  a:hover {
+    transform: scale(1.03);
+  }
+
+  /* Next and Submit Buttons */
+  button.btn-next,
+  button[type='submit'] {
+    /* background-color: white; */
+    /* color: black; */
+  }
+
+  button.btn-next:hover,
+  button[type='submit']:hover {
+    /* background-color: #e04e9e; */
+  }
+
+  button[type='button'] {
+    /* background-color: #f771bf; */
+  }
+
+  /* Previous Button */
+  button[type='button'],
+  button.btn-prev,
+  a.btn-prev {
+    text-align: center;
+    border: 1px solid #f771bf;
+  }
+
+  /* button.btn-prev:hover {
+      background-color: #0056b3;
+    } */
+
+  /* Confirmation Message */
+  #confirmationMessage {
+    text-align: center;
+    /* background-color: #e6ffe6; */
+    padding: 30px;
+    border-radius: 15px;
+    /* border: 2px solid #28a745; */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+
+  #confirmationMessage:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Step Display */
+  .form-step {
+    display: none;
+  }
+
+  .form-step-active {
+    display: block;
+  }
+
+  /* Hidden Element */
+  .hidden {
+    display: none;
+  }
+</style>
+
+<script>
+  const formSteps = document.querySelectorAll('.form-step');
+  const nextBtns = document.querySelectorAll('.btn-next');
+  const sendForm = document.querySelector('#send-form');
+  // const prevBtns = document.querySelectorAll('.btn-prev');
+  const form = document.getElementById('multiStepForm') as HTMLFormElement | null;
+  const confirmationMessage = document.getElementById('confirmationMessage');
+
+  let currentStep = 0;
+
+  sendForm?.addEventListener('click', () => {
+    if (!form) return;
+    const formData = new FormData(form);
+    // fetch('https://usebasin.com/f/e08b97fa176e', {
+    //   method: 'POST',
+    //   headers: {
+    //     Accept: 'application/json',
+    //   },
+    //   body: formData,
+    // })
+    //   .then((response) => {
+    //     if (response.status === 200) {
+    //       console.log('success');
+    //     } else {
+    //       console.log('fail');
+    //     }
+    //   })
+    //   .catch((error) => console.log(error));
+  });
+
+  // Show the current form step
+  function showStep(step) {
+    formSteps.forEach((formStep, index) => {
+      formStep.classList.remove('form-step-active');
+      if (index === step) {
+        formStep.classList.add('form-step-active');
+      }
+    });
+  }
+
+  // Move to the next step
+  nextBtns.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+      // if (validateForm(index)) {
+      currentStep++;
+      showStep(currentStep);
+      // }
+    });
+  });
+
+  // Validate the form fields before moving to the next step
+  function validateForm(step) {
+    const inputs = formSteps[step].querySelectorAll('input');
+    let valid = true;
+
+    inputs.forEach((input) => {
+      if (!input.value) {
+        input.style.border = '2px solid red';
+        valid = false;
+      } else {
+        input.style.border = '';
+      }
+    });
+
+    return valid;
+  }
+
+  // Handle form submission
+  form.addEventListener('submit', (e) => {
+    // form.style.display = 'none'; // Hide the form
+    // confirmationMessage.classList.remove('hidden'); // Show confirmation message
+
+    // basin
+    e.preventDefault();
+
+    // if (validateForm(0)) {
+    //   currentStep++;
+    //   showStep(currentStep);
+    // }
+
+    // showConfirmationMessage();
+
+    const formData = new FormData(form);
+    // fetch('https://usebasin.com/f/e08b97fa176e', {
+    //   method: 'POST',
+    //   headers: {
+    //     Accept: 'application/json',
+    //   },
+    //   body: formData,
+    // })
+    //   .then((response) => {
+    //     if (response.status === 200) {
+    //       console.log('success');
+    //     } else {
+    //       console.log('fail');
+    //     }
+    //   })
+    //   .catch((error) => console.log(error));
+  });
+</script>

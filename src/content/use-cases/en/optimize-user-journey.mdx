@@ -1,0 +1,43 @@
+---
+type: 'use case'
+title: Optimize User Journey
+description: Understand how users actually navigate through the website and reduce friction across their journey.
+heroCtaText: Get Started
+heroCtaUrl: '#get-started'
+videoSrc: /website/videos/use-case/optimize-user-journey.mp4
+thumbnailVideoSrc: /website/videos/use-case/optimize-user-journey-clip.mp4
+thumbnailImageSrc: /website/images/thumbnails/use-cases/optimize-user-journey.webp
+videoThumbnailAlt: Optimize User Journey
+videoCtaText: See how easy it is to fix drop-offs!
+videoDialogTitle: Optimize User Journey with Air360
+faqTitle: Common questions
+faqs:
+  - question: What is User Journey Optimization?
+    answer: User journey optimization helps you understand how users move through your website and identify where they get confused, distracted, or lost. By analyzing these paths, you can remove friction and guide users more smoothly toward key actions.
+  - question: How can user journey optimization help reduce drop-offs?
+    answer: User path optimization helps you understand what users do immediately after they leave an important step in your flow. By seeing where they go, you can identify pages that distract them, areas where information is unclear, or moments where the call-to-action may not be strong enough. It also reveals navigation patterns that might confuse users. Once you understand the specific points where people hesitate or abandon the process, you can address those issues directly and reduce drop-offs more effectively.
+  - question: What’s the difference between a funnel and user journey feature in user journey optimization?
+    answer: Funnels track a predefined, linear process (e.g., product page → cart → checkout). User journeys, on the other hand, reveal actual, non-linear behavior, including loops, backtracking, detours, and alternative routes users take before converting or dropping off. By combining both features, you can se the whole picture of how the users moved through out your website. Together, they give you a complete picture of how users truly experience your site.
+  - question: Can I segment the analysis by audience type?
+    answer: Yes, you can. Funnels and user journeys can be filtered by different audience characteristics such as device, country, region, traffic source, campaign, and whether someone is a new or returning visitor. This allows you to compare how various groups behave and understand the differences in their paths. With this insight, you can optimize the experience for each audience segment based on their unique behavior.
+  - question: How do I validate my findings from a user journey analysis?
+    answer: You can instantly open session replays for any step or path you’re analyzing. This allows you to watch real user interactions, confirm your assumptions, and understand the context behind behaviors, making your optimization decisions more accurate.
+---
+
+import FeaturesHero from '@/components/pages/features/FeaturesHero.astro';
+import FeatureFAQSection from '@/components/FAQSection.astro';
+
+<FeaturesHero
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ctaText={frontmatter.heroCtaText}
+  ctaUrl={frontmatter.heroCtaUrl}
+  videoSrc={frontmatter.videoSrc}
+  thumbnailVideoSrc={frontmatter.thumbnailVideoSrc}
+  thumbnailImageSrc={frontmatter.thumbnailImageSrc}
+  thumbnailAlt={frontmatter.videoThumbnailAlt}
+  videoCtaText={frontmatter.videoCtaText}
+  videoDialogTitle={frontmatter.videoDialogTitle}
+/>
+
+<FeatureFAQSection title={frontmatter.faqTitle} faqs={frontmatter.faqs} />

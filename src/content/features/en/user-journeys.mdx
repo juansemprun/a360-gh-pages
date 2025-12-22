@@ -1,0 +1,42 @@
+---
+title: User Journeys
+description: Understand how users move through your website and uncover the steps that shape their experience.
+heroCtaText: Get Started
+heroCtaUrl: '#get-started'
+videoSrc: /website/videos/user-journey.mp4
+thumbnailVideoSrc: /website/videos/user-journey-clip.mp4
+thumbnailImageSrc: /website/images/thumbnails/features/user-journey.webp
+videoThumbnailAlt: User Journeys Demo
+videoCtaText: Discover how User Journeys map behavior!
+videoDialogTitle: User Journeys
+faqTitle: Common questions
+faqs:
+  - question: What are User Journeys?
+    answer: A user journey is the complete path a visitor takes on your site, from entry to final outcome. Whether that's a purchase, signup, or another key action. It captures every interaction, detour, and exit, showing how users move through your site.
+  - question: Why use User Journey?
+    answer: User Journey reveals how visitors actually behave, where they get lost or drop off, and hidden opportunities to guide them toward conversion. Reduce friction, optimize the paths that drive results, and make decisions based on real user behavior.
+  - question: How is User Journeys different from Funnel Analysis?
+    answer: While Funnel Analysis tracks predefined conversion paths, User Journeys reveal organic, unexpected paths users actually take, helping you discover new optimization opportunities and understand real user behavior.
+  - question: Is it limited to only analyzing users' page journey?
+    answer: No. You can analyze journeys using any user behavior, like button clicks, rage clicks, errors, and more. What that means, is you can of course conduct a macro analysis to see how users move between pages, but also conduct micro analysis to understand how they navigate within a specific page.
+  - question: How does analyzing user journeys help make better business decisions?
+    answer: See how users actually navigate your site, then prioritize the fixes that matter most. Spot high-performing paths and replicate them for other segments. Identify frequent drop-off points and remove the barriers causing them. User Journey turns behavior data into clear actions that improve conversions and business outcomes.
+---
+
+import FeaturesHero from '@/components/pages/features/FeaturesHero.astro';
+import FeatureFAQSection from '@/components/FAQSection.astro';
+
+<FeaturesHero
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ctaText={frontmatter.heroCtaText}
+  ctaUrl={frontmatter.heroCtaUrl}
+  videoSrc={frontmatter.videoSrc}
+  thumbnailVideoSrc={frontmatter.thumbnailVideoSrc}
+  thumbnailImageSrc={frontmatter.thumbnailImageSrc}
+  thumbnailAlt={frontmatter.videoThumbnailAlt}
+  videoCtaText={frontmatter.videoCtaText}
+  videoDialogTitle={frontmatter.videoDialogTitle}
+/>
+
+<FeatureFAQSection title={frontmatter.faqTitle} faqs={frontmatter.faqs} />

@@ -1,0 +1,63 @@
+---
+type: industry
+title: E-commerce
+description: Créez la meilleure expérience d'achat en ligne possible avec Air360, avec des parcours personnalisés, un processus d'achat fluide et un engagement client optimisé.
+video:
+  title: E-commerce - Vidéo de Configuration Rapide du Pixel de Suivi Air360
+  url: https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true
+  videoSrc: /website/videos/quick-air360-tracking-pixel-setup.mp4
+  videoPreviewSrc: /website/videos/quick-air360-tracking-pixel-setup-clip.mp4
+  videoPosterSrc: /website/images/thumbnails/quick-air360-tracking-pixel-setup.webp
+highlights:
+  - title: Créez des expériences qui convertissent
+    text: Rendez les achats en ligne un jeu d'enfant et regardez les visiteurs se transformer en clients fidèles. Segmentez les acheteurs et personnalisez leur parcours avec Air360 !
+  - title: La meilleure version possible de chaque page
+    text: Chaque clic mène aux ventes ! Assurez-vous que vos pages se démarquent. Affinez les interactions clients avec Air360, offrant une expérience d'achat fluide qui reflète l'excellence de votre marque.
+  - title: Simplifiez l'expérience d'achat
+    text: Ne laissez pas vos visiteurs se bloquer au moment du paiement. Air360 montre où ils marquent une pause ou abandonnent, afin que vous puissiez faciliter le chemin vers l'achat et augmenter les ventes.
+  - title: Maintenez votre site en bon fonctionnement
+    text: Aucune erreur, aucune frustration ! Air360 révèle vos points de friction UX, vous aidant à les corriger rapidement et à maintenir une expérience d'achat impeccable.
+  - title: Gardez vos clients satisfaits
+    text: Aidez les clients à trouver ce qu'ils recherchent et faites-les revenir pour plus. Air360 identifie les articles difficiles à trouver et vous aide à ajuster la visibilité pour maintenir des ventes élevées.
+---
+
+import CallToAction from '@/components/ui/use-cases/CallToAction.astro';
+import Highlights from '@/components/ui/use-cases/Highlights.astro';
+import HighlightsSummary from '@/components/ui/use-cases/HighlightsSummary.astro';
+import MarkHighlight from '@/components/ui/use-cases/MarkHighlight.astro';
+import PageHero from '@/components/ui/use-cases/PageHero.astro';
+import Testimonial from '@/components/ui/use-cases/Testimonial.astro';
+import VideoSection from '@/components/ui/use-cases/VideoSection.astro';
+
+import { Okaidi } from '@/assets/brand-logos';
+
+<PageHero>
+
+<span class="block" slot="title">
+  Créez la meilleure expérience
+</span>
+<span class="block" slot="title">
+  d'<MarkHighlight>achat en ligne</MarkHighlight> possible
+</span>
+
+  <Testimonial
+    Logo={Okaidi}
+    quote="Je peux dire que le produit évolue constamment en accord avec les enjeux et défis actuels du e-commerce, et l'équipe s'engage à développer l'approche CRO."
+    attribution="Enguerran Bachelot, Okaidi"
+    slot="testimonial"
+  />
+</PageHero>
+
+<Highlights highlightsList={frontmatter.highlights} />
+
+<VideoSection
+  videoSrc={frontmatter.video.videoSrc}
+  videoPosterSrc={frontmatter.video.videoPosterSrc}
+  videoPreviewSrc={frontmatter.video.videoPreviewSrc}
+>
+  Vous voulez voir comme c'est <MarkHighlight>facile</MarkHighlight> de commencer ?
+</VideoSection>
+
+<HighlightsSummary highlightsList={frontmatter.highlights} />
+
+<CallToAction />

@@ -1,0 +1,60 @@
+---
+type: industry
+title: Gaming Companies
+description: Create the best possible online booking experience with Air360, with personalized journeys, smooth booking, and optimized customer engagement.
+video:
+  title: Gaming Companies - Quick Air360 Tracking Pixel Setup Video
+  url: https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true
+  videoSrc: /website/videos/ja/quick-air360-tracking-pixel-setup.mp4
+  videoPreviewSrc: /website/videos/ja/quick-air360-tracking-pixel-setup-clip.mp4
+  videoPosterSrc: /website/images/thumbnails/ja/quick-air360-tracking-pixel-setup.webp
+highlights:
+  - title: 成果につながる体験をつくる
+    text: ユーザーエンゲージメントを高め、ライトユーザーを熱心なファンへ。Air360でユーザーをセグメントし、一人ひとりに最適化されたショッピング体験を届けましょう。
+  - title: すべてのページを、最高の状態に
+    text: すべてのクリックが重要です。Air360で各ページのパフォーマンスを最大化し、プレイヤーが没入し続けられる体験を実現しましょう。
+  - title: 購入体験をもっとシンプルに
+    text: チェックアウト直前での離脱を防ぎましょう。Air360はゲーマーが離脱するポイントを可視化し、購入プロセスの改善と売上最大化を支援します。
+  - title: サイトを常に快適に保つ
+    text: ラグもストレスもない体験を。Air360でUXの課題を素早く把握し、快適に動き続けるサイトを維持できます。
+  - title: 顧客満足度を高める
+    text: プレイヤーが好きなゲームやアップグレードをすぐに見つけられる体験を。Air360で可視性とエンゲージメントを最適化し、継続的な利用とロイヤルティ向上につなげましょう。
+---
+
+import CallToAction from '@/components/ui/use-cases/CallToAction.astro';
+import Highlights from '@/components/ui/use-cases/Highlights.astro';
+import HighlightsSummary from '@/components/ui/use-cases/HighlightsSummary.astro';
+import MarkHighlight from '@/components/ui/use-cases/MarkHighlight.astro';
+import PageHero from '@/components/ui/use-cases/PageHero.astro';
+import Testimonial from '@/components/ui/use-cases/Testimonial.astro';
+import VideoSection from '@/components/ui/use-cases/VideoSection.astro';
+
+import { BusinessAndDecisions } from '@/assets/brand-logos';
+
+<PageHero>
+  <span class="block" slot="title">最高の</span>
+  <span class="block" slot="title">
+    <MarkHighlight>オンラインショッピング</MarkHighlight>体験を作成
+  </span>
+
+  <Testimonial
+    Logo={BusinessAndDecisions}
+    quote="このツールはUX分析に素早く簡単に使用でき、チームから高く評価されています。"
+    attribution="Fabrice Ruer, Business & Decision"
+    slot="testimonial"
+  />
+</PageHero>
+
+<Highlights highlightsList={frontmatter.highlights} />
+
+<VideoSection
+  videoSrc={frontmatter.video.videoSrc}
+  videoPosterSrc={frontmatter.video.videoPosterSrc}
+  videoPreviewSrc={frontmatter.video.videoPreviewSrc}
+>
+  始めるのが<MarkHighlight>いかに簡単</MarkHighlight>かをご覧になりますか?
+</VideoSection>
+
+<HighlightsSummary highlightsList={frontmatter.highlights} />
+
+<CallToAction />

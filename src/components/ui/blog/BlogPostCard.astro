@@ -1,0 +1,88 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+
+import type { LanguageCode } from '@/config/language';
+import { getDateFormatter } from '@/i18n';
+
+import { Badge } from '@/components/ui/react/shadcn/badge';
+
+import { CalendarDays, Clock3 } from '@lucide/astro';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+  lang: string;
+}
+
+const { post, lang } = Astro.props;
+
+// Extract slug without language prefix
+const [, ...slugParts] = post.id.split('/');
+const slug = slugParts.join('/');
+
+// Build the post URL
+const postUrl = `${import.meta.env.BASE_URL}/${lang}/blog/${slug}`;
+
+const formatDate = getDateFormatter(lang as LanguageCode);
+
+const formattedDate = formatDate(post.data.published, {
+  month: 'long',
+  day: '2-digit',
+  year: 'numeric',
+});
+---
+
+<article class="group flex flex-col overflow-hidden rounded-lg transition-shadow hover:shadow-sm">
+  <a href={postUrl} class="block">
+    <div class="relative overflow-hidden">
+      <Image
+        src={post.data.image}
+        alt={post.data.title}
+        width={600}
+        height={400}
+        class="aspect-video w-full object-cover transition-transform duration-300 group-hover:scale-105"
+      />
+
+      {
+        post.data.tags && post.data.tags.length > 0 && (
+          <div class="absolute right-4 top-4 flex flex-wrap gap-2">
+            {post.data.tags.slice(0, 2).map((tag) => (
+              <Badge
+                variant="secondary"
+                className="bg-background/70 px-3 py-1 text-sm backdrop-blur-sm ring ring-black/5 shadow-sm"
+              >
+                {tag}
+              </Badge>
+            ))}
+          </div>
+        )
+      }
+    </div>
+  </a>
+
+  <div class="flex flex-1 flex-col gap-4 p-4">
+    <header>
+      <h2 class="text-xl font-semibold leading-tight">
+        <a href={postUrl} class="hover:underline">
+          {post.data.title}
+        </a>
+      </h2>
+    </header>
+
+    <p class="text-muted-foreground line-clamp-3 text-sm">
+      {post.data.metaDesc}
+    </p>
+
+    <footer class="text-muted-foreground mt-auto flex items-center justify-between gap-4 text-sm">
+      <time datetime={post.data.published.toISOString()} class="flex items-center gap-1.5">
+        <CalendarDays size={16} aria-label="Published date" />
+        <span>{formattedDate}</span>
+      </time>
+
+      <span class="flex items-center gap-1.5">
+        <Clock3 size={16} aria-label="Reading time" />
+        <span>{post.data.readingTime} min</span>
+      </span>
+    </footer>
+  </div>
+</article>

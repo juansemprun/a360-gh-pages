@@ -1,0 +1,20 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import type { LanguageCode } from '@/config/language';
+
+import BlogPostCard from '@ui/blog/BlogPostCard.astro';
+
+interface Props {
+  posts: CollectionEntry<'blog'>[];
+  lang: LanguageCode;
+}
+
+const { posts, lang } = Astro.props;
+---
+
+<section aria-labelledby="blog-posts-heading" class="mt-20 grid gap-10 md:grid-cols-2">
+  <!-- Screen reader only heading for better accessibility -->
+  <h2 id="blog-posts-heading" class="sr-only">Blog Posts</h2>
+
+  {posts.map((post) => <BlogPostCard post={post} lang={lang} />)}
+</section>

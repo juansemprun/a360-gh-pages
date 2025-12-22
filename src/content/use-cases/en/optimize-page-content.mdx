@@ -1,0 +1,41 @@
+---
+type: 'use case'
+title: Optimize Page Content
+description: Discover which content resonates with your audience and optimize page elements for maximum engagement and conversions.
+heroCtaText: Get Started
+heroCtaUrl: '#get-started'
+videoSrc: /website/videos/use-case/optimize-page-content.mp4
+thumbnailVideoSrc: /website/videos/use-case/optimize-page-content-clip.mp4
+thumbnailImageSrc: /website/images/thumbnails/use-cases/optimize-page-content.webp
+videoThumbnailAlt: Optimize Page Content
+videoCtaText: See how to optimize your content!
+videoDialogTitle: Content Optimization with Air360
+faqTitle: Common questions
+faqs:
+  - question: How does Zoning Analysis help with content optimization?
+    answer: Air360's Zoning Analysis visually highlights how users interact with every element on a page. It shows engagement metrics such as click rate, rage clicks, hover behavior, and even conversion contribution. With this, you can immediately see which areas of the page are performing well and which ones are being ignored, misunderstood, or causing friction. This makes it much easier to identify content that needs improvement.
+  - question: Can I detect usability issues like rage clicks?
+    answer: Yes! Rage clicks appear directly on zoning maps, revealing elements that users repeatedly click because they expect something to happen but nothing does. This is one of the quickest ways to spot small but impactful usability issues, such as broken buttons, unclear interactions, or misleading visual cues.
+  - question: Should I optimize for mobile differently than desktop?
+    answer: Yes! Mobile users have very different behaviors and smaller screens. Use Air360's device-specific analytics to optimize content layout, length, and CTAs for each platform.
+  - question: Can I see which images perform best?
+    answer: Yes! Air360's Zoning Analysis show you exactly how users interact with each images so you can compare result to find what image works and what doesn't.
+---
+
+import FeaturesHero from '@/components/pages/features/FeaturesHero.astro';
+import FeatureFAQSection from '@/components/FAQSection.astro';
+
+<FeaturesHero
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ctaText={frontmatter.heroCtaText}
+  ctaUrl={frontmatter.heroCtaUrl}
+  videoSrc={frontmatter.videoSrc}
+  thumbnailVideoSrc={frontmatter.thumbnailVideoSrc}
+  thumbnailImageSrc={frontmatter.thumbnailImageSrc}
+  thumbnailAlt={frontmatter.videoThumbnailAlt}
+  videoCtaText={frontmatter.videoCtaText}
+  videoDialogTitle={frontmatter.videoDialogTitle}
+/>
+
+<FeatureFAQSection title={frontmatter.faqTitle} faqs={frontmatter.faqs} />

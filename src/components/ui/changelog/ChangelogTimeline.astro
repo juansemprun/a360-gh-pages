@@ -1,0 +1,24 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Separator } from '@/components/ui/react/shadcn/separator';
+
+import ChangelogCard from './ChangelogCard.astro';
+
+interface ChangelogTimelineProps {
+  entries: CollectionEntry<'changelog'>[];
+  lang: string;
+}
+
+const { entries, lang } = Astro.props as ChangelogTimelineProps;
+---
+
+<div class="container-custom">
+  <div class="relative mx-auto max-w-3xl">
+    <Separator
+      orientation="vertical"
+      decorative
+      className="bg-muted absolute left-2 top-4 border"
+    />
+    {entries.map((entry) => <ChangelogCard entry={entry} lang={lang} />)}
+  </div>
+</div>

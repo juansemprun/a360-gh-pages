@@ -1,0 +1,29 @@
+---
+import { Image } from 'astro:assets';
+import { Faqs } from '@/components/react/Faqs';
+
+import MochiQuestion from '@/assets/images/mochi/svg/mochi-question.svg';
+
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  title?: string;
+  faqs: FAQ[];
+}
+
+const { title = 'Common questions', faqs } = Astro.props;
+---
+
+<section class="md:container-custom pt-32">
+  <div class="mb-5">
+    <h2 class="font-clash-display-bold text-center text-4xl text-gray-700 md:text-6xl">
+      {title}
+    </h2>
+  </div>
+  <div class="z-20 mx-auto max-w-3xl rounded-2xl p-3 lg:max-w-4xl">
+    <Faqs faqs={faqs} client:visible />
+  </div>
+</section>

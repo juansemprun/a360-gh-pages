@@ -1,0 +1,42 @@
+---
+title: ユーザージャーニー
+description: ユーザーがウェブサイトをどのように移動するかを理解し、体験を形作るステップを明らかにします。
+heroCtaText: 始める
+heroCtaUrl: '#get-started'
+videoSrc: /website/videos/ja/features/user-journey.mp4
+thumbnailVideoSrc: /website/videos/ja/features/user-journey-clip.mp4
+thumbnailImageSrc: /website/images/thumbnails/features/user-journey.webp
+videoThumbnailAlt: ユーザージャーニーデモ
+videoCtaText: ユーザージャーニー機能をご覧ください！
+videoDialogTitle: ユーザージャーニー
+faqTitle: よくある質問
+faqs:
+  - question: ユーザージャーニーとは何ですか？
+    answer: ユーザージャーニーは、訪問者がサイトで取る完全な道のりで、エントリーから最終結果までです。購入、サインアップ、またはその他の主要なアクションであるかどうかにかかわらず。すべてのインタラクション、回り道、退出をキャプチャし、ユーザーがサイト内をどのように移動するかを示します。
+  - question: ユーザージャーニーを使用する理由は？
+    answer: ユーザージャーニーは、訪問者が実際にどのように行動し、どこで迷子になったり離脱したりするか、そしてコンバージョンに向けて導く隠れた機会を明らかにします。摩擦を減らし、結果をもたらす経路を最適化し、実際のユーザー行動に基づいて意思決定を行います。
+  - question: ユーザージャーニーはファネル分析とどう違いますか？
+    answer: ファネル分析は事前定義されたコンバージョンパスを追跡しますが、ユーザージャーニーはユーザーが実際に取る自然で予期しない経路を明らかにし、新しい最適化の機会を発見し、実際のユーザー行動を理解するのに役立ちます。
+  - question: ユーザーのページジャーニーの分析のみに限定されていますか？
+    answer: いいえ。ボタンのクリック、レイジクリック、エラーなど、あらゆるユーザー行動を使用してジャーニーを分析できます。つまり、もちろんマクロ分析を実施してユーザーがページ間をどのように移動するかを確認できますが、特定のページ内でどのようにナビゲートするかを理解するためのマイクロ分析も実施できます。
+  - question: ユーザージャーニーの分析は、より良いビジネス上の意思決定を行うのにどのように役立ちますか？
+    answer: ユーザーが実際にサイトをどのようにナビゲートするかを確認し、最も重要な修正の優先順位を付けます。高パフォーマンスの経路を見つけ、他のセグメントに対してそれらを複製します。頻繁な離脱ポイントを特定し、それらを引き起こす障壁を取り除きます。ユーザージャーニーは、行動データをコンバージョンとビジネス成果を改善する明確なアクションに変えます。
+---
+
+import FeaturesHero from '@/components/pages/features/FeaturesHero.astro';
+import FeatureFAQSection from '@/components/FAQSection.astro';
+
+<FeaturesHero
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ctaText={frontmatter.heroCtaText}
+  ctaUrl={frontmatter.heroCtaUrl}
+  videoSrc={frontmatter.videoSrc}
+  thumbnailVideoSrc={frontmatter.thumbnailVideoSrc}
+  thumbnailImageSrc={frontmatter.thumbnailImageSrc}
+  thumbnailAlt={frontmatter.videoThumbnailAlt}
+  videoCtaText={frontmatter.videoCtaText}
+  videoDialogTitle={frontmatter.videoDialogTitle}
+/>
+
+<FeatureFAQSection title={frontmatter.faqTitle} faqs={frontmatter.faqs} />

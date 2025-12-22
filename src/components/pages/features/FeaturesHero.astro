@@ -1,0 +1,91 @@
+---
+import { VideoPlayer } from '@/components/pages/features/HeroVideoPlayer';
+import GradientText from '@/components/ui/GradientText.astro';
+
+import gridSvg from '@/assets/graphics/grid.svg';
+
+const { lang } = Astro.params;
+
+interface Props {
+  title: string;
+  titleAdditionalLine?: string;
+  description: string;
+  ctaText?: string;
+  ctaUrl?: string;
+  videoSrc: string;
+  thumbnailVideoSrc: string;
+  thumbnailImageSrc: string; // Added fallback image
+  thumbnailAlt?: string;
+  videoCtaText?: string;
+  videoDialogTitle?: string;
+  youtubeId?: string;
+}
+
+const {
+  title,
+  titleAdditionalLine,
+  description,
+  ctaText = 'Get Started',
+  ctaUrl = '#',
+  videoSrc,
+  thumbnailVideoSrc,
+  thumbnailImageSrc,
+  thumbnailAlt = 'Video preview',
+  videoCtaText,
+  videoDialogTitle,
+  youtubeId,
+} = Astro.props;
+---
+
+<section
+  class="bg-[length:100%_100%] bg-center bg-no-repeat"
+  style={`background-image: url(${gridSvg.src});`}
+>
+  <div class="container-custom pt-32">
+    <div class="flex flex-col items-center gap-5">
+      <GradientText>
+        <h1
+          class="font-clash-display-bold py-2 text-center text-5xl leading-tight md:max-w-6xl md:text-6xl lg:max-w-4xl lg:text-[5rem]"
+        >
+          {title}
+          {
+            titleAdditionalLine && (
+              <>
+                <br />
+                {titleAdditionalLine}
+              </>
+            )
+          }
+        </h1>
+      </GradientText>
+      <p
+        class="text-muted-foreground max-w-[22.5rem] text-center text-base md:max-w-[35rem] lg:text-lg"
+      >
+        {description}
+      </p>
+      <div class="pt-6">
+        <!-- <a
+          href={ctaUrl}
+          class="animate-shadow-ping block h-fit w-fit rounded-md border border-neutral-950 bg-[linear-gradient(180deg,var(--color-neutral-600),var(--color-neutral-700),var(--color-neutral-900))] px-6 py-3.5 text-center text-lg text-white no-underline transition-opacity hover:opacity-90"
+        >
+          {ctaText}
+        </a> -->
+      </div>
+    </div>
+    <div
+      class="after:bg-linear-to-t relative mx-auto w-full max-w-[72rem] after:pointer-events-none after:absolute after:bottom-0 after:left-0 after:z-20 after:block after:h-[45%] after:w-full after:from-white after:to-transparent after:content-['']"
+    >
+      <VideoPlayer
+        client:visible
+        videoSrc={videoSrc}
+        thumbnailVideoSrc={thumbnailVideoSrc}
+        thumbnailImageSrc={thumbnailImageSrc}
+        thumbnailAlt={thumbnailAlt}
+        ctaText={videoCtaText}
+        dialogTitle={videoDialogTitle}
+        lang={lang}
+        youtubeId={youtubeId}
+      />
+    </div>
+  </div>
+</section>

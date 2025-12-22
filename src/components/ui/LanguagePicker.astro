@@ -1,0 +1,81 @@
+---
+import { languages } from '@config/language';
+import { ChevronDown } from '@assets/icons';
+
+import Japan from '@assets/icons/flags/japan.svg';
+import France from '@assets/icons/flags/france.svg';
+import America from '@assets/icons/flags/america.svg';
+
+interface LanguagePickerProps {
+  lang: string;
+}
+
+const { lang } = Astro.props as LanguagePickerProps;
+const pathname = Astro.url.pathname;
+
+// Split into ["", "website", "en", ...subpath]
+const segments = pathname.split('/');
+
+// Helper to generate new language URL from path
+const getLocaleUrl = (targetCode: string) => {
+  // Clone and swap out the lang code
+  const newSegments = [...segments];
+  newSegments[2] = targetCode;
+  return newSegments.join('/') || '/';
+};
+---
+
+<li class="group/dropdown relative" role="none">
+  <button
+    class="ease flex cursor-pointer items-center gap-1.5 py-2 text-base font-medium text-inherit no-underline transition-colors duration-300 group-hover/dropdown:text-gray-400"
+    role="menuitem"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    {
+      lang === 'en' ? (
+        <America width="16" height="16" />
+      ) : lang === 'fr' ? (
+        <France width="16" height="16" />
+      ) : lang === 'ja' ? (
+        <Japan width="16" height="16" />
+      ) : null
+    }
+    {lang === 'ja' ? '日本' : lang.toUpperCase()}
+    <ChevronDown
+      width="16"
+      height="16"
+      class="inline fill-current transition-transform duration-300 ease-in-out group-hover/dropdown:rotate-180 group-hover/dropdown:fill-gray-400"
+    />
+  </button>
+  <div
+    role="menu"
+    aria-label="Language Selector"
+    class="invisible fixed max-w-3xl -translate-x-1/2 -translate-y-2.5 scale-95 transform rounded-2xl bg-white opacity-0 duration-300 group-hover/dropdown:visible group-hover/dropdown:-translate-x-1/2 group-hover/dropdown:translate-y-0 group-hover/dropdown:scale-100 group-hover/dropdown:transform group-hover/dropdown:opacity-100 group-hover/dropdown:duration-300"
+  >
+    <div class="flex flex-row gap-8">
+      <div class="flex-1/2 rounded-2xl p-5">
+        <div class="flex flex-col gap-4">
+          {
+            languages.map(({ code, label }) => (
+              <a
+                href={getLocaleUrl(code)}
+                role="menuitem"
+                class="group flex gap-3 rounded-xl p-2 text-sm text-black transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-slate-50"
+              >
+                {code === 'en' ? (
+                  <America width="16" height="16" />
+                ) : code === 'fr' ? (
+                  <France width="16" height="16" />
+                ) : code === 'ja' ? (
+                  <Japan width="16" height="16" />
+                ) : null}
+                {label}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</li>

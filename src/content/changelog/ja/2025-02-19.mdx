@@ -1,0 +1,25 @@
+---
+title: 2025年2月19日のアップデート
+description: 2025年2月19日のアップデート
+publishedAt: 2025-02-19
+headerImage: '@changelog-assets/changelog-update.webp'
+---
+
+import { Badge } from '@/components/ui/react/shadcn/badge';
+
+<Badge variant="noLink" className="m-0">
+  <span>改善</span>
+</Badge>
+
+## データレイヤープッシュイベントの自動トラッキング
+
+これは、`dataLayer.Push`経由で送信されたイベントを自動的にキャプチャできるようにするための、人気のリクエストでした。
+ウェブサイトで`dataLayer.push`がトリガーされると、同じイベントで`Air360.track()`が自動的にトリガーされます。
+例えば、`dataLayer.push({ event: "register" })`が実行されると、Air360 JS SDKは自動的に`Air360.track("register")`をトリガーします。
+これは、Air360の他のAPI/カスタムイベントと同様に使用できます。
+**注意：** 通常の「カスタムイベント」を使用してここでイベントを既に使用できますが、ここでの使いやすさも改善する予定です。ご期待ください！
+
+## submit/buttonタイプのinputのラベル処理
+
+これは、最近クライアントのウェブサイトで見かけたものです：submit/buttonのラベルは、これまで自動的にキャプチャされませんでした。
+これは新しいJS SDKでキャプチャされるようになりました。

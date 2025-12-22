@@ -1,0 +1,28 @@
+---
+import FeatureCardsCarousel from '@components/react/FeatureCardsCarousel';
+import FeatureCardsImageCarousel from '@components/react/FeatureCardsImageCarousel';
+
+interface Feature {
+  id: string;
+  icon: string;
+  heading: string;
+  description: string;
+  video: string;
+  poster?: string;
+  url: string;
+  isDefault: boolean;
+}
+
+interface Props {
+  features?: Feature[];
+}
+
+const { features = [] as Feature[] } = Astro.props as Props;
+---
+
+<section class="container-custom hidden py-32 lg:block" data-theme="dark">
+  <!-- <div class="container-custom"> -->
+  <!-- <FeatureCardsCarousel features={serializedFeatures} client:load /> -->
+  <FeatureCardsImageCarousel features={features} client:load />
+  <!-- </div> -->
+</section>

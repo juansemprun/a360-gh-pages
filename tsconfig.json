@@ -1,39 +1,22 @@
 {
   "extends": "astro/tsconfigs/strict",
-  "include": [
-    ".astro/types.d.ts",
-    "**/*"
-  ],
-  "exclude": [
-    "dist"
-  ],
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@ui/*": [
-        "src/components/ui/*"
-      ],
-      "@types": [
-        "src/types.ts"
-      ],
-      "@styles/*": [
-        "src/styles/*"
-      ],
-      "@lib/*": [
-        "src/lib/*"
-      ],
-      "@layouts/*": [
-        "src/layouts/*"
-      ],
-      "@icons/*": [
-        "src/icons/*"
-      ],
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@assets/*": [
-        "src/assets/*"
-      ]
+      "@/*": ["./src/*"],
+      "@blog-assets/*": ["src/assets/images/blog/*"],
+      "@changelog-assets/*": ["src/assets/images/changelog/*"],
+      "@assets/*": ["src/assets/*"],
+      "@components/*": ["src/components/*"],
+      "@config/*": ["src/config/*"],
+      "@icons/*": ["src/icons/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@lib/*": ["src/lib/*"],
+      "@styles/*": ["src/styles/*"],
+      "@types": ["src/types.ts"],
+      "@ui/*": ["src/components/ui/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"

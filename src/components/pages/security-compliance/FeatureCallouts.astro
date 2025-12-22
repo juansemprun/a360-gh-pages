@@ -1,0 +1,44 @@
+---
+import { FileContract, ShieldCheck } from '@/assets/icons';
+
+interface Props {
+  complianceTitle: string;
+  complianceDescription: string;
+  securityTitle: string;
+  securityDescription: string;
+}
+
+const { complianceTitle, complianceDescription, securityTitle, securityDescription } = Astro.props;
+---
+
+<section class="my-16 p-10 md:my-20">
+  <div
+    class="mx-auto flex max-w-7xl flex-col items-stretch justify-between gap-8 rounded-2xl bg-slate-50 px-4 py-8 md:flex-row md:px-10"
+  >
+    <!-- Compliance -->
+    <div class="flex flex-1 flex-col items-center gap-4 text-center md:flex-row md:text-start">
+      <span
+        class="inline-flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl bg-pink-100"
+      >
+        <FileContract class="text-primary-600 h-10 w-10 fill-current p-1" aria-hidden="true" />
+      </span>
+      <div>
+        <h3 class="mb-1 text-2xl font-bold text-slate-800">{complianceTitle}</h3>
+        <p class="text-pretty text-slate-500">{complianceDescription}</p>
+      </div>
+    </div>
+
+    <!-- Security -->
+    <div class="flex flex-1 flex-col items-center gap-4 p-10 text-center md:flex-row md:text-start">
+      <span
+        class="inline-flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl bg-blue-100"
+      >
+        <ShieldCheck class="h-10 w-10 fill-current p-1 text-blue-400" aria-hidden="true" />
+      </span>
+      <div>
+        <h3 class="mb-1 text-2xl font-bold text-slate-800">{securityTitle}</h3>
+        <p class="text-pretty text-slate-500">{securityDescription}</p>
+      </div>
+    </div>
+  </div>
+</section>

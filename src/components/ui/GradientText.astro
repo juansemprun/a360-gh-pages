@@ -1,0 +1,61 @@
+---
+interface GradientTextProps {
+  colors?: string[];
+  animationSpeed?: number;
+  hoverOnly?: boolean;
+  className?: string;
+  baseColor?: string;
+}
+
+const {
+  colors = ['#2d92e9', '#644ad5', '#c147ac', '#f04d66', '#fd7043'],
+  animationSpeed = 20,
+  hoverOnly = false,
+  className = '',
+  baseColor = 'currentColor',
+} = Astro.props as GradientTextProps;
+
+const gradientColors = colors.join(', ');
+---
+
+<div
+  class={`relative inline-block  ${hoverOnly ? 'group' : ''} ${className}`}
+  style={`--base-color: ${baseColor}; --gradient-colors: linear-gradient(to right, ${gradientColors}); --animation-duration: ${animationSpeed}s; color: var(--base-color);`}
+>
+  <div class="relative z-10">
+    <slot />
+  </div>
+  <div
+    aria-hidden="true"
+    class={`absolute inset-0 z-20 bg-[length:300%_100%] gradient-clip animate-gradient transition-opacity duration-500 pointer-events-none ${
+      hoverOnly ? 'opacity-0 group-hover:opacity-100' : 'opacity-100'
+    }`}
+    style={`${hoverOnly ? '' : 'animation-duration: var(--animation-duration)'}; background-image: var(--gradient-colors); ${hoverOnly ? `animation-duration: var(--animation-duration);` : ''}`}
+  >
+    <slot />
+  </div>
+</div>
+
+<style>
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  .gradient-clip {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  .animate-gradient {
+    animation-name: gradient;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+</style>

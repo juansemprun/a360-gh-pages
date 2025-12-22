@@ -1,0 +1,63 @@
+---
+import { TestimonialsCarousel } from '@/components/react/TestimonialsCarousel';
+
+interface Testimonial {
+  id: number;
+  name: string;
+  client: string;
+  body: string;
+  img: string;
+}
+
+interface TestimonialsData {
+  heading: {
+    line1: string;
+    line2: string;
+  };
+  subheading: string;
+  ctaText: string;
+  ctaUrl: string;
+  items: Testimonial[];
+}
+
+interface Props {
+  testimonials: TestimonialsData;
+}
+
+const { testimonials } = Astro.props;
+---
+
+<section
+  class="container-custom w-full pb-32"
+  data-theme="dark"
+  aria-labelledby="testimonials-heading"
+>
+  <div class="flex flex-col items-center gap-6">
+    <h2
+      id="testimonials-heading"
+      class="font-clash-display-bold mb-2 text-balance text-center text-3xl text-slate-700 md:text-5xl"
+    >
+      <span class="block">{testimonials.heading.line1}</span>
+      <span class="block">
+        {testimonials.heading.line2}
+      </span>
+    </h2>
+
+    <p class="text-muted-foreground text-center text-base md:text-xl">
+      <span>{testimonials.subheading}</span>
+    </p>
+
+    <div
+      class="animate-rotate-border glow-border relative mt-5 w-56 cursor-pointer rounded-xl p-0.5 transition-all duration-500 ease-out hover:scale-[1.03] md:w-80 md:max-w-sm"
+    >
+      <a
+        href={testimonials.ctaUrl}
+        class="block rounded-lg border bg-white px-1 py-4 text-center text-lg text-slate-700 md:px-4 md:py-4"
+      >
+        <span class="text-lg font-semibold">{testimonials.ctaText}</span>
+      </a>
+    </div>
+  </div>
+
+  <TestimonialsCarousel testimonials={testimonials.items} client:visible />
+</section>

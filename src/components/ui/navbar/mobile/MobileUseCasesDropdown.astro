@@ -1,73 +1,39 @@
 ---
-import {
-  TicketAirline,
-  Sitemap,
-  Hotel,
-  Gem,
-  GamepadModern,
-  CourtSport,
-  BuildingColumns,
-  BagsShopping,
-  ChevronDown,
-} from '@assets/icons';
+import { getEntry } from 'astro:content';
 
-const useCasesByIndustry = [
-  { icon: BagsShopping, label: 'E-commerce', link: '/use-cases/e-commerce' },
-  { icon: Hotel, label: 'Hotels', link: '/use-cases/hotels' },
-  { icon: Gem, label: 'Luxury brands', link: '/use-cases/luxury-brands' },
-  { icon: TicketAirline, label: 'Airlines', link: '/use-cases/airlines' },
-  { icon: GamepadModern, label: 'Gaming', link: '/use-cases/gaming' },
-  { icon: BuildingColumns, label: 'Bank & Insurance', link: '/use-cases/banks-and-insurance' },
-  { icon: Sitemap, label: 'Multi-brand companies', link: '/use-cases/multi-brand-companies' },
-  { icon: CourtSport, label: 'Sport team', link: '/use-cases/sport-team' },
-];
+import Icon from '@ui/Icon.astro';
 
-const useCasesByUseCase = [
-  { icon: Gem, label: 'Refine funnels', description: 'Lorem ipsum dolor', link: '/' },
-  { icon: Gem, label: 'Resolve errors', description: 'Lorem ipsum dolor', link: '/' },
-  { icon: Gem, label: 'Increase conversions', description: 'Lorem ipsum dolor', link: '/' },
-  { icon: Gem, label: 'Centralize data', description: 'Lorem ipsum dolor', link: '/' },
-  {
-    icon: Gem,
-    label: 'Automate analysis',
-    description: 'Lorem ipsum dolor',
-    link: '/',
-  },
-  { icon: Gem, label: 'Uncover insights', description: 'Lorem ipsum dolor', link: '/' },
-  { icon: Gem, label: 'Upgrade mobile apps', description: 'Lorem ipsum dolor', link: '/' },
-  { icon: Gem, label: 'Boost productivity', description: 'Lorem ipsum dolor', link: '/' },
-  {
-    icon: Gem,
-    label: 'Accelerate innovation',
-    description: 'Lorem ipsum dolor',
-    link: '/',
-  },
-  { icon: Gem, label: 'Reduce spend', description: 'Lorem ipsum dolor', link: '/' },
-  {
-    icon: Gem,
-    label: 'Improve troubleshooting',
-    description: 'Lorem ipsum dolor',
-    link: '/',
-  },
-];
+const { lang } = Astro.params;
+
+const entry = await getEntry('navigation', `${lang}/use-cases`);
+
+const useCasesByIndustry = entry?.data.useCasesNav?.industry || [];
+const useCasesByUseCase = entry?.data.useCasesNav?.useCase || [];
 ---
 
 <div class="mobile-nav-section">
   <button class="mobile-nav-header group" aria-expanded="false" data-section="use-cases">
-    <span>Use Cases</span>
-    <ChevronDown
+    <span>{entry?.data?.title}</span>
+    <Icon
+      name="ChevronDown"
       width={16}
       height={16}
       class="fill-current transition-transform duration-300 ease-in-out group-aria-[expanded=true]:rotate-180"
     />
   </button>
   <div class="mobile-nav-content" data-content="use-cases">
-    <h3 class="text-xs font-semibold uppercase tracking-wider text-gray-400">By industry</h3>
+    <h3 class="text-xs font-semibold uppercase tracking-wider text-gray-400">
+      {entry?.data?.sectionTitles?.industry}
+    </h3>
     {
-      useCasesByIndustry.map(({ icon: Icon, label, link }) => (
-        <a href={link} role="menuitem" class="flex items-center gap-x-2 rounded-xl py-1">
+      useCasesByIndustry.map(({ icon, label, link }) => (
+        <a
+          href={`/website/${lang}/use-cases/${link}`}
+          role="menuitem"
+          class="flex items-center gap-x-2 rounded-xl py-1"
+        >
           <div class="flex items-center gap-4 py-4">
-            <Icon width={20} height={20} class="fill-primary-500" />
+            <Icon name={icon} width={20} height={20} class="fill-primary-500" />
             <div>
               <h4 class="text-black">{label}</h4>
             </div>
@@ -76,55 +42,25 @@ const useCasesByUseCase = [
       ))
     }
 
-    <!-- <div class="mobile-feature-item">
-      <div class="mobile-feature-icon auto-cut"></div>
-      <div>
-        <h4>Auto Cut</h4>
-        <p>1-click video clean-up</p>
-      </div>
-    </div>
-    <div class="mobile-feature-item">
-      <div class="mobile-feature-icon auto-layouts"></div>
-      <div>
-        <h4>Auto Layouts</h4>
-        <p>AI-powered shot selection</p>
-      </div>
-    </div>
-    <div class="mobile-feature-item">
-      <div class="mobile-feature-icon session-replays"></div>
-      <div>
-        <h4>session-replays</h4>
-        <p>session-replays-in and track mouse movement</p>
-      </div>
-    </div>
-    <div class="mobile-feature-item">
-      <div class="mobile-feature-icon funnel"></div>
-      <div>
-        <h4>Instant link sharing</h4>
-        <p>Share with anyone, instantly</p>
-      </div>
-    </div>
-    <div class="mobile-feature-item">
-      <div class="mobile-feature-icon mac"></div>
-      <div>
-        <h4>Air360 for Mac</h4>
-        <p>Native performance</p>
-      </div>
-    </div>
-    <div class="mobile-feature-item">
-      <div class="mobile-feature-icon chrome"></div>
-      <div>
-        <h4>Air360 for Chrome</h4>
-        <p>The camera for your browser</p>
-      </div>
-    </div>
-    <div class="mobile-feature-item">
-      <div class="mobile-feature-icon windows"></div>
-      <div>
-        <h4>Air360 for Windows</h4>
-        <p>Coming soon...</p>
-      </div>
-    </div> -->
+    <h3 class="text-xs font-semibold uppercase tracking-wider text-gray-400">
+      {entry?.data?.sectionTitles?.useCase}
+    </h3>
+    {
+      useCasesByUseCase.map(({ icon, label, link }) => (
+        <a
+          href={`/website/${lang}/use-cases/${link}`}
+          role="menuitem"
+          class="flex items-center gap-x-2 rounded-xl py-1"
+        >
+          <div class="flex items-center gap-4 py-4">
+            <Icon name={icon} width={20} height={20} class="fill-primary-500" />
+            <div>
+              <h4 class="text-black">{label}</h4>
+            </div>
+          </div>
+        </a>
+      ))
+    }
   </div>
 </div>
 

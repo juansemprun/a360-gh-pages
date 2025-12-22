@@ -1,0 +1,47 @@
+---
+import { getCollection, render } from 'astro:content';
+import type { GetStaticPaths, InferGetStaticParamsType } from 'astro';
+
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CallToAction from '@/components/ui/use-cases/CallToAction.astro';
+
+export const getStaticPaths = (async () => {
+  // Get all feature entries
+  const allFeatures = await getCollection('features');
+
+  // Generate paths for each feature
+  const paths = allFeatures.map((feature) => {
+    // Split the id to get lang and slug
+    // e.g., "en/zoning-analysis" → ["en", "zoning-analysis"]
+    const [lang, slug] = feature.id.split('/');
+
+    return {
+      params: { lang, slug },
+      props: { feature },
+    };
+  });
+
+  return paths;
+}) satisfies GetStaticPaths;
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+type Props = {
+  feature: Awaited<ReturnType<typeof getCollection<'features'>>>[number];
+};
+
+const { lang, slug } = Astro.params as Params;
+const { feature } = Astro.props as Props;
+
+// Render the MDX content
+const { Content } = await render(feature);
+---
+
+<BaseLayout title={feature.data.title} description={feature.data.description} lang={lang}>
+  <section data-theme="dark">
+    <div class="container-custom">
+      <Content />
+    </div>
+  </section>
+
+  <CallToAction />
+</BaseLayout>

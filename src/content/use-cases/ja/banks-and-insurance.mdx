@@ -1,0 +1,60 @@
+---
+type: industry
+title: Bank & Insurance
+description: Create the best possible online booking experience with Air360, with personalized journeys, smooth booking, and optimized customer engagement.
+video:
+  title: Bank & Insurance - Quick Air360 Tracking Pixel Setup Video
+  url: https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true
+  videoSrc: /website/videos/ja/quick-air360-tracking-pixel-setup.mp4
+  videoPreviewSrc: /website/videos/ja/quick-air360-tracking-pixel-setup-clip.mp4
+  videoPosterSrc: /website/images/thumbnails/ja/quick-air360-tracking-pixel-setup.webp
+highlights:
+  - title: 成果につながる体験をつくる
+    text: 問い合わせを信頼される顧客へ。Air360で訪問者をセグメントし、一人ひとりに合わせた金融体験を提供しましょう。
+  - title: すべてのページを、最高の状態に
+    text: 信頼構築には、すべての接点が重要です。Air360で各ページに安心感と信頼性を持たせ、専門性が伝わる顧客体験へと磨き上げましょう。
+  - title: 申し込み体験をもっとシンプルに
+    text: 細かな情報で顧客を迷わせないように。Air360はユーザーが立ち止まるポイントを可視化し、直感的でスムーズな導線づくりを支援します。
+  - title: サイトを常に快適に保つ
+    text: エラーも不安もない体験を。Air360でUXの課題を素早く発見し、安心して利用できるサービス提供を実現します。
+  - title: 顧客満足度を高める
+    text: 必要な保険・プラン・商品を迷わず見つけられる体験を。Air360でナビゲーションを最適化し、満足度向上と直帰率の低下につなげましょう。
+---
+
+import CallToAction from '@/components/ui/use-cases/CallToAction.astro';
+import Highlights from '@/components/ui/use-cases/Highlights.astro';
+import HighlightsSummary from '@/components/ui/use-cases/HighlightsSummary.astro';
+import MarkHighlight from '@/components/ui/use-cases/MarkHighlight.astro';
+import PageHero from '@/components/ui/use-cases/PageHero.astro';
+import Testimonial from '@/components/ui/use-cases/Testimonial.astro';
+import VideoSection from '@/components/ui/use-cases/VideoSection.astro';
+
+import { Empruntis } from '@/assets/brand-logos';
+
+<PageHero>
+  <span class="block" slot="title">簡単な</span>
+  <span class="block" slot="title">
+    <MarkHighlight>オンライン金融</MarkHighlight>体験を通じて信頼を構築
+  </span>
+
+  <Testimonial
+    Logo={Empruntis}
+    quote="データの中で迷子にならずに、誰もが必要なものを手に入れることができます。データの可視化とアクセスは簡単です。常に進化している素晴らしい製品です!"
+    attribution="Aurélie Condamine, Empruntis"
+    slot="testimonial"
+  />
+</PageHero>
+
+<Highlights highlightsList={frontmatter.highlights} />
+
+<VideoSection
+  videoSrc={frontmatter.video.videoSrc}
+  videoPosterSrc={frontmatter.video.videoPosterSrc}
+  videoPreviewSrc={frontmatter.video.videoPreviewSrc}
+>
+  始めるのが<MarkHighlight>いかに簡単</MarkHighlight>かをご覧になりますか?
+</VideoSection>
+
+<HighlightsSummary highlightsList={frontmatter.highlights} />
+
+<CallToAction />

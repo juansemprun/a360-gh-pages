@@ -10,78 +10,46 @@ export interface StaticFeatureItem {
   content: string;
 }
 
-export interface Props {
+interface Feature {
+  id: string;
+  heading: string;
+  description: string;
+  video: string;
+  url: string;
+  icon: IconComponent;
+  poster?: string;
+  isDefault: boolean;
+}
+
+export interface StaticFeaturesProps {
   title?: string;
   description?: string;
-  features?: StaticFeatureItem[];
+  features?: Feature[];
   className?: string;
 }
 
-const {
-  title = 'Title Here',
-  description = 'Some text here',
-  features = [
-    {
-      icon: TicketAirline,
-      title: 'Demo',
-      description:
-        'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus esse laboriosam',
-      content:
-        'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
-    },
-    {
-      icon: TicketAirline,
-      title: 'Demo',
-      description:
-        'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus esse laboriosam',
-      content:
-        'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
-    },
-    {
-      icon: TicketAirline,
-      title: 'Demo',
-      description:
-        'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus esse laboriosam',
-      content:
-        'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
-    },
-  ],
-  className = '',
-} = Astro.props;
+const { features = [] as Feature[] } = Astro.props as StaticFeaturesProps;
 ---
 
 <div class="container-custom lg:hidden" data-theme="dark">
   <div class="my-32 flex flex-col md:my-20">
-    <div class="flex flex-col text-center">
-      <h2 class="font-clash-display-bold mb-6 text-5xl text-black md:text-6xl">Title here</h2>
-      <p class="text-2xl font-medium text-slate-600">some text here</p>
-    </div>
     <div class="flex flex-col">
       {
-        features.map(({ title, description, content, icon: Icon }, index) => (
-          <div class="flex flex-col items-center p-8">
-            <div class="flex max-w-80 flex-col items-center gap-2 p-6 text-center">
+        features.map(({ heading, description, poster }) => (
+          <div class="my-6 flex flex-col items-center p-6">
+            <div class="flex flex-col items-center gap-2 p-10 text-center">
               <div class="flex items-center gap-2">
-                <Icon width={24} height={24} class="fill-gray-400" />
-                <h3 class="text-xl font-semibold text-slate-900">{title}</h3>
+                <h3 class="text-xl font-semibold text-slate-900">{heading}</h3>
               </div>
               <p class="max-w-3xs text-center text-base font-medium leading-6 text-slate-600">
                 {description}
               </p>
             </div>
-            <video
-              autoplay
-              loop
-              muted
-              playsinline
-              src={content}
-              width="600"
-              height="400"
-              class="h-auto w-full rounded-xl shadow-lg"
-            >
-              <source src={content} type="video/mp4" />
-              Sorry, your browser does not support embedded videos.
-            </video>
+            <img
+              src={poster}
+              alt={`${heading} - ${description}`}
+              class="aspect-video h-auto w-full rounded-2xl object-cover shadow-lg ring ring-black/5"
+            />
           </div>
         ))
       }

@@ -1,0 +1,34 @@
+---
+import HeroVideoDialog from '@/components/react/HeroVideoDialog';
+
+interface HeroVideoCardProps {
+  url: string;
+  thumbnailVideo?: string;
+  title?: string;
+  subtitle?: string;
+}
+
+const { lang } = Astro.params;
+
+const {
+  url = 'https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true',
+  thumbnailVideo = 'https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4',
+  title = "Got a Minute? That's All You Need to know Air360",
+  subtitle = 'Watch the video!',
+} = Astro.props as HeroVideoCardProps;
+---
+
+<div class="p-6">
+  <div
+    class="max-w-2xl transform cursor-pointer rounded-xl border border-white/20 bg-transparent p-4 backdrop-blur-sm transition duration-200 hover:rotate-0 hover:bg-white/10 md:rotate-1 md:rounded-3xl md:p-6"
+  >
+    <HeroVideoDialog
+      url={url}
+      thumbnailVideo={thumbnailVideo}
+      title={title}
+      subtitle={subtitle}
+      lang={lang}
+      client:idle
+    />
+  </div>
+</div>

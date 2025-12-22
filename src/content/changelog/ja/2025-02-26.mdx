@@ -1,0 +1,25 @@
+---
+title: 2025年2月26日のアップデート
+description: 2025年2月26日のアップデート
+publishedAt: 2025-02-26
+headerImage: '@changelog-assets/changelog-update.webp'
+---
+
+import { Badge } from '@/components/ui/react/shadcn/badge';
+
+<Badge variant="noLink" className="m-0">
+  <span>改善</span>
+</Badge>
+
+- イベント作成UIにデータレイヤープロパティ専用のメニューが追加されました。
+- 新しいOPAのランチャーを改善しました
+  - トラフィックの多いドメインが自動的に最初に表示されます
+  - お気に入りアイコンを使用してドメインをお気に入りに追加できます
+- 表示セッション数の上限を10万に設定
+  - 大量のセッションを処理する際のブラウザのパフォーマンス問題を防ぐため、以前にユーザージャーニーで10万セッションの表示制限を導入しました。
+  - この制限は、ブラウザに表示されるセッション数にのみ影響します。分析には影響せず、選択した日付範囲内のすべてのセッションが含まれます。
+
+<Badge variant="noLink" className="m-0">
+  <span>修正</span>
+</Badge>
+ユーザービューにすべてのユーザーが表示されないキャッシュの問題を修正しました。

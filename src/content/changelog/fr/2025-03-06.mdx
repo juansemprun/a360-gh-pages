@@ -1,0 +1,23 @@
+---
+title: Mises à jour du 6 mars 2025
+description: Mises à jour du 6 mars 2025
+publishedAt: 2025-03-06
+headerImage: '@changelog-assets/changelog-update.webp'
+---
+
+import { Badge } from '@/components/ui/react/shadcn/badge';
+
+<Badge variant="noLink" className="m-0">
+  <span>Améliorations</span>
+</Badge>
+
+- Nous avons augmenté la limite du nombre de chemins pouvant être affichés dans les parcours utilisateurs de 100k à 500k.
+- Lorsque la connexion échoue, nous affichons désormais un message convivial.
+- Nous ignorons les caractères `|` lorsqu'ils sont utilisés dans le CSS : Cela empêchait d'analyser certains éléments spécifiques pour certains clients.
+
+<Badge variant="noLink" className="m-0">
+  <span>Correction</span>
+</Badge>
+
+- Corrigé : Seuls les utilisateurs avec des permissions Admin pouvaient créer/modifier/supprimer des snapshots. C'est maintenant disponible pour les utilisateurs avec un accès complet
+- Faux positifs sur les clics de rage : Lorsque beaucoup de défilements étaient effectués sur mobile, cela pouvait être considéré comme des clics de rage comme nous l'avons vu sur le site web d'un client lorsque les utilisateurs défilaient très agressivement. Cependant, c'est tout à fait normal sur mobile. Ceci est corrigé depuis le 5 mars 2025 et n'est pas rétroactif. Cela explique également le nombre élevé de clics de rage.

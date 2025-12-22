@@ -1,7 +1,60 @@
 ---
-title: 'airlines  Companies'
+type: industry
+title: Airlines Companies
 description: Create the best possible online booking experience with Air360, with personalized journeys, smooth booking, and optimized customer engagement.
-videoSrc: https://cdn.loom.com/sessions/thumbnails/ec06bf3738f64c8e960b2c0eccaf89b0-00001.mp4
+video:
+  title: Airline Companies - Quick Air360 Tracking Pixel Setup Video
+  url: https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true
+  videoSrc: /website/videos/quick-air360-tracking-pixel-setup.mp4
+  videoPreviewSrc: /website/videos/quick-air360-tracking-pixel-setup-clip.mp4
+  videoPosterSrc: /website/images/thumbnails/quick-air360-tracking-pixel-setup.webp
+highlights:
+  - title: Create experiences that convert
+    text: Turn searchers into travelers by tailoring their journey. Segment customers and provide personalized flight experiences with Air360!
+  - title: The best possible version of every page
+    text: Every click is a step closer to their destination. Make it seamless! Refine every interaction to ensure smooth navigation and booking with Air360.
+  - title: Simplify the booking experience
+    text: Don’t let travelers abandon their plans. Air360 highlight where they hesitate, helping you streamline the booking process and increase ticket sales.
+  - title: Keep your site running smoothly
+    text: No turbulence in your UX! Air360 reveal issues fast so your site delivers a flawless booking experience.
+  - title: Keep your customers happy
+    text: Make it easy for travelers to find the flights and services they need. Air360 ensure your offerings are visible and compelling to keep bookings soaring.
 ---
 
-# Hotels Companies
+import CallToAction from '@/components/ui/use-cases/CallToAction.astro';
+import Highlights from '@/components/ui/use-cases/Highlights.astro';
+import HighlightsSummary from '@/components/ui/use-cases/HighlightsSummary.astro';
+import MarkHighlight from '@/components/ui/use-cases/MarkHighlight.astro';
+import PageHero from '@/components/ui/use-cases/PageHero.astro';
+import Testimonial from '@/components/ui/use-cases/Testimonial.astro';
+import VideoSection from '@/components/ui/use-cases/VideoSection.astro';
+
+import { AirCaraibes } from '@/assets/brand-logos';
+
+<PageHero>
+  <span class="block" slot='title'>Create the best possible</span>
+  <span class="block" slot='title'>
+    <MarkHighlight>online booking</MarkHighlight> experience
+  </span>
+
+  <Testimonial
+    Logo={AirCaraibes}
+    quote="It's impressive how easy and fast it is to get insights using Air360!"
+    attribution="Maelys, Air Caraibes"
+    slot="testimonial"
+  />
+</PageHero>
+
+<Highlights highlightsList={frontmatter.highlights} />
+
+<VideoSection
+  videoSrc={frontmatter.video.videoSrc}
+  videoPosterSrc={frontmatter.video.videoPosterSrc}
+  videoPreviewSrc={frontmatter.video.videoPreviewSrc}
+>
+  Want to see how <MarkHighlight>easy</MarkHighlight> it is to start?
+</VideoSection>
+
+<HighlightsSummary highlightsList={frontmatter.highlights} />
+
+<CallToAction />

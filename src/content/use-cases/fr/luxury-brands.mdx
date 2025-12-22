@@ -1,0 +1,60 @@
+---
+type: industry
+title: Marques de Luxe
+description: Créez la meilleure expérience d'achat en ligne possible avec Air360, avec des parcours personnalisés, un processus d'achat fluide et un engagement client optimisé.
+video:
+  title: Marques de Luxe - Vidéo de Configuration Rapide du Pixel de Suivi Air360
+  url: https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true
+  videoSrc: /website/videos/quick-air360-tracking-pixel-setup.mp4
+  videoPreviewSrc: /website/videos/quick-air360-tracking-pixel-setup-clip.mp4
+  videoPosterSrc: /website/images/thumbnails/quick-air360-tracking-pixel-setup.webp
+highlights:
+  - title: Créez des expériences qui convertissent
+    text: Offrez à vos clients un traitement digne du tapis rouge en ligne et découvrez comment l’exclusivité stimule l’engagement. Segmentez vos visiteurs et proposez des expériences premium avec Air360 !
+  - title: La meilleure version possible de chaque page
+    text: Chaque interaction reflète votre marque. Visez la perfection ! Sublimez chaque page pour répondre au niveau de luxe attendu par vos clients avec Air360.
+  - title: Simplifiez l’expérience d’achat
+    text: Ne laissez pas vos clients se perdre avant le paiement. Air360 identifie les moments d’hésitation afin de créer un parcours d’achat fluide et élégant.
+  - title: Assurez le bon fonctionnement de votre site
+    text: Aucun compromis sur la qualité ! Air360 met en lumière les problèmes d’UX cachés pour que votre présence en ligne reste aussi soignée que votre marque.
+  - title: Gardez vos clients satisfaits
+    text: Aidez vos clients à découvrir facilement vos pièces emblématiques et à rester engagés. Air360 veille à ce que vos produits brillent là où ils doivent être, sous les projecteurs.
+---
+
+import CallToAction from '@/components/ui/use-cases/CallToAction.astro';
+import Highlights from '@/components/ui/use-cases/Highlights.astro';
+import HighlightsSummary from '@/components/ui/use-cases/HighlightsSummary.astro';
+import MarkHighlight from '@/components/ui/use-cases/MarkHighlight.astro';
+import PageHero from '@/components/ui/use-cases/PageHero.astro';
+import Testimonial from '@/components/ui/use-cases/Testimonial.astro';
+import VideoSection from '@/components/ui/use-cases/VideoSection.astro';
+
+import { BusinessAndDecisions } from '@/assets/brand-logos';
+
+<PageHero>
+  <span class="block" slot="title">Créez la meilleure</span>
+  <span class="block" slot="title">
+    expérience d'<MarkHighlight>achat en ligne</MarkHighlight> possible
+  </span>
+
+  <Testimonial
+    Logo={BusinessAndDecisions}
+    quote="L'outil est rapide et facile à utiliser pour l'analyse UX et est très apprécié par nos équipes."
+    attribution="Fabrice Ruer, Business & Decision"
+    slot="testimonial"
+  />
+</PageHero>
+
+<Highlights highlightsList={frontmatter.highlights} />
+
+<VideoSection
+  videoSrc={frontmatter.video.videoSrc}
+  videoPosterSrc={frontmatter.video.videoPosterSrc}
+  videoPreviewSrc={frontmatter.video.videoPreviewSrc}
+>
+  Vous voulez voir comme c'est <MarkHighlight>facile</MarkHighlight> de commencer ?
+</VideoSection>
+
+<HighlightsSummary highlightsList={frontmatter.highlights} />
+
+<CallToAction />

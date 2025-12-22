@@ -1,20 +1,30 @@
 ---
-// Dynamic Navbar Component with automatic theme adaptation
-import Logo from '@assets/images/logo.svg';
+import { useTranslations } from '@/i18n';
+import type { LanguageCode } from '@/config/language';
+
+import Logo from '@/assets/images/svg/logo.svg';
+
 import {
   DesktopAboutUsDropdown,
   DesktopFeaturesDropdown,
   DesktopUseCasesDropdown,
   NavbarMobile,
 } from '@ui/navbar';
+
+interface Props {
+  lang: LanguageCode;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <header id="dynamic-navbar">
-  <nav class="navbar" role="navigation" aria-label="Main navigation">
+  <nav class="navbar container-custom" role="navigation" aria-label="Main navigation">
     <div class="navbar-container">
       <!-- Logo -->
       <div class="navbar-logo">
-        <a href="/" aria-label="Project homepage" id="navbar-logo">
+        <a href={`/website/${lang}`} aria-label="Project homepage" id="navbar-logo">
           <Logo id="logo" class="fill-white" />
         </a>
       </div>
@@ -32,15 +42,15 @@ import {
           <DesktopAboutUsDropdown />
 
           <li class="transition-colors duration-300 hover:text-gray-400">
-            <a href="/testimonials"> Testimonials </a>
+            <a href={`/website/${lang}/testimonials`}> {t('nav.testimonials')} </a>
           </li>
         </ul>
       </div>
 
       <!-- Desktop Auth Links -->
       <div class="navbar-auth desktop-auth">
-        <a href="/login" class="auth-link login">Log in</a>
-        <a href="/request-demo" class="auth-link demo">Book a Demo</a>
+        <a href="/login" class="auth-link login">{t('nav.login')}</a>
+        <a href={`/website/${lang}/request-demo`} class="auth-link demo">{t('nav.bookDemo')}</a>
       </div>
 
       <!-- Mobile Hamburger Button -->
@@ -65,6 +75,20 @@ import {
 </header>
 
 <style>
+  /* Dropdown open state for click/tap interaction */
+  [data-dropdown].is-open [data-dropdown-menu] {
+    pointer-events: auto;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+
+  [data-dropdown].is-open [data-dropdown-trigger] svg {
+    transform: rotate(180deg);
+  }
+
+  /* Note: Hover on desktop is handled by Tailwind's group-hover/dropdown classes */
+  /* No need for @media (hover: hover) since Tailwind v4 handles it automatically */
+
   header {
     position: fixed;
     top: 0;
@@ -79,13 +103,12 @@ import {
 
   /* Dark theme styles for the header */
   header.dark-theme {
-    /*background-color: rgba(31, 41, 55, 0.95); /* Darker background */
-    background-color: rgb(255, 255, 255); /* Darker background */
-    border-bottom: 1px solid rgba(167, 166, 166, 0.247); /* Lighter border */
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid rgba(167, 166, 166, 0.247);
   }
 
   header.dark-theme .navbar-logo a {
-    color: rgb(0, 0, 0); /* Logo text color in dark theme */
+    color: rgb(0, 0, 0);
     fill: rgb(0, 0, 0);
   }
 
@@ -94,7 +117,7 @@ import {
   }
 
   header.dark-theme .navbar-link {
-    color: #000 !important; /* Link color in dark theme */
+    color: #000 !important;
   }
 
   header.dark-theme .navbar-nav {
@@ -102,68 +125,60 @@ import {
   }
 
   header.dark-theme .navbar-link:hover {
-    color: #000; /* Link hover color in dark theme */
+    color: #000;
   }
 
   header.dark-theme .auth-link {
-    color: #000; /* Auth link color in dark theme */
+    color: #000;
   }
 
   header.dark-theme .auth-link:hover {
-    color: #000; /* Auth link hover color in dark theme */
+    color: #000;
   }
 
   header.dark-theme .auth-link.demo {
-    background: #f771bf; /* Demo button background in dark theme */
-    color: white; /* Demo button text color in dark theme */
+    background: #f771bf;
+    color: white;
   }
 
   header.dark-theme .mobile-menu-toggle .hamburger-line {
-    background-color: black; /* Hamburger line color in dark theme */
+    background-color: black;
   }
 
   header.dark-theme .mobile-menu-overlay {
-    background: rgba(31, 41, 55, 0.98); /* Mobile menu overlay background in dark theme */
+    background: rgba(31, 41, 55, 0.98);
   }
 
   header.dark-theme .mobile-menu-content {
-    background-color: rgba(31, 41, 55, 1); /* Mobile menu content background in dark theme */
+    background-color: rgba(31, 41, 55, 1);
   }
 
   header.dark-theme .mobile-nav-link {
-    color: #d1d5db; /* Mobile nav link color in dark theme */
+    color: #d1d5db;
   }
 
   header.dark-theme .mobile-nav-link:hover {
-    color: white; /* Mobile nav link hover color in dark theme */
+    color: white;
   }
 
   header.dark-theme .mobile-auth-link {
-    color: #d1d5db; /* Mobile auth link color in dark theme */
+    color: #d1d5db;
   }
 
   header.dark-theme .mobile-auth-link:hover {
-    color: white; /* Mobile auth link hover color in dark theme */
+    color: white;
   }
 
   header.dark-theme .mobile-close-btn {
-    color: #d1d5db; /* Mobile close button color in dark theme */
+    color: #d1d5db;
   }
 
   header.dark-theme .mobile-close-btn:hover {
-    color: white; /* Mobile close button hover color in dark theme */
-    background-color: rgba(
-      255,
-      255,
-      255,
-      0.1
-    ); /* Mobile close button hover background in dark theme */
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
   }
 
   .navbar-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -197,7 +212,7 @@ import {
   }
 
   .navbar-link {
-    color: white; /* Changed to white for gradient background */
+    color: white;
     text-decoration: none;
     font-size: 16px;
     font-weight: 500;
@@ -207,7 +222,7 @@ import {
   }
 
   .navbar-link:hover {
-    color: #f8fafc; /* Lighter hover for white text */
+    color: #f8fafc;
   }
 
   .desktop-auth {
@@ -273,7 +288,7 @@ import {
   }
 
   .mobile-menu-toggle:hover {
-    background-color: rgba(255, 255, 255, 0.05); /* Changed for gradient background */
+    background-color: rgba(255, 255, 255, 0.05);
   }
 
   .mobile-menu-toggle:focus {
@@ -284,7 +299,7 @@ import {
   .hamburger-line {
     width: 24px;
     height: 2px;
-    background-color: white; /* Changed to white for gradient background */
+    background-color: white;
     margin: 2px 0;
     transition: all 0.3s ease;
     border-radius: 1px;
@@ -539,7 +554,7 @@ import {
     private getElements(): NavbarElements {
       return {
         navbar: document.getElementById('dynamic-navbar'),
-        backdrop: document.getElementById('dynamic-navbar'), // Same as navbar for this implementation
+        backdrop: document.getElementById('dynamic-navbar'),
         logo: document.getElementById('navbar-logo'),
         mobileMenuButton: document.getElementById('mobile-menu-button'),
         mobileMenu: document.getElementById('mobile-menu'),
@@ -566,7 +581,7 @@ import {
     private setupIntersectionObserver(): void {
       if (!this.elements.navbar) return;
 
-      const navbarHeight: number = 72; // Fixed height from CSS
+      const navbarHeight: number = 72;
 
       this.observer = new IntersectionObserver(
         (entries: IntersectionObserverEntry[]) => {
@@ -584,7 +599,6 @@ import {
         },
       );
 
-      // Observe all sections with data-theme attribute
       const sections = document.querySelectorAll('[data-theme]');
       sections.forEach((section: Element) => this.observer!.observe(section));
     }
@@ -603,7 +617,6 @@ import {
 
       const themeConfig = this.themes[theme];
 
-      // Apply theme class to navbar
       if (themeConfig.backdrop) {
         this.elements.navbar.classList.add(themeConfig.backdrop);
       } else {
@@ -614,7 +627,6 @@ import {
     private setupMobileMenu(): void {
       if (!this.elements.mobileMenuButton || !this.elements.mobileMenu) return;
 
-      // Toggle mobile menu
       this.elements.mobileMenuButton.addEventListener('click', () => {
         const isExpanded: boolean =
           this.elements.mobileMenuButton!.getAttribute('aria-expanded') === 'true';
@@ -624,7 +636,6 @@ import {
         this.elements.mobileMenu!.classList.toggle('active');
       });
 
-      // Close mobile menu when clicking links
       const mobileLinks = this.elements.mobileMenu.querySelectorAll('.mobile-nav-link');
       mobileLinks.forEach((link: Element) => {
         link.addEventListener('click', () => {
@@ -634,7 +645,6 @@ import {
         });
       });
 
-      // Close mobile menu when clicking close button
       const closeBtn = this.elements.mobileMenu.querySelector('.mobile-close-btn');
       if (closeBtn) {
         closeBtn.addEventListener('click', () => {
@@ -645,7 +655,6 @@ import {
       }
     }
 
-    // Public methods for external use
     public setTheme(theme: ThemeType): void {
       this.updateTheme(theme);
     }
@@ -664,4 +673,135 @@ import {
   document.addEventListener('astro:page-load', () => {
     new DynamicNavbar();
   });
+</script>
+
+<script>
+  /**
+   * Dropdown Menu Enhancement
+   * Progressive enhancement for touch devices and accessibility
+   */
+  class DropdownMenu {
+    private dropdownContainer: HTMLElement;
+    private trigger: HTMLButtonElement;
+    private menu: HTMLElement;
+    private isOpen: boolean = false;
+    private static instances: DropdownMenu[] = [];
+
+    constructor(container: HTMLElement) {
+      this.dropdownContainer = container;
+      this.trigger = container.querySelector('[data-dropdown-trigger]') as HTMLButtonElement;
+      this.menu = container.querySelector('[data-dropdown-menu]') as HTMLElement;
+
+      if (!this.trigger || !this.menu) {
+        console.warn('Dropdown trigger or menu not found');
+        return;
+      }
+
+      DropdownMenu.instances.push(this);
+      this.init();
+    }
+
+    private init(): void {
+      // Handle click/tap events for touch devices
+      this.trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        this.toggle();
+      });
+
+      // Close on click outside
+      document.addEventListener('click', (e) => {
+        if (!this.dropdownContainer.contains(e.target as Node)) {
+          this.close();
+        }
+      });
+
+      // Close on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && this.isOpen) {
+          this.close();
+          this.trigger.focus();
+        }
+      });
+
+      // Close dropdown when clicking on menu items
+      const menuLinks = this.menu.querySelectorAll('a[role="menuitem"]');
+      menuLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+          this.close();
+        });
+      });
+    }
+
+    private toggle(): void {
+      if (this.isOpen) {
+        this.close();
+      } else {
+        this.open();
+      }
+    }
+
+    private open(): void {
+      // Close all other dropdowns before opening this one
+      DropdownMenu.closeAll(this);
+
+      this.isOpen = true;
+      this.trigger.setAttribute('aria-expanded', 'true');
+
+      // Add classes for open state - using pointer-events instead of visibility
+      this.dropdownContainer.classList.add('is-open');
+      this.menu.classList.remove(
+        'pointer-events-none',
+        'opacity-0',
+        'scale-95',
+        '-translate-y-2.5',
+      );
+      this.menu.classList.add('pointer-events-auto', 'opacity-100', 'scale-100', 'translate-y-0');
+    }
+
+    private close(): void {
+      this.isOpen = false;
+      this.trigger.setAttribute('aria-expanded', 'false');
+
+      // Remove open state classes - using pointer-events instead of visibility
+      this.dropdownContainer.classList.remove('is-open');
+      this.menu.classList.add('pointer-events-none', 'opacity-0', 'scale-95', '-translate-y-2.5');
+      this.menu.classList.remove(
+        'pointer-events-auto',
+        'opacity-100',
+        'scale-100',
+        'translate-y-0',
+      );
+    }
+
+    // Static method to close all dropdowns except the current one
+    private static closeAll(exceptInstance?: DropdownMenu): void {
+      DropdownMenu.instances.forEach((instance) => {
+        if (instance !== exceptInstance && instance.isOpen) {
+          instance.close();
+        }
+      });
+    }
+
+    public getIsOpen(): boolean {
+      return this.isOpen;
+    }
+  }
+
+  // Initialize all dropdowns
+  function initDropdowns(): void {
+    // Clear previous instances when re-initializing
+    (DropdownMenu as any).instances = [];
+
+    const dropdowns = document.querySelectorAll('[data-dropdown]');
+    dropdowns.forEach((dropdown) => {
+      new DropdownMenu(dropdown as HTMLElement);
+    });
+  }
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', initDropdowns);
+
+  // Re-initialize after Astro view transitions
+  document.addEventListener('astro:page-load', initDropdowns);
 </script>

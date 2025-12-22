@@ -1,0 +1,42 @@
+---
+title: スナップショット
+description: 以前のデザインを保存していつでも分析できます。異なるバージョンと期間にわたってウェブサイトのパフォーマンスを取得し比較します。
+heroCtaText: 始める
+heroCtaUrl: '#get-started'
+videoSrc: /website/videos/ja/features/snapshots.mp4
+thumbnailVideoSrc: /website/videos/ja/features/snapshots-clip.mp4
+thumbnailImageSrc: /website/images/thumbnails/features/snapshots.webp
+videoThumbnailAlt: スナップショットデモ
+videoCtaText: スナップショット機能をご覧ください！
+videoDialogTitle: スナップショット
+faqTitle: よくある質問
+faqs:
+  - question: スナップショットとは何ですか？
+    answer: スナップショットは、ウェブサイトの過去のバージョンを保存するため、Air360でデザインの変更がユーザーの行動とパフォーマンスにどのように影響するかを簡単に比較できます。サイトのタイムラインと考えてください。
+  - question: スナップショットを使用する理由は？
+    answer: Air360の拡張機能を使用して、保存されたデザインを開き、ページと要素のパフォーマンスを簡単に分析できます。変更前後のパフォーマンスを測定し、ステークホルダーに改善の明確な証拠を示します。
+  - question: スナップショットはどのように機能しますか？
+    answer: 変更を加えるときや特定のページバージョンを評価したいときはいつでも、数回のクリックでスナップショットを保存します。ビジュアルデザインを保存するため、時間の経過とともに異なるバージョンを簡単に比較できます。
+  - question: スナップショットをいつ作成すべきですか？
+    answer: 大規模なリデザイン、A/Bテスト、機能ローンチ、マーケティングキャンペーン、または季節的な変更の前にスナップショットを作成して、ベースラインを確立し、変更の影響を測定します。
+  - question: スナップショットは最適化戦略をどのようにサポートしますか？
+    answer: 変更の前後のパフォーマンスを比較して、実際に結果をもたらすものを確認します。どのデザインがコンバージョンを改善したか、または離脱を減らしたかを証明できれば、証拠に裏付けられた自信を持った意思決定を行います。スナップショットは、投資を正当化し、うまくいったことをスケールし、過去の失敗を繰り返さないためのデータを提供します。
+---
+
+import FeaturesHero from '@/components/pages/features/FeaturesHero.astro';
+import FeatureFAQSection from '@/components/FAQSection.astro';
+
+<FeaturesHero
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ctaText={frontmatter.heroCtaText}
+  ctaUrl={frontmatter.heroCtaUrl}
+  videoSrc={frontmatter.videoSrc}
+  thumbnailVideoSrc={frontmatter.thumbnailVideoSrc}
+  thumbnailImageSrc={frontmatter.thumbnailImageSrc}
+  thumbnailAlt={frontmatter.videoThumbnailAlt}
+  videoCtaText={frontmatter.videoCtaText}
+  videoDialogTitle={frontmatter.videoDialogTitle}
+/>
+
+<FeatureFAQSection title={frontmatter.faqTitle} faqs={frontmatter.faqs} />

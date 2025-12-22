@@ -1,31 +1,29 @@
 ---
+import { useTranslations } from '@/i18n';
+import type { LanguageCode } from '@/config/language';
+
 import MobileAboutUsDropdown from '@components/ui/navbar/mobile/MobileAboutUsDropdown.astro';
 import MobileFeaturesDropdown from '@components/ui/navbar/mobile/MobileFeaturesDropdown.astro';
 import MobileUseCasesDropdown from '@components/ui/navbar/mobile/MobileUseCasesDropdown.astro';
 
-import Logo from '@assets/images/logo.svg';
+import Logo from '@/assets/images/svg/logo.svg';
+import { X } from '@lucide/astro';
+
+const lang = Astro.params.lang as LanguageCode | undefined;
+
+const t = useTranslations(lang);
 ---
 
 <div class="mobile-menu-overlay" id="mobile-menu" aria-hidden="true">
   <div class="mobile-menu-content">
     <!-- Mobile Auth Links -->
     <div class="mb-10 flex items-center justify-between">
-      <a href="/" aria-label="Project homepage" id="navbar-logo">
+      <a href={`/website/${lang}`} aria-label="Project homepage" id="navbar-logo">
         <Logo id="logo" class="fill-black" />
       </a>
 
       <button class="mobile-close-btn" aria-label="Close navigation menu">
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
+        <X size={24} />
       </button>
     </div>
 
@@ -39,13 +37,15 @@ import Logo from '@assets/images/logo.svg';
       <MobileAboutUsDropdown />
 
       <div class="mobile-nav-section">
-        <a href="/testimonials" class="mobile-nav-link">Testimonials</a>
+        <a href={`/website/${lang}/testimonials`} class="mobile-nav-link">{t('nav.testimonials')}</a
+        >
       </div>
     </nav>
 
     <div class="mt-10 flex items-center justify-around">
-      <a href="#" class="mobile-auth-link login border">Log in</a>
-      <a href="/request-demo" class="mobile-auth-link demo">Book a Demo</a>
+      <a href="#" class="mobile-auth-link login border">{t('nav.login')}</a>
+      <a href={`/website/${lang}/request-demo`} class="mobile-auth-link demo">{t('nav.bookDemo')}</a
+      >
     </div>
   </div>
 </div>

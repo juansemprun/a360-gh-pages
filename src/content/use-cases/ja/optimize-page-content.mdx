@@ -1,0 +1,43 @@
+---
+type: 'use case'
+title: ページの最適化
+description: オーディエンスに響くコンテンツを発見し、最大限のエンゲージメントとコンバージョンのためにページ要素を最適化します。
+heroCtaText: 始める
+heroCtaUrl: '#get-started'
+videoSrc: /website/videos/use-case/optimize-page-content.mp4
+thumbnailVideoSrc: /website/videos/use-case/optimize-page-content-clip.mp4
+thumbnailImageSrc: /website/images/thumbnails/use-cases/optimize-page-content.webp
+videoThumbnailAlt: ページコンテンツの最適化
+videoCtaText: ページコンテンツを最適化する方法をご覧ください!
+videoDialogTitle: Air360でコンテンツ最適化
+faqTitle: よくある質問
+youtubeId: 'oUnzDDLr5LU'
+faqs:
+  - question: ゾーニング分析はコンテンツの最適化にどのように役立ちますか?
+    answer: Air360のゾーニング分析は、ユーザーがページ上のすべての要素とどのようにインタラクトするかを視覚的に強調表示します。クリック率、レイジクリック、ホバー行動、さらにはコンバージョン貢献度などのエンゲージメント指標を示します。これにより、ページのどの領域がうまく機能しているか、どの領域が無視されている、誤解されている、または摩擦を引き起こしているかをすぐに確認できます。これにより、改善が必要なコンテンツの特定がはるかに簡単になります。
+  - question: レイジクリックのようなユーザビリティの問題を検出できますか?
+    answer: はい!レイジクリックはゾーニングマップに直接表示され、何かが起こることを期待しているのに何も起こらないためにユーザーが繰り返しクリックする要素を明らかにします。これは、壊れたボタン、不明確なインタラクション、または誤解を招く視覚的な手がかりなど、小さいながらも影響力のあるユーザビリティの問題を見つける最も迅速な方法の1つです。
+  - question: モバイルとデスクトップでは異なる最適化を行うべきですか?
+    answer: はい!モバイルユーザーは非常に異なる行動をし、画面も小さくなります。Air360のデバイス固有の分析を使用して、各プラットフォームのコンテンツレイアウト、長さ、CTAを最適化してください。
+  - question: どの画像が最もパフォーマンスが高いかを確認できますか?
+    answer: はい!Air360のゾーニング分析は、ユーザーが各画像とどのようにインタラクトするかを正確に示すため、結果を比較して、どの画像が機能し、どの画像が機能しないかを見つけることができます。
+---
+
+import FeaturesHero from '@/components/pages/features/FeaturesHero.astro';
+import FeatureFAQSection from '@/components/FAQSection.astro';
+
+<FeaturesHero
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ctaText={frontmatter.heroCtaText}
+  ctaUrl={frontmatter.heroCtaUrl}
+  videoSrc={frontmatter.videoSrc}
+  thumbnailVideoSrc={frontmatter.thumbnailVideoSrc}
+  thumbnailImageSrc={frontmatter.thumbnailImageSrc}
+  thumbnailAlt={frontmatter.videoThumbnailAlt}
+  videoCtaText={frontmatter.videoCtaText}
+  videoDialogTitle={frontmatter.videoDialogTitle}
+  youtubeId={frontmatter.youtubeId}
+/>
+
+<FeatureFAQSection title={frontmatter.faqTitle} faqs={frontmatter.faqs} />

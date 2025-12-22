@@ -1,0 +1,36 @@
+---
+title: New! Snapshot feature!
+description: 28th of May 2025 updates
+publishedAt: 2025-05-28
+headerImage: '@changelog-assets/2025-05-28/header.webp'
+---
+
+import { Image } from 'astro:assets';
+import { Badge } from '@/components/ui/react/shadcn/badge';
+
+import snapshotImage from '@changelog-assets/2025-05-28/snapshot.webp';
+
+<Badge variant="noLink" className="m-0">
+  <span>New</span>
+</Badge>
+
+We are excited to share with you that a new powerful feature is now available on Air360! Meet the **Snapshot** Feature🙌\
+With the snapshot, you can now preserve and revisit previous versions of your website design.
+
+#### What does Snapshots do?
+
+With the Snapshot feature, you can:
+
+- Effortlessly analyze any past website design.
+- Instantly identify which updates positively or negatively impacted your performance.
+- Quickly analyze short-lived campaigns (e.g., Mother's Day, Christmas)
+
+#### Quick peak of how Snapshot works!
+
+<Image src={snapshotImage} alt="Snapshot feature" />
+The Snapshot will not be created automatically, so you need to manually set which URL you want to
+save, select how often you want to save(every day? per week? per month?). And that's basically it!
+
+Air360 will automatically save the page design for you! And when you want to analyze past design, you simply have to select the date the design was created, and open the past design. You can open the On-page Analytics to analyze the past page! Easy right😉
+
+**Important Note:** This feature is only available on cookieless Air360 tracking pixel. Make sure to update your Air360 pixel(instruction [here](https://app.air360.io/docs/getting-started/#on-your-website))!

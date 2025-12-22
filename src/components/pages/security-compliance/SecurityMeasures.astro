@@ -1,0 +1,126 @@
+---
+import {
+  MonitorWaveform,
+  CheckToSlot,
+  LaptopMobile,
+  CameraCctv,
+  Server,
+  BinaryLock,
+} from '@/assets/icons';
+
+interface Props {
+  sectionTitle: string;
+  monitoringTitle: string;
+  monitoringDescription: string;
+  bestPracticesTitle: string;
+  bestPracticesDescription: string;
+  mfaTitle: string;
+  mfaDescription: string;
+  auditsTitle: string;
+  auditsDescription: string;
+  dataStorageTitle: string;
+  dataStorageDescription: string;
+  encryptionTitle: string;
+  encryptionDescription: string;
+}
+
+const {
+  sectionTitle,
+  monitoringTitle,
+  monitoringDescription,
+  bestPracticesTitle,
+  bestPracticesDescription,
+  mfaTitle,
+  mfaDescription,
+  auditsTitle,
+  auditsDescription,
+  dataStorageTitle,
+  dataStorageDescription,
+  encryptionTitle,
+  encryptionDescription,
+} = Astro.props;
+---
+
+<section aria-labelledby="security-measures-title" class="my-16 md:my-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <h2
+      id="security-measures-title"
+      class="font-clash-display-bold mb-12 text-center text-3xl text-slate-800 md:text-4xl"
+    >
+      {sectionTitle}
+    </h2>
+    <div class="grid grid-cols-1 gap-12 md:grid-cols-2">
+      <article class="flex items-start gap-4">
+        <span
+          class="inline-flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-pink-100"
+        >
+          <MonitorWaveform class="text-primary-600 h-10 w-10 fill-current p-1" aria-hidden="true" />
+        </span>
+        <div>
+          <h3 class="mb-2 text-lg font-semibold text-slate-800">{monitoringTitle}</h3>
+          <p class="text-slate-500">{monitoringDescription}</p>
+        </div>
+      </article>
+
+      <article class="flex items-start gap-4">
+        <span
+          class="inline-flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-pink-100"
+        >
+          <CheckToSlot class="text-primary-600 h-10 w-10 fill-current p-1" aria-hidden="true" />
+        </span>
+        <div>
+          <h3 class="mb-2 text-lg font-semibold text-slate-800">{bestPracticesTitle}</h3>
+          <p class="text-slate-500">{bestPracticesDescription}</p>
+        </div>
+      </article>
+
+      <article class="flex items-start gap-4">
+        <span
+          class="inline-flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-pink-100"
+        >
+          <LaptopMobile class="text-primary-600 h-10 w-10 fill-current p-1" aria-hidden="true" />
+        </span>
+        <div>
+          <h3 class="mb-2 text-lg font-semibold text-slate-800">{mfaTitle}</h3>
+          <p class="text-slate-500">{mfaDescription}</p>
+        </div>
+      </article>
+
+      <article class="flex items-start gap-4">
+        <span
+          class="inline-flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-pink-100"
+        >
+          <CameraCctv class="text-primary-600 h-10 w-10 fill-current p-1" aria-hidden="true" />
+        </span>
+        <div>
+          <h3 class="mb-2 text-lg font-semibold text-slate-800">{auditsTitle}</h3>
+          <p class="text-slate-500">{auditsDescription}</p>
+        </div>
+      </article>
+
+      <article class="flex items-start gap-4">
+        <span
+          class="inline-flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-pink-100"
+        >
+          <Server class="text-primary-600 h-10 w-10 fill-current p-1" aria-hidden="true" />
+        </span>
+        <div>
+          <h3 class="mb-2 text-lg font-semibold text-slate-800">{dataStorageTitle}</h3>
+          <p class="text-slate-500">{dataStorageDescription}</p>
+        </div>
+      </article>
+
+      <article class="flex items-start gap-4">
+        <span
+          class="inline-flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-pink-100"
+        >
+          <BinaryLock class="text-primary-600 h-10 w-10 fill-current p-1" aria-hidden="true" />
+        </span>
+        <div>
+          <h3 class="mb-2 text-lg font-semibold text-slate-800">{encryptionTitle}</h3>
+          <p class="text-slate-500">{encryptionDescription}</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

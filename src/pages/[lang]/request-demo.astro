@@ -1,0 +1,34 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+const pageTitle = 'Request a Demo';
+
+import { languageCodes } from '@config/language';
+
+import RequestDemoComponent from '@components/RequestDemo';
+import UnderlineTextDecoration from '@assets/graphics/underline-text-decoration.svg';
+
+const { lang } = Astro.params;
+export async function getStaticPaths() {
+  return languageCodes.map((lang) => ({
+    params: { lang },
+  }));
+}
+---
+
+<BaseLayout title={pageTitle}>
+  <div class="container-custom" data-theme="dark">
+    <section class="mx-auto mb-16 mt-24 px-5 md:mt-36">
+      <div class="mb-8 flex flex-col items-center">
+        <h1
+          class="font-clash-display-bold text-center text-5xl leading-tight tracking-wide md:text-7xl"
+        >
+          Request a demo
+        </h1>
+        <UnderlineTextDecoration class="mt-2 max-w-96" />
+      </div>
+    </section>
+    <section class="mb-40">
+      <RequestDemoComponent client:load />
+    </section>
+  </div>
+</BaseLayout>

@@ -1,0 +1,42 @@
+---
+title: ファネル分析
+description: 主要なフローでユーザーがどこで離脱しているかを特定し、コンバージョン率を向上させる機会を発見します。
+heroCtaText: 始める
+heroCtaUrl: '#get-started'
+videoSrc: /website/videos/ja/features/funnel-analysis.mp4
+thumbnailVideoSrc: /website/videos/ja/features/funnel-analysis-clip.mp4
+thumbnailImageSrc: /website/images/thumbnails/features/funnel-analysis.webp
+videoThumbnailAlt: ファネル分析
+videoCtaText: ファネル分析でどのように離脱を特定できるかご覧ください！
+videoDialogTitle: ファネル分析
+faqTitle: よくある質問
+faqs:
+  - question: ファネル分析とは何ですか？
+    answer: ファネル分析は、コンバージョン目標に向けた一連のステップでユーザーを追跡し、ユーザーがどこでなぜ離脱するかを正確に示し、ジャーニーの各段階を最適化するのに役立ちます。
+  - question: ファネル分析を使用する理由は？
+    answer: コンバージョンを阻害する摩擦を正確に特定します。ユーザーがジャーニーのどこで離脱するかを正確に把握すれば、最も重要なことを修正し、コンバージョンへの道を最適化できます。推測を減らし、より多くの結果を得られます。
+  - question: 異なるオーディエンス間でファネルのパフォーマンスを比較できますか？
+    answer: はい！セグメンテーションはファネル分析の重要な部分です。モバイルユーザーとデスクトップユーザー、またはメールからのトラフィックと有料広告からのトラフィックなど、異なるグループがどのように行動するかを比較できます。これにより、どのセグメントが離脱の影響を最も受けたかを理解し、最大の影響を与える場所に修正をターゲットできます。
+  - question: どのようなタイプのファネルを追跡できますか？
+    answer: 完全にあなた次第です！ビジネス固有のあらゆる種類のコンバージョンファネルを追跡するために、簡単かつ柔軟に設定できます。
+  - question: ファネル分析はビジネス上のより良い意思決定をどのようにサポートしますか？
+    answer: ファネルは、ユーザーが勢いを失う場所を正確に示すため、最大の収益影響を持つ修正の優先順位を付けることができます。ほとんどのユーザーがチェックアウトで離脱する場合、決済の改善がホームページの調整よりも早く結果をもたらすことがわかります。ファネルは、次に何を最適化すべきかについて、チームに明確さ、焦点、自信を与えます。
+---
+
+import FeaturesHero from '@/components/pages/features/FeaturesHero.astro';
+import FeatureFAQSection from '@/components/FAQSection.astro';
+
+<FeaturesHero
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ctaText={frontmatter.heroCtaText}
+  ctaUrl={frontmatter.heroCtaUrl}
+  videoSrc={frontmatter.videoSrc}
+  thumbnailVideoSrc={frontmatter.thumbnailVideoSrc}
+  thumbnailImageSrc={frontmatter.thumbnailImageSrc}
+  thumbnailAlt={frontmatter.videoThumbnailAlt}
+  videoCtaText={frontmatter.videoCtaText}
+  videoDialogTitle={frontmatter.videoDialogTitle}
+/>
+
+<FeatureFAQSection title={frontmatter.faqTitle} faqs={frontmatter.faqs} />

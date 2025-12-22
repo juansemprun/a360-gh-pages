@@ -1,0 +1,42 @@
+---
+title: Parcours Utilisateur
+description: Comprenez comment les utilisateurs se déplacent sur votre site web et découvrez les étapes qui façonnent leur expérience.
+heroCtaText: Commencer
+heroCtaUrl: '#get-started'
+videoSrc: /website/videos/fr/features/user-journey.mp4
+thumbnailVideoSrc: /website/videos/fr/features/user-journey-clip.mp4
+thumbnailImageSrc: /website/images/thumbnails/features/user-journey.webp
+videoThumbnailAlt: Démo des Parcours Utilisateur
+videoCtaText: Découvrez comment les Parcours Utilisateur cartographient le comportement !
+videoDialogTitle: Parcours Utilisateur
+faqTitle: Questions fréquentes
+faqs:
+  - question: Que sont les Parcours Utilisateur ?
+    answer: Un parcours utilisateur est le chemin complet qu'un visiteur emprunte sur votre site, de l'entrée au résultat final. Qu'il s'agisse d'un achat, d'une inscription ou d'une autre action clé. Il capture chaque interaction, détour et sortie, montrant comment les utilisateurs se déplacent sur votre site.
+  - question: Pourquoi utiliser le Parcours Utilisateur ?
+    answer: Le Parcours Utilisateur révèle comment les visiteurs se comportent réellement, où ils se perdent ou abandonnent, et les opportunités cachées pour les guider vers la conversion. Réduisez la friction, optimisez les chemins qui génèrent des résultats et prenez des décisions basées sur le comportement réel des utilisateurs.
+  - question: En quoi les Parcours Utilisateur diffèrent-ils de l'Analyse d'Entonnoir ?
+    answer: Alors que l'Analyse d'Entonnoir suit des chemins de conversion prédéfinis, les Parcours Utilisateur révèlent des chemins organiques et inattendus que les utilisateurs empruntent réellement, vous aidant à découvrir de nouvelles opportunités d'optimisation et à comprendre le comportement réel des utilisateurs.
+  - question: Est-il limité à l'analyse du parcours de page des utilisateurs uniquement ?
+    answer: Non. Vous pouvez analyser les parcours en utilisant n'importe quel comportement utilisateur, comme les clics sur les boutons, les clics de rage, les erreurs et plus encore. Ce que cela signifie, c'est que vous pouvez bien sûr effectuer une analyse macro pour voir comment les utilisateurs se déplacent entre les pages, mais aussi effectuer une analyse micro pour comprendre comment ils naviguent dans une page spécifique.
+  - question: Comment l'analyse des parcours utilisateur aide-t-elle à prendre de meilleures décisions commerciales ?
+    answer: Voyez comment les utilisateurs naviguent réellement sur votre site, puis priorisez les corrections qui comptent le plus. Repérez les chemins hautement performants et répliquez-les pour d'autres segments. Identifiez les points d'abandon fréquents et supprimez les obstacles qui les causent. Le Parcours Utilisateur transforme les données comportementales en actions claires qui améliorent les conversions et les résultats commerciaux.
+---
+
+import FeaturesHero from '@/components/pages/features/FeaturesHero.astro';
+import FeatureFAQSection from '@/components/FAQSection.astro';
+
+<FeaturesHero
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ctaText={frontmatter.heroCtaText}
+  ctaUrl={frontmatter.heroCtaUrl}
+  videoSrc={frontmatter.videoSrc}
+  thumbnailVideoSrc={frontmatter.thumbnailVideoSrc}
+  thumbnailImageSrc={frontmatter.thumbnailImageSrc}
+  thumbnailAlt={frontmatter.videoThumbnailAlt}
+  videoCtaText={frontmatter.videoCtaText}
+  videoDialogTitle={frontmatter.videoDialogTitle}
+/>
+
+<FeatureFAQSection title={frontmatter.faqTitle} faqs={frontmatter.faqs} />

@@ -1,63 +1,26 @@
 ---
-import {
-  Building,
-  ChevronDown,
-  CloudQuestion,
-  EnvelopeOpnText,
-  FileShield,
-  HandHoldingHeart,
-  MicrochipAi,
-  ShieldCheck,
-} from '@assets/icons';
+import { getEntry } from 'astro:content';
 
-const primarySections = [
-  {
-    icon: HandHoldingHeart,
-    label: 'Our Values',
-    link: '/values',
-  },
-  {
-    icon: EnvelopeOpnText,
-    label: 'Manifesto',
-    link: '/manifesto',
-  },
-];
+import Icon from '@ui/Icon.astro';
 
-const secondarySections = [
-  {
-    icon: Building,
-    label: 'Company Info',
-    link: '/about',
-  },
-  {
-    icon: MicrochipAi,
-    label: 'Stance on AI',
-    link: '/ai',
-  },
-  {
-    icon: FileShield,
-    label: 'Privacy Policy',
-    link: '/privacy-policy',
-  },
-  {
-    icon: ShieldCheck,
-    label: 'Security and Compliance',
-    link: '/security-compliance',
-  },
-  {
-    icon: CloudQuestion,
-    label: 'Where is your data',
-    link: '/where-is-your-data',
-  },
-];
+const { lang } = Astro.params;
+const entry = await getEntry('navigation', `${lang}/about-us`);
 
-const comibenedSections = [...primarySections, ...secondarySections];
+if (!entry) {
+  return Astro.redirect('/404');
+}
+
+const primarySection = entry.data.aboutUsNav?.primary || [];
+const secondarySection = entry.data.aboutUsNav?.secondary || [];
+
+const combinedSections = [...primarySection, ...secondarySection];
 ---
 
 <div class="mobile-nav-section">
   <button class="mobile-nav-header group" aria-expanded="false" data-section="about-us">
-    <span>About Us</span>
-    <ChevronDown
+    <span>{entry.data.title}</span>
+    <Icon
+      name="ChevronDown"
       width={16}
       height={16}
       class="fill-current transition-transform duration-300 ease-in-out group-aria-[expanded=true]:rotate-180"
@@ -65,10 +28,14 @@ const comibenedSections = [...primarySections, ...secondarySections];
   </button>
   <div class="mobile-nav-content" data-content="about-us">
     {
-      comibenedSections.map(({ icon: Icon, label, link }) => (
-        <a href={link} role="menuitem" class="flex items-center gap-x-2 rounded-xl py-1">
+      combinedSections.map(({ icon, label, link }) => (
+        <a
+          href={`/website/${lang}${link}`}
+          role="menuitem"
+          class="flex items-center gap-x-2 rounded-xl py-1"
+        >
           <div class="flex items-center gap-4 py-4">
-            <Icon width={20} height={20} class="fill-primary-500" />
+            <Icon name={icon} width={20} height={20} class="fill-primary-500" />
             <div>
               <h4 class="text-black">{label}</h4>
             </div>

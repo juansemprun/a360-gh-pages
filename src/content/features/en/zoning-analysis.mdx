@@ -1,0 +1,44 @@
+---
+title: Zoning Analysis
+description: Get instant, in-depth insights into how each element of your website performs. Directly on your site with just a few clicks.
+heroCtaText: Get Started
+heroCtaUrl: '#get-started'
+videoSrc: /website/videos/zoning-analysis.mp4
+thumbnailVideoSrc: /website/videos/zoning-analysis-clip.mp4
+thumbnailImageSrc: /website/images/thumbnails/features/zoning-analysis.webp
+videoThumbnailAlt: Zoning Analysis Demo Preview
+videoCtaText: Zoning Analysis looks like this!
+videoDialogTitle: Zoning Analysis
+faqTitle: Common questions
+faqs:
+  - question: What is Zoning Analysis?
+    answer: Zoning analysis gives you instant visibility into how every element on your website performs. Click on any button, image, banner, or text block, and performance data appears directly on your page. It's analytics mapped directly onto your site.
+  - question: Why use Zoning Analysis?
+    answer: Zoning analysis reveals exactly what captures user attention and what gets overlooked, empowering you to make data-driven design decisions with confidence. Identify conversion bottlenecks faster, optimize what matters, and focus your efforts on the elements that genuinely impact your business goals.
+  - question: Can I customize the zones?
+    answer: Yes! You can create custom zones based on your specific layout and business needs, allowing for flexible and targeted analysis.
+  - question: How to start Zoning Analysis?
+    answer: Firstly, getting started with Air360 takes just 5 minutes. Simply add our tracking pixel to your website or tag manager and we'll automatically capture user behavior data across your site. Then, activate our browser extension with a few clicks in the platform to start your Zoning Analysis. Whenever you need insights, open the extension and click on any element to instantly view its performance and identify optimization opportunities. No tagging or manual configuration required, and anyone on your team can use it. No technical expertise needed.
+  - question: What kind of metrics can you understand?
+    answer: You can use metrics like "Click Rate" to understand engagement levels, "Conversion Rate" to measure how clicks translate to conversions, and friction indicators like "Rage Clicks" that highlight usability issues. These metrics and many more, help you understand user behavior and pinpoint exactly where to optimize.
+  - question: How does zoning analysis help make business decisions?
+    answer: Zoning analysis connects element-level behavior to tangible business outcomes, giving you the confidence to prioritize changes that improve user experience and drive conversions. You can test hypotheses quickly, validate design decisions with real data, and allocate resources to the areas with the highest impact. Instead of relying on assumptions, you'll make informed decisions backed by evidence.
+---
+
+import FeaturesHero from '@/components/pages/features/FeaturesHero.astro';
+import FeatureFAQSection from '@/components/FAQSection.astro';
+
+<FeaturesHero
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ctaText={frontmatter.heroCtaText}
+  ctaUrl={frontmatter.heroCtaUrl}
+  videoSrc={frontmatter.videoSrc}
+  thumbnailVideoSrc={frontmatter.thumbnailVideoSrc}
+  thumbnailImageSrc={frontmatter.thumbnailImageSrc}
+  thumbnailAlt={frontmatter.videoThumbnailAlt}
+  videoCtaText={frontmatter.videoCtaText}
+  videoDialogTitle={frontmatter.videoDialogTitle}
+/>
+
+<FeatureFAQSection title={frontmatter.faqTitle} faqs={frontmatter.faqs} />

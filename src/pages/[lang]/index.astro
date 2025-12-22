@@ -1,40 +1,28 @@
 ---
-import { getEntry } from 'astro:content';
+import { getEntry, render } from 'astro:content';
 
 import BaseLayout from '@layouts/BaseLayout.astro';
-import Hero from '@components/Hero.astro';
-import StaticFeatures from '@components/StaticFeatures.astro';
-import DynamicFeatures from '@components/DynamicFeatures.astro';
-import TwoColumnText from '@components/TwoColumnText.astro';
+
+import { languageCodes } from '@config/language';
 
 const { lang } = Astro.params;
-const heroEntry = await getEntry('hero', `${lang}/hero`);
+const homeEntry = await getEntry('pages', `${lang}/home`);
+
+if (!homeEntry) {
+  return Astro.redirect('/404');
+}
 
 export async function getStaticPaths() {
-  const languages = ['en', 'fr'];
-
-  return languages.map((lang) => ({
+  return languageCodes.map((lang) => ({
     params: { lang },
   }));
 }
+
+const { Content } = await render(homeEntry);
+
+const { title, description } = homeEntry.data;
 ---
 
-<BaseLayout title="Air360 | Simplify UX analysis, boost conversion">
-  <Hero heroEntry={heroEntry} />
-  <StaticFeatures />
-  <DynamicFeatures
-    title="Image on the bottom"
-    layout="image-bottom"
-    className="hidden py-48 lg:block"
-    dataTheme="dark"
-  />
-  <TwoColumnText />
-  <StaticFeatures />
-  <DynamicFeatures
-    title="Image on the top"
-    layout="image-top"
-    className="hidden py-48 lg:block"
-    dataTheme="dark"
-    gradient="from-rose-500 to-orange-400"
-  />
+<BaseLayout description={description} lang={lang} title={title}>
+  <Content />
 </BaseLayout>

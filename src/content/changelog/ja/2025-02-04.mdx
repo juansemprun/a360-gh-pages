@@ -1,0 +1,24 @@
+---
+title: 2025年2月4日のアップデート
+description: 2025年2月4日のアップデート
+publishedAt: 2025-02-04
+headerImage: '@changelog-assets/changelog-update.webp'
+---
+
+import { Image } from 'astro:assets';
+import { Badge } from '@/components/ui/react/shadcn/badge';
+
+import image1 from '@changelog-assets/2025-02-04/1.webp';
+import image2 from '@changelog-assets/2025-02-04/2.webp';
+import image3 from '@changelog-assets/2025-02-04/3.webp';
+
+<Badge variant="noLink" className="m-0">
+  <span>改善</span>
+</Badge>
+
+- OPAからチュートリアルビデオが利用できるようになりました。これらのビデオで、分析にOPAをどのように使用するかを理解できます。
+  <Image src={image1} alt="OPAのチュートリアルビデオ" />
+- 招待再送信機能：チーム管理ページで、招待が期限切れになった後にユーザーを再招待できるようになりました
+  <Image src={image2} alt="招待再送信機能" />
+- 新しいエラーイベントを作成する際、ヘルプボタンにポップアップでエラーの設定方法に関するセクションが表示されるようになりました
+  <Image src={image3} alt="ヘルプボタン" />

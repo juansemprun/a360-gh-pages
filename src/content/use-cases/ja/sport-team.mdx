@@ -1,0 +1,60 @@
+---
+type: industry
+title: スポーツ企業
+description: Air360で最高のオンラインファン体験を実現。パーソナライズされたジャーニー、スムーズなチケット購入、最適化されたファンエンゲージメントを提供します。
+video:
+  title: スポーツ企業 - Air360トラッキングピクセル簡単セットアップ動画
+  url: https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true
+  videoSrc: /website/videos/ja/quick-air360-tracking-pixel-setup.mp4
+  videoPreviewSrc: /website/videos/ja/quick-air360-tracking-pixel-setup-clip.mp4
+  videoPosterSrc: /website/images/thumbnails/ja/quick-air360-tracking-pixel-setup.webp
+highlights:
+  - title: 成果につながる体験をつくる
+    text: ファンに最高のオンライン体験を届け、その熱量を購買につなげましょう。Air360で訪問者をセグメントし、心を動かすパーソナライズされた体験を実現します。
+  - title: すべてのページを最高の状態に
+    text: すべてのクリックでファンをワクワクさせることが大切です。Air360で操作体験を磨き上げ、購入したくなるページへと仕上げましょう。
+  - title: 購入体験をもっとスムーズに
+    text: チェックアウト前で勢いを失わせないように。Air360は迷いやためらいのポイントを可視化し、スムーズな購入導線と売上向上を支援します。
+  - title: サイトを常に快適に保つ
+    text: つまずきのないワクワクする体験を。Air360でUXの課題を素早く発見し、ストレスのないショッピング体験を提供します。
+  - title: 顧客満足度を高める
+    text: 人気アイテムをすぐに見つけられ、思わず手に取りたくなる体験を。Air360で表示を最適化し、ファンの満足度と売上の両方を高めましょう。
+---
+
+import CallToAction from '@/components/ui/use-cases/CallToAction.astro';
+import Highlights from '@/components/ui/use-cases/Highlights.astro';
+import HighlightsSummary from '@/components/ui/use-cases/HighlightsSummary.astro';
+import MarkHighlight from '@/components/ui/use-cases/MarkHighlight.astro';
+import PageHero from '@/components/ui/use-cases/PageHero.astro';
+import Testimonial from '@/components/ui/use-cases/Testimonial.astro';
+import VideoSection from '@/components/ui/use-cases/VideoSection.astro';
+
+import { BusinessAndDecisions } from '@/assets/brand-logos';
+
+<PageHero>
+  <span class="block" slot="title">忘れられない</span>
+  <span class="block" slot="title">
+    <MarkHighlight>オンラインファン</MarkHighlight>体験を提供
+  </span>
+
+  <Testimonial
+    Logo={BusinessAndDecisions}
+    quote="このツールはUX分析に迅速かつ簡単に使用でき、チームから高く評価されています。"
+    attribution="Fabrice Ruer, Business & Decision"
+    slot="testimonial"
+  />
+</PageHero>
+
+<Highlights highlightsList={frontmatter.highlights} />
+
+<VideoSection
+  videoSrc={frontmatter.video.videoSrc}
+  videoPosterSrc={frontmatter.video.videoPosterSrc}
+  videoPreviewSrc={frontmatter.video.videoPreviewSrc}
+>
+  始めるのが<MarkHighlight>いかに簡単か</MarkHighlight>ご覧になりますか？
+</VideoSection>
+
+<HighlightsSummary highlightsList={frontmatter.highlights} />
+
+<CallToAction />

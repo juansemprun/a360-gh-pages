@@ -1,0 +1,25 @@
+---
+title: OPAの改善
+description: 2025年5月8日のアップデート
+publishedAt: 2025-05-08
+headerImage: '@changelog-assets/changelog-update.webp'
+---
+
+import { Image } from 'astro:assets';
+import { Badge } from '@/components/ui/react/shadcn/badge';
+
+import image1 from '@changelog-assets/2025-05-08/1.webp';
+import image2 from '@changelog-assets/2025-05-08/2.webp';
+
+<Badge variant="noLink" className="m-0">
+  <span>改善</span>
+</Badge>
+
+こんにちは👋
+今週、コア機能である**「オンページ分析（OPA）」**にいくつかの改善を実装しました。これらのアップデートにより、詳細な分析が容易になり、ウェブサイトのパフォーマンス向上に役立ちます。
+
+- **イベント作成の改善**：OPAでイベントを作成する際に、デバイスタイプを追加できるようになりました 📱💻
+  <Image src={image1} alt="イベント作成の改善" />
+- **OPAでのスコープ設定の改善**：より正確なフィルタリングのために、`datalayer`、URLの`querystring`、または`queryhash`を使用できるようになりました。このアップデートは、データレイヤーが既にAir360に追加されている限り、データに遡及的に適用されます😉
+  <Image src={image2} alt="OPAでのスコープ設定の改善" />
+- **露出率の改善**：高度な数学を使用して露出率の計算式をアップグレードしました 🚀 特に長いページでより正確な測定値が得られ、完全に遡及的に適用されます！🎉

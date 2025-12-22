@@ -1,0 +1,60 @@
+---
+type: industry
+title: Sport Companies
+description: Create the best possible online booking experience with Air360, with personalized journeys, smooth booking, and optimized customer engagement.
+video:
+  title: Sport Companies - Quick Air360 Tracking Pixel Setup Video
+  url: https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true
+  videoSrc: /website/videos/quick-air360-tracking-pixel-setup.mp4
+  videoPreviewSrc: /website/videos/quick-air360-tracking-pixel-setup-clip.mp4
+  videoPosterSrc: /website/images/thumbnails/quick-air360-tracking-pixel-setup.webp
+highlights:
+  - title: Create experiences that convert
+    text: Give your fans the ultimate online experience and turn their enthusiasm into purchases. Segment visitors and create custom interactions with Air360!
+  - title: The best possible version of every page
+    text: Every click should delight your fans. Make every page a standout! Refine interactions to keep them engaged and ready to buy with Air360.
+  - title: Simplify the booking experience
+    text: Don’t let fans lose momentum before checkout. Air360 show where they hesitate, helping you smooth the process and boost sales.
+  - title: Keep your site running smoothly
+    text: No hiccups, just excitement! Air360 uncover UX issues quickly so your fans enjoy a flawless shopping experience.
+  - title: Keep your customers happy
+    text: Make fan-favorite items easy to find and impossible to resist. Air360 optimize visibility to keep sales high and fans happy.
+---
+
+import CallToAction from '@/components/ui/use-cases/CallToAction.astro';
+import Highlights from '@/components/ui/use-cases/Highlights.astro';
+import HighlightsSummary from '@/components/ui/use-cases/HighlightsSummary.astro';
+import MarkHighlight from '@/components/ui/use-cases/MarkHighlight.astro';
+import PageHero from '@/components/ui/use-cases/PageHero.astro';
+import Testimonial from '@/components/ui/use-cases/Testimonial.astro';
+import VideoSection from '@/components/ui/use-cases/VideoSection.astro';
+
+import { BusinessAndDecisions } from '@/assets/brand-logos';
+
+<PageHero>
+  <span class="block" slot="title">Deliver unforgettable</span>
+  <span class="block" slot="title">
+    <MarkHighlight>online fan</MarkHighlight> experience
+  </span>
+
+  <Testimonial
+    Logo={BusinessAndDecisions}
+    quote="The tool is quick and easy to use for UX analysis and is highly appreciated by our teams."
+    attribution="Fabrice Ruer, Business & Decision"
+    slot="testimonial"
+  />
+</PageHero>
+
+<Highlights highlightsList={frontmatter.highlights} />
+
+<VideoSection
+  videoSrc={frontmatter.video.videoSrc}
+  videoPosterSrc={frontmatter.video.videoPosterSrc}
+  videoPreviewSrc={frontmatter.video.videoPreviewSrc}
+>
+  Want to see how <MarkHighlight>easy</MarkHighlight> it is to start?
+</VideoSection>
+
+<HighlightsSummary highlightsList={frontmatter.highlights} />
+
+<CallToAction />

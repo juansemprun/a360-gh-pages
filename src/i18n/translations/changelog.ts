@@ -1,0 +1,36 @@
+export const changelog = {
+  en: {
+    'changelog.title': 'Changelog',
+    'changelog.description': 'New features, improvements, and fixes every week',
+    'changelog.backToChangelog': 'Back to Changelog',
+    'changelog.latestUpdates': 'Latest Updates',
+    'changelog.releaseDate': 'Release Date',
+    'changelog.version': 'Version',
+    'changelog.newFeatures': 'New Features',
+    'changelog.improvements': 'Improvements',
+    'changelog.bugFixes': 'Bug Fixes',
+  },
+  fr: {
+    'changelog.title': 'Historique des modifications',
+    'changelog.description':
+      'Nouvelles fonctionnalités, améliorations et corrections chaque semaine',
+    'changelog.backToChangelog': "Retour à l'historique",
+    'changelog.latestUpdates': 'Dernières mises à jour',
+    'changelog.releaseDate': 'Date de sortie',
+    'changelog.version': 'Version',
+    'changelog.newFeatures': 'Nouvelles fonctionnalités',
+    'changelog.improvements': 'Améliorations',
+    'changelog.bugFixes': 'Corrections de bogues',
+  },
+  ja: {
+    'changelog.title': '更新履歴',
+    'changelog.description': '毎週の新機能、改善、および修正',
+    'changelog.backToChangelog': '更新履歴に戻る',
+    'changelog.latestUpdates': '最新の更新',
+    'changelog.releaseDate': 'リリース日',
+    'changelog.version': 'バージョン',
+    'changelog.newFeatures': '新機能',
+    'changelog.improvements': '改善',
+    'changelog.bugFixes': 'バグ修正',
+  },
+} as const;

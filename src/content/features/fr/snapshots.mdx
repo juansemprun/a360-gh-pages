@@ -1,0 +1,42 @@
+---
+title: Instantanés
+description: Enregistrez les anciennes conceptions pour les analyser à tout moment. Capturez et comparez les performances de votre site web à travers différentes versions et périodes.
+heroCtaText: Commencer
+heroCtaUrl: '#get-started'
+videoSrc: /website/videos/fr/features/snapshots.mp4
+thumbnailVideoSrc: /website/videos/fr/features/snapshots-clip.mp4
+thumbnailImageSrc: /website/images/thumbnails/features/snapshots.webp
+videoThumbnailAlt: Démo des Instantanés
+videoCtaText: Découvrez comment les Instantanés préservent vos analyses !
+videoDialogTitle: Instantanés
+faqTitle: Questions fréquentes
+faqs:
+  - question: Que sont les Instantanés ?
+    answer: L'Instantané préserve les versions passées de votre site web, vous permettant de comparer facilement comment les changements de conception affectent le comportement des utilisateurs et les performances dans Air360. Considérez-le comme une chronologie de votre site.
+  - question: Pourquoi utiliser l'Instantané ?
+    answer: Vous pouvez ouvrir la conception enregistrée pour analyser facilement les performances des pages et des éléments en utilisant l'extension d'Air360. Mesurez les performances avant/après et montrez aux parties prenantes des preuves claires d'amélioration.
+  - question: Comment fonctionne l'Instantané ?
+    answer: Enregistrez un instantané en quelques clics chaque fois que vous apportez une modification ou souhaitez évaluer une version de page spécifique. Nous stockons la conception visuelle, ce qui facilite la comparaison de différentes versions au fil du temps.
+  - question: Quand dois-je créer un Instantané ?
+    answer: Créez des Instantanés avant les refontes majeures, les tests A/B, les lancements de fonctionnalités, les campagnes marketing ou les changements saisonniers pour établir des références et mesurer l'impact de vos changements.
+  - question: Comment l'Instantané soutient-il la stratégie d'optimisation ?
+    answer: Comparez les performances avant et après les changements pour voir ce qui génère réellement des résultats. Lorsque vous pouvez prouver quelle conception a amélioré les conversions ou réduit les abandons, vous prenez des décisions confiantes soutenues par des preuves. L'Instantané vous donne les données pour justifier les investissements, développer ce qui fonctionne et éviter de répéter les erreurs passées.
+---
+
+import FeaturesHero from '@/components/pages/features/FeaturesHero.astro';
+import FeatureFAQSection from '@/components/FAQSection.astro';
+
+<FeaturesHero
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ctaText={frontmatter.heroCtaText}
+  ctaUrl={frontmatter.heroCtaUrl}
+  videoSrc={frontmatter.videoSrc}
+  thumbnailVideoSrc={frontmatter.thumbnailVideoSrc}
+  thumbnailImageSrc={frontmatter.thumbnailImageSrc}
+  thumbnailAlt={frontmatter.videoThumbnailAlt}
+  videoCtaText={frontmatter.videoCtaText}
+  videoDialogTitle={frontmatter.videoDialogTitle}
+/>
+
+<FeatureFAQSection title={frontmatter.faqTitle} faqs={frontmatter.faqs} />

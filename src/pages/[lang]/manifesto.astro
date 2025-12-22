@@ -1,0 +1,43 @@
+---
+import { getEntry, render } from 'astro:content';
+
+import { languageCodes } from '@/config/language';
+
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import GradientText from '@/components/ui/GradientText.astro';
+
+const { lang } = Astro.params;
+const manifestoEntry = await getEntry('pages', `${lang}/manifesto`);
+
+if (!manifestoEntry) {
+  return Astro.redirect('/404');
+}
+
+const title = manifestoEntry?.data?.title;
+const description = manifestoEntry?.data?.description;
+
+export async function getStaticPaths() {
+  return languageCodes.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { Content } = await render(manifestoEntry);
+---
+
+<BaseLayout title={title} description={description} lang={lang}>
+  <div class="container-custom">
+    <section class="mx-auto my-24 max-w-4xl px-5 md:my-36" data-theme="dark">
+      <div class="mb-8 flex flex-col items-center">
+        <GradientText>
+          <h1 class="font-clash-display-bold mb-8 text-center text-4xl leading-tight md:text-6xl">
+            {title}
+          </h1>
+        </GradientText>
+      </div>
+      <div class="prose prose-lg max-w-4xl text-lg leading-8 text-slate-700 md:text-lg">
+        <Content />
+      </div>
+    </section>
+  </div>
+</BaseLayout>

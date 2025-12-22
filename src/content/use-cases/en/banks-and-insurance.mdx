@@ -1,0 +1,60 @@
+---
+type: industry
+title: Bank & Insurance
+description: Create the best possible online booking experience with Air360, with personalized journeys, smooth booking, and optimized customer engagement.
+video:
+  title: Bank & Insurance - Quick Air360 Tracking Pixel Setup Video
+  url: https://www.loom.com/embed/ec06bf3738f64c8e960b2c0eccaf89b0?sid=cb91bf0c-e504-4098-91d4-c7afbbb919dc&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true
+  videoSrc: /website/videos/quick-air360-tracking-pixel-setup.mp4
+  videoPreviewSrc: /website/videos/quick-air360-tracking-pixel-setup-clip.mp4
+  videoPosterSrc: /website/images/thumbnails/quick-air360-tracking-pixel-setup.webp
+highlights:
+  - title: Create experiences that convert
+    text: Turn inquiries into trusted customers by personalizing their journey. Segment visitors and tailor financial experiences with Air360!
+  - title: The best possible version of every page
+    text: Every interaction matters in building trust. Ensure every page reflects your reliability. Refine customer interactions to highlight your expertise with Air360.
+  - title: Simplify the booking experience
+    text: Don’t let customers get stuck in the details. Air360 identify where they pause, helping you create a smooth and intuitive journey.
+  - title: Keep your site running smoothly
+    text: No errors, no doubts! Air360 reveal UX issues so your services remain accessible and seamless.
+  - title: Keep your customers happy
+    text: Help customers find the policies, plans, or products they need without confusion. Air360 optimize navigation to keep satisfaction high and bounce rates low.
+---
+
+import CallToAction from '@/components/ui/use-cases/CallToAction.astro';
+import Highlights from '@/components/ui/use-cases/Highlights.astro';
+import HighlightsSummary from '@/components/ui/use-cases/HighlightsSummary.astro';
+import MarkHighlight from '@/components/ui/use-cases/MarkHighlight.astro';
+import PageHero from '@/components/ui/use-cases/PageHero.astro';
+import Testimonial from '@/components/ui/use-cases/Testimonial.astro';
+import VideoSection from '@/components/ui/use-cases/VideoSection.astro';
+
+import { Empruntis } from '@/assets/brand-logos';
+
+<PageHero>
+  <span class="block" slot="title">Build trust through</span>
+  <span class="block" slot="title">
+    effortless <MarkHighlight>online finance</MarkHighlight> experiences
+  </span>
+
+  <Testimonial
+    Logo={Empruntis}
+    quote="Everyone gets what they need without getting lost in the data. Visualizing and accessing data is simple. It's a great product that is constantly evolving and very promising!"
+    attribution="Aurélie Condamine, Empruntis"
+    slot="testimonial"
+  />
+</PageHero>
+
+<Highlights highlightsList={frontmatter.highlights} />
+
+<VideoSection
+  videoSrc={frontmatter.video.videoSrc}
+  videoPosterSrc={frontmatter.video.videoPosterSrc}
+  videoPreviewSrc={frontmatter.video.videoPreviewSrc}
+>
+  Want to see how <MarkHighlight>easy</MarkHighlight> it is to start?
+</VideoSection>
+
+<HighlightsSummary highlightsList={frontmatter.highlights} />
+
+<CallToAction />
