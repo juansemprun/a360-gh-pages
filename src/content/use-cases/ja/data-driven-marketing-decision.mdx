@@ -12,6 +12,7 @@ videoThumbnailAlt: データドリブンな意思決定
 videoCtaText: データの基づいて簡単に意思決定を実現！
 videoDialogTitle: Air360でデータドリブンなマーケティング
 faqTitle: よくある質問
+youtubeId: 'ih7NbFO2dNY'
 faqs:
   - question: Air360はコンテンツの効果をどのように比較するのに役立ちますか?
     answer: Air360のゾーニング分析により、ページ上の各要素や画像のエンゲージメントとコンバージョン貢献度を直接比較できます。どのコンテンツが注目を集めているか、どの要素がコンバージョンをサポートしているか、ページのどの部分がパフォーマンスが低いかを即座に確認できます。これにより、何が最も効果的で、どこを最適化すべきかを簡単に理解できます。
@@ -36,6 +37,7 @@ import FeatureFAQSection from '@/components/FAQSection.astro';
   thumbnailAlt={frontmatter.videoThumbnailAlt}
   videoCtaText={frontmatter.videoCtaText}
   videoDialogTitle={frontmatter.videoDialogTitle}
+  youtubeId={frontmatter.youtubeId}
 />
 
 <FeatureFAQSection title={frontmatter.faqTitle} faqs={frontmatter.faqs} />
