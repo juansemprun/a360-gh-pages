@@ -71,6 +71,16 @@ const HeroVideoDialog = ({
                 allowFullScreen
                 loading="lazy"
               />
+            ) : lang === 'ja' ? (
+              <iframe
+                className="h-full w-full rounded-lg"
+                src="https://www.youtube.com/embed/kijtGhQ9M00?cc_lang_pref=ja&cc_load_policy=1&autoplay=1&controls=0&rel=0"
+                title="YouTube video player"
+                allow=" autoplay; encrypted-media"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+                loading="lazy"
+              />
             ) : (
               <video className="h-full w-full rounded-md" controls autoPlay preload="metadata">
                 <source src={url} type="video/mp4" />
