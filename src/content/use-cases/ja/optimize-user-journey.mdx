@@ -11,6 +11,7 @@ videoThumbnailAlt: ユーザージャーニーの最適化
 videoCtaText: 離脱を修正するのがいかに簡単かご覧ください!
 videoDialogTitle: Air360でユーザージャーニーを最適化
 faqTitle: よくある質問
+youtubeId: 'clHISF1atKw'
 faqs:
   - question: ユーザージャーニー最適化とは何ですか?
     answer: ユーザージャーニーの最適化は、ユーザーがWebサイト内をどのように移動しているかを理解し、混乱したり、気が散ったり、迷子になったりする場所を特定するのに役立ちます。これらのパスを分析することで、摩擦を取り除き、ユーザーを重要なアクションへとよりスムーズに誘導できます。
@@ -38,6 +39,7 @@ import FeatureFAQSection from '@/components/FAQSection.astro';
   thumbnailAlt={frontmatter.videoThumbnailAlt}
   videoCtaText={frontmatter.videoCtaText}
   videoDialogTitle={frontmatter.videoDialogTitle}
+  youtubeId={frontmatter.youtubeId}
 />
 
 <FeatureFAQSection title={frontmatter.faqTitle} faqs={frontmatter.faqs} />
