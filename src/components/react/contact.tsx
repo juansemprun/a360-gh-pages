@@ -131,7 +131,7 @@ const Contact = () => {
             </Button>
             <p className="text-muted-foreground text-xs sm:col-span-2">
               You acknowledge that you've reviewed and agreed to our{' '}
-              <a href="/website/en/privacy-policy" className="text-primary hover:underline">
+              <a href="/a360-gh-pages/en/privacy-policy" className="text-primary hover:underline">
                 Privacy Policy
               </a>{' '}
             </p>

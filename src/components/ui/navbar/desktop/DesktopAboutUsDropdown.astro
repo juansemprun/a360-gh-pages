@@ -43,7 +43,7 @@ const secondarySections = entry.data.aboutUsNav?.secondary || [];
             secondarySections.map(({ icon, label, link }) => {
               return (
                 <a
-                  href={`/website/${lang}${link}`}
+                  href={`/a360-gh-pages/${lang}${link}`}
                   class="hover:shadow-xs group flex gap-3 rounded-lg p-2 transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-slate-50 hover:ring hover:ring-black/5"
                   role="menuitem"
                 >
@@ -67,7 +67,7 @@ const secondarySections = entry.data.aboutUsNav?.secondary || [];
             primarySections.map(({ icon, label, link }) => {
               return (
                 <a
-                  href={`/website/${lang}${link}`}
+                  href={`/a360-gh-pages/${lang}${link}`}
                   class="group flex cursor-pointer flex-col items-center justify-center gap-2.5 rounded-xl p-4 transition-all duration-300 ease-in-out hover:-translate-y-0.5"
                   role="menuitem"
                 >

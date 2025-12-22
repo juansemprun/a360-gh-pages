@@ -18,7 +18,7 @@ const t = useTranslations(lang);
   <div class="mobile-menu-content">
     <!-- Mobile Auth Links -->
     <div class="mb-10 flex items-center justify-between">
-      <a href={`/website/${lang}`} aria-label="Project homepage" id="navbar-logo">
+      <a href={`/a360-gh-pages/${lang}`} aria-label="Project homepage" id="navbar-logo">
         <Logo id="logo" class="fill-black" />
       </a>
 
@@ -37,14 +37,16 @@ const t = useTranslations(lang);
       <MobileAboutUsDropdown />
 
       <div class="mobile-nav-section">
-        <a href={`/website/${lang}/testimonials`} class="mobile-nav-link">{t('nav.testimonials')}</a
+        <a href={`/a360-gh-pages/${lang}/testimonials`} class="mobile-nav-link"
+          >{t('nav.testimonials')}</a
         >
       </div>
     </nav>
 
     <div class="mt-10 flex items-center justify-around">
       <a href="#" class="mobile-auth-link login border">{t('nav.login')}</a>
-      <a href={`/website/${lang}/request-demo`} class="mobile-auth-link demo">{t('nav.bookDemo')}</a
+      <a href={`/a360-gh-pages/${lang}/request-demo`} class="mobile-auth-link demo"
+        >{t('nav.bookDemo')}</a
       >
     </div>
   </div>

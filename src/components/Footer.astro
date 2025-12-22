@@ -26,7 +26,7 @@ const t = useTranslations(lang);
   <div class="container-custom px-4 py-28">
     <!-- Top section with logo and social links -->
     <div class="mb-20 flex items-center justify-between">
-      <a href={`/website/${lang}`} aria-label="Air360 homepage">
+      <a href={`/a360-gh-pages/${lang}`} aria-label="Air360 homepage">
         <Logo class="text-white" />
       </a>
     </div>
@@ -40,7 +40,7 @@ const t = useTranslations(lang);
         {
           useCases?.data?.useCasesNav?.industry?.map(({ link, label }) => (
             <a
-              href={`/website/${lang}${link}`}
+              href={`/a360-gh-pages/${lang}${link}`}
               class="text-sm font-medium text-white/80 transition-all duration-300 ease-in-out hover:translate-x-0.5 hover:underline"
             >
               {label}
@@ -56,7 +56,7 @@ const t = useTranslations(lang);
         {
           aboutUs?.data?.aboutUsNav?.primary?.map(({ link, label }) => (
             <a
-              href={`/website/${lang}${link}`}
+              href={`/a360-gh-pages/${lang}${link}`}
               class="text-sm font-medium text-white/80 transition-all duration-300 ease-in-out hover:translate-x-0.5 hover:underline"
             >
               {label}
@@ -66,7 +66,7 @@ const t = useTranslations(lang);
         {
           aboutUs?.data?.aboutUsNav?.secondary?.map(({ link, label }) => (
             <a
-              href={`/website/${lang}${link}`}
+              href={`/a360-gh-pages/${lang}${link}`}
               class="text-sm font-medium text-white/80 transition-all duration-300 ease-in-out hover:translate-x-0.5 hover:underline"
             >
               {label}
@@ -82,7 +82,7 @@ const t = useTranslations(lang);
         {
           resources?.data?.navigation?.map(({ link, label }) => (
             <a
-              href={`/website/${lang}${link}`}
+              href={`/a360-gh-pages/${lang}${link}`}
               class="text-sm font-medium text-white/80 transition-all duration-300 ease-in-out hover:translate-x-0.5 hover:underline"
             >
               {label}
