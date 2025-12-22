@@ -1,0 +1,90 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import GradientText from '@/components/ui/GradientText.astro';
+import GradientButton from '@/components/ui/GradientButton.astro';
+import { useTranslations } from '@/i18n';
+import { getValidLanguage } from '@/config/language';
+
+// Get language from URL or use default
+const urlPath = Astro.url.pathname;
+const langMatch = urlPath.match(/^\/([a-z]{2})\//);
+const lang = getValidLanguage(langMatch?.[1]);
+
+const t = useTranslations(lang);
+
+const title = t('404.title');
+const heading = t('404.heading');
+const description = t('404.description');
+const backHomeText = t('404.backHome');
+const contactSupportText = t('404.contactSupport');
+
+// Construct home URL with language prefix
+const homeUrl = `/${lang}`;
+const supportUrl = `/${lang}/request-expert`;
+---
+
+<BaseLayout title={title} description={description} lang={lang}>
+  <section
+    class="bg-gradient-primary-darker min-h-[80vh] w-full overflow-hidden"
+    data-theme="light"
+  >
+    <div class="container-custom relative z-10 flex flex-col items-center justify-center gap-8 py-20 lg:py-32">
+      <!-- 404 Number -->
+      <div class="relative">
+        <GradientText>
+          <div class="font-clash-display-bold text-9xl md:text-[12rem] lg:text-[16rem] leading-none">
+            404
+          </div>
+        </GradientText>
+      </div>
+
+      <!-- Heading -->
+      <div class="text-center">
+        <GradientText>
+          <h1 class="font-clash-display-bold text-3xl md:text-4xl lg:text-5xl mb-4">
+            {heading}
+          </h1>
+        </GradientText>
+      </div>
+
+      <!-- Description -->
+      <p class="max-w-2xl text-center text-lg text-slate-600 px-4 md:text-xl">
+        {description}
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 mt-8">
+        <GradientButton
+          href={homeUrl}
+          title={backHomeText}
+          className="px-8 py-3 text-lg"
+        />
+        <a
+          href={supportUrl}
+          class="inline-block rounded-lg px-8 py-3 text-lg font-semibold text-slate-700 bg-white border-2 border-slate-200 hover:border-slate-300 transition-colors duration-200 text-center"
+        >
+          {contactSupportText}
+        </a>
+      </div>
+
+      <!-- Decorative gradient line -->
+      <div class="mt-12 h-1 w-32 rounded-full bg-gradient-to-r from-[#F771BF] via-[#f04d66] to-[#fd7043]"></div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Add subtle animation to the 404 number */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .font-clash-display-bold {
+    animation: float 3s ease-in-out infinite;
+  }
+</style>
