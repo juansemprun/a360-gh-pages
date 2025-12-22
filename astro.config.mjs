@@ -10,7 +10,7 @@ import { languageCodes } from './src/config/language';
 export default defineConfig({
   site: 'https://juansemprun.dev',
   // base: '/a360-gh-pages',
-  trailingSlash: 'never',
+  trailingSlash: 'ignore',
   build: {
     inlineStylesheets: 'always',
   },
